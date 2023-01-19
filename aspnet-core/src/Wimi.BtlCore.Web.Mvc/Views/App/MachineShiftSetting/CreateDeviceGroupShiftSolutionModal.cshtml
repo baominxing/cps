@@ -1,0 +1,44 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.BasicData.MachineSetting.MultiMachineShiftModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("BatchScheduling")))
+
+<div class="modal-body">
+
+    <form id="DeviceGroupShiftSolutionForm" name="DeviceGroupShiftSolutionForm" class="form-horizontal">
+        <input type="hidden" />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group" style="max-height:200px;overflow:auto;">
+                    <label>@L("PleaseSelectEquipment")</label>
+                    @await Html.PartialAsync("~/Views/Common/_GrantedMachineTree.cshtml", Model)
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>@L("ShiftSetting")</label>
+                    <select class="form-control" id="ShiftSolutions2" required>
+                        <option value="" selected="selected"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>@L("StartTime")</label>
+                    <input type="text" data-type="calendar" class="form-control" id="StartTime" required />
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>@L("EndTime")</label>
+                    <input type="text" data-type="calendar" class="form-control" id="EndTime" required />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

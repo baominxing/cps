@@ -1,0 +1,138 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.StatisticAnalysis.Alarm.AlarmStatisticsViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.StatisticAnalysis_AlarmStatistics;
+}
+
+@section Scripts
+{
+    <link rel="stylesheet" href="~/Scripts/scrollTabs/scrolltabs.css" />
+    <script src="~/Scripts/echarts.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/layer/layer.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.mousewheel.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.scrolltabs.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/StatisticAnalysis/AlarmStatistics/Index.js" asp-append-version="true"></script>
+}
+<!-- #region Content Header (Page header) -->
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+</style>
+
+<section class="content-header">
+
+    <h1>
+
+        @L("AlarmStatistics")
+
+    </h1>
+
+    <div class="header-tools">
+        <button id="btnQuery" class="btn btn-primary blue">
+            <i class="fa fa-pencil-square-o"></i> @L("Research")
+        </button>
+
+        <button type="button" id="btnExport" class="btn btn-primary"><i class="fa fa-file-excel-o"></i> @L("Export")</button>
+    </div>
+
+</section>
+
+<!-- #endregion -->
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-th"></i> @L("AggregateStatistics")
+                    </h3>
+                    <span class="col-md-7 pull-right">
+                        <b id="searchFilter" class="text-primary pull-left"></b>
+                        <label class="checkbox-inline pull-right"><input type="checkbox" id="showValue" checked />@L("ShowPillarValue")</label>
+                        <label class="checkbox-inline pull-right" style="margin-right:20px"><input type="checkbox" id="showName" />@L("ShowPillarName")</label>
+                    </span>
+                </div>
+                <div class="box-body">
+                    <div id="AlarmStatisticChart" style="height: 250px">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="col-md-12 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-th"></i> @L("AlarmDetails")
+                    </h3>
+                    <span class="col-md-7 pull-right"><b id="AlarmStatisticDetailHeadMessage" class="text-primary"></b></span>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+
+                        <div class="col-md-6 col-xs-12">
+                            <div class="box box-solid">
+                                <div class="row">
+                                    <div class="col-md-2 col-xs-6" style="margin-top: 5px;">
+                                        <span><b class="text-primary">@L("ViewQuantity") :</b></span>
+                                    </div>
+                                    <div class="col-md-4 col-xs-6">
+                                        <select class="form-control input-sm selectString" id="selectString">
+                                            <option value="TOP10">TOP10</option>
+                                            <option value="ALL" selected="selected">ALL</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 col-xs-6" style="margin-top: 5px;">
+                                        <span><b class="text-primary">@L("ChartType") :</b></span>
+                                    </div>
+                                    <div class="col-md-4 col-xs-6">
+                                        <select class="form-control input-sm chartString" id="chartString">
+                                            <option value="Pie">@L("PieChart")</option>
+                                            <option value="Bar" selected="selected">@L("Histogram")</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div id="AlarmStatisticDetailChart" style="height: 433px">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-6 col-xs-12">
+
+                            <div class="box box-solid">
+                                <table id="AlarmStatisticDetailTable" class="table table-bordered table-hover table-striped" style="width :100%; min-width: 800px;"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script id="chart-template" type="text/x-handlebars-template">
+    <div id="tabDate" class="scroll_tabs_theme_light">
+    </div>
+    <div style="width: 100%;" id="visavail_container">
+        <div id="AlarmStatisticShiftChart" style="height: 200px">
+        </div>
+    </div>
+</script>
+
+<script id="tab-date-template" type="text/x-handlebars-template">
+    {{#each dates}}
+    {{#if @@first}}
+    <span value="{{this.machineShiftSolutionId}}" class="tab_selected">{{this.machineShiftSolutionName}}</span>
+    {{else}}
+    <span value="{{this.machineShiftSolutionId}}">{{this.machineShiftSolutionName}}</span>
+    {{/if}}
+    {{/each}}
+</script>

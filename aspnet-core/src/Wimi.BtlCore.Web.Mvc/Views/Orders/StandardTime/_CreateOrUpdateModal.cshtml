@@ -1,0 +1,73 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Order.StandardTime.StandardTimeModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("Create")))
+<style>
+
+    .select2-container--default .select2-selection--single {
+        height: 31px !important;
+    }
+</style>
+<div class="modal-body">
+    <form name="StandardTimeForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("ProductName")</label>
+            <select class="form-control" id="Product" name="ProductId" @(Model.IsEditMode ? "disabled" : string.Empty) style="width: 100%" required>
+                @foreach (var t in Model.ProductGroupAndProductsDto)
+                {
+                    <optgroup label="@t.ProductGroupName"></optgroup>
+                    foreach (var p in t.Product)
+                    {
+                        if (Model.IsEditMode && Model.ProductId == p.Value)
+                        {
+                            <option value="@p.Value" selected>@p.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@p.Value">@p.Name</option>
+                        }
+                    }
+                }
+
+            </select>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("ProcessName")</label>
+            <select class="form-control" id="Process" name="ProcessId" @(Model.IsEditMode ? "disabled" : string.Empty) style="width: 100%" required>
+                @foreach (var p in Model.Process)
+                {
+                    if (Model.IsEditMode && Model.ProcessId == p.Value)
+                    {
+                        <option value="@p.Value" selected>@p.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@p.Value">@p.Name</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("StandardTime")（@L("Second")）</label>
+            <input class="form-control" type="number" min="0.1" step="0.1" name="StandardCostTime" required
+                   value="@(Model.IsEditMode ? Model.StandardCostTime : 0)">
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("Magnification")</label>
+            <input class="form-control" type="number" min="1" name="CycleRate" required
+                   value="@(Model.IsEditMode ? Model.CycleRate : 0)">
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("Note")</label>
+            <input class="form-control" type="text" name="Memo" maxlength="100"
+                   value="@(Model.IsEditMode ? Model.Memo : string.Empty)">
+        </div>
+        <input type="hidden" name="Id" value="@(Model.IsEditMode ? Model.Id : 0)" />
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")

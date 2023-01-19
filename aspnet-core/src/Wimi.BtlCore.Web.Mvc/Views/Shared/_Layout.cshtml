@@ -1,0 +1,223 @@
+﻿@using System.Threading
+@using Abp.Extensions
+@using Abp.Web.Security.AntiForgery
+@using Wimi.BtlCore.Web.Resources
+@inject ScriptPaths ScriptPaths
+@inject Wimi.BtlCore.Timing.AppTimes AppTimes
+@inject IAbpAntiForgeryManager AbpAntiForgeryManager
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js" data-ng-app="app"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js" data-ng-app="app"> <![endif]-->
+<!--[if !IE]><!-->
+@{
+    AbpAntiForgeryManager.SetCookie(Context);
+}
+<html>
+
+<!--<![endif]-->
+
+<head>
+
+    <title></title>
+
+    <meta charset="utf-8" />
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta content="智能制造,工业4.0" name="description" />
+
+    <meta content="WIMI Software" name="author" />
+
+    <meta name="format-detection" content="telephone=no" />
+
+    <link id="shortcutIcon" rel="shortcut icon" />
+
+
+    <link rel="stylesheet" href="~/view-resources/Views/_Bundles/Bundle.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Scripts/layer/skin/default/layer.css" asp-append-version="true" />
+
+    @RenderSection("Styles", false)
+
+    <link rel="stylesheet" href="~/view-resources/Views/Shared/layout.css" asp-append-version="true" />
+
+    <script src="~/view-resources/Views/_Bundles/Foundation.js" asp-append-version="true"></script>
+
+    <script src="~/view-resources/Views/_Bundles/AbpStaff.js" asp-append-version="true"></script>
+
+    @*<script src="~/Scripts/vue.js"></script>*@
+
+@*    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.min.js"></script>*@
+
+    <script src="~/Scripts/wimi.js"></script>
+
+    <script src="~/Scripts/layer/layer.js"></script>
+
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+    <!--
+    -->
+    <script src="@(ApplicationPath)AbpServiceProxies/GetAll?v=@(AppTimes.StartupTime.Ticks)" type="text/javascript"></script>
+
+    <script src="@(ApplicationPath)AbpScripts/GetScripts?v=@(AppTimes.StartupTime.Ticks)" type="text/javascript"></script>
+
+
+    <script src="~/view-resources/Views/_Bundles/Plugins.js" asp-append-version="true"></script>
+
+    @RenderSection("Plugins", false)
+
+    <script src="~@ScriptPaths.JQuery_Validation_Localization" asp-append-version="true"></script>
+    @*<script src="~/Scripts/jquery-validation/localization/messages_zh.min.js" asp-append-version="true"></script>*@
+
+    <!-- SignalR scripts -->
+
+    <script src="~/view-resources/Views/_Bundles/signalr.js"></script>
+
+    <script src="~/view-resources/Views/_Bundles/AppWimi.js"></script>
+
+    <script src="~/view-resources/Views/_Bundles/pic.js" asp-append-version="true"></script>
+
+    <script type="text/javascript" src="~/view-resources/Views/Shared/Components/Header/_Header.js"></script>
+
+</head>
+
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+
+
+<body class="hold-transition sidebar-mini skin-blue">
+
+    <div class="wrapper">
+
+        <header class="main-header">
+            @await Component.InvokeAsync("Header")
+        </header>
+
+
+        <aside class="main-sidebar">
+            @await Component.InvokeAsync("Sidebar", new { currentPageName = ViewBag.CurrentPageName })
+        </aside>
+
+
+        <div class="content-wrapper">
+
+            @RenderBody()
+           
+        </div>
+
+
+        <footer class="main-footer">
+            @await Component.InvokeAsync("Footer")
+        </footer>
+
+
+    </div>
+
+    <!--[if lt IE 9]>
+
+        <script src="~/Scripts/others/respond.min.js"></script>
+
+        <script src="~/Scripts/others/html5shiv.js"></script>
+
+        <script src="~/Scripts/others/excanvas.min.js"></script>
+
+    <![endif]-->
+
+    <script>
+    abp.localization.defaultSourceName = '@LocalizationSourceName';
+    moment.locale('@Thread.CurrentThread.CurrentUICulture.Name.Left(2)'); //Localizing moment.js
+
+    abp.log.debug('@Thread.CurrentThread.CurrentUICulture.Name.Left(2)');
+
+    </script>
+
+
+
+
+    <script type="text/javascript">
+
+        $.fn.modal.Constructor.prototype.enforceFocus = function () { }; // 解决 modal select2无法使用搜索框的bug
+
+        (function (wimi) {
+            $(function () {
+
+                var setting = abp.setting;
+
+                wimi.app.name = setting.get("App.Configuration.VersionSetting.AppName");
+                wimi.app.ico = abp.appPath + 'Content/Images/Icos/' + setting.get("App.Configuration.VersionSetting.Ico");
+
+
+                $("title").html(wimi.app.name);
+
+                var $icon = $('link[rel="shortcut icon"]');
+                $icon.attr('href', wimi.app.ico);
+
+                var $footAppName = $('#footAppName');
+                $footAppName.html(wimi.app.name);
+
+                $('.logo-lg').html(wimi.app.name);
+
+            });
+
+        })(wimi);
+
+    </script>
+
+        <script type="text/javascript">
+         (function () {
+            $(function () {
+                 // 跟vue-app集成时，处理菜单的高亮选中
+                window.addEventListener('changeRoute',()=>{
+                    var selectedName = abp.utils.getCookieValue('page_name');
+                    var value= abp.utils.formatString('a[href="{0}"]',selectedName)
+  
+                    let obj = $('.sidebar-menu').find(value);
+                    if(obj.length>0){
+
+                        _.each($('.treeview-menu').find('li.active'),(item)=>{
+                              $(item).removeClass('active')
+                        });
+                        $(obj[0]).parent().addClass('active')
+                    }
+                })
+            });
+        })();
+
+
+    </script>
+
+    <script type="text/javascript">
+        @* This is used to get the application's root path from javascript.
+        It's useful if you're running application in a virtual directory under IIS. *@
+        var abp = abp || {};
+        abp.appPath = '@ApplicationPath';
+        abp.appAPIPath = abp.appPath + "api/services/app/";
+    </script>
+
+    @RenderSection("Scripts", false)
+
+    <span id="media-width" class="hidden"></span>
+
+    <style>
+        th, td {
+            white-space: nowrap;
+        }
+
+        div.dataTables_wrapper {
+            width: 100%;
+        }
+
+        table {
+            width: 100% !important
+        }
+
+       .box-tools > a:hover{
+            background-color:#286090 !important;
+            border-color:#204d74 !important;
+        }
+    </style>
+</body>
+
+</html>

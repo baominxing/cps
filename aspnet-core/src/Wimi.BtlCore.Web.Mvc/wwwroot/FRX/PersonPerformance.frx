@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="02/23/2021 11:00:30" ReportInfo.CreatorVersion="2019.4.4.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="DataInit" ReferenceName="DataInit" DataType="System.Int32" Enabled="true">
+      <Column Name="State" DataType="System.String"/>
+      <Column Name="UserName" DataType="System.String"/>
+      <Column Name="MachineName" DataType="System.String"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="Duration" DataType="System.String"/>
+      <Column Name="Persent" DataType="System.String"/>
+    </BusinessObjectDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="250" FirstPageSource="15" OtherPagesSource="15" Watermark.Font="宋体, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="869.4" Height="37.8">
+      <TextObject Name="Text5" Width="727.65" Height="37.8" Text="人员绩效" HorzAlign="Center" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="41.8" Width="869.4" Height="18.9">
+      <TextObject Name="Text6" Left="226.8" Width="122.85" Height="18.9" Border.Lines="All" Text="日期" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Width="103.95" Height="18.9" Border.Lines="All" Text="人员" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="103.95" Width="122.85" Height="18.9" Border.Lines="All" Text="机床名称" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="349.65" Width="113.4" Height="18.9" Border.Lines="All" Text="状态" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text8" Left="463.05" Width="151.2" Height="18.9" Border.Lines="All" CanGrow="true" Text="持续时间(单位:小时)" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="614.25" Width="113.4" Height="18.9" Border.Lines="All" Text="比例" Font="宋体, 10pt, style=Bold"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="64.7" Width="869.4" Height="18.9" DataSource="DataInit">
+      <TextObject Name="Text1" Width="103.95" Height="18.9" Border.Lines="All" Text="[DataInit.UserName]" Duplicates="Merge" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text3" Left="103.95" Width="122.85" Height="18.9" Border.Lines="All" Text="[DataInit.MachineName]" Duplicates="Merge" VertAlign="Center" Font="宋体, 10pt"/>
+      <TextObject Name="Text10" Left="226.8" Width="122.85" Height="18.9" Border.Lines="All" Text="[DataInit.Date]" Font="宋体, 10pt"/>
+      <TextObject Name="Text11" Left="349.65" Width="113.4" Height="18.9" Border.Lines="All" Text="[DataInit.State]" Font="宋体, 10pt"/>
+      <TextObject Name="Text12" Left="463.05" Width="151.2" Height="18.9" Border.Lines="All" Text="[DataInit.Duration]" Font="宋体, 10pt"/>
+      <TextObject Name="Text13" Left="614.25" Width="113.4" Height="18.9" Border.Lines="All" Text="[DataInit.Persent]" Font="宋体, 10pt"/>
+      <Sort>
+        <Sort Expression="[DataInit.UserName]"/>
+        <Sort Expression="[DataInit.MachineName]"/>
+        <Sort Expression="[DataInit.Date]"/>
+      </Sort>
+    </DataBand>
+  </ReportPage>
+</Report>

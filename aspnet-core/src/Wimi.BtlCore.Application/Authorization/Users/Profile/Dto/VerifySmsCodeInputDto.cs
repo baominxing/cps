@@ -1,0 +1,7 @@
+namespace Wimi.BtlCore.Authorization.Users.Profile.Dto
+{
+    public class VerifySmsCodeInputDto
+    {
+        public string Code { get; set; }
+    }
+}

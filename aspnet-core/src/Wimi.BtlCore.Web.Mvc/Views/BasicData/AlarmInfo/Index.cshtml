@@ -1,0 +1,90 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.BasicData_AlarmInfo;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/BasicData/AlarmInfo/Index.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/BasicData/AlarmInfo/_CreateOrEditModal.js" asp-append-version="true"></script>
+}
+
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+
+    div.dataTables_wrapper {
+        width: 100%;
+    }
+
+    #detailTable th {
+        text-align: center;
+    }
+
+    .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+        height: 30px !important;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+
+<!-- #region Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        @L("AlarmInfo")
+    </h1>
+    <div class="header-tools">
+        <div class="header-tools">
+            @if (IsGranted(PermissionNames.Pages_BasicData_AlarmInfo_Manage))
+            {
+                @*<div class="btn-group pull-right">
+
+                       <button type="button" class="btn btn-primary dropdown-toggle" Data-hover="dropdown" Data-toggle="dropdown"><i class="fa fa-pencil"></i> @L("Actions")</button>
+
+                       <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                           <li>
+                               <a id="CreateNewAlarmInfo">@L("AddAlarm")</a>
+                           </li>
+                           <li>
+                               <a href="#" id="downloadTemplate"> @L("DownloadTemplate")</a>
+                           </li>
+                           <li>
+                               <a id="ImportNewAlarmInfo">@L("ImportData")</a>
+                           </li>
+                       </ul>
+                    </div>*@
+
+                <button class="btn btn-primary" id="CreateNewAlarmInfo">
+                    <i class="fa fa-plus" aria-hidden="true">
+                        @L("AddAlarm")
+                    </i>
+                </button>
+
+                <a class="btn btn-primary" id="downloadTemplate">
+                    <i class="fa fa-download" aria-hidden="true">
+                        @L("DownloadTemplate")
+                    </i>
+                </a>
+
+                <button class="btn btn-primary" id="ImportNewAlarmInfo">
+                    <i class="fa fa-upload" aria-hidden="true">
+                        @L("ImportData")
+                    </i>
+                </button>
+            }
+        </div>
+    </div>
+</section>
+<!-- #endregion -->
+
+<section class="content">
+    <div class="box box-solid">
+        <div class="box-body">
+            <table id="alarmInfoTables" class="table table-bordered table-hover" style="width: 100%"></table>
+        </div>
+    </div>
+</section>
+

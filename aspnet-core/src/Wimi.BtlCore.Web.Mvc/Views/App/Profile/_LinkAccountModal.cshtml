@@ -1,0 +1,54 @@
+﻿@using Abp.Authorization.Users
+@using Abp.MultiTenancy
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("LinkNewAccount")))
+
+
+<div class="modal-body">
+
+    <form name="LinkAccountModalForm" role="form" novalidate class="form-validation">
+
+
+        <div class="form-group form-md-line-input form-md-floating-label"
+             hidden="">
+
+            <label>@L("TenancyName")</label>
+
+            <input type="text" name="TenancyName"
+                   class="form-control edited"
+                   value="default"
+                   maxlength="@AbpTenantBase.MaxTenancyNameLength">
+
+        </div>
+        <!--
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+
+            <input type="text" name="TenancyName"
+                   class="form-control edited"
+                   maxlength="@AbpTenantBase.MaxTenancyNameLength">
+
+            <label>@L("TenancyName")</label>
+
+        </div>
+        -->
+
+        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+            <label>@L("UserName")</label>
+            <input class="form-control edited" type="text" name="UsernameOrEmailAddress" required maxlength="@AbpUserBase.MaxEmailAddressLength">
+
+        </div>
+
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("Password")</label>
+            <input type="password" name="Password" class="form-control edited" required maxlength="@Wimi.BtlCore.Authorization.Users.User.MaxPasswordLength">
+
+        </div>
+
+    </form>
+
+
+</div>
+
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

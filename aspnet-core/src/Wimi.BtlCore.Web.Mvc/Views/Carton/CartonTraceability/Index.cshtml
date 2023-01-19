@@ -1,0 +1,214 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Carton_CartonTraceability;
+}
+
+<script src="~/view-resources/Views/Carton/CartonTraceability/Index.js"></script>
+<script type="text/javascript" src="~/Scripts/vue.js"></script>
+
+<style>
+    .fliterWrap {
+        padding: 10px;
+        overflow: hidden;
+        background: #fff;
+        margin-bottom: 10px;
+    }
+
+        .fliterWrap .form-group {
+            min-width: 200px;
+            margin: 0 10px;
+        }
+
+    .proInfo {
+        padding: 10px;
+        overflow: hidden;
+    }
+
+        .proInfo > div {
+            margin: 10px 0;
+        }
+
+    .infoList {
+        padding: 10px;
+    }
+
+    [v-cloak] {
+        display: none;
+    }
+
+    .selected {
+        background-color: #a8e4ff;
+    }
+
+    .t {
+        padding-right: 10px;
+    }
+
+    .sub-tt {
+        font-weight: bold;
+        width: 100px;
+        display: inline-block;
+        text-align: right;
+        margin: 5px;
+    }
+
+    .refresh-btn {
+        padding: 0px 5px;
+    }
+
+    .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+        height: 31px !important;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @L("CartonTraceability")<small>@L("PackagingDetails")</small>
+    </h1>
+</section>
+<section class="content" id="partPackingQuery">
+
+    <div class="box box-solid">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-search"></i> @L("QueryArea")
+            </h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            <form class="form-horizontal no-padding">
+                <div class="col-xs-12 col-sm-3 ">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("DeviceGroup")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="DeviceGroup"></select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 ">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("WorkpieceCoding")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="PartNo" />
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-3">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("CartonNo")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="CartonNo" />
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-offset-3"></div>
+                <br>
+                <br>
+                <br />
+                <div class="col-xs-12 col-sm-3 ">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("StartTime")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="daterange-start" data-type="calendar" />
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 ">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("EndTime")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="daterange-end" data-type="calendar" />
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-2 pull-right">
+                    <div class="col-sm-6">
+                        <div class="btn btn-primary btn-sm pull-right xs-mv-5 form-control" id="searchBtn"><i class="fa fa-search"></i>@L("Research")</div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="btn btn-primary btn-sm pull-right xs-mv-5 form-control" id="exportBtn"><i class="fa fa-file-excel-o"></i>@L("Export")</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="contentPanel">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            <i class="fa fa-object-group"></i> @L("List")
+                        </h3>
+                    </div>
+                    <div class="box-body">
+                        <table id="cartonTable" class="table table-bordered table-hover" style="width: 100%"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            <i class="fa fa-object-group"></i> @L("PackingInfo")
+                        </h3>
+                    </div>
+                    <div class="box-body">
+                        <div id="packInfo">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <span class="sub-tt">@L("CartonNo")：</span> <span v-if="carton" v-cloak>{{carton.cartonNo}}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span class="sub-tt">@L("DeviceGroup")：</span><span v-if="carton" v-cloak>{{carton.deviceGroupName}}</span>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <span class="sub-tt">@L("MaxPackingCount")：</span><span v-if="carton" v-cloak>{{carton.maxPackingCount}}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span class="sub-tt">@L("RealPackingCount")：</span><span v-if="carton" v-cloak>{{carton.realPackingCount}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li v-bind:class="{'active':inPackTabActive}" id="inPackTab">
+                                    <a href="" data-toggle="tab">@L("PartNoInCarton")</a>
+                                </li>
+                                <li id="allProTab" :class="{'active':allProTabActive}">
+                                    <a href="" data-toggle="tab">@L("AllPartNoInCarton")</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane" v-bind:class="{'active': inPackTabActive }" id="tab_1-1">
+                                    <div class="inPackList" style="overflow-x: auto">
+                                        <table id="inPackTable" class="table table-bordered table-hover" style="width: 100%;"></table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" v-bind:class="{'active': allProTabActive}" id="tab_2-2">
+                                    <div class="allProList" style="overflow-x: auto">
+                                        <table id="allProTable" class="table table-bordered table-hover" style="width: 100%;"></table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

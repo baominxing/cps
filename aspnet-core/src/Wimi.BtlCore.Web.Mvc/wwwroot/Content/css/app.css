@@ -1,0 +1,16 @@
+﻿.max-heigth200 {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.popover.table-actions button + button {
+    margin-left: 3px;
+}
+
+.popover.table-actions>.popover-content {
+    padding: 5px;
+}
+
+[v-cloak] {
+  display: none;
+}

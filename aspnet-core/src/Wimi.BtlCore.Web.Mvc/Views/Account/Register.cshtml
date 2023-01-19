@@ -1,0 +1,153 @@
+﻿@using Abp.Authorization.Users
+@using Abp.Extensions
+@using Abp.MultiTenancy
+@model Wimi.BtlCore.Web.Models.Account.RegisterViewModel
+@section Scripts
+{
+    <script abp-src="/view-resources/Views/Account/Register.js" asp-append-version="true"></script>
+}
+<div class="row">
+
+    <div class="col-md-4 col-md-offset-4">
+
+        <div class="login-logo" id="app-name"></div>
+
+        <div class="register-box-body">
+
+            <form class="register-form" action="@Url.Action("Register")" method="post">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        @if (@ViewBag.ErrorMessage != null)
+                        {
+                            <div class="alert alert-danger">
+
+                                <i class="fa fa-warning"></i> @ViewBag.ErrorMessage
+                            </div>
+                        }
+                    </div>
+
+                    <div class="col-md-12">
+
+                        @Html.AntiForgeryToken()
+
+
+                        @if (ViewBag.IsMultiTenancyEnabled)
+                        {
+                            if (Model.TenancyName.IsNullOrEmpty())
+                            {
+                                <div class="form-group">
+
+                                    <label class="control-label">@L("TenancyName")</label>
+
+                                    <input class="form-control" type="text" placeholder="@L("TenancyName")" name="TenancyName" value="@(Model.TenancyName ?? string.Empty)" required maxlength="@AbpTenantBase.MaxTenancyNameLength" />
+
+                                </div>
+                            }
+                            else
+                            {
+                                <input type="hidden" name="TenancyName" value="@Model.TenancyName" />
+                            }
+                        }
+
+
+                        <input type="hidden" name="IsExternalLogin" value="@Model.IsExternalLogin.ToString()" />
+
+                        <div class="form-group">
+
+                            <label class="control-label">@L("Name")</label>
+
+                            <input class="form-control" type="text" placeholder="@L("Name")" name="Name" required value="@Model.Name" maxlength="@Wimi.BtlCore.Authorization.Users.User.MaxNameLength" />
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label">@L("Surname")</label>
+
+                            <input class="form-control" type="text" placeholder="@L("Surname")" name="Surname" required value="@Model.Surname" maxlength="@Wimi.BtlCore.Authorization.Users.User.MaxSurnameLength" />
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="control-label">@L("EmailAddress")</label>
+
+                            <input class="form-control" type="email" placeholder="@L("EmailAddress")" name="EmailAddress" required value="@Model.EmailAddress" maxlength="@AbpUserBase.MaxEmailAddressLength" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        @if (!Model.IsExternalLogin)
+                        {
+                            <div class="form-group">
+
+                                <label class="control-label">@L("UserName")</label>
+
+                                <input class="form-control" type="text" autocomplete="off" placeholder="@L("UserName")" name="UserName" value="@Model.UserName" required maxlength="@AbpUserBase.MaxUserNameLength" />
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="control-label">@L("Password")</label>
+
+                                <input class="form-control" type="password" autocomplete="off" id="RegisterPassword" placeholder="@L("Password")" name="Password" required maxlength="@Wimi.BtlCore.Authorization.Users.User.MaxPlainPasswordLength" minlength="@Wimi.BtlCore.Authorization.Users.User.MinPlainPasswordLength" />
+
+                            </div>
+                            <div class="form-group">
+
+                                <label class="control-label">@L("PasswordRepeat")</label>
+
+                                <input class="form-control" type="password" autocomplete="off" placeholder="@L("PasswordRepeat")" name="PasswordRepeat" required maxlength="@Wimi.BtlCore.Authorization.Users.User.MaxPlainPasswordLength" minlength="@Wimi.BtlCore.Authorization.Users.User.MinPlainPasswordLength" />
+
+                            </div>
+                        }
+
+
+                        @*@if (ViewBag.UseCaptcha)
+                        {
+                            <div class="form-group">
+
+                                <label class="control-label">验证码</label>
+
+                                @Html.MathCaptcha("~/Views/Account/_Captcha.cshtml")
+                            </div>
+                        }*@
+
+                         @if (ViewBag.UseCaptcha)
+                        {
+                            <p class="hint margin-top-20">
+                                @L("Captha_Hint")
+                            </p>
+                            <div class="form-group margin-bottom-20">
+                                <recaptcha />
+                            </div>
+                        }
+
+
+                        <div class="form-actions text-right">
+
+                            <a href="@Url.Action("Login", "Account")">
+                                <button type="button" id="register-back-btn" class="btn btn-default">@L("Back")</button>
+                            </a>
+
+                            <button type="submit" id="register-submit-btn" class="btn btn-success uppercase">@L("Submit")</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,24 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("ChangeProduction")))
+<div class="modal-body">
+    <div class="row">
+        <form name="ChangeProductForm" role="form" novalidate class="form-validation">
+            <div class="form-group col-xs-12">
+                <label>@L("Machines")</label>
+                <select id="machineContainer" name="MachineId" class="form-control"></select>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label>@L("ProductName")</label>
+                <select id="productContainer" name="ProductId" class="form-control"></select>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label>@L("ProcessName")</label>
+                <select id="orderContainer" name="ProcessId" class="form-control"></select>
+            </div>
+        </form>
+    </div>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

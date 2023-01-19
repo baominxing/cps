@@ -1,0 +1,127 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.StaffPerformance.OnlineOrOfflineViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.StaffPerformance_OnlineOrOffline;
+}
+@section Scripts
+{
+    <link href="~/Scripts/scrollTabs/scrolltabs.css" rel="stylesheet" />
+
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/StaffPerformance/OnlineOrOffline.js" asp-append-version="true"></script>
+    <script src="~/Scripts/jquery.dotdotdot.min.js" asp-append-version="true"></script>
+}
+
+<style>
+    .widget-device .widget-device-header {
+        height: 70px !important;
+    }
+
+    .ellipsis {
+        height: 30px !important;
+        width: 80% !important;
+    }
+
+    .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+        height: 31px !important;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+
+    .widget-device-image {
+        right: 3px !important;
+    }
+</style>
+
+<section class="content-header">
+    <h1>
+        @L("StaffPerformance")<small>@L("StaffPerformance_OnlineOrOffline")</small>
+        <div class="pull-right">
+            <button type="button" id="onlineAll" class="btn btn-primary btn-sm xs-mv-5 "><i class="fa fa-plus"></i> @L("BatchOnline")</button>
+            <button type="button" id="offlineAll" class="btn btn-primary btn-sm xs-mv-5 "><i class="fa fa-plus"></i> @L("BatchOffline")</button>
+        </div>
+    </h1>
+
+    <div class="header-tools">
+    </div>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-3 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i> @L("SearchSetting")
+                    </h3>
+                </div>
+
+                <div class="box-body">
+                    <form class="form">
+                        <div class="input-group xs-ph-5 col-xs-12">
+                            <div class="btn-group center-block" style="width: 216px;" data-toggle="buttons" id="filter-status">
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" data-target="1" autocomplete="off"> @L("Online")
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" data-target="2" autocomplete="off"> @L("Offline")
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" data-target="3" autocomplete="off"> @L("Mine")
+                                </label>
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options" data-target="0" autocomplete="off"> @L("All")
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="input-group xs-ph-5 xs-pv-10 col-xs-12">
+                            @await Html.PartialAsync("~/Views/Common/_GrantedDeviceGroupAndMachinesTree.cshtml", Model)
+                        </div>
+
+                        <div class="box-footer col-md-12">
+                            <button type="button" id="btnQuery" class="btn btn-primary btn-sm btn-block">@L("Research")</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9 col-xs-12" id="show_machines">
+
+        </div>
+    </div>
+</section>
+
+<script id="machine-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <input type="hidden" name="allId" value="{{machineId}}">
+    <div class="col-md-4 online">
+        <div class="box box-widget widget-device" data-machineid="{{machineId}}">
+            <div class="widget-device-header {{#if isOnline}}bg-green-active{{else}}bg-yellow-active{{/if}}">
+                <div class="ellipsis" data-toggle="tooltip" data-placement="top">
+                    <h3 class="widget-device-name">{{machineName}}</h3>
+                </div>
+                {{#if isOnline}}
+                <h5 class="widget-device-desc">
+                    <i class="fa fa-user"> {{personnelName}}</i>
+                </h5>
+                <h6><i class="fa fa-clock-o"></i>{{onlineDate}}</h6>
+                {{/if}}
+            </div>
+            <div class="widget-device-image">
+                {{renderImage machineImageSrc}}
+            </div>
+            <div class="box-footer xs-pv-10">
+                {{#if isOnline}}
+                {{renderButton personnelUserId}}
+                {{else}}
+                <button type="button" class="btn bg-orange btn-sm btn-block" data-isOnline="{{isOnline}}">@L("Online")</button>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>

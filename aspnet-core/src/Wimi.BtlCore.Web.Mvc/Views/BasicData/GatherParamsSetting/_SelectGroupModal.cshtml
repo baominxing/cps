@@ -1,0 +1,32 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.BasicData.GatherParamsSetting.GatherParamsSettingViewModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("ParametricBatchReplicationTo")))
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Common/_MachinesTree" asp-append-version="true"></script>
+}
+<script src="~/Scripts/layer/layer.js"></script>
+<div class="modal-body maxModalHeight">
+
+    <form name="GatherParamForm" role="form" novalidate class="form-validation form-horizontal">
+
+
+        <input type="hidden" name="MachineId" value="@ViewBag.MachineId " />
+        <label>@L("PleaseSelectEquipment")</label>
+
+
+        <div class="box-body">
+            @await Html.PartialAsync("~/Views/Common/_GrantedMachineTree.cshtml", Model)
+            <div id="machineTreeEmptyInfo" class="text-muted hidden">
+                @L("AddMachineFirst")
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

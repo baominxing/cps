@@ -1,0 +1,110 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.BasicData_MachineShiftSetting;
+}
+
+<link href="~/Scripts/timepicker/bootstrap-timepicker.min.css" />
+
+<script src="~/Scripts/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="~/view-resources/Views/App/ShiftSetting/index.js"></script>
+
+<!-- #region Content Header (Page header) -->
+
+<section class="content-header">
+    <h1>
+        @L("ShiftSetting")<small></small>
+    </h1>
+
+    <div class="header-tools">
+
+        @if (IsGranted(PermissionNames.Pages_Administration_MachineShiftSetting))
+        {
+            <button id="BackToMachineShiftSetting" class="btn btn-primary blue" onclick="javascript:window.location='/MachineShiftSetting'">
+                <i class="fa fa-arrow-left"></i> @L("ReturnsScheduling")
+            </button>
+        }
+
+        @if (IsGranted(PermissionNames.Pages_BasicData_ShiftSetting_Manage))
+        {
+            <button id="EditShiftInfo" class="btn btn-primary blue">
+                <i class="fa fa-pencil-square-o"></i> @L("Editor")@L("ShiftSetting")
+            </button>
+        }
+    </div>
+</section>
+
+
+<section class="content">
+    <div class="row">
+
+        <div class="col-lg-4">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-sitemap"></i> @L("ShiftSetting")
+
+
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+
+                        @if (IsGranted(PermissionNames.Pages_BasicData_ShiftSetting_Manage))
+                        {
+                            <a id="AddShiftSolution" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("New")@L("ShiftSetting")
+
+                            </a>
+                        }
+                    </div>
+                </div>
+
+                <div class="box-body">
+
+                    <div id="ShiftSolutionTree" style="overflow-y: auto;"></div>
+
+                    <div id="ShiftSolutionTreeEmptyInfo" class="text-muted">
+
+                        @L("ShiftPlansHaveNotBeenDefined")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-8">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-object-group"></i> @L("ShiftInformation")
+
+                    </h3>
+
+
+                </div>
+
+
+                <div class="box-body">
+
+                    <table id="ShiftInfoTable" class="table table-bordered table-hover table-striped"></table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

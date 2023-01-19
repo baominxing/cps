@@ -1,0 +1,275 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.BasicData_MachineSetting;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/BasicData//MachineSetting/Index.js" asp-append-version="true"></script>
+}
+
+<style>
+    .selected {
+        background-color: #a8e4ff;
+    }
+
+    .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+        height: 30px !important;
+    }
+</style>
+
+
+<div class="content-header">
+
+    <h1>
+
+        @L("MachineSetting")<small>@L("MachineSettingHeaderInfo")</small>
+
+    </h1>
+
+</div>
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-md-5">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-object-group"></i> @L("MachineList")
+
+                    </h3>
+
+                    <div class="pull-right box-tools">
+                        @if (IsGranted(PermissionNames.Pages_BasicData_MachineSetting_Create))
+                        {
+                            <a id="ExportMachines" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-download">@L("ExportMachine")</i>
+
+                            </a>
+
+                            <a id="CreateNewMachineButton" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("MachineSetting_Create")
+
+                            </a>
+
+                            @*<a id="BatchSave" class="btn btn-circle btn-primary" hidden>
+
+                                    <i class="fa fa-plus"></i> @L("BatchSave")
+
+                                </a>*@
+                        }
+                    </div>
+                </div>
+
+                <div class="box-body">
+                    <table id="MachineSettingTable" class="table table-bordered table-hover" style="width: 100%"></table>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-7">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+
+                        <i class="fa fa-object-group"></i> @L("DeviceInfo")
+
+                    </h3>
+                    <div class="pull-right box-tools">
+                        @if (IsGranted(PermissionNames.Pages_BasicData_MachineSetting_Create))
+                        {
+                            <a id="PingTest" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-check-circle-o">@L("PingTest")</i>
+
+                            </a>
+
+                            <a id="TelnetTest" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-check-circle-o"></i> @L("TelnetTest")
+
+                            </a>
+
+                            <a id="DMPTelnetTest" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-check-circle-o"></i> @L("DMPTelnetTest")
+
+                            </a>
+                        }
+                    </div>
+                </div>
+
+                <div class="box-body">
+                    <div class="modal-body">
+
+                        <div class="row">
+
+                            <div class="col-sm-6 text-center col-xs-12">
+
+                                <img id="machinePictureResize" src="@Url.Content(System.IO.Path.Combine(ApplicationPath, "Content/Images/CNC1-128x128.png"))" width="128" height="128" class="img-thumbnail img-rounded user-edit-dialog-profile-image img-circle" />
+
+                            </div>
+
+                            <div class="col-sm-6 col-xs-12">
+
+                                <div class="box box-primary with-border">
+
+                                    <div class="box-header with-border">
+
+                                        <h5>@L("SelectFile")</h5>
+
+                                    </div>
+
+                                    <div class="box-body">
+
+                                        <form id="machineImageForm" enctype="multipart/form-data">
+
+                                            <div class="form-group">
+
+                                                <input type="file" name="UploadedFile" id="UploadedFile" />
+
+                                            </div>
+
+                                            @*<input type="submit" name="Submit" value="@L("Upload")" class="btn btn-primary pull-right" />*@
+
+                                        </form>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <form name="MachineSettingForm">
+
+                            <div class="row">
+
+                                <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+
+                                    <label>@L("MachineCode")</label>
+
+                                    <input class="form-control" type="text" name="Code" id="Code" checkSpace="true" required
+                                           maxlength="40">
+
+                                </div>
+
+
+                                <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+
+                                    <label>@L("MachineName")</label>
+
+                                    <input type="text" name="Name" id="Name" class="form-control" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength">
+
+                                </div>
+
+                                <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+
+                                    <label>@L("MachineDesc")</label>
+
+                                    <input type="text" name="Desc" id="Desc" class="form-control" maxlength="@BtlCoreConsts.MaxDescLength">
+
+                                </div>
+
+                                <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+
+                                    <label>@L("DeviceType")</label>
+
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <select class="form-control" id="MachineType" name="MachineType" required></select>
+                                        </div>
+                                        <div class="col-md-1">
+                                            @if (IsGranted(PermissionNames.Pages_BasicData_MachineType_Manage))
+                                            {
+                                                <button class="btn btn-primary" type="button" id="Create">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </button>
+                                            }
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+
+                                    <label>@L("IsEnable")</label>
+                                    <select class="form-control" name="IsActive" id="IsActive" required>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+
+                                    <label>@L("SortSeq")</label>
+                                    <input class="form-control" type="number" name="SortSeq" id="SortSeq" required min="1" onkeyup="this.value=this.value.replace(/[^0-9]/g,'') " >
+                                </div>
+
+                                <div id="Time">
+                                    <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+                                        <label>@L("CreationTime")</label>
+                                        <input type="text" class="form-control" id="CreateTime" name="CreateTime" readonly="readonly" />
+                                        <input type="hidden" id="CreatorUserId" name="CreatorUserId" />
+                                    </div>
+                                    <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+                                        <label>@L("LastUpdateTime")</label>
+                                        <input type="text" class="form-control" id="LastModifiedTime" readonly="readonly" />
+                                    </div>
+
+                                </div>
+
+                                <div id="Net">
+                                    <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+                                        <label>@L("IpAddress")</label>
+                                        <input type="text" class="form-control" id="IpAddress" name="IpAddress" readonly="readonly" />
+                                    </div>
+                                    <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+                                        <label>@L("TcpPort")</label>
+                                        <input type="text" class="form-control" id="TcpPort" name="TcpPort" readonly="readonly" />
+                                    </div>
+
+                                </div>
+
+                                <input type="hidden" id="Id" name="Id" />
+
+                                <input type="hidden" name="ImageId" id="ImageId" />
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="box-footer">
+                    <div class="pull-right box-tools">
+                        @if (IsGranted(PermissionNames.Pages_BasicData_MachineSetting_Create))
+                        {
+                            <button id="SaveMachine" class="btn btn-primary blue">
+
+                                <i class="fa fa-save"></i> @L("Save")
+                            </button>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

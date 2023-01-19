@@ -1,0 +1,56 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("AdverseCauseFeedback")))
+
+<div class="modal-body">
+    <div class="row">
+
+        <div class="col-lg-4">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-sitemap"></i>@L("DefectivePart")
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <div id="OrganizationUnitEditTree"></div>
+                    <div id="OrganizationUnitTreeEmptyInfo" class="text-muted">
+                        @L("UndefinedDefectiveParts")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-sitemap"></i>@L("AdverseCauseFeedback")
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <div class="row" id="defectiveReasons">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script id="checkbox-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="form-group col-sm-4">
+        <label class="control-label">
+            {{#if checked}}
+            <input type="checkbox" class="minimal" value="{{id}}" checked>{{name}}
+            {{else}}
+            <input type="checkbox" class="minimal" value="{{id}}">{{name}}
+            {{/if}}
+        </label>
+    </div>
+    {{/each}}
+</script>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

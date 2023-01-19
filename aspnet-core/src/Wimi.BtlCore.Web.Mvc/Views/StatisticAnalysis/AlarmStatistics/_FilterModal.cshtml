@@ -1,0 +1,35 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.StatisticAnalysis.Alarm.AlarmStatisticsViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("SearchSetting")))
+
+<script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+<script src="~/Scripts/layer/layer.js" asp-append-version="true"></script>
+<div class="modal-body">
+    <form name="AlarmStatisticsFilterForm" role="form" novalidate class="form-validation">
+
+        <div class="input-group xs-pv-10 xs-ph-5">
+            <span class="input-group-addon no-border"><b class="text-primary">@L("TimeFrame")</b></span>
+            <input type="text" data-type="calendar" class="form-control input-sm" id="reservationtime">
+        </div>
+
+        <div class="input-group xs-pv-10 xs-ph-5">
+            <span class="input-group-addon no-border"><b class="text-primary">@L("StatisticalMethod")</b></span>
+            <select class="form-control input-sm" id="statisticalWay">
+                <option value="ByShift">@L("ByShift")</option>
+                <option value="ByDay" selected="selected">@L("ByDay")</option>
+                <option value="ByMonth">@L("ByMonth")</option>
+            </select>
+        </div>
+
+        <div class="input-group xs-pv-10 xs-ph-5">
+            <span class="input-group-addon no-border"><b class="text-primary">@L("PleaseSelectEquipment")</b></span>
+            @await Html.PartialAsync("~/Views/Common/_GrantedMachineTree.cshtml", Model)
+        </div>
+
+        <div class="input-group xs-pv-5 xs-ph-5 col-xs-12 input-shift" style="display: none">
+            <span class="input-group-addon no-border"><b class="text-primary">@L("ChooseShift")</b></span>
+            <select class="form-control checkbox-shift" id="checkbox-shift"></select>
+        </div>
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

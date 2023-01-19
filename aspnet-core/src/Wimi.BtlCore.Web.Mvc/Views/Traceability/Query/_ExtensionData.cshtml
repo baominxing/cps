@@ -1,0 +1,44 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("ViewProcessingParameters")))
+<style>
+
+    .info-dl {
+        font-size: 14px;
+        border-bottom: solid 1px #dcdcdc;
+        margin-bottom: 10px;
+    }
+
+        .info-dl:last-child {
+            border-bottom: none;
+        }
+
+        .info-dl dt {
+            //font-size: 16px;
+            height: 30px;
+            line-height: 30px;
+            margin-bottom: 5px;
+            padding: 0 5px;
+            background: #F9FAFB;
+        }
+
+        .info-dl dd {
+            padding: 0 5px;
+        }
+
+    .inner-title {
+        font-weight: bold;
+    }
+
+    .key {
+        //font-weight: bold;
+        margin-right: 10px;
+    }
+</style>
+<div class="modal-body">
+    <form name="noticesInfoForm" role="form" novalidate>
+        <table class="table table-striped table-bordered table-hover nowrap" id="parametersTable" style="width: 100%"></table>
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithCancel.cshtml")
+

@@ -1,0 +1,59 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@using Wimi.BtlCore.Authorization
+
+@model Wimi.BtlCore.Web.Models.Roles.CreateOrEditRoleModalViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Common.Roles;
+}
+
+<link href="~/view-resources/Views/App/Roles/index.min.css" />
+
+<script src="~/view-resources/Views/Common/_PermissionTree.js"></script>
+<script src="~/view-resources/Views/Common/_DeviceGroupPermissionTree.js"></script>
+<script src="~/view-resources/Views/App/Roles/_CreateOrEditModal.js"></script>
+<script src="~/view-resources/Views/App/Roles/Index.js"></script>
+
+<!-- Content Header (Page header) -->
+
+<section class="content-header">
+
+    <h1>
+
+        @L("Roles")<small>@L("RolesHeaderInfo")</small>
+
+    </h1>
+
+    <div class="header-tools">
+
+        @if (IsGranted(PermissionNames.Pages_Administration_Roles_Create))
+        {
+            <button id="CreateNewRoleButton" class="btn btn-primary btn-sm">
+
+                <i class="fa fa-plus"></i> @L("CreateNewRole")
+            </button>
+        }
+    </div>
+
+</section>
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-lg-12">
+
+            <div class="box box-solid">
+
+                <div class="box-body">
+
+                    <table id="RolesTable" class="table table-hover table-bordered" style="width: 100%"></table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

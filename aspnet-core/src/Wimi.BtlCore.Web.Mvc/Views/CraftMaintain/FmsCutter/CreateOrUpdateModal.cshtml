@@ -1,0 +1,78 @@
+﻿@using Wimi.BtlCore.FmsCutters
+@using Wimi.BtlCore.Web.Models.Common.Modals;
+@model Wimi.BtlCore.Web.Models.CraftMaintain.FmsCutterViewModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("Create")))
+
+<div class="modal-body">
+    <form name="CreateOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="row">
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("CutterStockNo")</label>
+                <input class="form-control" type="text" name="CutterStockNo" checkSpace="true" required maxlength="100"
+                       value="@Model.Dto.CutterStockNo">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("CutterNo")</label>
+                <input class="form-control CutterNo" type="text" name="CutterNo" checkSpace="true" required maxlength="100"
+                       value="@Model.Dto.CutterNo">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("CutterCase")</label>
+                <input class="form-control CutterCase" type="text" name="CutterCase" checkSpace="true" required maxlength="100"
+                       value="@Model.Dto.CutterCase">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("Type")</label>
+                <input class="form-control Type" type="text" name="Type" checkSpace="true" required maxlength="100"
+                       value="@Model.Dto.Type">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("OriginalLife")</label>
+                <input class="form-control OriginalLife" type="number" name="OriginalLife" required min="1"
+                       value="@Model.Dto.OriginalLife">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("WarningLife")</label>
+                <input class="form-control WarningLife" type="number" name="WarningLife" required min="1"
+                       value="@Model.Dto.WarningLife">
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("CountType")</label>
+                <select class="form-control" id="DisplayType" name="CountType" required disabled='@Model.IsEditMode'>
+                    @foreach (int type in Enum.GetValues(typeof(EnumFmsCutterCountType)))
+                    {
+                        if (type == (int)Model.Dto.CountType)
+                        {
+                            <option value="@type" selected>@L(Enum.GetName(typeof(EnumFmsCutterCountType), type))</option>
+                        }
+                        else
+                        {
+                            <option value="@type">@L(Enum.GetName(typeof(EnumFmsCutterCountType), type))</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            @{
+                foreach (var item in Model.Field)
+                {
+                    if (Model.IsEditMode)
+                    {
+                        var value = Model.Dto.CustomFileds.FirstOrDefault(t => t.CustomFieldId == item.Id);
+                        <input type="hidden" value="@(value!=null ? value.FieldValue:string.Empty)" id="extendField_@item.Id" />
+                    }
+
+                    <div data-customField="@item.Id" class="extend-field-create">
+                        @Html.Raw(item.RenderHtml)
+                    </div>
+                }
+            }
+
+            <input type="hidden" id="Id" name="Id" value="@Model.Dto.Id" />
+        </div>
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

@@ -1,0 +1,200 @@
+﻿@using Wimi.BtlCore.Plan
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Plan.ProcessPlans.PlanCreateOrEditViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("Create")))
+
+
+@section Scripts
+{
+    <script src="~/Scripts/scrollTabs/jquery.mousewheel.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.scrolltabs.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.mousewheel.js" asp-append-version="true"></script>
+}
+@section Styles{ 
+    <style src="~/Scripts/scrollTabs/scrolltabs.css" asp-append-version="true"></style>
+}
+
+<div class="modal-body">
+
+    <form name="createOrUpdateForm" role="form" novalidate class="form-validation" data-is-edit="@Model.IsEditMode">
+        <div class="modal-body">
+            <div class="form-group row">
+                <div class="col-md-6 form-group">
+                    <label>@L("PlanName")</label>
+                    <input class="form-control planName" id="PlanName" type="text" name="PlanName" required maxlength="50" @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "")
+                           value="@(Model.IsEditMode ? Model.PlanDto.PlanName : string.Empty)">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>@L("ProductName")</label>
+                    <select class="form-control productName" type="text" id="productName" name="productName" required @((Model.PlanDto.Status != EnumPlanStatus.New) ? "disabled" : "")></select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-6 form-group">
+                    <label>@L("PlanProduction")</label>
+                    <input class="form-control planAmount number" type="number" min="1" name="PlanAmount" required @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "")
+                           value="@(Model.IsEditMode ? Model.PlanDto.PlanAmount.ToString() : "1")">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>@L("BelongDeviceGroup")</label>
+                    <select class="form-control deviceGroup" type="text" name="deviceGroup" id="deviceGroup" required @((Model.PlanDto.Status == EnumPlanStatus.InProgress || Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "")></select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-12 form-group">
+                    <label><input type="checkbox" id="timeSelect" name="IsTimeRangeSelect" @(Model.PlanDto.IsTimeRangeSelect ? "checked" : "") @(Model.IsEditMode ? "disabled" : "checked") value="@(Model.IsEditMode?Model.PlanDto.IsTimeRangeSelect.ToString().ToLower():"true")" />@L("TimeFrame")</label>
+                </div>
+            </div>
+
+            <div class="form-group row" id="timeGroups" style="@(Model.IsEditMode ? (Model.PlanDto.IsTimeRangeSelect ? "" : "display:none") : "")">
+                <div id="timeGroup">
+                    <div class="col-md-6">
+                        <label>@L("PlanStartDate")</label>
+                        <input class="form-control startDateTime dateTimeRangePicker" type="text" name="StartDateTime"
+                               value="@(Model.IsEditMode ? (Model.PlanDto.PlanStartTime.HasValue ? Model.PlanDto.PlanStartTime.Value.ToString("yyyy-MM-dd HH:mm") : null) : DateTime.Now.ToString("yyyy-MM-dd HH:mm"))"
+                               @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "")>
+                    </div>
+                    <div class="col-md-6">
+                        <label>@L("PlanEndDate")</label>
+                        <input class="form-control endDateTime dateTimeRangePicker" type="text" name="EndDateTime"
+                               value="@(Model.IsEditMode ? (Model.PlanDto.PlanEndTime.HasValue ? Model.PlanDto.PlanEndTime.Value.ToString("yyyy-MM-dd HH:mm") : null) : DateTime.Now.ToString("yyyy-MM-dd HH:mm"))"
+                               @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "")>
+                    </div>
+
+                    <div class="col-md-6">
+                        <br />
+                        <label>
+                            <input type="checkbox" id="IsAutoFinishCurrentPlan" name="IsAutoFinishCurrentPlan" @(Model.PlanDto.IsAutoFinishCurrentPlan ? "checked" : "")
+                                   @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "") />@L("AutomaticallyClose")
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <br />
+                            <label>
+                                <input type="checkbox" id="IsAutoStartNextPlan" name="IsAutoStartNextPlan" @(Model.PlanDto.IsAutoStartNextPlan ? "checked" : "")
+                                       @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "") />@L("AutomaticallyStart")
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            <label>@L("DimensionOfTargetQuantity")</label><br />
+                            <label>
+                                <input name="targetCount" type="radio" @(Model.PlanDto.TargetType == EnumTargetDimension.ByDay ? "checked" : "") value="0"
+                                       @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "") />@L("Day")
+                                </label>
+                                <label>
+                                    <input name="targetCount" type="radio" @(Model.PlanDto.TargetType == EnumTargetDimension.ByWeek ? "checked" : "") value="1"
+                                           @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "") />@L("Week")
+                                    </label>
+                                    <label>
+                                        <input name="targetCount" type="radio" @(Model.PlanDto.TargetType == EnumTargetDimension.ByMonth ? "checked" : "") value="2"
+                                               @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "") />@L("Month")
+                                        </label>
+                                        <label>
+                                            <input name="targetCount" type="radio" @(Model.PlanDto.TargetType == EnumTargetDimension.ByYear ? "checked" : "") value="3"
+                                                   @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "") />@L("Year")
+                                            </label>
+                                            <label>
+                                                <input name="targetCount" type="radio" @(Model.PlanDto.TargetType == EnumTargetDimension.ByShift ? "checked" : "") value="4"
+                                                       @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "") />@L("Shift")
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6 form-group" id="targetCountGroup" style="@(Model.IsEditMode?(@Model.PlanDto.TargetType==EnumTargetDimension.ByShift?"display:none":""):"")">
+                                                <label>@L("TargetQuantity")</label>
+                                                <input class="form-control targetAmount number" type="number" name="TargetAmount" id="TargetAmount" required min="0"
+                                                       @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "")
+                                                       value="@(Model.IsEditMode ? Model.PlanDto.TargetAmount.ToString() : "1")" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row" id="targetCountGroupShift">
+
+                                            <div id="shiftTap"></div>
+
+                                            <div id="targetCountShiftInCreate">
+
+
+                                            </div>
+
+                                            @*<div id="targetCountShift">
+                                            @{ foreach (var item in Model.PlanDto.ShiftTarget)
+                                                {
+                                                    <div class="form-group">
+                                                        <label>@item.ShiftName</label>
+                                                        <input style="width:270px;" class="form-control" required shiftname="@item.ShiftName" id="@item.Id" shiftid="@item.ShiftId" value="@item.ShiftTargetAmount" solutionid="@item.SolutionId" type="number"
+                                                               @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "")/>
+                                                        <br/>
+                                                    </div>
+                                                }
+                                            }
+                                        </div>*@
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-md-6 form-group">
+                                                <label>@L("ProductionCalculation")</label><br />
+                                                <label>
+                                                    <input type="radio" name="yieldCount" @(Model.PlanDto.YieldSummaryType == EnumYieldSummaryType.ByTraceOffline ? "checked" : "") value="0"
+                                                           @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "") />@L("TraceTheNumberOfWorkpiece")
+                                                    </label><br />
+                                                    <label>
+                                                        <input type="radio" name="yieldCount" @(Model.PlanDto.YieldSummaryType == EnumYieldSummaryType.ByYieldCounter ? "checked" : "") value="1"
+                                                               @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "") />@L("AccordingToTheEquipmentOutputCounter")
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-6" id="machines-div" style="@(Model.PlanDto.YieldSummaryType==EnumYieldSummaryType.ByTraceOffline?"display:none" : "")">
+                                                        <br />
+                                                        <label>@L("Machines")</label>
+                                                        <select class="form-control yieldCounterMachineId" type="text" name="YieldCounterMachineId"
+                                                                id="machine" @((Model.PlanDto.Status == EnumPlanStatus.Complete || Model.PlanDto.Status == EnumPlanStatus.AutoComplete) ? "disabled" : "")></select>
+
+                                                    </div>
+                                                </div>
+
+                                                <input type="hidden" id="PlanCode" value="@Model.PlanDto.PlanCode" />
+                                                <input type="hidden" id="Id" value="@Model.PlanDto.Id" />
+                                                <input type="hidden" id="IsEdit" value="@(Model.IsEditMode?"true":"false")" />
+                                                <input type="hidden" id="Status" value="@Model.PlanDto.Status" />
+                                                <input type="hidden" id="BindMachineId" value="@Model.PlanDto.YieldCounterMachineId" />
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+                                    @await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+
+
+                                    <script id="shiftSolution-template" type="text/x-handlebars-template">
+                                        <div id="tabData" class="scroll_tabs_theme_light">
+                                        </div>
+                                        <div style="width: 100%;" id="visavail_container">
+                                            @*<div id="TimeStatisticShiftChart" style="height: 350px"></div>*@
+                                        </div>
+                                    </script>
+
+                                    <script id="tab-data-template" type="text/x-handlebars-template">
+                                        {{#each datas}}
+                                        {{#if @@first}}
+                                        <span class="tab_selected">{{this.machineShiftSolutionName}}</span>
+                                        {{else}}
+                                        <span>{{this.machineShiftSolutionName}}</span>
+                                        {{/if}}
+                                        {{/each}}
+                                    </script>
+
+                                    <script id="shift-template" type="text/x-handlebars-template">
+                                        {{#each shiftDatas}}
+                                        <div class="form-group">
+                                            <label>{{shiftName}}</label>
+
+                                            <input style="width:270px;" class="form-control" shiftname="{{shiftName}}"
+                                                   id="{{id}}" shiftid="{{shiftId}}" solutionid="{{solutionId}}" value="{{shiftTargetAmount}}" type="number"/>
+                                            <br />
+                                        </div>
+                                        {{/each}}
+                                    </script>

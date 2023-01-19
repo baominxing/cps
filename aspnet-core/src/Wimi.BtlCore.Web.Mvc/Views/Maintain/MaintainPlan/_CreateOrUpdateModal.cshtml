@@ -1,0 +1,58 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Maintain.MaintainPlan.MaintainPlanViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(@Model.IsEditMode ? L("Editor") : L("NewlyBuild")))
+<div class="modal-body">
+    <form name="createOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="row">
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("PlanCode")</label>
+                <input type="text" class="form-control" name="Code" disabled="disabled" value="@(Model.IsEditMode ? Model.MaintainPlanDto.Code : L("AutomaticSystemGeneration"))" />
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("PlanName")</label>
+                <input type="text" class="form-control" id="PlanName" name="Name" checkSpace="true" value="@(Model.IsEditMode ? Model.MaintainPlanDto.Name : string.Empty)" required />
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("PleaseSelectEquipment")</label>
+                <select id="machineContainer" name="MachineId" class="form-control" required></select>
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("ResponsiblePerson")</label>
+                <select id="userContainer" name="PersonInChargeId" class="form-control" required></select>
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("StartTime")</label>
+                <input type="text" id="StartDate" class="form-control" name="StartDate" required
+                       value="@(Model.IsEditMode ? Model.MaintainPlanDto.StartDate.ToString("MM/dd/yyyy") : string.Empty)" />
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("EndTime")</label>
+                <input type="text" id="EndDate" class="form-control" name="EndDate" required
+                       value="@(Model.IsEditMode ? Model.MaintainPlanDto.EndDate.ToString("MM/dd/yyyy") : string.Empty)" />
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("DurationDays")</label>
+                <input type="number" id="IntervalDate" class="form-control" name="IntervalDate" min="1" required
+                       value="@(Model.IsEditMode ? Model.MaintainPlanDto.IntervalDate : 1)" />
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-md-12">
+                <label>@L("Remarks")</label>
+                <textarea class="form-control" id="PlanMemo" name="Memo" style="height:100px">@(Model.IsEditMode ? Model.MaintainPlanDto.Memo : string.Empty)</textarea>
+            </div>
+
+            <input type="hidden" id="Id" name="Id" value="@(Model.IsEditMode ? Model.MaintainPlanDto.Id : 0)" />
+            <input type="hidden" id="Status" name="Status" value="@(Model.IsEditMode ? Model.MaintainPlanDto.Status : "New")" />
+            <input type="hidden" id="MachineId" name="MachineId" value="@(Model.IsEditMode ? Model.MaintainPlanDto.MachineId : 1)" />
+            <input type="hidden" id="PersonInChargeId" name="PersonInChargeId" value="@(Model.IsEditMode ? Model.MaintainPlanDto.PersonInChargeId : 1)" />
+            <input type="hidden" id="PageState" value="@(Model.IsEditMode ? "Edit" : "New")" />
+        </div>
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

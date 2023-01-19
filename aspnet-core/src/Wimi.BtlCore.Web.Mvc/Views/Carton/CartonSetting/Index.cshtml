@@ -1,0 +1,253 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Carton_CartonSetting;
+}
+
+<script src="~/Scripts/select2.js"></script>
+<script type="text/javascript" src="~/Scripts/vue.js"></script>
+<script src="~/view-resources/Views/Carton/CartonSetting/Index.js"></script>
+
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+
+    .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+        height: 31px !important;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+
+    div.dataTables_wrapper {
+        width: 100%;
+    }
+</style>
+
+<section class="content-header">
+
+    <h1>
+        @L("CartonSetting")
+    </h1>
+
+</section>
+
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-lg-4">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-sitemap"></i> @L("DeviceGroups")
+
+                    </h3>
+
+
+                </div>
+
+                <div class="box-body">
+
+                    <div id="deviceGroupTree"></div>
+
+                    <div id="deviceGroupTreeEmptyInfo" class="text-muted">
+
+                        @L("UndefinedDeviceGroup")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-8" id="carton-setting">
+
+            <div class="box box-solid">
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-object-group"></i> @L("Setting")
+
+                    </h3>
+
+
+                </div>
+
+                <div class="box-body">
+                    <form class="form-horizontal" id="settingForm" name="settingForm" role="form">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">@L("MaxPackingCount")</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="number" id="maxPackingCount" name="maxPackingCount" min=0 value="0" required 
+                                       oninput="this.value=this.value.replace(/\D/g,'').replace(/^0+(?=\d)/,'')" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                @L("PrintLabelOrNot")
+                            </label>
+                            <div class="col-sm-10 isPrint">
+                                <label class="radio-inline">
+                                    <input type="radio" id="isPrint" name="isPrint" value="1" checked> @L("Yes")
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" id="isPrint" name="isPrint" value="2"> @L("No")
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" v-bind:style="{display:printerStyle}">
+                            <label class="col-sm-2 control-label">
+                                @L("DefaultPrinter")
+                            </label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="printerName" name="printerName"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                @L("AutoCartonNo")
+                            </label>
+                            <div class="col-sm-10 autoCartonNo">
+                                <label class="radio-inline">
+                                    <input type="radio" id="autoCartonNo" name="autoCartonNo" value="1" checked> @L("Yes")
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" id="autoCartonNo" name="autoCartonNo" value="2"> @L("No")
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" v-bind:style="{display:ruleStyle}">
+                            <label class="col-sm-2 control-label">
+                                @L("CartonRule")
+                            </label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="cartonRuleId" name="CartonRuleId"></select>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <button class="btn btn-primary pull-left" onclick="event.preventDefault(); javascript: window.location = '/CartonRules';"><i class="fa fa-plus"></i>@L("Create")</button>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                @L("PackingCheckItem")
+                            </label>
+                            <div class="col-sm-6 ">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="isGoodOnly" name="isGoodOnly" checked> @L("IsGoodOnly")
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 "></label>
+                            <div class="col-sm-10 ">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="forbidHopSequence" name="forbidHopSequence"> @L("ForbidHopSequence")
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 "></label>
+                            <div class="col-sm-10 ">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="forbidRepeatPacking" name="forbidRepeatPacking" checked>  @L("ForbidRepeatPacking")
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" v-bind:style="{display:isAutoPrintStyle}">
+                            <label class="col-sm-2 "></label>
+                            <div class="col-sm-10 ">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="isAutoPrint" name="isAutoPrint" checked> @L("TunkfulAutoPrint")
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 "></label>
+                            <div class="col-sm-10 ">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="isUnpackingRedo" name="isUnpackingRedo"> @L("UnpackingRedo")
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" v-bind:style="{display:isUnpackingAfterPrintStyle}">
+                            <label class="col-sm-2 "></label>
+                            <div class="col-sm-10 ">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="isUnpackingAfterPrint" name="isUnpackingAfterPrint"> @L("UnpackingAfterPrint")
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 "></label>
+                            <div class="col-sm-2 ">
+                                <label class="checkbox-inline">
+                                    <input readonly type="checkbox" id="hasToFlow" name="hasToFlow"> @L("HasToFlow")
+                                </label>
+                            </div>
+                            <div class="col-sm-8" v-bind:style="{display:traceFlowStyle}">
+                                <select class="form-control" id="flowIds" name="flowIds" width="100%"></select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 "></label>
+                            <div class="col-sm-10 ">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="isFinalTest" name="isFinalTest"> @L("IsFinalInspection")
+                                </label>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <div class="col-xs-12 col-sm-4 pull-right">
+                        <div class="col-sm-3 col-sm-offset-6 pull-left">
+                            <button type="button" class="btn btn-primary  " id="btnClear"><i class="fa fa-close"></i>@L("Clear")</button>
+                        </div>
+                        <div class="col-sm-3 pull-right">
+                            <button type="button" class="btn btn-primary   " id="btnSave"><i class="fa fa-save"></i>@L("Save")</button>
+                        </div>
+                    </div>
+
+
+                    <input type="hidden" id="cartonSettingId" value="0" />
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</section>

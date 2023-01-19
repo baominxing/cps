@@ -1,0 +1,17 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("PleaseSelectEquipmentGroup")))
+<div class="modal-body">
+    <form name="offlineAllForm" role="form" novalidate class="form-validation">
+        <div class="row">
+            <div class="form-group form-md-line-input form-md-floating-label col-md-12">
+                <label>@L("DeviceGroups")</label>
+                <select class="form-control" id="offlineMachineGroup" name="offlineMachineGroup" required></select>
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-md-12">
+                <label>@L("SelectionOfficer")</label>
+                <select class="form-control" id="offlineUser" name="offlineUser" required></select>
+            </div>
+        </div>
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

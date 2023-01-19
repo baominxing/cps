@@ -1,0 +1,221 @@
+﻿@using Abp.Timing
+@model Wimi.BtlCore.Web.Views.Shared.Components.Header.HeaderViewModel
+@{
+    Layout = null;
+}
+
+<!-- Logo -->
+
+<a href="#" class="logo">
+
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+
+    <span class="logo-mini"><b>C</b>PS</span>
+    <!-- logo for regular state and mobile devices -->
+
+    <span class="logo-lg"><b></b></span>
+</a>
+
+
+<!-- Header Navbar -->
+
+<nav class="navbar navbar-static-top" role="navigation">
+
+    <!-- Sidebar toggle button-->
+
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+
+        <span class="sr-only">Toggle navigation</span>
+    </a>
+
+    <!-- Navbar Right Menu -->
+
+    <div class="navbar-custom-menu">
+
+        <ul class="nav navbar-nav">
+
+            <!-- BEGIN NOTIFICATION DROPDOWN -->
+            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+            <!-- Messages: style can be found in dropdown.less-->
+
+            <li class="visible-lg-block">
+                <a id="fullscreen" href="#">
+                    <i class="fa fa-expand"></i>
+                </a>
+            </li>
+
+            <li class="dropdown notifications-menu" id="header_notification_bar">
+                <a href="#">
+                    <i class="fa fa-bell-o"></i>
+                </a>
+            </li>
+
+            @await Component.InvokeAsync("LanguageSelection")
+
+            <li class="dropdown user user-menu">
+
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+
+                    <span class="username username-hide-on-mobile">
+                        @if (Model.IsImpersonatedLogin)
+                        {
+                            <i class="icon-action-undo font-red-sunglo"></i>
+                        }
+                        @Html.Raw(Model.GetShownLoginName())
+                    </span>
+                    <img id="HeaderProfilePicture" alt="" class="user-image" src="@Url.Action("GetProfilePicture", "Profile")?t=@Clock.Now.Ticks.ToString()" />
+
+                </a>
+
+                <ul class="dropdown-menu">
+
+                    @if (Model.IsImpersonatedLogin)
+                    {
+                        <li>
+
+                            <a id="UserProfileBackToMyAccountButton" href="#">
+                                <i class="icon-action-undo"></i> <strong>@L("BackToMyAccount")</strong>
+                            </a>
+
+                        </li>
+                        <li class="divider"></li>
+                    }
+
+                    <!--<li class="dropdown-submenu">-->
+                        <!-- tudo 右侧弹出问题 -->
+                        <!--<a class="open-left" href="">
+                            <i class="icon-link"></i> @L("LinkedAccounts")
+                        </a>
+                        <ul id="RecentlyUsedLinkedUsers"
+                            class="dropdown-menu" style="">
+                            <li>
+                                <a href="#" id="ManageLinkedAccountsLink">
+                                    <i class="icon-settings"></i> @L("ManageAccounts")
+                                </a>
+                            </li>
+                        </ul>
+                    </li>-->
+
+                    <li>
+
+                        <a id="UserProfileChangePasswordLink" href="#">
+                            <i class="icon-key"></i> @L("ChangePassword")
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a id="ShowLoginAttemptsLink" href="#">
+                            <i class="icon-shield"></i> @L("LoginAttempts")
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a id="UserProfileChangePictureLink" href="#">
+                            <i class="icon-user"></i> @L("ChangeProfilePicture")
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a id="UserProfileMySettingsLink" href="#">
+                            <i class="icon-settings"></i> @L("MySettings")
+                        </a>
+
+                    </li>
+
+                    <li class="divider"></li>
+
+                    <li>
+
+                        <a href="@Url.Action("Logout", "Account", new { area = string.Empty })">
+                            <i class="icon-logout"></i> @L("Logout")
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<script id="linkedAccountsSubMenuTemplate" type="x-tmpl-mustache">
+    {{#items}}
+    <li>
+        <a href="" data-user-id="{{id}}" data-tenant-id="{{TenantId}}" class="recently-linked-user">
+            {{shownUserName}}
+        </a>
+    </li>
+    {{/items}}
+    {{#hasLinkedUsers}}
+    <li class="divider"></li>
+    {{/hasLinkedUsers}}
+    <li>
+        <a href="" id="ManageLinkedAccountsLink">
+            <i class="icon-settings"></i> @L("ManageAccounts")
+        </a>
+    </li>
+</script>
+
+<script id="headerNotificationBarTemplate" type="x-tmpl-mustache">
+    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <i class="fa fa-bell-o"></i>
+        {{#if unreadCount}}
+        <span class="badge btn-danger badge"> {{unreadCount}} </span>
+        {{/if}}
+    </a>
+    <ul class="dropdown-menu" id="UserNotificationDropdown">
+        <li class="header row no-margin">
+            <div class="col-sm-6">
+                {{#if unreadCount}}
+                <a href="" id="setAllNotificationsAsReadLink" class="form-control btn btn-primary btn-xs "><span style="line-height:2.3">@L("SetAllAsRead")</span> </a>
+                {{/if}}
+            </div>
+            <div class="col-sm-6">
+                {{#unless notifications.length}}
+                @L("ThereIsNoNotification")
+                {{/unless}}
+                <a id="openNotificationSettingsModalLink" class="form-control btn btn-warning btn-flat btn-xs" href=""><span style="line-height:2.3">@L("Settings")</span></a>
+            </div>
+
+      <li>
+        <li>
+            {{#if notifications.length}}
+            <ul class="menu">
+                {{#each notifications}}
+                <li>
+                    <a href="{{url}}" class="user-notification-item {{#url}}user-notification-item-clickable{{/url}} {{#isUnread}}user-notification-item-unread{{/isUnread}}">
+                        <span class="details">
+                            <i class="{{icon}}"></i> {{text}}
+                        </span>
+                        <div>
+                            <span class="notification-time">{{timeAgo}}</span>
+                            {{#isUnread}}
+                            <span>
+                                -
+                                <span data-notification-id="{{userNotificationId}}" class="set-as-read-text set-notification-as-read">@L("SetAsRead")</span>
+                            </span>
+                            {{/isUnread}}
+                        </div>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+        </li>
+        {{#if notifications.length}}
+        <li class="footer">
+            <a href="@Url.Action("Index", "Notifications")">@L("SeeAllNotifications")</a>
+        </li>
+        {{/if}}
+    </ul>
+</script>

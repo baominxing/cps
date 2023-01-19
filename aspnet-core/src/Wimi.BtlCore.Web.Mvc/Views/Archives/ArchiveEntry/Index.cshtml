@@ -1,0 +1,76 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Archives_ArchiveEntry;
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Archives/ArchiveEntry/Index.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/Archives/ArchiveEntry/CreateOrUpdateModal.js" asp-append-version="true"></script>
+}
+
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        数据归档记录<small></small>
+    </h1>
+</section>
+
+<section class="content">
+
+    <div class="box box-solid">
+
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-search"></i> 查询
+            </h3>
+        </div>
+
+        <div class="box-body">
+            <form class="form-horizontal no-padding">
+
+                <div class="col-md-3">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">数据表格</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="TargetTable" />
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">归档表格</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="ArchivedTable" />
+                    </div>
+                </div>
+
+                <div class="col-sm-1 pull-right">
+                    <div class="btn btn-primary btn-sm form-control" id="search"><i class="fa fa-search"></i>@L("Research")</div>
+                </div>
+
+                @*@if (IsGranted(PermissionNames.Pages_Archives_ArchiveEntry_Manage))
+                    {
+                        <div class="col-sm-1 pull-right">
+                            <div class="btn btn-primary btn-sm form-control" id="create"><i class="fa fa-plus"></i> @L("Create")</div>
+                        </div>
+                    }*@
+            </form>
+        </div>
+    </div>
+
+    <div class="box box-solid">
+        <div class="box-body">
+            <table id="table" class="table table-bordered table-hover" style="width: 100%"></table>
+        </div>
+    </div>
+
+</section>

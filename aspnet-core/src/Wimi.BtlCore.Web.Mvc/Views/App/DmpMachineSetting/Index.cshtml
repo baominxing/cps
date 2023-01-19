@@ -1,0 +1,115 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@using Wimi.BtlCore.Authorization
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Administration_DmpMachineSetting;
+}
+@section Styles
+{
+
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/App/DmpMachineSetting/Index.js" asp-append-version="true"></script>
+}
+<section class="content-header">
+
+    <h1>
+
+        @L("DmpMachineSetting") <small>@L("DmpMachineSettingManage")</small>
+
+    </h1>
+
+</section>
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-lg-4">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-sitemap"></i> @L("DmpList")
+
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+                    </div>
+
+                </div>
+
+                <div class="box-body">
+
+                    <div id="OrganizationUnitEditTree"></div>
+
+                    <div id="OrganizationUnitTreeEmptyInfo" class="text-muted">
+
+                        @L("DmpsNotYetDefined")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-8">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-object-group"></i> @L("Machines")
+
+                        <span id="SelectedOuRightTitle"></span>
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_Administration_DmpMachineSetting_Manage))
+                        {
+                            <a id="BatchDeleteButton" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("BatchDelete")
+
+                            </a>
+
+                            <a id="AddUserToOuButton" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("MachineSetting_Create")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+
+                <div class="box-body">
+
+                    <table id="OuMembersTable" class="table table-bordered table-hover table-striped"></table>
+
+                    <div id="OuMembersEmptyInfo" class="text-muted">
+
+                        @L("LookMachinesInDmp")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

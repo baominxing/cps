@@ -1,0 +1,124 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.Maintain.MaintainOrder.MaintainOrderViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Maintain_Order;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/Maintain/MaintainOrder/Index.js" asp-append-version="true"></script>
+}
+
+<style>
+    .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+        height: 31px !important;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+
+<section class="content-header">
+
+    <h1>
+        @L("MaintainOrder")
+    </h1>
+
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i> @L("QueryArea")
+                    </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal no-padding">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 ">
+                                <label class="col-sm-4 control-label">
+                                    <b class="text-primary">@L("WorkOrderNumber")</b>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="input-order-code">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 ">
+                                <label class="col-sm-4 control-label">
+                                    <b class="text-primary">@L("PlanCode")</b>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="input-plan-code">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 ">
+                                <label class="col-sm-4 control-label">
+                                    <b class="text-primary">@L("SelectDevice")</b>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="input-machine-code"></select>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row" style="margin-top: 5px;">
+
+                            <div class="col-xs-12 col-sm-4 ">
+                                <label class="col-sm-4 control-label">
+                                    <b class="text-primary">@L("DocumentStatus")</b>
+                                </label>
+                                <div class="col-sm-8">
+                                    @foreach (var status in Model.ValidStatusList)
+                                    {
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" name="checkboxStatus"
+                                                   id="checkboxStatus-@status.DisplayText"
+                                                   value="@status.Value"
+                                                   @(status.IsSelected ? "checked" : "")>
+                                            @L("MaintainOrder-" + status.DisplayText)
+                                        </label>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button"
+                                            id="btnQuery"
+                                            class="btn btn-primary btn-sm pull-right">
+                                        @L("Research")
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-th"></i> @L("MaintenanceList")
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <table id="table" class="table table-bordered table-hover nowrap" style="width:100% !important"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

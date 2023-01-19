@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<templates>
+  <template key="产品进站收数" description="此模板用于展示包含了集合的一个传输内容模板">
+    <![CDATA[
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dat="http://datacollectionandworkinprocesses.ws.haojue.com/">
+   <soapenv:Header />
+   <soapenv:Body>
+      <dat:productArrivalDataCollection>
+         <productDataRequest>
+            <site>{{site}}</site>
+            <dcGroup>{{dcGroup}}</dcGroup>
+            <user>{{user}}</user>
+            <operation>{{operation}}</operation>
+            <resource>{{resource}}</resource>
+            <!--1 or more repetitions:-->
+             <dataList sxRepeat="item in dataList">
+               <sfc>{{item.sfc}}</sfc>
+               <!--1 or more repetitions:-->
+               <dataList sxRepeat="subItem in item.subDataList">
+                  <name>{{subItem.name}}</name>
+                  <value>{{subItem.value}}</value>
+               </dataList>
+            </dataList>
+         </productDataRequest>
+      </dat:productArrivalDataCollection>
+   </soapenv:Body>
+</soapenv:Envelope>
+    ]]>
+  </template>
+  <template key="checkProcessLot">
+    <![CDATA[
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wor="http://workinprocesses.ws.haojue.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <wor:checkProcessLot>
+         <!--Optional:-->
+         <Request>
+            <site>{{site}}</site>
+            <processLot>{{processLot}}</processLot>
+         </Request>
+      </wor:checkProcessLot>
+   </soapenv:Body>
+</soapenv:Envelope>
+    ]]>
+  </template>
+</templates>

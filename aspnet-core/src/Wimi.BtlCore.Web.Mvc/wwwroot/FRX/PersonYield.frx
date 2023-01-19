@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/20/2009 22:40:42" ReportInfo.Modified="02/24/2021 09:22:38" ReportInfo.CreatorVersion="2019.4.4.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="DataInit" ReferenceName="DataInit" DataType="System.Int32" Enabled="true">
+      <Column Name="UserName" DataType="System.String"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="SolutionName" DataType="System.String"/>
+      <Column Name="ShiftName" DataType="System.String"/>
+      <Column Name="Yield" DataType="System.String"/>
+      <Column Name="AverageRhythm" DataType="System.String"/>
+    </BusinessObjectDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="宋体, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="47.25">
+      <TextObject Name="Text5" Width="727.65" Height="47.25" Text="人员产量" HorzAlign="Center" VertAlign="Center" Font="宋体, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="51.25" Width="718.2" Height="18.9">
+      <TextObject Name="Text4" Left="103.95" Width="122.85" Height="18.9" Border.Lines="All" Text="日期" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Width="103.95" Height="18.9" Border.Lines="All" Text="人员" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text6" Left="226.8" Width="122.85" Height="18.9" Border.Lines="All" Text="班次方案" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text7" Left="349.65" Width="122.85" Height="18.9" Border.Lines="All" Text="班次" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text8" Left="472.5" Width="132.3" Height="18.9" Border.Lines="All" Text="产量" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="604.8" Width="113.4" Height="18.9" Border.Lines="All" Text="平均节拍" Font="宋体, 10pt, style=Bold"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="18.9" DataSource="DataInit">
+      <TextObject Name="Text1" Width="103.95" Height="18.9" Border.Lines="All" Text="[DataInit.UserName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text3" Left="103.95" Width="122.85" Height="18.9" Border.Lines="All" Text="[DataInit.Date]" Font="宋体, 10pt"/>
+      <TextObject Name="Text10" Left="226.8" Width="122.85" Height="18.9" Border.Lines="All" Text="[DataInit.SolutionName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text11" Left="349.65" Width="122.85" Height="18.9" Border.Lines="All" Text="[DataInit.ShiftName]" Font="宋体, 10pt"/>
+      <TextObject Name="Text12" Left="472.5" Width="132.3" Height="18.9" Border.Lines="All" Text="[DataInit.Yield]" Font="宋体, 10pt"/>
+      <TextObject Name="Text13" Left="604.8" Width="113.4" Height="18.9" Border.Lines="All" Text="[DataInit.AverageRhythm]" Font="宋体, 10pt"/>
+      <Sort>
+        <Sort Expression="[DataInit.UserName]"/>
+        <Sort Expression="[DataInit.Date]"/>
+        <Sort Expression="[DataInit.ShiftName]"/>
+      </Sort>
+    </DataBand>
+  </ReportPage>
+</Report>

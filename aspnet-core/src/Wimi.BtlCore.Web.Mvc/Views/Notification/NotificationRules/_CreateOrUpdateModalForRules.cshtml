@@ -1,0 +1,90 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Notifications
+@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@model Wimi.BtlCore.Web.Models.Notification.NotificationRules.NotificationRuleDetailModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Edit") : L("NewlyBuild")))
+
+<div class="modal-body">
+
+    <form name="CreateOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="row">
+
+            @{
+                if (Model.TriggerType == EnumTriggerType.TriggerWithTime)
+                {
+                    <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-12">
+                        <label>@(Model.MessageType == EnumMessageType.ToolReminder ? L("RemainTimePerCount") : L("TimeMinutes"))</label>
+                        <input class="form-control triggerCondition number" min="1" type="number" name="TriggerCondition" required digits="true" maxlength="@BtlCoreConsts.MaxLength"
+                               value="@(Model.IsEditMode ? Model.TriggerCondition : 1)">
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-12">
+                        <label>@L("ChooseSolution")</label>
+                        <select class="form-control shiftSolutionList" type="text" name="ShiftSolutionList" id="ShiftSolutionList" required>
+                            @foreach (var t in Model.ShiftSolutionList)
+                            {
+                                <option value="@t.Value">@t.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-12">
+                        <label class="col-xs-12 col-sm-12">@L("ChooseShift")</label>
+                        <select class="form-control shiftList col-md-12" type="text" name="ShiftList" id="ShiftList" required>
+                            @foreach (var t in Model.ShiftList)
+                            {
+                                <option value="@t.Value">@t.Name</option>
+                            }
+                        </select>
+                    </div>
+                }
+            }
+
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-12">
+                <label>@L("IsEnable")</label>
+                <select class="form-control isEnabled" name="IsEnabled" id="IsEnabled" required>
+                    <option value="true" selected>@L("Yes")</option>
+                    <option value="false">@L("No")</option>
+                </select>
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-12" id="UserList">
+                <label>@L("NotificationOfficer")</label>
+                <select class="form-control userList" name="UserList" required></select>
+            </div>
+
+        </div>
+        <input type="hidden" id="Id" value="@Model.Id" />
+        <input type="hidden" id="NotificationRuleId" value="@Model.NotificationRuleId" />
+        <input type="hidden" id="TriggerCondition" value="@( Model.TriggerCondition)" />
+        <input type="hidden" id="SelectIsEnabled" value="@Model.IsEnabled.ToString().ToLower()" />
+        <input type="hidden" id="NoticeUserIds" value="@(Model.NoticeUserIds)" />
+        <input type="hidden" id="ShiftSolutionId" value="@(Model.ShiftSolutionId)" />
+        <input type="hidden" id="ShiftId" value="@(Model.ShiftId)" />
+        <input type="hidden" id="TriggerType" value="@(Model.TriggerType)" />
+        <input type="hidden" id="CreationTime" value="@Model.CreationTime" />
+        <input type="hidden" id="CreatorUserId" value="@Model.CreatorUserId" />
+        <input type="hidden" id="IsEditMode" value="@Model.IsEditMode.ToString().ToLower()" />
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+
+<script>
+
+    $.validator.addMethod('minStrict', function (value, el, param) {
+        return value > param;
+    }, function (params, element) {
+        return app.localize("EnterValidNumberGreaterThanZero");
+    });
+
+    $.extend($.validator.messages, {
+        required: app.localize("PleaseInputTheField"),
+        number: app.localize("PleaseEnterAPositiveNumber"),
+        digits: app.localize("PleaseEnterIntegersGreaterThanZero")
+    });
+</script>

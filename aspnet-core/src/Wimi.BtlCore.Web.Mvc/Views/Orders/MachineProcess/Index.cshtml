@@ -1,0 +1,87 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@{
+
+    ViewBag.CurrentPageName = PageNames.App.Page.Order_MachineProcess;
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Orders/MachineProcess/Index.js" asp-append-version="true"></script>
+}
+
+<style>
+    .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+        height: 31px !important;
+    }
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+
+<section class="content-header">
+    <h1>
+        @L("MachineProcess")<small></small>
+    </h1>
+</section>
+<section class="content">
+    <div class="col-md-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i> @L("QueryArea")
+                    </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal no-padding">
+                        <div class="col-xs-12 col-sm-4 ">
+                            <label for="inputCode" class="col-sm-4 control-label">
+                                <b class="text-primary">@L("Machines")</b>
+                            </label>
+                            <div class="col-sm-8">
+                                <select id="machineContainer" name="Machine" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 ">
+                            <label class="col-sm-4 control-label">
+                                <b class="text-primary">@L("ProductName")</b>
+                            </label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="productContainer" name="Product"></select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                @if (IsGranted(PermissionNames.Pages_Order_MachineProcess_Manage))
+                                {
+                                    <button type="button"
+                                            class="btn btn-primary btn-sm pull-right" id="btnMachineChange">
+                                        <i class="fa fa-pencil-square-o"></i> @L("MachineProcess")
+                                    </button>
+
+                                }
+                                
+                                <button type="button"
+                                        class="btn btn-primary btn-sm pull-right xs-mh-5" id="btnQuery">
+                                      
+                                    <i class="fa fa-search"></i> @L("Research")
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="box box-solid">
+                <div class="box-body">
+                    <table id="MachineProcessTable" class="table table-bordered table-hover nowrap" style="width: 100% !important"></table>
+                </div>
+            </div>
+    </div>
+</section>

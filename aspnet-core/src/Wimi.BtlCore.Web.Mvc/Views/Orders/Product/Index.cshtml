@@ -1,0 +1,127 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Order_Product;
+}
+@section Styles
+{
+    <link src="~/view-resources/Views/Orders/Product/Index.css" rel="stylesheet" asp-append-version="true" />
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/Orders/Product/Index.js" asp-append-version="true"></script>
+    <script src="~/Scripts/select2.js" asp-append-version="true"></script>
+}
+<style>
+
+    th, td {
+        white-space: nowrap;
+    }
+
+    div.dataTables_wrapper {
+        width: 100%;
+    }
+</style>
+
+<section class="content-header">
+
+    <h1>
+        @L("Product")
+    </h1>
+
+</section>
+
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-lg-3">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-sitemap"></i> @L("ProductGroup")
+
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_Order_Product_Manage))
+                        {
+                            <a id="btnCreateProductGroup" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("NewProductGroup")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+                <div class="box-body">
+
+                    <div id="productGroupTree"></div>
+
+                    <div id="productGroupTreeEmptyInfo" class="text-muted">
+
+                        @L("UndefinedProductGroup")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-9">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-object-group"></i> @L("Product")
+
+                        <span id="SelectedProductGroupRightTitle"></span>
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_Order_Product_Manage))
+                        {
+                            <a id="btnCreateProduct" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("NewProduct")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+
+                <div class="box-body">
+
+                    <table id="table" class="table table-bordered table-striped table-hover"></table>
+
+                    <div id="productEmptyInfo" class="text-muted">
+
+                        @L("ViewTheProductsThatBelongTo")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

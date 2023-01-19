@@ -1,0 +1,14 @@
+﻿@using Wimi.BtlCore;
+@using Wimi.BtlCore.Configuration;
+@model Wimi.BtlCore.Web.Views.Shared.Components.Footer.FooterViewModel
+@{
+    Layout = null;
+}
+
+
+<!-- To the right -->
+
+<div class="pull-right hidden-xs" hidden="@(!Convert.ToBoolean(SettingManager.GetSettingValue(AppSettings.FooterControl.IsShowCopyRight)))">
+    <strong>Copyright &copy; 2017-@DateTime.Today.Year @L("FootTagWimi").</strong> All rights reserved.
+</div>
+version @(AppVersionHelper.Version)

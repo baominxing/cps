@@ -1,0 +1,296 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<AssemblyName>Wimi.BtlCore.Web.Mvc</AssemblyName>
+		<OutputType>Exe</OutputType>
+		<PackageId>Wimi.BtlCore.Web.Mvc</PackageId>
+		<UserSecretsId>Wimi-BtlCore-56C2EF2F-ABD6-4EFC-AAF2-2E81C34E8FB1</UserSecretsId>
+		<RootNamespace>Wimi.BtlCore.Web</RootNamespace>
+		<TargetFramework>net7.0</TargetFramework>
+		<AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+		<PreserveCompilationContext>true</PreserveCompilationContext>
+		<MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
+		<PreserveCompilationReferences>true</PreserveCompilationReferences>
+		<LangVersion>preview</LangVersion>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..</DockerfileContext>
+		<ServerGarbageCollection>false</ServerGarbageCollection>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Remove="App_Data\新文件夹\**" />
+		<Compile Remove="Views\Roles\**" />
+		<Compile Remove="Views\Users\**" />
+		<Content Remove="App_Data\新文件夹\**" />
+		<Content Remove="Views\Roles\**" />
+		<Content Remove="Views\Users\**" />
+		<EmbeddedResource Remove="App_Data\新文件夹\**" />
+		<EmbeddedResource Remove="Views\Roles\**" />
+		<EmbeddedResource Remove="Views\Users\**" />
+		<None Remove="App_Data\新文件夹\**" />
+		<None Remove="Views\Roles\**" />
+		<None Remove="Views\Users\**" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Remove="wwwroot\Scripts\jquery-validation\localization\messages_zh.min.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\DefectiveReasons\Index.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\DefectiveReasons\_CreateOrUpdateModal.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\DefectiveReasons\_CreatePartModal.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\DefectiveReasons\_EditPartModal.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\DefectiveStatistics\Index.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\LoginReport\Index.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\LoginReport\_MachineReportModal.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\LoginReport\_WorkOrderLoginModal.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\LoginReport\_WorkOrderReportModal.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\MachineProcess\Index.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\MachineProcess\_ChangeProductModal.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\MachineReport\Index.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\MachineReport\_FeedbackDefectiveReason.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\Process\Index.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\Process\_CreateOrUpdateModal.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\ProductionPlan\Index.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\ProductionPlan\_CreateOrEditModal.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\Product\Index.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\Product\_CreateOrUpdateProduct.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\Product\_CreateOrUpdateProductGroup.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\StandardTime\Index.js" />
+		<Content Remove="wwwroot\view-resources\Views\Orders\StandardTime\_CreateOrUpdateModal.js" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="wwwroot\FRX\MachineUtilizationRate.frx" />
+		<None Remove="wwwroot\FRX\PersonPerformance.frx" />
+		<None Remove="wwwroot\FRX\PersonYield.frx" />
+		<None Remove="wwwroot\FRX\Plan.frx" />
+		<None Remove="wwwroot\FRX\StateConsumeTime.frx" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="app.config" />
+		<None Include="wwwroot\EasyCron\index.html" />
+		<None Include="wwwroot\EasyCron\static\begger.jpg" />
+		<None Include="wwwroot\EasyCron\static\css\app.d8bcaa93be870d41e427a8fef66b8b24.css" />
+		<None Include="wwwroot\EasyCron\static\css\app.d8bcaa93be870d41e427a8fef66b8b24.css.map" />
+		<None Include="wwwroot\EasyCron\static\fonts\ionicons.99ac330.woff" />
+		<None Include="wwwroot\EasyCron\static\fonts\ionicons.d535a25.ttf" />
+		<None Include="wwwroot\EasyCron\static\img\ionicons.a2c4a26.svg" />
+		<None Include="wwwroot\EasyCron\static\js\app.1385fe26ae63a0f493b5.js" />
+		<None Include="wwwroot\EasyCron\static\js\app.1385fe26ae63a0f493b5.js.map" />
+		<None Include="wwwroot\EasyCron\static\js\manifest.3c2f980f514a3f826480.js" />
+		<None Include="wwwroot\EasyCron\static\js\manifest.3c2f980f514a3f826480.js.map" />
+		<None Include="wwwroot\EasyCron\static\js\vendor.270ac5f1557d380a1c3c.js" />
+		<None Include="wwwroot\EasyCron\static\js\vendor.270ac5f1557d380a1c3c.js.map" />
+		<None Include="wwwroot\view-resources\Views\CraftMaintain\FlexibleCraftPath\Index.js" />
+		<None Include="wwwroot\view-resources\Views\CraftMaintain\FlexibleCraftPath\_CraftDrawerModal.js" />
+		<None Include="wwwroot\view-resources\Views\CraftMaintain\FlexibleCraftPath\_CraftPathMap.js" />
+		<None Include="wwwroot\view-resources\Views\CraftMaintain\FlexibleCraftPath\_CreateProcesseModal.js" />
+		<None Include="wwwroot\view-resources\Views\CraftMaintain\FmsCutter\CreateOrUpdateModal.js" />
+		<None Include="wwwroot\view-resources\Views\CraftMaintain\FmsCutter\Index.js" />
+		<None Include="wwwroot\view-resources\Views\CraftMaintain\FmsCutter\_CreateExtendFieldModal.js" />
+		<None Include="wwwroot\view-resources\Views\CraftMaintain\TongsMaintain\CreateOrUpdateModal.js" />
+		<None Include="wwwroot\view-resources\Views\CraftMaintain\TongsMaintain\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\Craft\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\Craft\_CreateOrUpdateCraft.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\DefectiveReasons\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\DefectiveReasons\_CreateOrUpdateModal.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\DefectiveReasons\_CreatePartModal.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\DefectiveReasons\_EditPartModal.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\DefectiveStatistics\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\LoginReport\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\LoginReport\_MachineReportModal.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\LoginReport\_WorkOrderLoginModal.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\LoginReport\_WorkOrderReportModal.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\MachineProcess\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\MachineProcess\_ChangeProductModal.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\MachineReport\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\MachineReport\_FeedbackDefectiveReason.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\Process\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\Process\_CreateOrUpdateModal.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\ProductionPlan\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\ProductionPlan\_CreateOrEditModal.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\Product\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\Product\_CreateOrUpdateProduct.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\Product\_CreateOrUpdateProductGroup.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\StandardTime\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Orders\StandardTime\_CreateOrUpdateModal.js" />
+		<None Include="wwwroot\view-resources\Views\Traceability\Query\Index.js" />
+		<None Include="wwwroot\view-resources\Views\Traceability\NgParts\NgParts.js" />
+		<None Include="wwwroot\view-resources\Views\Traceability\Setting\Settings.js" />
+		<None Include="wwwroot\view-resources\Views\Traceability\NgParts\_CollectionDefectsModal.js" />
+		<None Include="wwwroot\view-resources\Views\Traceability\Query\_ExtensionData.js" />
+		<None Include="wwwroot\view-resources\Views\Traceability\Query\_ProcessParameters.js" />
+		<None Include="wwwroot\view-resources\Views\Traceability\NgParts\_ShowDefectsModal.js" />
+		<None Update="log4net.config">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\**\*;Views\**\*">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Wimi.BtlCore.Web.Core\Wimi.BtlCore.Web.Core.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Abp" Version="8.0.0" />
+		<PackageReference Include="Abp.HangFire.AspNetCore" Version="8.0.0" />
+		<PackageReference Include="Abp.Web" Version="8.0.0" />
+		<PackageReference Include="AgileConfig.Client" Version="1.6.11" />
+		<PackageReference Include="AutoMapper" Version="12.0.0" />
+		<PackageReference Include="BundlerMinifier.Core" Version="3.2.449" />
+		<PackageReference Include="FastReport.Compat" Version="2022.2.0" />
+		<PackageReference Include="FastReport.Web" Version="2020.3.4" />
+		<PackageReference Include="Hangfire.AspNetCore" Version="1.8.0-beta4" />
+		<PackageReference Include="Hangfire.Core" Version="1.8.0-beta4" />
+		<PackageReference Include="Hangfire.SqlServer" Version="1.8.0-beta4" />
+		<PackageReference Include="ImageProcessor.Core" Version="1.1.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.1" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.4.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.4.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.16.1" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.1" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils" Version="7.0.1" />
+		<PackageReference Include="PaulMiami.AspNetCore.Mvc.Recaptcha" Version="1.2.2" />
+		<PackageReference Include="Abp.HangFire" Version="8.0.0" />
+		<PackageReference Include="Abp.RedisCache" Version="8.0.0" />
+		<PackageReference Include="Abp.Castle.Log4Net" Version="8.0.0" />
+		<PackageReference Include="SoapCore" Version="1.1.0.36" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="App_Data\Logs\" />
+		<Folder Include="Views\Archives\ArchiveEntry\" />
+		<Folder Include="Views\BasicData\AlarmInfo\" />
+		<Folder Include="Views\BasicData\StateInfo\" />
+		<Folder Include="Views\BasicData\GatherParamsSetting\" />
+		<Folder Include="Views\Cutter\CutterLoadAndUnloadRecord\" />
+		<Folder Include="Views\Cutter\CutterType\" />
+		<Folder Include="Views\Dashboard\" />
+		<Folder Include="Views\Visual\VisualNotice\" />
+		<Folder Include="wwwroot\Language\" />
+		<Folder Include="wwwroot\view-resources\Views\Archives\ArchiveEntry\" />
+		<Folder Include="wwwroot\view-resources\Views\BasicData\GatherParamsSetting\" />
+		<Folder Include="wwwroot\view-resources\Views\BasicData\StateInfo\" />
+		<Folder Include="wwwroot\view-resources\Views\BasicData\AlarmInfo\" />
+		<Folder Include="wwwroot\view-resources\Views\BasicData\ImportData\" />
+		<Folder Include="wwwroot\view-resources\Views\DevicesMonitoring\MachineStates\" />
+		<Folder Include="wwwroot\view-resources\Views\Reasons\FeedbackCalendar\" />
+		<Folder Include="wwwroot\view-resources\Views\_Bundles\" />
+		<Folder Include="wwwroot\view-resources\Views\Dashboard\" />
+	</ItemGroup>
+	<ItemGroup>
+		<DotNetCliToolReference Include="BundlerMinifier.Core" Version="2.9.406" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="wwwroot\Scripts\jquery-validation\localization\messages_zh.min.js" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Update="wwwroot\Content\Images\Icos\favicon.ico">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\Download\Template\Users.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\FRX\MachineUtilizationRate.frx">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\FRX\PersonPerformance.frx">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\FRX\PersonYield.frx">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\FRX\Plan.frx">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\FRX\StateConsumeTime.frx">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="wwwroot\view-resources\Views\Orders\DefectiveReasons\Index.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\DefectiveReasons\_CreateOrUpdateModal.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\DefectiveReasons\_CreatePartModal.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\DefectiveReasons\_EditPartModal.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\DefectiveStatistics\Index.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\LoginReport\Index.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\LoginReport\_MachineReportModal.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\LoginReport\_WorkOrderLoginModal.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\LoginReport\_WorkOrderReportModal.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\MachineProcess\Index.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\MachineProcess\_ChangeProductModal.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\MachineReport\Index.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\MachineReport\_FeedbackDefectiveReason.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\Process\Index.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\Process\_CreateOrUpdateModal.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\ProductionPlan\Index.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\ProductionPlan\_CreateOrEditModal.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\Product\Index.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\Product\_CreateOrUpdateProduct.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\Product\_CreateOrUpdateProductGroup.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\StandardTime\Index.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+		<None Update="wwwroot\view-resources\Views\Orders\StandardTime\_CreateOrUpdateModal.js">
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</None>
+	</ItemGroup>
+	<Target Name="PreBuild" AfterTargets="PreBuildEvent">
+		<Exec Command="dotnet bundle clean" />
+		<Exec Command="dotnet bundle" />
+	</Target>
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties bundleconfig_1json__JsonSchema="" appsettings_1json__JsonSchema="" />
+		</VisualStudio>
+	</ProjectExtensions>
+</Project>

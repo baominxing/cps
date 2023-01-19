@@ -1,0 +1,46 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@model Wimi.BtlCore.Web.Models.Notification.NotificationRules.NotificationRuleModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Edit") : L("NewlyBuild")))
+
+<div class="modal-body">
+
+    <form name="CreateOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="row">
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-12">
+                <label>@L("RuleName")</label>
+                <input class="form-control name" type="text" name="Name" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength"
+                       value="@(Model.IsEditMode ? Model.Name : string.Empty)">
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-12">
+                <label>@L("MessageType")</label>
+                <select class="form-control messageType" type="text" name="MessageType" id="MessageType" required>
+
+                    @foreach (var t in Model.MessageTypes)
+                    {
+                        <option value="@t.Value">@t.Name</option>
+                    }
+
+                </select>
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-12 deviceGroupTreeContainer">
+                <label>@L("DeviceGroups")</label>
+                @*@Html.Partial("~/Views/Common/_GrantedDeviceGroupTree.cshtml", Model)*@
+                <div id="DeviceGroupTree"></div>
+            </div>
+
+        </div>
+        <input type="hidden" id="Id" value="@Model.Id" />
+        <input type="hidden" id="DeviceGroupIds" value="@Model.DeviceGroupIds" />
+        <input type="hidden" id="MessageType" value="@Model.MessageType" />
+        <input type="hidden" id="CreationTime" value="@Model.CreationTime" />
+        <input type="hidden" id="CreatorUserId" value="@Model.CreatorUserId" />
+        <input type="hidden" id="IsEditMode" value="@Model.IsEditMode.ToString().ToLower()" />
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

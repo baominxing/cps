@@ -1,0 +1,101 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.BasicData.MachineSetting.MachineModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("SetMachineShift")))
+
+<div class="modal-body">
+    <div class="row">
+        <h4 class="col-md-3">@L("ShiftSetting")</h4>
+        <div class="pull-right box-tools">
+            <a id="AddShiftSolution" class="btn btn-circle btn-default">
+                <i class="fa fa-plus"></i> @L("NewShiftPlan")
+            </a>
+        </div>
+    </div>
+
+    <form name="MachineShiftSolutionForm" role="form" novalidate class="form-validation">
+        <input class="form-control machineId" type="hidden" id="MachineId" value="@Model.Id" required>
+        <div class="no-padding">
+            <table class="table table-condensed" id="MachineShiftSolutionTable">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 30px">@L("Action")</th>
+                        <th class="text-center" style="width: 80px">@L("ShiftName")</th>
+                        <th class="text-center" style="width: 80px">@L("StartTime")</th>
+                        <th class="text-center" style="width: 80px">@L("EndTime")</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    @if (!Model.MachineShiftSolution.Any())
+                    {
+                        // 新增班次
+                        <tr class="tr">
+                            <td>
+                                <input class="form-control input id" type="hidden" name="MachineShiftSolution[0].Id" value="0" required>
+                                <input class="form-control input shiftSolutionId" type="hidden" value="0" required>
+                                <button type="button" class="text-center btn btn-default btn-xs btn-delete" title="@L("Delete")">
+                                    <i class="fa fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                            <td>
+                                <div class="input-group xs-ph-5 col-xs-12">
+                                    <select class="form-control name" name="MachineShiftSolution[0].Name" required>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group bootstrap-timepicker timepicker">
+                                    <input type="text" class="form-control input-small startTime" name="MachineShiftSolution[0].StartTime" data-type="calendar" readonly required>
+                                    <span class="input-group-addon"><i class="fa fa-calendar st"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group bootstrap-timepicker timepicker">
+                                    <input type="text" class="form-control input-small endTime" name="MachineShiftSolution[0].EndTime" data-type="calendar" readonly required>
+                                    <span class="input-group-addon"><i class="fa fa-calendar et"></i></span>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        // 编辑班次
+                        for (var i = 0; i < Model.MachineShiftSolution.Count; i++)
+                        {
+                            <tr class="tr">
+                                <td>
+                                    <input class="form-control input id" type="hidden" name="MachineShiftSolution[@i].Id" value="@Model.MachineShiftSolution[i].Id" required>
+                                    <input class="form-control input shiftSolutionId" type="hidden" value="@Model.MachineShiftSolution[i].ShiftSolutionId" required>
+                                    <button type="button" class="text-center btn btn-default btn-xs btn-delete" title="@L("Delete")">
+                                        <i class="fa fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <div class="input-group xs-ph-5 col-xs-12">
+                                        <select class="form-control name" name="MachineShiftSolution[@i].Name" required @(Model.MachineShiftSolution[i].IsInUse ? "disabled" : "")></select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group bootstrap-timepicker timepicker">
+                                        <input type="text" class="form-control input-small startTime" name="MachineShiftSolution[@i].StartTime" data-type="calendar" value="@Model.MachineShiftSolution[i].StartTime.ToString("yyyy-MM-dd")" readonly required>
+                                        <span class="input-group-addon"><i class="fa fa-calendar st"></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group bootstrap-timepicker timepicker">
+                                        <input type="text" class="form-control input-small endTime" name="MachineShiftSolution[@i].EndTime" data-type="calendar" value="@Model.MachineShiftSolution[i].EndTime.ToString("yyyy-MM-dd")" readonly required>
+                                        <span class="input-group-addon"><i class="fa fa-calendar et"></i></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </form>
+
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

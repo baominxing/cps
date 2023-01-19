@@ -1,0 +1,30 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@using Wimi.BtlCore.Authorization
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Visual_Notice;
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Visual/VisualNotice/VisualNotice.js" asp-append-version="true"></script>
+}
+
+<section class="content-header">
+    <h1>
+        @L("VisualNotice")<small></small>
+    </h1>
+    <div class="header-tools">
+        @if (IsGranted(PermissionNames.Pages_VisualNotice_Manage))
+        {
+            <button class="btn btn-primary pull-right" id="CreateNewNotice"><i class="fa fa-plus" aria-hidden="true"></i>@L("NewAnnouncement")</button>
+        }
+    </div>
+</section>
+
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-body">
+            <table id="noticesInfoTables" class="table table-bordered table-hover" style="width: 100%"></table>
+        </div>
+    </div>
+</section>

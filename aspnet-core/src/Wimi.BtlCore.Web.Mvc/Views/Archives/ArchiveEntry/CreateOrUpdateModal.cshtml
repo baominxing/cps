@@ -1,0 +1,50 @@
+﻿@using Wimi.BtlCore.Archives;
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Archives.ArchiveEntryViewModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("Create")))
+
+<div class="modal-body">
+    <form name="CreateOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="row">
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("ArchiveEntry_TargetTable")</label>
+                <input class="form-control TargetTable" type="text" name="TargetTable" required maxlength="100"
+                       value="@(Model.Dto.TargetTable)">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("ArchiveEntry_ArchivedTable")</label>
+                <input class="form-control ArchivedTable" type="text" name="ArchivedTable" required maxlength="100"
+                       value="@(Model.Dto.ArchivedTable)">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("ArchiveEntry_ArchiveColumn")</label>
+                <input class="form-control ArchiveColumn" type="text" name="ArchiveColumn" required maxlength="100"
+                       value="@(Model.Dto.ArchiveColumn)">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("ArchiveEntry_ArchiveValue")</label>
+                <input class="form-control ArchiveValue" type="text" name="ArchiveValue" required maxlength="100"
+                       value="@(Model.Dto.ArchiveValue)">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("ArchiveEntry_ArchiveCount")</label>
+                <input class="form-control ArchiveCount" type="text" name="ArchiveCount" required maxlength="100"
+                       value="@(Model.Dto.ArchiveCount)">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("ArchiveEntry_ArchiveTotalCount")</label>
+                <input class="form-control ArchiveTotalCount" type="text" name="ArchiveTotalCount" required maxlength="100"
+                       value="@(Model.Dto.ArchiveTotalCount)">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("ArchiveEntry_ArchivedMessage")</label>
+                <input class="form-control ArchivedMessage" type="text" name="ArchivedMessage" required maxlength="100"
+                       value="@(Model.Dto.ArchivedMessage)">
+            </div>
+
+            <input type="hidden" id="Id" name="Id" value="@(Model.IsEditMode ? Model.Dto.Id : 0)" />
+        </div>
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

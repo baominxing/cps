@@ -1,0 +1,231 @@
+/******************* BASIC STYLING **********************/
+.scroll_tabs_container {
+    height: 40px;
+    left: 0px;
+    margin-bottom: 10px;
+    position: relative;
+    right: 0px;
+    text-align: left;
+    top: 0px;
+}
+
+ul.scroll_tabs_container { list-style: none; }
+
+.scroll_tabs_container div.scroll_tab_inner { height: 40px; }
+
+.scroll_tabs_container div.scroll_tab_inner span, .scroll_tabs_container div.scroll_tab_inner li {
+    background-color: #CCCCCC;
+    color: #333333;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.scroll_tabs_container div.scroll_tab_inner li {
+    display: -moz-inline-stack;
+    display: inline-block;
+    *display: inline;
+    list-style-type: none;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_left_finisher {
+    padding: 0px;
+    width: 0px;
+}
+
+.scroll_tabs_container div.scroll_tab_inner span.scroll_tab_right_finisher {
+    padding: 0px;
+    width: 0px;
+}
+
+.scroll_tabs_container .scroll_tab_left_button {
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    background-color: #CCCCCC;
+    height: 40px;
+    user-select: none;
+}
+
+.scroll_tabs_container .scroll_tab_left_button::before {
+    content: "\25C0";
+    line-height: 40px;
+    padding-left: 5px;
+}
+
+.scroll_tabs_container .scroll_tab_left_button_over { background-color: #999999; }
+
+.scroll_tabs_container .scroll_tab_left_button_disabled {
+    background-color: #CCCCCC;
+    color: #AAAAAA;
+}
+
+.scroll_tabs_container .scroll_tab_right_button {
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    background-color: #CCCCCC;
+    height: 40px;
+    user-select: none;
+}
+
+.scroll_tabs_container .scroll_tab_right_button::before {
+    content: "\25B6";
+    line-height: 40px;
+    padding-left: 5px;
+}
+
+.scroll_tabs_container .scroll_tab_right_button_over { background-color: #999999; }
+
+.scroll_tabs_container .scroll_tab_right_button_disabled {
+    background-color: #CCCCCC;
+    color: #AAAAAA;
+}
+
+/****************** LIGHT THEME **************************/
+
+.scroll_tabs_theme_light { height: 36px; }
+
+.scroll_tabs_theme_light div.scroll_tab_inner { height: 36px; }
+
+.scroll_tabs_theme_light div.scroll_tab_inner span, .scroll_tabs_theme_light div.scroll_tab_inner li {
+    background-color: #F6F6F6;
+    border: none;
+    color: #333333;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 36px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_first, .scroll_tabs_theme_light div.scroll_tab_inner li.scroll_tab_first { border-left: 0px; }
+
+.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_left_finisher {
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    background-color: #CCCCCC;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 0px;
+    width: 10px;
+}
+
+.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_right_finisher {
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    background-color: #CCCCCC;
+    border-bottom-right-radius: 5px;
+    border-left: 0px;
+    border-right: 1px solid #999999;
+    border-top-right-radius: 5px;
+    padding: 0px;
+    width: 10px;
+}
+
+.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_over, .scroll_tabs_theme_light div.scroll_tab_inner li.scroll_tab_over {
+    background-color: #1D89CF;
+    color: white;
+}
+
+/*.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_first_over {
+  background-color: #999999;
+}
+
+.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_left_finisher_over {
+  background-color: #999999;
+}
+
+.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_right_finisher_over {
+  background-color: #999999;
+}*/
+
+/*.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_left_finisher_selected {
+  background-color: #AAAAAA;
+}
+
+.scroll_tabs_theme_light div.scroll_tab_inner span.scroll_tab_right_finisher_selected {
+  background-color: #AAAAAA;
+}*/
+
+
+.scroll_tabs_theme_light .scroll_tab_left_button {
+    -khtml-user-select: none;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    background-color: #CCCCCC;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    height: 36px;
+    user-select: none;
+}
+
+.scroll_tabs_theme_light .scroll_tab_left_button::before {
+    content: "\25C0";
+    line-height: 32px;
+    padding-left: 5px;
+}
+
+.scroll_tabs_theme_light .scroll_tab_left_button_over {
+    background-color: #1D89CF;
+    color: white;
+}
+
+.scroll_tabs_theme_light .scroll_tab_left_button_disabled {
+    background-color: #CCCCCC;
+    color: #AAAAAA;
+}
+
+.scroll_tabs_theme_light .scroll_tab_right_button {
+    -khtml-user-select: none;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    background-color: #CCCCCC;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 36px;
+    user-select: none;
+}
+
+.scroll_tabs_theme_light .scroll_tab_right_button::before {
+    content: "\25B6";
+    line-height: 32px;
+    padding-left: 5px;
+}
+
+.scroll_tabs_theme_light .scroll_tab_right_button_over {
+    background-color: #1D89CF;
+    color: white;
+}
+
+.scroll_tabs_theme_light .scroll_tab_right_button_disabled {
+    background-color: #CCCCCC;
+    color: #AAAAAA;
+}
+
+.scroll_tabs_theme_light div.scroll_tab_inner span.tab_selected, .scroll_tabs_theme_light div.scroll_tab_inner li.tab_selected {
+    background-color: #1D89CF;
+    color: white;
+}

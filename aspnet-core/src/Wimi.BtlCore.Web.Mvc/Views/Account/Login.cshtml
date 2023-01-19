@@ -1,0 +1,184 @@
+﻿@using Abp.Extensions
+@using Abp.MultiTenancy
+@model Wimi.BtlCore.Web.Models.Account.LoginFormViewModel
+
+<script src="~/view-resources/Views/Account/Login.js" asp-append-version="true"></script>
+
+<style>
+    .left  
+    {
+        display: flex;
+        float:left;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 64%;
+        height: 100%;
+        position: relative;
+    }
+
+    .right
+    {
+        display: flex;
+        float:left;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 36%;
+        height: 100%;
+    }
+
+    .bwi
+    {
+        height:48px;
+    }
+
+    .mt5
+    {
+        margin-top:5%;
+    }
+
+    .bspan
+    {
+        font-size:large;
+    }
+
+    .lform
+    {
+        margin-top:20%;
+        width: 100%;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+</style>
+
+
+@if (!Model.SuccessMessage.IsNullOrEmpty())
+{
+    <div class="alert alert-success">
+
+        <button class="close" data-close="alert"></button>
+
+        <span>
+            @Model.SuccessMessage
+        </span>
+    </div>
+}
+<div style="height:100%;width:100%;">
+
+    <div class="left">
+        <img src="~/Content/Images/login.png" style="height:100%;width:100%;object-fit:fill;">
+    </div>
+
+    <div class="right">
+     
+        <div class="login-box-body" style="width:100%;height:100%">
+
+            <div class="login-logo"  style="margin-top:15%;">
+                <img src="~/Content/Images/login-head.png">
+            </div>
+
+            <form class="login-form lform" action="@Url.Action("Login")?returnUrl=@Model.ReturnUrl" method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div class="alert alert-danger" style="display: none;">
+
+                    <button class="close" data-close="alert"></button>
+
+                    <span>
+                        <i class="fa fa-warning"></i> @L("PleaseEnterLoginInformation")
+                    </span>
+                </div>
+
+                <input type="hidden" name="returnUrlHash" />
+
+                @if (Model.IsMultiTenancyEnabled)
+                {
+                    if (Model.TenancyName.IsNullOrEmpty())
+                    {
+                        <div class="form-group">
+
+                            <input class="form-control" type="text" placeholder="@L("TenancyName")" name="tenancyName" maxlength="@AbpTenantBase.MaxTenancyNameLength" />
+
+                        </div>
+                    }
+                    else
+                    {
+                        <input type="hidden" name="tenancyName" value="@Model.TenancyName" />
+                    }
+                }
+
+                <div class="form-group has-feedback mt5">
+
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <input class="form-control bwi" type="text" autocomplete="off" placeholder="@L("UserNameOrEmail")" name="usernameOrEmailAddress" value="@(Model.UserNameOrEmailAddress ?? string.Empty)" required />
+
+                    <span class="fa fa-user form-control-feedback bspan" style="line-height:48px;"></span>
+
+                </div>
+
+                <div class="form-group has-feedback mt5">
+
+                    <input class="form-control bwi" type="password" autocomplete="off" placeholder="@L("Password")" name="password" />
+
+                    <span class="fa fa-lock form-control-feedback bspan"  style="line-height:48px;"></span>
+                </div>
+
+                <div class="form-group has-feedback mt5">
+
+
+                    @if (Model.LanguageViewModel.AllLanguages.Count > 1)
+                    {
+                        <div class="language-switch-area">
+
+                            @foreach (var languageInfo in Model.LanguageViewModel.AllLanguages)
+                            {
+                                <a href="~/AbpLocalization/ChangeCulture?cultureName=@(languageInfo.Name)&returnUrl=@Context.Request.Path">
+
+                                    <span class="language-icon @(languageInfo == Model.LanguageViewModel.CurrentLanguage ? "language-icon-current" : string.Empty)" title="@languageInfo.DisplayName"><i class="@languageInfo.Icon"></i></span>
+                                </a>
+                            }
+                        </div>
+                    }
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xs-4">
+
+                        <div class="rememberme checkbox mt5">
+
+                            <label>
+
+                                <input type="checkbox" name="rememberMe" value="true"> @L("RememberMe")
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <!-- /.col -->
+
+                    <div class="col-xs-8">
+
+                        <button type="submit" class="btn btn-primary btn-block btn-flat btn-lg uppercase">@L("LogIn")</button>
+
+                    </div>
+
+                    <!-- /.col -->
+
+                </div>
+
+            </form>
+
+            <br />
+        </div>
+
+    </div>
+
+
+
+</div>

@@ -1,0 +1,110 @@
+﻿@model Wimi.BtlCore.Web.Models.CraftMaintain.CraftDrawerModel
+@Html.HiddenFor(m => m.ProductId)
+@Html.HiddenFor(m => m.CraftId)
+
+<style>
+    #example-basic .content {
+        overflow-y: auto !important;
+    }
+
+    #example-basic .nav-tabs-custom > .nav-tabs > li > a {
+        overflow: hidden;
+    }
+</style>
+
+<div class="drawer-contents">
+    <div class="drawer-heading">
+        <h3 class="drawer-title">填写</h3>
+    </div>
+    <div class="drawer-body">
+        <div class="col-md-12">
+            <div id="example-basic">
+                <h3>工艺信息</h3>
+                <section>
+                    <form name="craftCreateForm" role="form" novalidate class="form-validation">
+                        <div class="row">
+                            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                                <label>工艺名称</label>
+                                <input type="hidden" name="CraftId" id="CraftId" />
+                                <input class="form-control" type="text" name="CraftName" id="CraftName" checkSpace="true" required maxlength="100"
+                                       value="">
+                            </div>
+                            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                                <label>版本号</label>
+                                <input class="form-control" type="text" name="CraftVersion" checkSpace="true" id="CraftVersion" required maxlength="100"
+                                       value="">
+                            </div>
+                            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-12">
+                                <div class="box box-solid" style=" padding: 10px;">
+                                    <div class="box-header">
+                                        <h3 class="box-title">工序列表</h3>
+                                        <div class="pull-right  box-tools">
+                                            <button class="btn btn-circle btn-default" id="createCraftProcess"><i class="fa fa-plus"></i> 新增工序</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body table-responsive no-padding">
+                                        <table class="table table-bordered table-striped dataTable no-footer" id="CraftProcessTable"></table>
+                                        <div id="hintSelectProcesse" class="alert alert-warning alert-dismissible" style="display:none">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <h4><i class="icon fa fa-warning"></i> 提示</h4>
+                                            还没有工序
+                                        </div>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                            </div>
+                            <input type="hidden" id="Id" name="Id" value=" " />
+                        </div>
+                    </form>
+                </section>
+                <h3>刀具信息</h3>
+                <section>
+                    <div class="row">
+                        <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-12">
+                            <div class="nav-tabs-custom" id="step2_CreateCraftCutter">
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="create-cutter-template" type="text/x-handlebars-template">
+    <ul class="nav nav-tabs">
+        {{#each this}}
+        <li style="width:120px;"><a href="#{{procedureNumber}}-{{craftProcesseId}}" data-toggle="tab">{{craftProcesseName}}/{{procedureNumber}}</a></li>
+        {{/each}}
+    </ul>
+    <div class="tab-content">
+        {{#each this}}
+        <div class="tab-pane" id="{{procedureNumber}}-{{craftProcesseId}}">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">{{craftProcesseName}}/{{procedureNumber}}/刀具列表</h3>
+                    <div class="box-tools">
+                        <button class="btn btn-circle btn-default btn-create"><i class="fa fa-plus"></i> 新增刀具</button>
+                        <input type="hidden" class="CraftProcesseId" value="{{craftProcesseId}}" />
+                        <input type="hidden" class="ProcedureNumber" value="{{procedureNumber}}" />
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-bordered table-striped dataTable no-footer">
+                        <thead><tr role="row"><th style="width:50px">操作</th><th>刀具编号</th><th>刀具类型</th></tr></thead>
+                        <tbody>
+                            {{#each cutterDetails}}
+                            <tr role="row"><td><input type="hidden" value="{{id}}" /><button type="button" class="btn btn-default btn-delete-cutter"><i class="fa fa-trash"></i></button></td><td>{{cutterNo}}</td><td>{{type}}</td></tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</script>

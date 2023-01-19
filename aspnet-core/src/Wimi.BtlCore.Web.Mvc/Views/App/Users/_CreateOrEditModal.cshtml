@@ -1,0 +1,243 @@
+﻿@using Abp.Authorization.Users
+@using Abp.Extensions
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Users.CreateOrEditUserModalViewModel
+
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("EditUser") + ": " + Model.User.UserName : L("CreateNewUser")))
+
+
+<div class="modal-body">
+
+
+    <div class="nav-tabs-custom">
+
+        <ul class="nav nav-tabs">
+
+            <li class="active">
+
+                <a href="#UserInformationsTab" data-toggle="tab" aria-expanded="true">
+
+                    @L("UserInformations")
+                </a>
+
+            </li>
+
+            <li class="">
+
+                <a href="#RolesTab" data-toggle="tab" aria-expanded="false">
+
+                    @L("Roles") <b class="badge badge-primary">
+                        <span id="assigned-role-count">@Model.AssignedRoleCount</span>
+                    </b>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+        <div class="tab-content">
+
+            <div class="tab-pane active" id="UserInformationsTab">
+
+
+                <form name="UserInformationsForm" role="form" novalidate class="form-validation">
+
+
+                    @if (Model.IsEditMode)
+                    {
+                        <input type="hidden" name="Id" value="@Model.User.Id" />
+                    }
+
+
+                    <div class="row">
+
+                        <div class="col-sm-4 text-center">
+
+                            @if (Model.ProfilePictureId.HasValue)
+                            {
+                                <img src="@Url.Action("GetProfilePictureById", "Profile", new { area = string.Empty })?id=@(Model.ProfilePictureId.Value)" width="128" height="128" class="img-thumbnail img-rounded user-edit-dialog-profile-image" />
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/Content/Images/SampleProfilePics/default-profile.png")" width="128" height="128" class="img-thumbnail img-rounded user-edit-dialog-profile-image" />
+                            }
+                        </div>
+
+                        <div class="col-sm-8">
+
+                            @*<div class="form-group form-md-line-input form-md-floating-label no-hint">
+
+                    <label>@L("Surname")</label>
+
+                    <input type="text" name="Surname" class="form-control@(Model.User.Surname.IsNullOrEmpty() ? string.Empty : " edited")" value="@Model.User.Surname" required maxlength="@Wimi.BtlCore.Authorization.Users.User.MaxSurnameLength">
+
+                </div>*@
+
+                            <div class="form-group form-md-line-input form-md-floating-label no-hint">
+
+                                <label>@L("Name")</label>
+
+                                <input class="form-control@(Model.User.Name.IsNullOrEmpty() ? string.Empty : " edited")" value="@Model.User.Name" type="text" name="Name" checkSpace="true" required maxlength="@Wimi.BtlCore.Authorization.Users.User.MaxNameLength">
+
+                            </div>
+
+                            <div class="form-group form-md-line-input form-md-floating-label">
+
+                                <label>@L("UserName")</label>
+
+                                <input type="text" @Html.Raw(!Model.CanChangeUserName ? "disabled=\"disabled\"" : string.Empty) name="UserName" checkSpace="true" class="form-control@(Model.User.EmailAddress.IsNullOrEmpty() ? string.Empty : " edited")" value="@Model.User.UserName" required maxlength="@Wimi.BtlCore.Authorization.Users.User.MaxNameLength">
+
+                                @if (!Model.CanChangeUserName)
+                                {
+                                    <span class="help-block">@L("CanNotChangeAdminUserName")</span>
+                                }
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    @*<div class="form-group form-md-line-input form-md-floating-label no-hint">
+
+            <label>@L("EmailAddress")</label>
+
+            <input type="email" name="EmailAddress" class="form-control@(Model.User.EmailAddress.IsNullOrEmpty() ? string.Empty : " edited")" value="@Model.User.EmailAddress" required maxlength="@AbpUserBase.MaxEmailAddressLength">
+
+        </div>*@
+
+
+
+
+                    <div class="form-group form-md-line-input form-md-floating-label no-hint">
+
+                        <label>@L("WeChatId")</label>
+                        <input type="text" name="WeChatId" class="form-control@(Model.User.WeChatId.IsNullOrEmpty() ? string.Empty : " Edited")" value="@Model.User.WeChatId" maxlength="@Wimi.BtlCore.Authorization.Users.User.MaxWeChatIdLength">
+
+                    </div>
+
+                    @*<div class="checkbox">
+
+            <label for="EditUser_SetRandomPassword">
+
+                <input id="EditUser_SetRandomPassword" class="md-check" type="checkbox" name="SetRandomPassword" value="true" @Html.Raw(Model.IsEditMode ? string.Empty : "checked=\"checked\"") />
+
+                <span class="inc"></span>
+                <span class="check"></span>
+                <span class="box"></span>
+                @L("SetRandomPassword")
+            </label>
+
+        </div>*@
+
+                    @if (!Model.IsEditMode)
+                    {
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint" id="PasswordModel">
+
+                            <label>@L("Password")</label>
+
+                            <input id="EditUser_Password" type="password" name="Password" class="form-control" maxlength="@Wimi.BtlCore.Authorization.Users.User.MaxPlainPasswordLength" minlength="@Wimi.BtlCore.Authorization.Users.User.MinPlainPasswordLength">
+
+                        </div>
+
+
+                        <div class="form-group form-md-line-input form-md-floating-label no-hint">
+
+                            <label>@L("PasswordRepeat")</label>
+
+                            <input type="password" name="PasswordRepeat" class="form-control" maxlength="@Wimi.BtlCore.Authorization.Users.User.MaxPlainPasswordLength" minlength="@Wimi.BtlCore.Authorization.Users.User.MinPlainPasswordLength">
+
+                        </div>
+                    }
+
+
+                    <div class="md-checkbox-list">
+
+                        <div class="checkbox">
+
+                            <label for="EditUser_ShouldChangePasswordOnNextLogin">
+
+                                <input id="EditUser_ShouldChangePasswordOnNextLogin" class="md-check" type="checkbox" name="ShouldChangePasswordOnNextLogin" value="true" @Html.Raw(Model.User.ShouldChangePasswordOnNextLogin ? "checked=\"checked\"" : string.Empty)>
+
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span>
+                                @L("ShouldChangePasswordOnNextLogin")
+                            </label>
+
+                        </div>
+
+                        @*<div class="checkbox">
+
+                <label for="EditUser_SendActivationEmail">
+
+                    <input id="EditUser_SendActivationEmail" class="md-check" type="checkbox" name="SendActivationEmail" value="true" @Html.Raw(Model.IsEditMode ? string.Empty : "checked=\"checked\"")>
+
+                    <span class="inc"></span>
+                    <span class="check"></span>
+                    <span class="box"></span>
+                    @L("SendActivationEmail")
+                </label>
+
+            </div>*@
+
+                        <div class="checkbox">
+
+                            <label for="EditUser_IsActive">
+
+                                <input id="EditUser_IsActive" class="md-check" type="checkbox" name="IsActive" value="true" @Html.Raw(Model.User.IsActive ? "checked=\"checked\"" : string.Empty)>
+
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span>
+                                @L("Active")
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+
+            </div>
+
+            <div class="tab-pane" id="RolesTab">
+
+
+                <div class="md-checkbox-list user-role-checkbox-list">
+
+                    @foreach (var role in Model.Roles)
+                    {
+                        <div class="md-checkbox">
+
+                            <input id="EditUser_@(role.RoleName)" class="md-check" type="checkbox" name="@(role.RoleName)" value="true" @Html.Raw(role.IsAssigned ? "checked=\"checked\"" : string.Empty)>
+
+                            @* ReSharper disable once Html.IdNotResolved *@
+                            <label for="EditUser_@(role.RoleName)">
+
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span>
+                                @role.RoleDisplayName
+                            </label>
+
+                        </div>
+                    }
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

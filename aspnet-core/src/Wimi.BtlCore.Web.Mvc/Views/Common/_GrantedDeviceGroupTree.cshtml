@@ -1,0 +1,10 @@
+﻿@using Wimi.BtlCore.Web.Models.Common
+@model Wimi.BtlCore.Web.Models.Common.IDeviceGroupsWithPermissionsViewModal
+
+<div class="machines-group-tree hidden">
+
+    <ul>
+        @await Html.PartialAsync("~/Views/Common/_GrantedDeviceGroupTreeItem.cshtml", new GrantedDeviceGroupTreeItemModel(Model, null))
+    </ul>
+
+</div>

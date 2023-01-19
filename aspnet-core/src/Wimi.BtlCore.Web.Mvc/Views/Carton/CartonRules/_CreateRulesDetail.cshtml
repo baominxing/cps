@@ -1,0 +1,517 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Carton.CartonRules.RuleDetailCreateModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Create")))
+
+<style>
+
+    #createOrUpdateForm > div > div:nth-child(2) > span {
+        width: 100%
+    }
+</style>
+
+<script>
+    function stopSubmit() {
+        return false;
+    }
+</script>
+
+<div class="modal-body">
+
+    <form onkeypress="return event.keyCode != 13;" name="createOrUpdateForm" id="createOrUpdateForm" role="form" novalidate class="form-validation form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3">
+                <div class="pull-right">
+                    <label class="control-label">@L("Type")</label>
+                </div>
+            </div>
+            <div class=" col-md-3">
+                <select id="typeSelect" class="col-md-10" v-model="typeSelected">
+                    @{ foreach (var item in Model.TypeSelect)
+                        {
+                            <option value="@item.Value">@(item.Name)</option>
+                        }
+                    }
+                </select>
+                @*<wimi-select2 class="form-control"
+                                  v-bind:datas="typeList"
+                                  v-model="typeSelected"
+                                  name="type">
+                    </wimi-select2>*@
+            </div>
+            <div class=" col-md-6 pull-left">
+                <a id="add" class="btn btn-circle btn-primary">
+
+                    @L("Add")
+
+                </a>
+            </div>
+        </div>
+        <hr />
+
+        <template v-if="showControl.show0">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("Ascii")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="0" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <label>@L("Value")</label>
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <input type="number" class="col-md-8" required min="32" max="126" name="Value" value="" maxlength="3"
+                               oninput="this.value=this.value.replace(/\D/g,'').replace(/^0+(?=\d)/,'')" />
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template v-if="showControl.show1">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("FixedString")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="1" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <label>@L("Value")</label>
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <input type="text" class="col-md-8" required name="Value" value="" maxlength="@BtlCoreConsts.MaxDescLength" />
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template v-if="showControl.show2">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3 ">
+                        <div class="pull-right">
+                            <label>@L("Year")</label>
+                            <label>@L("SequenceNo")</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="hidden" name="Type" value="2" />
+                        <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-3 form-group">
+                            <input type="radio" class="col-md-4" name="ValueYear" value="yyyy" checked />
+                        </div>
+                        <div class="col-md-8 form-group">
+                            YYYY
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="col-md-3 form-group">
+                            <input type="radio" class="col-md-4" name="ValueYear" value="yy" />
+                        </div>
+                        <div class="col-md-8 form-group">
+                            YY
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </template>
+
+        <template v-if="showControl.show3">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("Month")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="3" />
+                    <input type="hidden" class="col-md-8" name="Length" value="2" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                    <input name="Value" class="col-md-8" type="hidden" value="0" />
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+        </template>
+
+        <template v-if="showControl.show4">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("Day")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="4" />
+                    <input type="hidden" class="col-md-8" name="Length" value="2" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <input type="radio" class="col-md-4" name="ValueNaturalDay" value="1" checked />
+                    </div>
+                    <div class="col-md-8 form-group">
+                        @L("NaturalDay")
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <input type="radio" class="col-md-4" name="ValueNaturalDay" value="2" />
+                    </div>
+                    <div class="col-md-8 form-group">
+                        @L("DayOfYear")
+                    </div>
+                </div>
+            </div>
+
+        </template>
+
+        <template v-if="showControl.show5">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("Season")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="5" />
+                    <input type="hidden" class="col-md-8" name="Length" value="2" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                    <input name="Value" class="col-md-8" type="hidden" value="0" />
+                </div>
+                <div class="col-md-6 ">
+
+                </div>
+            </div>
+        </template>
+
+        <template v-if="showControl.show6">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("Week")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="6" />
+                    <input type="hidden" class="col-md-8" name="Length" value="2" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                    <input name="Value" class="col-md-8" type="hidden" value="0" />
+                </div>
+                <div class="col-md-6 ">
+
+                </div>
+                <br />
+            </div>
+        </template>
+
+        <template v-if="showControl.show7">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("Shift")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="7" />
+                    <input type="hidden" class="col-md-8" name="Length" value="2" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-md-3 form-group">
+                            <label>@L("Shift")</label>
+                        </div>
+                        <div class="col-md-8 form-group">
+                            <select type="text" class="col-md-8" name="Shift" id="Shift" v-on:change="shiftChange">
+                                <option value="0"></option>
+                                @{ foreach (var item in Model.ShiftSolutions)
+                                    {
+                                        <option value="@item.Value">@(item.Name)</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <div class="form-group pull-left">
+                        <div id="shiftItemsDom">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </template>
+
+        <template v-if="showControl.show8">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("ProductionLine")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="8" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                </div>
+                <div class="col-md-6">
+                    @{
+                        var index = 0;
+                        foreach (var item in Model.FirstDeviceGroups)
+                        {
+
+                            <div class="col-md-4 form-group">
+                                <label>@item.Name</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="hidden" class="col-md-8" name="ExpansionKey" value="@item.Value" maxlength="@BtlCoreConsts.MaxDescLength"/>
+                                <input type="text" class="col-md-8" name="Value@(index)" required value="" maxlength="@BtlCoreConsts.MaxDescLength"/>
+                            </div>
+                            index++;
+                        }
+                    }
+                </div>
+
+            </div>
+        </template>
+
+        <template v-if="showControl.show9">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("SerialNum")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="9" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                    <input name="Value" class="col-md-8" type="hidden" value="0" />
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <label>@L("Length")</label>
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <input type="number" class="col-md-8" name="Length" min="1" required value="" maxlength="@BtlCoreConsts.MaxDescLength"/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    @*<div class="checkbox">
+                        <label>*@
+                    <div class="col-md-3 form-group">
+                        <input type="checkbox" name="ExpansionKey" id="resetDayly" value="1">
+                    </div>
+                    <div class="col-md-8 form-group">
+                        @L("ResetDayly")
+                    </div>
+                    @*</label>
+                        </div>*@
+                </div>
+            </div>
+        </template>
+
+        <template v-if="showControl.show10">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("CalibratorCode")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="10" />
+                    <input type="hidden" class="col-md-8" name="Length" value="1" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <label>@L("StartIndex")</label>
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <input type="number" class="col-md-8" required name="StartIndex" min="1" value="" maxlength="@BtlCoreConsts.MaxDescLength"/>
+                    </div>
+                </div>
+                <br />
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <label>@L("EndIndex")</label>
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <input type="number" class="col-md-8" required name="EndIndex" min="1" value="" maxlength="@BtlCoreConsts.MaxDescLength"/>
+                    </div>
+                </div>
+                <br />
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <label>@L("Divisor")</label>
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <input type="number" class="col-md-8" required name="Value" min="1" value="" maxlength="@BtlCoreConsts.MaxDescLength"/>
+                    </div>
+                </div>
+                <br />
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <label>@L("RemainderTable")</label>
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <input type="file" id="importFile" name="UploadFiles" class="col-md-10" />
+                        <input type="hidden" name="RuleId" value="@Model.RuleId" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <button type="submit" id="import" class="btn btn-primary btn-xs" v-on:click="importData()">@L("Import")</button>
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <a href="@("/Download/Template/CalibratorCodeComparisonList.xlsx")" class="">@L("DowloadTemplate")</a>
+                    </div>
+                </div>
+            </div>
+            @*<div class="form-group">
+                    <div class="col-sm-offset-2 col-md-2">
+                        <label>@L("RemainderTable")</label>
+                    </div>
+                    <div class="col-md-4">
+
+                        <input type="file" id="importFile" name="UploadFiles" class="col-md-10" />
+                        <input type="hidden" name="RuleId" value="@Model.RuleId" />
+
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" id="import" class="btn btn-primary btn-xs" v-on:click="importData()">@L("Import")</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="@("/Download/Template/CalibratorCodeComparisonList.xlsx")" class="">@L("DowloadTemplate")</a>
+                    </div>
+                </div>*@
+        </template>
+
+        <template v-if="showControl.show11">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("SpecialCode")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="11" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                    <input name="Value" class="col-md-8" type="hidden" value="0" />
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <label>@L("Length")</label>
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <input type="number" class="col-md-8" required name="Length" min="1" value="" maxlength="@BtlCoreConsts.MaxDescLength"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template v-if="showControl.show12">
+            <div class="form-group">
+                <div class="col-md-3 ">
+                    <div class="pull-right">
+                        <label>@L("Time")</label>
+                        <label>@L("SequenceNo")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="hidden" name="Type" value="12" />
+                    <input type="hidden" class="col-md-8" name="Length" value="2" />
+                    <input name="SequenceNo" required class="col-md-8" type="number" min="1" />
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <input type="radio" class="col-md-4" name="ValueHour" value="HH" />
+                    </div>
+                    <div class="col-md-8 form-group">
+                        HH
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <input type="radio" class="col-md-4" name="ValueHour" value="mm" />
+                    </div>
+                    <div class="col-md-8 form-group">
+                        mm
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-3 form-group">
+                        <input type="radio" class="col-md-4" name="ValueHour" value="ss" />
+                    </div>
+                    <div class="col-md-8 form-group">
+                        ss
+                    </div>
+                </div>
+            </div>
+        </template>
+    </form>
+</div>
+
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

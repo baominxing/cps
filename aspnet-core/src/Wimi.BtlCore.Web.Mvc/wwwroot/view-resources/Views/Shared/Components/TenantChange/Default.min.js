@@ -1,0 +1,1 @@
+(function(){$(".tenant-change-component a").click(function(n){n.preventDefault();abp.ajax({url:abp.appPath+"Account/TenantChangeModal",type:"POST",dataType:"html",success:function(n){$("#TenantChangeModal div.modal-content").html(n)},error:function(){}})})})();

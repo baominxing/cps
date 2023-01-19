@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language Name="zh-CHS">
+  <Preview Text="预览">
+    <Save Text="保存文件"/>
+    <SaveNative Text="保存报表"/>
+  </Preview>
+  <Web>
+    <Print Text="打印"/>
+    <PrintFromBrowser Text="浏览器打印"/>
+    
+    <Zoom Text="缩放"/>
+    <Refresh Text="刷新"/>
+    <First Text="首页"/>
+    <Prev Text="上一页"/>
+    <Next Text="下一页"/>
+    <Last Text="尾页"/>
+    <PrintFromAcrobat Text="PDF打印"/>
+    <!--<PrintFromAcrobat Text="Drucken von Adobe Reader"/>
+    <FitWidth Text="Fit breite"/>
+    <FitPage Text="Fit Seite"/>
+    <Export Text="Exportieren"/>
+    <EnterPage Text="Geben Sie die Seitennummer ein"/>
+    <TotalPages Text="Anzahl Seiten (nur lesen)"/>-->
+  </Web>
+  <Export>
+    <Xlsx Text="导出Excel">
+      <File Text="Excel 2007-Datei"/>
+    </Xlsx>
+  </Export>
+</Language>

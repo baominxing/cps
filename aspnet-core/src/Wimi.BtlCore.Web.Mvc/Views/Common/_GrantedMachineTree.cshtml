@@ -1,0 +1,59 @@
+﻿@using Wimi.BtlCore.Web.Models.Common
+@using Wimi.BtlCore.Configuration
+@model Wimi.BtlCore.Web.Models.Common.IDeviceGroupAndMachineWithPermissionsViewModal
+
+<style>
+    .machines-tree a {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+</style>
+
+<div class="machines-tree hidden">
+    <ul>
+        @await Html.PartialAsync("~/Views/Common/_GrantedMachineTreeItem.cshtml", new GrantedMachineTreeItemModel(Model, null))
+    </ul>
+</div>
+
+<input type="hidden" value="@AppSettings.MachineTreeLength" class="MachineTreeLength" />
+<input type="hidden" value="@AppSettings.DefaultSearchMachineCount" class="DefaultSearchMachineCount" />
+<script>
+
+    function morebtn(e) {
+        //console.log($(e));
+        var machineTreeLength = $(".MachineTreeLength").val();
+        var leftNodes = $(e).siblings().filter(".hidden");
+        //console.log(machineTreeLength); Expand
+        if (leftNodes.length > 0) {
+            for (var n = 0; n < leftNodes.length; n++) {
+                if (n <= machineTreeLength - 1) {
+                    leftNodes[n].classList.remove("hidden");
+                }
+            }
+            if (leftNodes.length <= machineTreeLength) {
+
+                $(e).children().remove();
+                $('<a class="jstree-anchor" href="#" tabindex="-1"><i class="jstree-icon jstree-themeicon glyphicon glyphicon-menu-up jstree-themeicon-custom" role="presentation"></i>收起</a>')
+                    .appendTo($(e));
+            }
+        }
+        else {
+
+            var allNodes = $(e).siblings();
+            for (var n = machineTreeLength - 1; n < allNodes.length; n++) {
+                allNodes[n].classList.add("hidden");
+            }
+
+            //$(e)[0].innerText = "查看更多";
+            //$(e).remove();
+
+            $(e).children().remove();
+            $('<a class="jstree-anchor" href="#" tabindex="-1"><i class="jstree-icon jstree-themeicon glyphicon glyphicon-menu-right jstree-themeicon-custom" role="presentation"></i>查看更多</a>')
+                .appendTo($(e));
+        }
+
+    }
+
+</script>
+

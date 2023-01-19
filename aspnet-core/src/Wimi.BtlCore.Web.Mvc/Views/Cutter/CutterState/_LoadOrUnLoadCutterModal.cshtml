@@ -1,0 +1,47 @@
+﻿@using Wimi.BtlCore.Cutter
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Cutter.CutterState.CutterStateLoadOrUnLoadViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CutterLoadAndUnload")))
+
+<div class="modal-body">
+    <form name="loadOrUnLoadCutterModalForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("CutterNo")</label>
+            <input type="text" class="form-control" name="cutterNo" disabled="disabled" value="@Model.CutterNo" />
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("Actions")</label>
+ 
+            <select asp-items="@Html.GetEnumSelectList(typeof(EnumOperationType))" name="OperationType" id="operationType" class="form-control drop-downlist"  typeValue="@((int)Model.OperationType)"></select>
+
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label cutter-loading">
+            <label>@L("SelectDevice")</label>
+            <select type="text" class="form-control drop-downlist" required name="MachineId">
+                @foreach (var item in Model.MachineList)
+                {
+                    var selectedTag = Model.CurrentMachineId != null && item.Value.Equals(Model.CurrentMachineId.Value.ToString()) ? "selected" : string.Empty;
+                    <option value="@item.Value" selectedTag>@item.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label cutter-loading">
+            <label>@L("CutterTValue")</label>
+            <input type="number" class="form-control" name="CutterTVlaue" min="0" value="@(Model.CutterTVlaue ?? 0)" />
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("Operator")</label>
+            <select type="text" class="form-control drop-downlist" required name="OperatorUserId">
+                @foreach (var item in Model.UserList)
+                {
+                    var selected = item.Value.Equals(Model.CurrentLoginUserId.ToString()) ? "selected" : string.Empty;
+                    <option value="@item.Value" selected>@item.Name</option>
+                }
+            </select>
+        </div>
+        <input type="hidden" name="id" value="@Model.Id " />
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+

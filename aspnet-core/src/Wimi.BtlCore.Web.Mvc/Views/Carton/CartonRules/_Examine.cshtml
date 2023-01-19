@@ -1,0 +1,13 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("RemainderTable")))
+
+<div class="modal-body">
+
+    <form name="remainderForm" role="form" novalidate>
+        <table class="table table-striped table-bordered table-hover nowrap" id="remainderTable" style="width: 100%"></table>
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithCancel.cshtml")
+

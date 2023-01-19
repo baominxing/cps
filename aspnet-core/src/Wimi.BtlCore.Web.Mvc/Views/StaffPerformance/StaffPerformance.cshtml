@@ -1,0 +1,94 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.StaffPerformance.StaffPerformanceViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.StaffPerformance_StaffPerformance;
+}
+
+@section Styles
+{
+    <link href="~/Scripts/scrollTabs/scrolltabs.css" rel="stylesheet" />
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+    <script src="~/Scripts/echarts.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.mousewheel.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.scrolltabs.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/StaffPerformance/StaffPerformance.js" asp-append-version="true"></script>
+}
+
+
+<!-- #region Content Header (Page header) -->
+<section class="content-header">
+
+    <h1>
+        @L("StaffPerformance_StaffPerformance")<small></small>
+    </h1>
+
+    <div class="header-tools">
+        <button id="btnQuery" class="btn btn-primary blue">
+            <i class="fa fa-pencil-square-o"></i> @L("Research")
+        </button>
+    </div>
+
+</section>
+
+<!-- #endregion -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-th"></i> @L("SortByPeople")
+                    </h3>
+                    <span class="col-md-7 pull-right">
+                        <b id="searchFilter" class="text-primary pull-left"></b>
+                    </span>
+                </div>
+                <div class="box-body">
+                    <div id="scrolltab" class="scroll_tabs_theme_light">
+                    </div>
+
+                    <div class="tab-pane active" id="tab_1-2">
+                        <div id="chart-bar-staff" style="height: 400px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="col-md-12 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-th"></i> @L("SortByDevice")
+                    </h3>
+                    <span class="col-md-7 pull-right">
+                        <b id="searchFilter2" class="text-primary pull-left"></b>
+                    </span>
+                </div>
+                <div class="box-body">
+                    <div id="scrolltab2" class="scroll_tabs_theme_light">
+                    </div>
+
+                    <div class="tab-pane active" id="tab_1-2">
+                        <div id="chart-bar-machine" style="height: 400px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script id="tab-template" type="text/x-handlebars-template">
+    {{#each data}}
+    {{#if @@first}}
+    <span class="tab_selected" id="{{this.id}}">{{this.name}}</span>
+    {{else}}
+    <span id="{{this.id}}">{{this.name}}</span>
+    {{/if}}
+    {{/each}}
+</script>

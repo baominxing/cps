@@ -1,0 +1,89 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@using Wimi.BtlCore.Authorization
+@model Wimi.BtlCore.Web.Models.StatisticAnalysis.EfficiencyTrend.EfficiencyTrendsViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.BasicData_MachineShiftSetting;
+}
+
+<script src="~/view-resources/Views/Common/_MachinesTree.js"></script>
+<script src="~/view-resources/Views/App/MachineShiftSetting/index.js"></script>
+
+<!-- #region Content Header (Page header) -->
+
+<section class="content-header">
+    <h1>
+        @L("MachineShiftSetting")<small></small>
+    </h1>
+    <div class="header-tools">
+
+        @if (IsGranted(PermissionNames.Pages_BasicData_ShiftSetting))
+        {
+            <button id="SkipToShiftSetting" class="btn btn-primary blue" onclick="javascript:window.location='/ShiftSetting'">
+                <i class="fa fa-arrow-left"></i> @L("GoToSetShiftPlan")
+            </button>
+        }
+
+        @if (IsGranted(PermissionNames.Pages_Administration_MachineShiftSetting_Manage))
+        {
+            <button id="AssociateDeviceGroup" class="btn btn-primary blue">
+                <i class="fa fa-pencil-square-o"></i> @L("BatchScheduling")
+            </button>
+
+            <button id="batchesDelete" class="btn btn-primary blue">
+                <i class="fa fa-trash-o"></i> @L("CleanShifts")
+            </button>
+        }
+    </div>
+</section>
+
+<!-- #endregion -->
+
+
+<section class="content">
+    <div class="row">
+
+        <div class="col-xs-12 col-md-3">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i> @L("SearchSetting")
+                    </h3>
+                </div>
+
+                <div class="box-body">
+                    <form class="form">
+
+                        <div class="input-group xs-ph-5 col-xs-12">
+                            <span class="input-group-addon no-border"><b class="text-primary">@L("ShiftSetting")</b></span>
+                            <select class="form-control" id="ShiftSolutions">
+                                <option value="" selected="selected"></option>
+                            </select>
+                        </div>
+
+                        <div class="input-group xs-ph-5 xs-pv-10 col-xs-12">
+                            @await Html.PartialAsync("~/Views/Common/_GrantedDeviceGroupAndMachinesTree.cshtml", Model)
+                        </div>
+
+                        <div class="box-footer col-md-12">
+                            <button type="button" id="btnQuery" class="btn btn-primary btn-sm btn-block">@L("Research")</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-9">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-object-group"></i> @L("MachineShiftInfo")
+                    </h3>
+                </div>
+
+                <div class="box-body">
+                    <table id="MachineShiftTable" class="table table-bordered table-hover table-striped"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

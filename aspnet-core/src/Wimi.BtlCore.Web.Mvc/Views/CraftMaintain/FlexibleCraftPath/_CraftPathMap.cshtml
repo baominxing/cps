@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "_CraftPathMap";
+    Layout = "~/Views/Shared/_LayoutWithoutMenu.cshtml";
+}
+
+@section Scripts
+{
+    <script src="~/Scripts/echarts.min.js"></script>
+    <script src="~/view-resources/Views/CraftMaintain/FlexibleCraftPath/_CraftPathMap.js"></script>
+}
+<style>
+
+    #craftList a:focus {
+        background-color: transparent;
+        color: #444;
+    }
+</style>
+<input type="hidden" id="productId" value="@Context.Request.Query["id"]" />
+<section class="content">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="box box-solid" id="craftList">
+                <div class="box-header with-border">
+                    <h3 class="box-title">工艺</h3>
+
+                    <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body no-padding" style="">
+                    <ul class="nav nav-pills nav-stacked">
+                    </ul>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div id="craftPathChart" style="width:100%; height:600px;"></div>
+        </div>
+    </div>
+</section>

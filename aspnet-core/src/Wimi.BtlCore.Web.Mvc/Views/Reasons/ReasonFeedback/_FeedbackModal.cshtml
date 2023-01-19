@@ -1,0 +1,29 @@
+﻿
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("ReasonsForSelectionFeedback")))
+<div class="modal-body">
+    <form name="FeedbackForm" role="form" novalidate class="form-validation form-horizontal">
+        <div class="form-group  col-xs-6">
+            <label class="col-sm-2 control-label">@L("StartTime")</label>
+            <div class="input-group input-group-sm col-xs-10">
+                <div class="input-group">
+                    <input type="datetime" class="form-control startTime" name="startTime" readonly="readonly">
+                    <span class="input-group-btn ">
+                        <button class="btn btn-info btn-flat" id="btnChange" type="button" readonly>@L("Edit")</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group checkContainer"></div> 
+        <script id="machineFeedback-template" type="text/x-handlebars-template">
+            <div class="col-xs-12 sm-mh-15" >
+            {{#each this}}
+            <label class="radio-inline col-sm-3 control-label" style="text-align:left;margin-left:0px">
+                <input type="radio" name="stateCode" value="{{stateCode}}" data-stateid="{{stateId}}" /> {{stateDisplayName}}
+            </label>
+            {{/each}}
+        </div>
+        </script>
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

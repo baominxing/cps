@@ -1,0 +1,106 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Order_DefectiveReasons;
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Orders/DefectiveReasons/Index.js" asp-append-version="true"></script>
+}
+
+<section class="content-header">
+    <h1>
+        @L("DefectiveReasons")
+        <small>@L("DefectiveReasonsManage")</small>
+    </h1>
+ 
+</section>
+
+<section class="content">
+    <div class="row">
+
+        <div class="col-lg-4">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-sitemap"></i>@L("DefectivePart")
+
+                    </h3>
+
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_Order_DefectiveReasons_Manage))
+                        {
+                            <a id="AddRootUnitButton" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i>@L("NewDefectiveParts")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+                <div class="box-body">
+
+                    <div id="OrganizationUnitEditTree"></div>
+
+                    <div id="OrganizationUnitTreeEmptyInfo" class="text-muted">
+
+                        @L("UndefinedDefectiveParts")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-8">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+
+                        <i class="fa fa-object-group"></i> @L("Reason")
+
+                        <span id="SelectedOuRightTitle"></span>
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_Order_DefectiveReasons_Manage))
+                        {
+                            <button class="btn btn-circle btn-primary" id="CreateNewReason">
+                                <i class="fa fa-plus" aria-hidden="true">@L("Create")</i>
+                            </button>
+                        }
+                    </div>
+
+                </div>
+
+                <div class="box-body">
+                    <table id="DefectiveReasonsTable" class="table table-bordered table-hover" style="width: 100%"></table>
+                    <div id="OuMembersEmptyInfo" class="text-muted">
+
+                        @L("CheckDefectivePart")
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+</section>

@@ -1,0 +1,15 @@
+﻿@using Wimi.BtlCore.Web.Models.BasicData.ImportData
+ 
+@model ImportDataViewModal
+@{
+
+    var types = Model.ImportType;
+
+    @foreach (var item in types)
+    {
+    <li id="@item.ToString()"   Data-jstree='{"selected": false,"icon":"fa fa-file"}'>
+        @L(item.ToString())
+    </li>
+        }
+
+    }

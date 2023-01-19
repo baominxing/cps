@@ -1,0 +1,57 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.Users.UsersViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Common.Users;
+}
+
+<link href="~/view-resources/Views/App/Users/index.min.css">
+
+<script src="~/view-resources/Views/Common/_PermissionTree.js"></script>
+<script src="~/view-resources/Views/App/Users/_CreateOrEditModal.js"></script>
+<script src="~/view-resources/Views/App/Users/_PermissionsModal.js"></script>
+<script src="~/view-resources/Views/App/Users/Index.js"></script>
+
+<section class="content-header">
+
+    <h1>
+
+        <span>@L("Users")</span> <small>@L("UsersHeaderInfo")</small>
+
+    </h1>
+
+    <div class="header-tools">
+
+        @*<button id="ExportUsersToExcelButton" class="btn btn-default visible-lg-inline-block"><i class="fa fa-file-excel-o"></i> @L("ExportToExcel")</button>*@
+        @if (IsGranted(PermissionNames.Pages_Administration_Users_Create))
+        {
+            <button id="CreateNewUserButton" class="btn btn-primary blue">
+                <i class="fa fa-plus"></i> @L("CreateNewUser")
+            </button>
+        }
+    </div>
+
+</section>
+
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="box box-solid">
+
+                <div class="box-body">
+
+                    <table id="UsersTable" class="table table-bordered table-hover no-wrap"></table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

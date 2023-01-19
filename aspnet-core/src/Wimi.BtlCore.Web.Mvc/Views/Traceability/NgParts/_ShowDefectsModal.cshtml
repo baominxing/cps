@@ -1,0 +1,10 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("WorkpieceNGCauseView")))
+<div class="modal-body">
+    <form name="noticesPartNgInfoForm" role="form" novalidate>
+        <table class="table table-striped table-bordered table-hover nowrap" id="partNgInfoTable" style="width: 100%"></table>
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithCancel.cshtml")
+

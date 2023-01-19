@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="ko">
+  <texts>
+    <text name="InternalServerError" value="내부 오류 발생 한 너의 요구를!" />
+    <text name="ValidationError" value="니 요청 잘못되었습니다!" />
+    <text name="AreYouSure" value="확실해?" />
+    <text name="Cancel" value="취소" />
+    <text name="Yes" value="네" />
+    <text name="ValidationNarrativeTitle" value="지금 검증 다음 오류 검출." />
+    <text name="DefaultError" value="오류가 발생했습니다." />
+    <text name="DefaultErrorDetail" value="자세한 서버 오류 보낼 수 없습니다." />
+    <text name="DefaultError401" value="Y아니, 인증!" />
+    <text name="DefaultErrorDetail401" value="너는 반드시 인증 (로그인) 이 동작을 실행할." />
+    <text name="DefaultError403" value="너 아직 인증!" />
+    <text name="DefaultErrorDetail403" value="너 이 동작을 수행할 수 없다." />
+    <text name="DefaultError404" value="자원 찾을 수 없습니다!" />
+    <text name="DefaultErrorDetail404" value="자원 좀 서버에 찾을 수 없습니다." />
+    <text name="EntityNotFound" value="안 실체 {0} id = {1}!" />
+  </texts>
+</localizationDictionary>

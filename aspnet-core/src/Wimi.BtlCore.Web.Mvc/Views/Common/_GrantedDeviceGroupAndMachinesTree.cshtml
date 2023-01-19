@@ -1,0 +1,35 @@
+﻿@model Wimi.BtlCore.Web.Models.Common.IDeviceGroupAndMachineWithPermissionsViewModal
+
+<div class="nav-tabs-custom">
+
+    <ul class="nav nav-tabs">
+
+        <li class="active">
+
+            <a href="#tab_20-20" data-toggle="tab">@L("Machines")</a>
+
+        </li>
+
+        <li>
+
+            <a href="#tab_10-10" data-toggle="tab">@L("DeviceGroups")</a>
+
+        </li>
+
+    </ul>
+
+    <div class="tab-content">
+
+        <div class="tab-pane max-heigth200" id="tab_10-10">
+
+            @{await Html.RenderPartialAsync("~/Views/Common/_GrantedDeviceGroupTree.cshtml", Model); }
+        </div>
+
+        <div class="tab-pane active max-heigth200" id="tab_20-20">
+
+            @{await Html.RenderPartialAsync("~/Views/Common/_GrantedMachineTree.cshtml", Model); }
+        </div>
+
+    </div>
+
+</div>

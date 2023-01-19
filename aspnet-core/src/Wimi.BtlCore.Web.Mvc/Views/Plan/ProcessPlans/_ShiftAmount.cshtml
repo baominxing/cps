@@ -1,0 +1,11 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Plan.ProcessPlans.PlanCreateOrEditViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("ViewShiftTargetQuantity")))
+<div class="modal-body">
+    <form name="shiftAmountForm" role="form" novalidate>
+        <table class="table table-striped table-bordered table-hover nowrap" id="shiftAmountTable" style="width: 100%"></table>
+        <input type="hidden" id="Id" value="@Model.PlanDto.Id" />
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithCancel.cshtml")

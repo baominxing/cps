@@ -1,0 +1,129 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.StatisticAnalysis_EfficiencyTrends;
+}
+@section Styles
+{
+    <link rel="stylesheet" href="~/Scripts/scrollTabs/scrolltabs.css" asp-append-version="true" />
+}
+@section Scripts
+{
+    <script src="~/Scripts/echarts.min.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/StatisticAnalysis/EfficiencyTrends/Index.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.scrolltabs.js" asp-append-version="true"></script>
+}
+
+
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+
+    div.dataTables_wrapper {
+        width: 100%;
+    }
+
+    #detailTable th {
+        text-align: center;
+    }
+</style>
+
+
+<!-- #region Content Header (Page header) -->
+
+<section class="content-header">
+
+    <h1>
+
+        @L("EfficiencyTrends")<small>@L("EquipmentEfficiency")</small>
+
+    </h1>
+
+    <div class="header-tools">
+
+        <div class="header-tools">
+
+            <button type="button" id="btnExport" class="btn btn-primary pull-right xs-mh-10"><i class="fa fa-file-excel-o"></i> @L("Export")</button>
+            <button id="btnQuery" class="btn btn-primary blue">
+                <i class="fa fa-pencil-square-o"></i> @L("Research")
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- #endregion -->
+
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-xs-12 col-md-12">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-th"></i> <span id="titleFilter" class=""></span>
+                    </h3>
+                    <span class="col-md-7 pull-right">
+                        <b id="searchFilter" class="text-primary pull-left"></b>
+                    </span>
+                </div>
+
+                <div class="box-body">
+
+                    <div class="" id="tab_1-1">
+
+                        <div id="EfficiencyTrendStatisticChart" style="height: 350px"></div>
+                        @{ await Html.RenderPartialAsync("~/Views/Common/_LineChartPaged.cshtml"); }
+
+                    </div>
+
+                    <!-- /.tab-pane -->
+
+                    <div class="" id="tab_2-2" style="margin-top:50px">
+
+                        <div>
+
+                            <table id="EfficiencyTrendsTable" class="table table-bordered table-hover table-striped" style="width: 100%"></table>
+
+                        </div>
+
+                    </div>
+
+                    <!-- /.tab-pane -->
+
+                </div>
+
+                <!-- /.tab-content -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script id="chart-template" type="text/x-handlebars-template">
+    <div id="tabDate" class="scroll_tabs_theme_light">
+    </div>
+    <div style="width: 100%;" id="visavail_container">
+        <div id="EfficiencyTrendStatisticShiftChart" style="height: 350px">
+        </div>
+    </div>
+</script>
+
+<script id="tab-date-template" type="text/x-handlebars-template">
+    {{#each dates}}
+    {{#if @@first}}
+    <span class="tab_selected">{{this.machineShiftSolutionName}}</span>
+    {{else}}
+    <span>{{this.machineShiftSolutionName}}</span>
+    {{/if}}
+    {{/each}}
+</script>

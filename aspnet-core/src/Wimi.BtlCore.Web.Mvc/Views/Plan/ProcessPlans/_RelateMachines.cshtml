@@ -1,0 +1,26 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Plan.ProcessPlans.RelateMachinesModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("DeviceContext")))
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-6">
+            <h4>@L("AllMachine")</h4>
+            <table id="SelectableMachineTable" class="table table-bordered table-striped" style="width: 100%"></table>
+        </div>
+
+        <div class="col-lg-6">
+            <h4 class="text-blue"><strong>@L("SelectedDevice")</strong></h4>
+            <table id="SelectedMachineTable" class="table table-bordered table-striped" style="width: 100%"></table>
+        </div>
+    </div>
+
+    <input type="hidden" value="@Model.PlanId" id="plan-id" />
+</div>
+
+<div class="modal-footer">
+
+    <button type="button" class="btn btn-primary close-button" data-dismiss="modal">@L("Close")</button>
+
+</div>

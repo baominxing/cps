@@ -1,0 +1,31 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Plan.ProcessPlans.PlanCreateOrEditViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("Create")))
+
+<div class="modal-body">
+
+    <form name="createOrUpdateForm" role="form" novalidate class="form-validation" data-is-edit="@Model.IsEditMode">
+        <div class="modal-body">
+            <div class="form-group form-md-line-input form-md-floating-label">
+                <label>@L("State")</label>
+                <select class="form-control status" type="text" name="PlanStatus" required>
+                    @foreach (var status in Model.ValidStatusList)
+                    {
+                        if (status.IsSelected)
+                        {
+                            <option value="@status.Value" selected>@status.DisplayText</option>
+                        }
+                        else
+                        {
+                            <option value="@status.Value">@status.DisplayText</option>
+                        }
+                    }
+                </select>
+            </div>
+            <input type="hidden" id="Id" value="@Model.PlanDto.Id" />
+        </div>
+
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

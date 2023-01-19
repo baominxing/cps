@@ -1,0 +1,138 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Order_Craft;
+}
+
+@section Styles
+{
+    <link href="~/Scripts/datatables/extensions/RowReorder-1.2.0/css/rowReorder.dataTables.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Orders/Craft/Index.js" asp-append-version="true"></script> 
+    <script src="~/Scripts/select2.js" asp-append-version="true"></script>
+    <script src="~/Scripts/datatables/extensions/RowReorder-1.2.0/js/dataTables.rowReorder.js" asp-append-version="true"></script>
+}
+<style>
+
+    th, td {
+        white-space: nowrap;
+    }
+
+    div.dataTables_wrapper {
+        width: 100%;
+    }
+
+    .reordered {
+        color: red;
+    }
+</style>
+
+<section class="content-header">
+
+    <h1>
+        @L("Craft")
+    </h1>
+
+</section>
+
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-lg-3">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-sitemap"></i> @L("Craft")
+
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_Order_Craft_Manage))
+                        {
+                            <a id="btnCreateCraft" class="btn btn-circle btn-default">
+
+                                <i class="fa fa-plus"></i> @L("NewProcess")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+                <div class="box-body">
+
+                    <div id="craftTree"></div>
+
+                    <div id="craftTreeEmptyInfo" class="text-muted">
+
+                        @L("UndefinedProcess")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-9">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-object-group"></i>@L("Process")
+
+                        @*<span id="SelectedCraftRightTitle"></span>*@
+
+                        <small>
+                            <b>(@L("MouseButton"))</b>
+                        </small>
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_Order_Craft_Manage))
+                        {
+                            <a id="btnSelectProcess" class="btn btn-circle btn-default">
+
+                                <i class="fa fa-plus"></i> @L("SelectionProcess")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+
+                <div class="box-body">
+
+                    <table id="table" class="table table-bordered table-hover table-striped"></table>
+
+                    <div id="craftProcessEmptyInfo" class="text-muted">
+
+                        @L("SelectingProcessCheck")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

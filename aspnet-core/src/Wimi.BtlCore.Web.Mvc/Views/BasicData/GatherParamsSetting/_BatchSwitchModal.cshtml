@@ -1,0 +1,26 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("批量设定参数开关"))
+<div class="modal-body">
+    <form name="BatchSwitchModalForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("OptionalField")</label>
+            <select type="text" class="form-control drop-downlist" required id="Type">
+                <option value="0">@L("ShowState")</option>
+                <option value="1">@L("ShowParam")</option>
+                <option value="2">@L("ShowVision")</option>
+            </select>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("OptionalResult")</label>
+            <select type="text" class="form-control drop-downlist" required id="Result">
+                <option value="true">ON</option>
+                <option value="false">OFF</option>
+            </select>
+        </div>
+
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

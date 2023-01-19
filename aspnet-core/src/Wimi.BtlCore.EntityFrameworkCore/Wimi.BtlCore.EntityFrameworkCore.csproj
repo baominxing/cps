@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <RootNamespace>Wimi.BtlCore</RootNamespace>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <LangVersion>preview</LangVersion>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="EntityFrameworkCore\Repositories\Alarm\**" />
+    <EmbeddedResource Remove="EntityFrameworkCore\Repositories\Alarm\**" />
+    <None Remove="EntityFrameworkCore\Repositories\Alarm\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20180726102624_Upgrade_ABP_380.cs" />
+    <Compile Remove="Migrations\20180927062408_test.cs" />
+    <Compile Remove="Migrations\20190111071724_Upgraded_To_Abp_v4_1_0.cs" />
+    <Compile Remove="Migrations\20200220011749_Add_Scripts_20200219.cs" />
+    <Compile Remove="Migrations\20200220011749_Add_Scripts_20200219.Designer.cs" />
+    <Compile Remove="Migrations\20200319051102_AddV8.5Patches.cs" />
+    <Compile Remove="Migrations\20200319051102_AddV8.5Patches.Designer.cs" />
+    <Compile Remove="Migrations\20230105052600_Modify_Alarms_20230105.Designer.cs" />
+    <Compile Remove="Migrations\20230105053907_Modify_Alarms_20230105.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="161.47021.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wimi.BtlCore.Core\Wimi.BtlCore.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Migrations\SQLScripts\functions\dbo.func_GetStateSummeryByDate.UserDefinedFunction.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\functions\dbo.func_SplitInts.UserDefinedFunction.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\procedures\dbo.sp_CurrentStateDurationStatistics.StoredProcedure.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\procedures\dbo.sp_GetArchiveTargetTableByPartNo.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\procedures\dbo.sp_GetPreviousMachineShiftDetailList.StoredProcedure.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\procedures\dbo.sp_InitCalendar.StoredProcedure.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\procedures\dbo.sp_ListMachineStates.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\procedures\dbo.sp_RefillWorkWhenSyncCompleted.StoredProcedure.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\procedures\dbo.sp_StateDurationStatistics.StoredProcedure.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\triggers\Trigger_TraceFlowSettings_Insert.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\update_20210118\tracIndex.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\views\ShiftCalendarsView.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Migrations\SQLScripts\update_20210115\AddSqlServerIndexs.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

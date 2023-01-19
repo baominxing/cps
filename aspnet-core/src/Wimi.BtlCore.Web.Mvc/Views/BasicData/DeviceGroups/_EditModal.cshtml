@@ -1,0 +1,33 @@
+﻿@using Wimi.BtlCore.BasicData.DeviceGroups
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.BasicData.DeviceGroups.EditDeviceGroupModalViewModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("Edit") + ": " + Model.DisplayName))
+
+<div class="modal-body">
+
+    <form name="DeviceGroupForm" role="form" novalidate class="form-validation">
+
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <div class="form-group">
+
+            <label>@L("Name")</label>
+
+            <input class="form-control edited" type="text" name="DisplayName" checkSpace="true" value="@Model.DisplayName" required maxlength="@DeviceGroup.MaxDisplayNameLength">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>@L("SortSeq")</label>
+
+            <input class="form-control" type="number" name="Seq" required digits="true" value="@Model.Seq">
+
+        </div>
+
+    </form>
+
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

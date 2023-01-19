@@ -1,0 +1,406 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Traceability_Settings;
+}
+
+@section Scripts
+{
+     <script type="text/javascript" src="~/Scripts/vue.js"></script>
+    <script src="~/view-resources/Views/Traceability/Setting/Settings.js" asp-append-version="true"></script>
+   
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        .popover-btn {
+            padding: 1px 5px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .box.box-solid > .box-header .btn:hover, .box.box-solid > .box-header a:hover {
+            background-color: #286090;
+            border-color: #204d74;
+            color: #fff;
+        }
+
+        .selected {
+            background-color: #a8e4ff;
+        }
+
+        .box-header > .fa, .box-header > .glyphicon, .box-header > .ion, .box-header .box-title {
+            line-height: 30px;
+        }
+
+        #createNewButton {
+            margin-top: 10px;
+        }
+
+        .inputWrap {
+            padding-top: 5px;
+        }
+    </style>
+}
+
+<section id="traceability-setting">
+    <div class="content-header">
+        <h1>
+            @L("Configure")<small>@L("ProcessSetting")</small>
+        </h1>
+    </div>
+    <div class="content container-fluid">
+        <div class="row">
+
+            <div class="col-md-5">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+
+                            <i class="fa fa-object-group"></i> @L("List")
+                        </h3>
+                        <div class="pull-right box-tools">
+                            <button id="createNewButton" class="btn btn-primary blue pull-right" v-on:click="addProcess">
+                                <i class="fa fa-plus"></i> @L("IncreaseProcess")
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <select id="rootDevice" v-cloak class="form-control" v-model="rootDevice" v-on:change="changeList" v-select2="">
+                                <option v-for="item in listRootDevices" :value="item.value">{{item.name}}</option>
+                            </select>
+                        </div>
+                        <table id="listLineTable" class="table table-bordered table-hover" style="width: 100%"></table>
+                        <!--  <table id="listLineTable" class="table table-bordered table-hover" style="width: 100%">
+                                           <thead>
+                                               <tr>
+                                                   <th width="50">编辑</th>
+                                                   <th>流程编号</th>
+                                                   <th>流程名称</th>
+                                                   <th>流程类别</th>
+                                               </tr>
+                                           </thead>
+                                           <tbody>
+                            <tr v-for="item in eqList">
+                                <td>
+                                    <button type="button" class="btn btn-success"  data-container="body" data-toggle="popover" data-placement="bottom" data-content="<button>编辑</button><button>删除</button>">
+                                        sdf
+                                    </button>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                                            </table>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            <i class="fa fa-object-group"></i> @L("ProcessInformation")
+
+                        </h3>
+                        <button id="SaveMachine" class="btn btn-primary blue pull-right" v-on:click="submit">
+                            <i class="fa fa-save"></i> @L("Save")
+                        </button>
+                    </div>
+                    <div class="box-body">
+                        <div v-cloak>
+                            <form class="form-horizontal" id="commentForm" role="form">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        <span class="text-red">※</span> @L("ProcessNumber")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="processNumber" name="processNumber" checkSpace="true" class="form-control" v-model="code" placeholder="@L("PleaseEnterTheProcessNumber")" :disabled="isEdit">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        <span class="text-red">※</span> @L("FlowName")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="processName" name="processName" checkSpace="true" class="form-control" v-model="displayName" placeholder="@L("PleaseEnterTheProcessName")">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        @L("FlowSeq")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="number" id="processSeq" min="0" name="processSeq" class="form-control" v-model="flowSeq">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        <span class="text-red">※</span> @L("WorkstationType")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <select v-select2="" class="form-control"  checkSpace="true" v-model="stationType"  name="stationType"  id="stationType">
+
+                                            <option :value="item.value" v-for="item in stationTypeList">{{item.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                @*<div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            上道流程
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" v-model="preFlowId">
+                                                <option value=""></option>
+                                                <option v-for="item in orderOption" :value="item.value">{{item.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            下道流程
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" v-model="nextFlowId">
+                                                <option value=""></option>
+                                                <option v-for="item in orderOption" :value="item.value">{{item.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>*@
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        @L("ProcessCategory")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <select v-select2="" class="form-control" v-model="flowType" v-on:change="onFlowTypeChange" id="flowType">
+                                            <option v-for="item in flowTypeList" :value="item.value">{{item.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstname" class="col-sm-2 control-label">
+                                        @L("EndProcessApproach")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <label class="radio-inline">
+                                            <input type="radio" v-model="triggerEndFlowStyle" name="optionsRadios" value="1"> @L("OnlyThisProcess")
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" v-model="triggerEndFlowStyle" name="optionsRadios" value="2"> @L("OnlyTheLastProcess")
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" v-model="triggerEndFlowStyle" name="optionsRadios" value="3"> @L("ThisProcessAndThePreviousProcess")
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstname" class="col-sm-2 control-label">
+                                        @L("WriteSignalWhenProcessTriggers")
+                                    </label>
+                                    <div class="col-sm-2">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" v-model="writeIntoPlcViaFlow"> @L("Open")
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="contentWriteIntoPlcViaFlow.name" name="contentWriteIntoPlcViaFlow.name" class="form-control" v-model="contentWriteIntoPlcViaFlow.name" placeholder="@L("SignalName")">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" id="contentWriteIntoPlcViaFlow.value" name="contentWriteIntoPlcViaFlow.value" class="form-control" v-model="contentWriteIntoPlcViaFlow.value" placeholder="@L("Value")">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstname" class="col-sm-2 control-label">
+                                        @L("PressTheQualityResultToSignOff")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" v-model="offlineByQuality.offlineWhenOk">@L("OKOffline")
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" v-model="offlineByQuality.offlineWhenNg"> @L("NGOffline")
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstname" class="col-sm-2 control-label">
+                                        @L("OwnershipOfQualityResponsibility")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <select v-select2="" class="form-control" v-model="qualityMakerFlowId" id="qualityMakerFlowId">
+                                            <option value=""></option>
+                                            <option :value="traceFlowSettingId">@L("CurrentProcess")</option>
+                                            <option v-for="item in orderOption" :value="item.value">{{item.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="firstname" class="col-sm-2 control-label">
+                                        @L("WriteSignalWhenDataIsTriggered")
+                                    </label>
+                                    <div class="col-sm-2">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" v-model="writeIntoPlcViaFlowData"> @L("Open")
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="contentWriteIntoPlcViaFlowData.name" name="contentWriteIntoPlcViaFlowData.name" class="form-control" v-model="contentWriteIntoPlcViaFlowData.name" placeholder="@L("SignalName")">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" id="contentWriteIntoPlcViaFlowData.value" name="contentWriteIntoPlcViaFlowData.value" class="form-control" v-model="contentWriteIntoPlcViaFlowData.value" placeholder="@L("Value")">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstname" class="col-sm-2 control-label">
+                                        @L("ProcessRelatedData")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" v-model="needHandlerRelateData"> @L("Yes")
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" v-if="needHandlerRelateData">
+                                    <div class="row" style="margin-bottom:5px;">
+                                        <label for="firstname" class="col-sm-2 control-label">
+                                            @L("AssociatedDataSource")
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <label class="radio-inline">
+                                                <input type="radio" v-model="relateDataSourceSettings.source" name="relateDataSource" value="0"> PLC
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" v-model="relateDataSourceSettings.source" name="relateDataSource" value="1"> @L("CustomAccess")
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" v-model="relateDataSourceSettings.source" name="relateDataSource" value="2"> @L("CustomCSV")
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" v-model="relateDataSourceSettings.source" name="relateDataSource" value="3"> @L("CustomTXT")
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" v-model="relateDataSourceSettings.source" name="relateDataSource" value="4"> @L("OtherCustom")
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row" v-if="needHandlerRelateData && relateDataSourceSettings.source>0">
+                                        <label for="firstname" class="col-sm-2 control-label">
+                                            @L("Path")
+                                        </label>
+                                        <div class="col-sm-10 inputWrap">
+                                            <input type="text" id="dataLocation" name="dataLocation" class="form-control" v-model="relateDataSourceSettings.authModel.dataLocation" placeholder="@L("Path")">
+                                        </div>
+                                        <label for="firstname" class="col-sm-2 control-label">
+                                            @L("UId")/@L("Password")
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <div class="row">
+                                                <div class="col-sm-6 inputWrap">
+                                                    <input type="text" id="authorisedAccount" name="authorisedAccount" class="form-control" v-model="relateDataSourceSettings.authModel.authorisedAccount" placeholder="@L("UId")">
+                                                </div>
+                                                <div class="col-sm-6 inputWrap">
+                                                    <input type="text" id="authorisedPassword" name="authorisedPassword" class="form-control" v-model="relateDataSourceSettings.authModel.authorisedPassword" placeholder="@L("Password")">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group" v-if="needHandlerRelateData">
+                                    <label for="firstname" class="col-sm-2 control-label">
+                                        @L("DockingQRCode")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <label class="radio-inline">
+                                            <input type="radio" v-model="sourceOfPartNo" name="sourceOfPartNoRadios" value="1">@L("ObtainedThroughPLCVariables")
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" v-model="sourceOfPartNo" name="sourceOfPartNoRadios" value="2"> @L("NoneThroughDataOrder")
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </form>
+
+
+                            <div class="machineSetting" v-if="traceFlowSettingId && traceFlowSettingId!==''">
+                                <div class="text-right">
+                                    <a class="btn btn-link" data-toggle="modal" data-target="#addModal" v-on:click="showMachineModal">@L("IncreaseEquipment")</a>
+                                </div>
+                                <div>
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th width="50">@L("Actions")</th>
+                                                <th>@L("Machines")</th>
+                                                <th>@L("Workstation")</th>
+                                                <th>@L("StationName")</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="item in eqList">
+                                                <td><a class="btn btn-danger btn-xs" href="javascript:void(0);" v-on:click="deleteMachine(item)">@L("Delete")</a></td>
+                                                <td>{{item.machineName}}</td>
+                                                <td>{{item.workingStationCode}}</td>
+                                                <td>{{item.workingStationDisplayName}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="copyModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <!-- <h4 class="modal-title">目标量复制</h4> -->
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        @L("Machines")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <select v-select2="" class="form-control" v-model="machineId" id="machineId" style="width:100%">
+                                            <option v-for="item in machineList" :value="item.value">{{item.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        @L("Workstation")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" v-model="workingStationCode" placeholder="@L("PleaseEnterTheStation")">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        @L("StationName")
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" v-model="workingStationDisplayName" placeholder="@L("PleaseEnterTheNameOfTheStation")">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">@L("Cancel")</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="addMachineFn">@L("Save")</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

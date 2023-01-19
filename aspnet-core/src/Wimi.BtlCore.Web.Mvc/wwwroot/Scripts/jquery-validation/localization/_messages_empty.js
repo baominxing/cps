@@ -1,0 +1,1 @@
+/*Placeholder file for other languages. Used in ScriptPaths.JQueryValidationLocalization property.*/

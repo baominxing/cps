@@ -1,0 +1,53 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Reasons.ReasonFeedback.ProcessSelectMachineModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("DeviceContext")))
+@section Scripts
+{
+    <script src="~/view-resources/Views/Reasons/FeedbackCalendar/_SelectMachineModal.js" asp-append-version="true"></script>
+}
+<div class="modal-body">
+
+    <div class="panel panel-default box box-solid">
+        <div class="panel-heading box-header with-border">
+            <h3 class="panel-title box-title">
+                <i class="fa fa-search"></i> 选择设备
+            </h3>
+        </div>
+        <div class="panel-body box-body">
+            <form name="ProcessSelectMachineForm" role="form" novalidate class="form-validation">
+
+                <div class="input-group margin-bottom-10">
+
+                    <input class="form-control lookup-filter-text" placeholder="@L("SearchWithThreeDot")" type="text">
+
+                    <span class="input-group-btn">
+                        <button class="btn default lookup-filter-button" type="submit" title="查询"><i class="fa fa-search"></i></button>
+                    </span>
+
+                    <span class="input-group-btn">
+                        <button class="btn default lookup-filter-save" type="button" title="保存"><i class="fa fa-floppy-o"></i></button>
+                    </span>
+
+                    @*<input type="hidden" id="SelectMachinePcdId" value="@Model.PcdId" />*@
+                </div>
+
+            </form>
+
+            <table class="table table-hover table-bordered" id="ProcessSelectMachineTable" style="width: 100%"></table>
+        </div>
+    </div>
+    <div class="panel panel-default box box-solid">
+        <div class="panel-heading box-header with-border">
+            <h3 class="panel-title box-title">
+                <i class="fa fa-desktop"></i> 已关联的设备
+            </h3>
+        </div>
+        <div class="panel-body box-body">
+            <table class="table table-hover table-bordered" id="PcdMachineTable" style="width: 100%"></table>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithCancel.cshtml")
+

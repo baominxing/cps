@@ -1,0 +1,88 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.ReasonFeedback_Calendar;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/Reasons/FeedbackCalendar/Index.js" asp-append-version="true"></script>
+}
+
+
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+
+    .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+        height: 31px !important;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @L("FeedbackCalendar")<small></small>
+    </h1>
+</section>
+
+<section class="content">
+
+    <div class="box box-solid">
+
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-search"></i> @L("QueryArea")
+            </h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="box-body">
+            <form class="form-horizontal no-padding">
+
+                <div class="col-md-3">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("RuleName")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="Name" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("Reason")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <select type="text" class="form-control" id="StateCodeSelect">
+                            <option value="0">全部</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-sm-1 pull-right">
+                    <div class="btn btn-primary btn-sm form-control" id="search"><i class="fa fa-search"></i>@L("Research")</div>
+                </div>
+
+                @if (IsGranted(PermissionNames.Pages_ReasonFeedback_Calendar_Manage))
+                {
+                    <div class="col-sm-1 pull-right">
+                        <div class="btn btn-primary btn-sm form-control" id="create"><i class="fa fa-plus"></i> @L("Create")</div>
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+
+    <div class="box box-solid">
+        <div class="box-body">
+            <table id="table" class="table table-bordered table-hover" style="width: 100%"></table>
+        </div>
+    </div>
+
+</section>

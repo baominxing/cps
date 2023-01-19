@@ -1,0 +1,76 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+
+@model Wimi.BtlCore.Web.Models.BasicData.ImportData.ImportDataViewModal
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.BasicData_ImportData;
+}
+@section Scripts
+{
+
+    <script src="~/view-resources/Views/BasicData/ImportData/Index.js" asp-append-version="true"></script>
+}
+
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+
+    div.dataTables_wrapper {
+        width: 100%;
+    }
+</style>
+
+    <!-- #region Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            @L("ImportData")
+        </h1>
+        <div class="header-tools">
+
+            @if (IsGranted(PermissionNames.Pages_BasicData_ImportData_Manage))
+            {
+
+                <a class="btn btn-primary" id="downloadTemplate">
+                    <i class="fa fa-download" aria-hidden="true">
+                        @L("DownloadTemplate")
+                    </i>
+                </a>
+
+                <button class="btn btn-primary" id="checkData">
+                    <i class="fa fa-upload" aria-hidden="true">
+                        @L("ImportData")
+                    </i>
+                </button>
+            }
+        </div>
+    </section>
+    <!-- #endregion -->
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-2 col-xs-12">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">@L("ImportType")</h3>
+                    </div>
+                    <div class="box-body">
+                        <div id="importTypeTree">
+                            <ul>
+                                @await Html.PartialAsync("~/Views/BasicData/ImportData/_ImportTypeTree.cshtml", Model)
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-xs-12">
+                <div class="box box-solid">
+                    <div class="box-body">
+                        <table id="checkDataTable" class="table table-bordered table-hover" style="width: 100%"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+

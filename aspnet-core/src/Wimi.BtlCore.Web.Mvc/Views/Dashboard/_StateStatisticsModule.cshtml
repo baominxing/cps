@@ -1,0 +1,60 @@
+﻿<!-- Small boxes (Stat box) -->
+
+@*<div class="alert alert-danger hide" id="syncDataState">
+    <h4>
+        <i class="icon fa fa-ban"></i><span id="syncDataStateContent"></span> 
+    </h4>
+</div>*@
+<div class="alert alert-danger hide" id="mongodbAlert">
+    <h4>
+        <i class="icon fa fa-ban"></i><span id="mongodbAlertContent"></span>
+    </h4>
+</div>
+<div class="box box-widget widget-user-2">
+    <div class="widget-user-header bg-yellow">
+        <div class="widget-user-image">
+            <img class="img-circle" src="~/Content/Images/CNC1-128x128.png" alt="@L("Machines")">
+        </div>
+        <h3 class="widget-user-username">@L("DeviceStatus")</h3>
+        <h5 class="widget-user-desc">Timely State</h5>
+    </div>
+    <div class="box-footer no-padding">
+        <ul class="nav nav-stacked" id="total-summary-info">
+            <li id="total-in-stop-state">
+                <a href="#">
+                    <i class="fa fa-pause text-danger xs-pr-10"></i>
+                    <span class="title">@L("Stop")</span>
+                    <span class="pull-right badge bg-active amount">N/A</span>
+                </a>
+            </li>
+            <li id="total-in-run-state">
+                <a href="#">
+                    <i class="fa fa-play text-green xs-pr-10"></i>
+                    <span class="title">@L("Run")</span>
+                    <span class="pull-right badge bg amount">N/A</span>
+                </a>
+            </li>
+            <li id="total-in-free-state">
+                <a href="#">
+                    <i class="fa fa-circle-o text-warning xs-pr-10"></i>
+                    <span class="title">@L("Free")</span>
+                    <span class="pull-right badge bg amount">N/A</span>
+                </a>
+            </li>
+            <li id="total-in-debug-state">
+                <a href="#">
+                    <i class="fa fa-wrench text-primary xs-pr-10"></i>
+                    <span class="title">@L("Debug")</span>
+                    <span class="pull-right badge bg amount">N/A</span>
+                </a>
+            </li>
+            <li id="total-in-offline-state">
+                <a href="#">
+                    <i class="fa fa-stop xs-pr-10"></i>
+                    <span class="title">@L("Offline")</span>
+                    <span class="pull-right badge amount">N/A</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

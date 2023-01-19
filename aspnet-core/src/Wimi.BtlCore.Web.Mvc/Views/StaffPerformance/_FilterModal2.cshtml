@@ -1,0 +1,50 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.StatisticAnalysis.Alarm.AlarmStatisticsViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("SearchSetting")))
+
+<script src="~/view-resources/Views/Common/_MachinesTree.js"></script>
+<script src="~/Scripts/layer/layer.js"></script>
+
+<style>
+    span.select2 .select2-container {
+        width: 100% !important;
+    }
+</style>
+
+<div class="modal-body">
+    <form name="SearchForm" role="form" novalidate class="form-validation">
+
+        <div class="input-group xs-pv-10 xs-ph-5 col-xs-12">
+
+            <span class="input-group-addon no-border"><b class="text-primary">@L("StatisticalMethod")</b></span>
+            <select class="form-control input-sm" id="statisticalWay">
+                <option value="shift">@L("ByShift")</option>
+                <option selected="selected" value="day">@L("Day")</option>
+                <option value="week">@L("Week")</option>
+                <option value="month">@L("Month")</option>
+                @*<option value="quarter">季</option>*@
+                <option value="year">@L("Year")</option>
+            </select>
+        </div>
+
+        <div class="input-group xs-pv-10 xs-ph-5 col-xs-12 shiftsolution" style="display:none">
+
+            <span class="input-group-addon no-border"><b class="text-primary">@L("ShiftSetting")</b></span>
+            <select class="form-control input-sm" id="ShiftSolution">
+            </select>
+        </div>
+
+        <div class="input-group xs-pv-5 xs-ph-5 col-xs-12">
+            <span class="input-group-addon no-border"><b class="text-primary">@L("TimeFrame")</b></span>
+            <input type="text" data-type="calendar" class="form-control" id="daterangepicker" />
+        </div>
+
+        <div class="input-group xs-pv-5 xs-ph-5 col-xs-12">
+            <span class="input-group-addon no-border" style="text-align: left"><b class="text-primary">@L("SelectDevice")</b></span>
+            @await Html.PartialAsync("~/Views/Common/_GrantedMachineTree.cshtml", Model)
+        </div>
+
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

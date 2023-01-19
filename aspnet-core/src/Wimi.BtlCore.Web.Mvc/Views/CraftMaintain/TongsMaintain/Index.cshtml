@@ -1,0 +1,99 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.CraftMaintain_TongsMaintain;
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/CraftMaintain/TongsMaintain/Index.js" asp-append-version="true"></script>
+}
+
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @L("TongsMaintain")<small></small>
+    </h1>
+</section>
+
+<section class="content">
+
+    <div class="box box-solid">
+
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-search"></i> @L("QueryArea")
+            </h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="box-body">
+            <form class="form-horizontal no-padding">
+
+                        <div class="col-md-3">
+                            <label class="col-sm-4 control-label">
+                                <b class="text-primary">@L("TongCode")</b>
+                            </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="Code" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="col-sm-4 control-label">
+                                <b class="text-primary">@L("TongName")</b>
+                            </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="Name" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="col-sm-4 control-label">
+                                <b class="text-primary">@L("TongCapacity")</b>
+                            </label>
+                            <div class="col-sm-8">
+                                <select class="form-control enumDropDown" id="Capacity" ></select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="col-sm-4 control-label">
+                                <b class="text-primary">@L("ProgramName")</b>
+                            </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="ProgramName" />
+                            </div>
+                        </div>
+
+                <br>
+                <br>
+                <br />
+
+                <div class="col-sm-1 pull-right">
+                    <div class="btn btn-primary btn-sm form-control" id="search"><i class="fa fa-search"></i>@L("Research")</div>
+                </div>
+
+                @if (IsGranted(PermissionNames.Pages_CraftMaintain_TongsMaintain_Manage))
+                {
+                <div class="col-sm-1 pull-right">
+                    <div class="btn btn-primary btn-sm form-control" id="create"><i class="fa fa-plus"></i> @L("Create")</div>
+                </div>
+                }
+            </form>
+        </div>
+    </div>
+
+    <div class="box box-solid">
+        <div class="box-body">
+            <table id="table" class="table table-bordered table-hover" style="width: 100%"></table>
+        </div>
+    </div>
+
+</section>

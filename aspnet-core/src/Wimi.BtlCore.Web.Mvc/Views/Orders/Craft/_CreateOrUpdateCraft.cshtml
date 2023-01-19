@@ -1,0 +1,23 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Order.Craft.CraftModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("Create")))
+<div class="modal-body">
+
+    <form name="createOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("CraftCode")</label>
+            <input class="form-control code" type="text" name="Code" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength"
+                   value="@(Model.IsEditMode ? Model.Code : string.Empty)">
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("CraftName")</label>
+            <input class="form-control name" type="text" name="Name" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength"
+                   value="@(Model.IsEditMode ? Model.Name : string.Empty)">
+        </div>
+        <input type="hidden" id="Id" value="@(Model.IsEditMode ? Model.Id : 0)" />
+
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

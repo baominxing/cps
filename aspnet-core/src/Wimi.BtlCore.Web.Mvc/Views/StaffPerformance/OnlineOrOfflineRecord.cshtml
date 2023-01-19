@@ -1,0 +1,82 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.StaffPerformance.OnlineOrOfflineRecordViewModel
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.StaffPerformance_OnlineOrOfflineRecord;
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/StaffPerformance/OnlineOrOfflineRecord.js" asp-append-version="true"></script>
+}
+
+<section class="content-header">
+    <h3>
+        @L("StaffPerformance")
+        <small>@L("StaffPerformance_OnlineOrOfflineRecord")</small>
+    </h3>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-3 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i>@L("SearchSetting")
+                    </h3>
+
+                </div>
+                <div class="box-body">
+
+                    <form id="TextsFilterForm">
+
+                        <div class="input-group xs-pv-5">
+                            <span class="input-group-addon no-border"><b class="text-primary">@L("Name")</b></span>
+                            <input id="TextFilter" class="form-control" placeholder="@L("Name")" type="text" />
+                        </div>
+
+                        <div class="input-group xs-pv-5">
+                            <span class="input-group-addon no-border"><b class="text-primary">@L("TimeFrame")</b></span>
+                            <input type="text" class="form-control" id="reservationtime">
+                        </div>
+
+                        <div class="input-group xs-pv-5">
+                            <span class="input-group-addon no-border" style="text-align: left"><b class="text-primary">@L("MachineList")</b></span>
+                        </div>
+
+                        <div class="input-group xs-mb-15 xs-ph-5 col-xs-12 xs-pv-5">
+                            @await Html.PartialAsync("~/Views/Common/_GrantedMachineTree.cshtml", Model)
+                        </div>
+
+                        <div class="box-footer col-md-12">
+
+                            <button type="button" id="btnQuery" class="btn btn-primary btn-sm btn-block">@L("Research")</button>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i>@L("QueryResults")
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <table id="table" class="table table-bordered table-striped table-hover"></table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+}

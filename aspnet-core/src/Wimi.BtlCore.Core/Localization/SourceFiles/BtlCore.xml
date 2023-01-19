@@ -1,0 +1,1682 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="en">
+	<texts>
+		<text name="FootTagWimi">Shanghai Weiming Intelligent Technology Co., Ltd.</text>
+		<text name="HomePage" value="Home page" />
+		<text name="AboutUs" value="About us" />
+		<text name="Administration" value="Administration" />
+		<text name="Roles" value="RolesMaintain" />
+		<text name="Users" value="UsersMaintain" />
+		<text name="InvalidFormMessage" value="Your form is invalid. Please check and correct it." />
+		<text name="InvalidUserNameOrPassword" value="Invalid user name or password" />
+		<text name="ThereIsNoTenantDefinedWithName{0}" value="There is no tenant defined with name {0}" />
+		<text name="TenantIsNotActive{0}" value="Tenant {0} is not active." />
+		<text name="UserIsNotActiveAndCanNotLogin{0}" value="User {0} is not active and can not log in." />
+		<text name="EmailIsNotConfirmedAndCanNotLogin" value="Your email address is not confirmed. You can not login." />
+		<text name="PleaseEnterLoginInformation" value="Please enter login information" />
+		<text name="TenancyName" value="Tenancy name" />
+		<text name="UserNameOrEmail" value="User name or email" />
+		<text name="Password" value="Password" />
+		<text name="PasswordNotSameRepeat" value="PasswordNotSameRepeat" />
+		<text name="RememberMe" value="Remember me" />
+		<text name="LogIn" value="Log in" />
+		<text name="ForgotPassword" value="Forgot password?" />
+		<text name="DontYouHaveAnAccount" value="Don't you have an account?" />
+		<text name="CreateAnAccount" value="Create account" />
+		<text name="Pages" value="Pages" />
+		<text name="RoleName" value="Role name" />
+		<text name="RoleNameNotBePureSpaces" value="RoleNameNotBePureSpaces" />
+		<text name="EditRole" value="Edit role" />
+		<text name="CreateNewRole" value="Create new role" />
+		<text name="RoleProperties" value="Role properties" />
+		<text name="Permissions" value="Permissions" />
+		<text name="Save" value="Save" />
+		<text name="SavePage" value="Save page" />
+		<text name="Cancel" value="Cancel" />
+		<text name="RolesHeaderInfo" value="Use roles to group permissions." />
+		<text name="Static" value="Static" />
+		<text name="Actions" value="Actions" />
+		<text name="Delete" value="Delete" />
+		<text name="SavedSuccessfully" value="Saved successfully." />
+		<text name="AreYouSure" value="Are you sure?" />
+		<text name="YesDelete" value="Yes, delete!" />
+		<text name="DeletingUser" value="Deleting user" />
+		<text name="UsersHeaderInfo" value="Manage users and permissions." />
+		<text name="CreateNewUser" value="Create new user" />
+		<text name="UserName" value="User name" />
+		<text name="WeChatId" value="Wechat Enterprise Account" />
+		<text name="Name" value="Name" />
+		<text name="Surname" value="Surname" />
+		<text name="EmailAddress" value="Email address" />
+		<text name="LastLoginTime" value="Last login time" />
+		<text name="EditUser" value="Edit user" />
+		<text name="UserInformations" value="User informations" />
+		<text name="PasswordRepeat" value="Password (repeat)" />
+		<text name="SuccessfullyDeleted" value="Successfully deleted." />
+		<text name="RoleDeleteWarningMessage" value="Role {0} will be deleted and unassigned from all assigned users." />
+		<text name="UserDeleteWarningMessage" value="User {0} will be deleted." />
+		<text name="NgCodeAlreadyExist{0}">ng name{0}AlreadyExist</text>
+		<text name="Active" value="Active" />
+		<text name="EmailConfirm" value="Email confirm" />
+		<text name="Yes" value="Yes" />
+		<text name="No" value="No" />
+		<text name="MySettings" value="My settings" />
+		<text name="Logout" value="Logout" />
+		<text name="Reset" value="Reset" />
+		<text name="ResetPermissionsTooltip"
+			  value="This button immediately resets user specific permission settings and saves changes. The user will only have permissions from assigned roles." />
+		<text name="ResetSuccessfully" value="Reset successfully" />
+		<text name="Tenants" value="Tenants" />
+		<text name="TenantsHeaderInfo" value="Manage your tenants." />
+		<text name="CreateNewTenant" value="Create new tenant" />
+		<text name="TenancyCodeName" value="Tenancy code name" />
+		<text name="TenantName" value="Tenant name" />
+		<text name="TenantDeleteWarningMessage" value="Tenant {0} will be deleted." />
+		<text name="AdminEmailAddress" value="admin email" />
+		<text name="AdminPassword" value="admin password" />
+		<text name="AdminPasswordRepeat" value="admin password (repeat)" />
+		<text name="EditTenant" value="Edit tenant" />
+		<text name="ChangingPermissions" value="Changing permissions" />
+		<text name="EditingUser" value="Editing user" />
+		<text name="CreatingNewUser" value="Creating new user" />
+		<text name="Edit" value="Edit" />
+		<text name="EditingTenant" value="Editing tenant" />
+		<text name="CreatingNewTenant" value="Creating new tenant" />
+		<text name="DeletingTenant" value="Deleting tenant" />
+		<text name="EditingRole" value="Editing role" />
+		<text name="CreatingNewRole" value="Creating new role" />
+		<text name="DeletingRole" value="Deleting role" />
+		<text name="CreationTime" value="Creation time" />
+		<text name="PlanFixDate">Scheduled maintenance date</text>
+		<text name="SearchWithThreeDot" value="Search..." />
+		<text name="ResetSpecialPermissions" value="Reset special permissions" />
+		<text name="SavingWithThreeDot" value="Saving..." />
+		<text name="Settings" value="OtherSettings" />
+		<text name="SaveAll" value="Save all" />
+		<text name="SettingsHeaderInfo" value="Show and change application settings." />
+		<text name="EmailSmtp" value="Email (SMTP)" />
+		<text name="DefaultFromAddress" value="Default from (sender) email address" />
+		<text name="DefaultFromDisplayName" value="Default from (sender) display name" />
+		<text name="SmtpHost" value="SMTP host" />
+		<text name="SmtpPort" value="SMTP port" />
+		<text name="UseDefaultCredentials" value="Use default credentials" />
+		<text name="DomainName" value="Domain name" />
+		<text name="UseSsl" value="Use SSL" />
+		<text name="ThisWebSiteRootAddress" value="Web site root address" />
+		<text name="ThisWebSiteRootAddress_Hint"
+			  value="It will be used when building links to this web site. It's needed for some tasks like building password reset links. Ex: http://mydomain.com/" />
+		<text name="General" value="General" />
+		<text name="SendPasswordResetLink_Information"
+			  value="A password reset link will be sent to your email to reset your password. If you don't get an email within a few minutes, please re-try." />
+		<text name="Send" value="Send" />
+		<text name="PasswordReset" value="Password reset" />
+		<text name="InvalidUserNameOrEmailAddress" value="Invalid user name or email address" />
+		<text name="PasswordResetEmail_Subject" value="AbpZeroTemplate password reset" />
+		<text name="PasswordResetEmail_Title" value="AbpZeroTemplate password reset." />
+		<text name="PasswordResetEmail_SubTitle" value="This email is sent you to reset and re-create your password." />
+		<text name="PasswordResetEmail_ClickTheLinkBelowToResetYourPassword"
+			  value="Please click the link below to reset your password:" />
+		<text name="EmailActivation_Subject" value="AbpZeroTemplate account email activation" />
+		<text name="EmailActivation_Title" value="Welcome to AbpZeroTemplate." />
+		<text name="EmailActivation_SubTitle" value="This email is sent you to verify your email." />
+		<text name="EmailActivation_ClickTheLinkBelowToVerifyYourEmail"
+			  value="Please click the link below to verify your email address:" />
+
+		<text name="InvalidPasswordResetCode" value="Invalid password reset code" />
+		<text name="InvalidPasswordResetCode_Detail"
+			  value="Please be sure you entered this page by clicking the link sent to your email. If this not solves the problem, you can re-try to request a new password reset link." />
+		<text name="PleaseEnterYourNewPassword" value="Please enter your new password." />
+		<text name="UserEmailIsNotConfirmedAndCanNotLogin"
+			  value="Your email address is not confirmed. Please check your email and click the email confirmation link to activate your account. If you did not receive activation email, click the 'email confirmation' to request a new email." />
+		<text name="LoginFailed" value="Login failed!" />
+		<text name="InvalidEmailConfirmationCode" value="Invalid email confirmation code" />
+		<text name="InvalidEmailConfirmationCode_Detail"
+			  value="Please be sure you entered this page by clicking the link sent to your email. If this not solves the problem, you can re-try to request a new confirmation code." />
+		<text name="YourEmailIsConfirmedMessage" value="Your email address is successfully confirmed." />
+		<text name="ShouldChangePasswordOnNextLogin" value="Should change password on next login." />
+		<text name="SetRandomPassword" value="Set random password." />
+		<text name="EmailActivation" value="Email activation" />
+		<text name="SendEmailActivationLink_Information"
+			  value="A link will be sent to your email to activate your email address. If you don't get an email within a few minutes, please re-try." />
+		<text name="SendActivationEmail" value="Send activation email." />
+		<text name="ChangePassword" value="Change password" />
+		<text name="CurrentPassword" value="Current password" />
+		<text name="NewPassword" value="New password" />
+		<text name="NewPasswordRepeat" value="New password (repeat)" />
+		<text name="YourPasswordHasChangedSuccessfully" value="Your password has changed successfully." />
+		<text name="SelfUserRegistrationIsDisabledMessage" value="You can not register to the system!" />
+		<text name="SelfUserRegistrationIsDisabledMessage_Detail"
+			  value="Self user registration is disabled. Please contact to the system administrator to register." />
+		<text name="SuccessfullyRegistered" value="Successfully registered" />
+		<text name="ConfirmationMailSentPleaseClickLinkInTheEmail"
+			  value="A confirmation mail sent to {0}. Please click link in the email in order to confirm your mail address." />
+		<text name="YourAccountIsWaitingToBeActivatedByAdmin"
+			  value="Your account is waiting to be activated by system admin." />
+		<text name="NameSurname" value="Name surname" />
+		<text name="UserManagement" value="User management" />
+		<text name="AllowUsersToRegisterThemselves" value="Allow users to register to the system." />
+		<text name="AllowUsersToRegisterThemselves_Hint"
+			  value="If you disable this, users will only be added by admin using user management page." />
+		<text name="NewRegisteredUsersIsActiveByDefault" value="New registered users are active by default." />
+		<text name="NewRegisteredUsersIsActiveByDefault_Hint"
+			  value="If you disable this, new users will not be active (and can not login) until admin manually activate the account." />
+		<text name="Default" value="Default" />
+		<text name="DefaultRole_Description" value="Assign to new users as default." />
+		<text name="StaticRole_Tooltip" value="Static roles can not be deleted." />
+		<text name="EmailConfirmationRequiredForLogin" value="Email confirmation required for login." />
+		<text name="{0}UserCannotBeDeleted" value="{0} user can not be deleted." />
+		<text name="TenantNameCanNotBeEmpty" value="Tenant name can not be empty" />
+		<text name="ExportToExcel" value="Export to excel" />
+		<text name="ChangeProfilePicture" value="Change profile picture" />
+		<text name="TenantName_Regex_Description"
+			  value="Tenant name must be at least 2 chars, starts with a letter and continue with letter, number, dash or underscore." />
+		<text name="ProfilePicture_Change_Info" value="You can select a JPG/JPEG/PNG file with a maximum 1MB size." />
+		<text name="ProfilePicture_Change_Error" value="Your profile picture could not be changed." />
+		<text name="ProfilePicture_Warn_SizeLimit"
+			  value="Picture size must be smalled than 1MB. Please select another file." />
+		<text name="ProfilePicture_Warn_FileType" value="You can only select JPG/JPEG file. Please select another file." />
+		<text name="Dashboard" value="MainMenu" />
+		<text name="DashboardHeaderInfo" value="statistics and reports" />
+		<text name="GoToApplication" value="Go to application" />
+		<text name="TenantInformations" value="Tenant informations" />
+		<text name="PersonalInformations" value="Personal informations" />
+		<text name="AccountSettings" value="Account settings" />
+		<text name="Captha_Hint" value="Please enter the security code shown in the picture below:" />
+		<text name="Back" value="Back" />
+		<text name="Submit" value="Submit" />
+		<text name="SignUp" value="Sign up" />
+		<text name="CaptchaCanNotBeEmpty" value="Security code can not be empty." />
+		<text name="IncorrectCaptchaAnswer" value="Security code is not valid." />
+		<text name="FormIsNotValidMessage" value="Form is not valid. Please check and fix errors." />
+		<text name="CanNotChangeAdminUserName" value="Can not change username of the admin." />
+		<text name="Error" value="Error!" />
+		<text name="OopsYouAreLost" value="Oops! You're lost." />
+		<text name="WeCanNotFindThePage" value="We can not find the page you're looking for." />
+		<text name="DashboardDemo_Note_Title" value="Welcome to ASP.NET Zero startup project!" />
+		<text name="DashboardDemo_Note_Info">
+			In this demo, you can use the left menu to test fully functional pages.
+			This dashboard page is just for demonstration purposes, texts and datas are meaningless.
+			Almost all datas are hard-coded in the client side, except the small MEMBER ACTIVITY graphs.
+			When you click the REFRESH button, graph data is requested from server and server generates random data.
+		</text>
+		<text name="WelcomePage_Title" value="Welcome!" />
+		<text name="WelcomePage_Info"
+			  value="Welcome to the application. You can use the menu to start using the application. If you don't see any menu item, probably you don't have permission to see any page. Consider to ask system administration for permissions." />
+		<text name="RequestedFileDoesNotExists" value="Requested file does not exists!" />
+		<text name="MailSent" value="Mail sent" />
+		<text name="PasswordResetMailSentMessage"
+			  value="A password reset link sent to your e-mail address. Please check your emails." />
+		<text name="ActivationMailSentMessage"
+			  value="An e-mail activation link sent to your e-mail address. Please check your emails." />
+		<text name="UseCaptchaOnRegistration" value="Use security image question (captcha) on registration." />
+		<text name="FormBasedRegistration" value="Form Based Registration" />
+		<text name="LdapSettings" value="LDAP Settings" />
+		<text name="EnableLdapAuthentication" value="Enable LDAP Authentication." />
+		<text name="OtherSettings" value="Other Settings" />
+		<text name="AuditLogs" value="Audit logs" />
+		<text name="Success" value="Success" />
+		<text name="Time" value="Time" />
+		<text name="Service" value="Service" />
+		<text name="Action" value="Action" />
+		<text name="Duration" value="Duration" />
+		<text name="IpAddress" value="IP address" />
+		<text name="Client" value="Client" />
+		<text name="Browser" value="Browser" />
+		<text name="Xms" value="{0} ms" />
+		<text name="Close" value="Close" />
+		<text name="Refresh" value="Refresh" />
+		<text name="ErrorState" value="Error state" />
+		<text name="All" value="All" />
+		<text name="HasError" value="Has error" />
+		<text name="ShowAdvancedFilters" value="Show advanced filters" />
+		<text name="HideAdvancedFilters" value="Hide advanced filters" />
+		<text name="AuditLogDetail" value="Audit log detail" />
+		<text name="Parameters" value="Parameters" />
+		<text name="DateRange" value="Date range" />
+		<text name="ActionInformations" value="Action informations" />
+		<text name="Today" value="Today" />
+		<text name="Yesterday" value="Yesterday" />
+		<text name="Last7Days" value="Last 7 days" />
+		<text name="Last30Days" value="Last 30 days" />
+		<text name="ThisMonth" value="This month" />
+		<text name="LastMonth" value="Last month" />
+		<text name="TenantSelection" value="Tenant Selection" />
+		<text name="TenantSelection_Detail" value="Please select one of the following tenants." />
+		<text name="LoginWith" value="Login with:" />
+		<text name="PasswordChangeDontRememberMessage" value="If you can not remember your password, {0}." />
+		<text name="ClickHere" value="click here" />
+		<text name="Apply" value="Apply" />
+		<text name="CustomRange" value="Custom range" />
+		<text name="DashboardNoteForMpaVersion">
+			<![CDATA[
+      See Demo for Multi-Page Application version with <strong>ASP.NET MVC</strong> and <strong>jQuery</strong>.
+      ]]>
+		</text>
+		<text name="DashboardNoteForSpaVersion">
+			<![CDATA[
+      Notice: There is also a <strong>Single-Page Application</strong> version built using ASP.NET MVC and <strong>AngularJs</strong>.
+      ]]>
+		</text>
+		<text name="SeeDemo" value="See demo" />
+		<text name="Edition" value="Edition" />
+		<text name="Editions" value="Editions" />
+		<text name="EditionsHeaderInfo" value="Manage editions and features of the application" />
+		<text name="CreateNewEdition" value="Create new edition" />
+		<text name="EditEdition" value="Edit edition" />
+		<text name="EditionProperties" value="Edition properties" />
+		<text name="EditionName" value="Edition name" />
+		<text name="Features" value="Features" />
+		<text name="EditionDeleteWarningMessage" value="{0} will be deleted and unassigned from all assigned tenants." />
+		<text name="CreatingNewEdition" value="Creating new edition" />
+		<text name="EditingEdition" value="Editing edition" />
+		<text name="DeletingEdition" value="Deleting edition" />
+		<text name="ChangingFeatures" value="Changing features" />
+		<text name="ResetSpecialFeatures" value="Reset special features" />
+		<text name="ResetFeaturesTooltip"
+			  value="This button immediately resets tenant specific feature settings and saves changes. The tenant will only have features from assigned edition." />
+		<text name="NotAssigned" value="Not assigned" />
+		<text name="InvalidFeaturesWarning" value="One or more feature values are not valid!" />
+		<text name="Languages" value="Languages" />
+		<text name="LanguagesHeaderInfo" value="Manage user interface languages." />
+		<text name="CreateNewLanguage" value="Create new language" />
+		<text name="CreatingNewLanguage" value="Creating new language" />
+		<text name="EditingLanguage" value="Editing language" />
+		<text name="DeletingLanguages" value="Deleting language" />
+		<text name="ChangingTexts" value="Changing texts" />
+		<text name="SuccessfullySaved" value="Successfully saved." />
+		<text name="Language" value="Language" />
+		<text name="Flag" value="Flag" />
+		<text name="SetAsDefaultLanguage" value="Set as default language" />
+		<text name="InvlalidLanguageCode" value="Invalid language code." />
+		<text name="EditLanguage" value="Edit language" />
+		<text name="ChangeTexts" value="Change texts" />
+		<text name="TargetValue" value="Target value" />
+		<text name="BaseValue" value="Base value" />
+		<text name="Key" value="Key" />
+		<text name="SaveAndClose" value="Save &amp; Close" />
+		<text name="SaveAndNext" value="Save &amp; Next" />
+		<text name="EditText" value="Edit text" />
+		<text name="LanguageTexts" value="Language texts" />
+		<text name="LanguageTextsHeaderInfo" value="Edit texts for languages." />
+		<text name="EmptyOnes" value="Empty ones" />
+		<text name="Source" value="Source" />
+		<text name="BaseLanguage" value="Base language" />
+		<text name="TargetLanguage" value="Target language" />
+
+		<text name="LanguageDeleteWarningMessage" value="Are you sure to delete the language {0}?" />
+		<text name="CanNotEditOrDeleteDefaultLanguages"
+			  value="Can not edit or delete default languages. You can only edit or delete the languages you added. But you can change texts of all languages." />
+		<text name="LookingForMpaVersion" value="Looking for Multi-Page Application Version?" />
+		<text name="LookingForSpaVersion" value="Looking for Single-Page Application Version?" />
+		<text name="ThisLanguageAlreadyExists" value="This language already exists!" />
+		<text name="OrganizationUnits" value="Organization units" />
+		<text name="OrganizationUnitsHeaderInfo" value="Use organization units to organize users and entities" />
+		<text name="OrganizationTree" value="Organization tree" />
+		<text name="Members" value="Members" />
+		<text name="SelectAnOrganizationUnitToSeeMembers" value="Select an organization unit to see members." />
+		<text name="OrganizationUnitDeleteWarningMessage" value="Are you sure to delete organization unit {0}?" />
+		<text name="AddSubUnit" value="Add sub unit" />
+		<text name="AddMember" value="Add member" />
+		<text name="SuccessfullyAdded" value="Successfully added" />
+		<text name="RemoveUserFromOuWarningMessage" value="Are you sure to remove user {0} from organization unit {1}?" />
+		<text name="SuccessfullyRemoved" value="Successfully removed" />
+		<text name="SelectAnItem" value="Select an item" />
+		<text name="NewOrganizationUnit" value="New organization unit" />
+		<text name="SelectAUser" value="Select a user" />
+		<text name="Select" value="Select" />
+		<text name="UserIsAlreadyInTheOrganizationUnit" value="This user is already in the organization unit!" />
+		<text name="AddRootUnit" value="Add root unit" />
+		<text name="AddUser" value="Add user" />
+		<text name="NoOrganizationUnitDefinedYet" value="No organization unit defined yet." />
+		<text name="OrganizationUnitMoveConfirmMessage" value="Please confirm to move {0} to under {1}." />
+		<text name="Root" value="Root" />
+		<text name="SuccessfullyMoved" value="Successfully moved." />
+		<text name="AddedTime" value="Addition time" />
+		<text name="ManagingMembers" value="Managing members" />
+		<text name="ManagingOrganizationTree" value="Managing organization tree" />
+		<text name="LoginForUsers" value="Login for users" />
+		<text name="LoginAsThisUser" value="Login as this user" />
+		<text name="BackToMyAccount" value="Back to my account" />
+		<text name="LoginForTenants" value="Login for tenants" />
+		<text name="LoginAsThisTenant" value="Login as this tenant" />
+		<text name="YouAreNotLinkedToAnyAccount">You are not linked to any account!</text>
+		<text name="AuditLogImpersonatedOperationInfo"
+			  value="Note: This operation is performed by another user on behalf of this user." />
+		<text name="CustomData" value="Custom data" />
+		<text name="None" value="None" />
+		<text name="YouCanBackToYourAccount" value="You can back to your account here." />
+		<text name="CascadeImpersonationErrorMessage"
+			  value="Can not make cascade impersonation. This is already an impersonated login!" />
+		<text name="FromTenantToHostImpersonationErrorMessage" value="Can not impersonate a host user from a tenant user!" />
+		<text name="DifferentTenantImpersonationErrorMessage" value="Can not impersonate a user of a different tenant!" />
+		<text name="ImpersonationTokenErrorMessage" value="Impersonation token is invalid or expired!" />
+		<text name="NotImpersonatedLoginErrorMessage" value="This is not an impersonated login!" />
+		<text name="YouCannotLinkToSameAccount">You can not link to same account!</text>
+		<text name="ChangePasswordBeforeLinkToAnAccount">You must change your password before linking this account!</text>
+		<text name="LinkedAccounts">Linked accounts</text>
+		<text name="ManageAccounts">Manage accounts</text>
+		<text name="LinkNewAccount">Link new account</text>
+		<text name="SuccessfullyUnlinked">Successfully unlinked</text>
+		<text name="DonotCallThisMethodWithASuccessResult">Don't call this method with a success result!</text>
+		<text name="LinkedUserDeleteWarningMessage">Link to user {0} will be deleted.</text>
+		<text name="SwitchToLinkedAccountTokenErrorMessage" value="Impersonation token is invalid or expired!" />
+		<text name="WelcomeToTheApplicationNotificationMessage"
+			  value="Welcome to WIMI! Notification system is used to inform you for intended events. You can select which type of notifications you want to receive from the notification settings." />
+		<text name="NewUserRegisteredNotificationDefinition" value="On a new user registered to the application." />
+		<text name="NewUserRegisteredNotificationMessage"
+			  value="A new user registered to the application. User name: {userName}, Email address: {emailAddress}." />
+		<text name="SeeAllNotifications" value="See all notifications" />
+		<text name="SetAsRead" value="set as read" />
+		<text name="SetAllAsRead" value="Set all as read" />
+		<text name="NotificationSettings" value="Notification settings" />
+		<text name="ReceiveNotifications" value="Receive Notifications" />
+		<text name="ReceiveNotifications_Definition"
+			  value="This option can be used to completely enable/disable receiving notifications." />
+		<text name="NotificationTypes" value="Notification Types" />
+		<text name="ReceiveNotifications_DisableInfo"
+			  value="You completely disabled receiving notifications. You can enabled it and select notification types you want to receive." />
+		<text name="Notifications" value="Notifications" />
+		<text name="ThereIsNoNotification" value="There is no notification." />
+		<text name="Unread" value="Unread" />
+		<text name="YouCanNotDeleteOwnAccount" value="You can not delete own user account!" />
+		<text name="On" value="On" />
+		<text name="Off" value="Off" />
+		<text name="Maintenance">Maintenance</text>
+		<text name="Caches">Caches</text>
+		<text name="CacheSuccessfullyCleared">Cache successfully cleared.</text>
+		<text name="AllCachesSuccessfullyCleared">All caches successfully cleared.</text>
+		<text name="ClearAll">Clear all</text>
+		<text name="Clear">Clear</text>
+		<text name="CachesHeaderInfo">You can clear caches in application on this page.</text>
+		<text name="TestEmailSettingsHeader">Test Email Settings</text>
+		<text name="SendTestEmail">Send Test Email</text>
+		<text name="TestEmail_Subject">AbpZeroTemplate test email</text>
+		<text name="TestEmail_Body">This is a test email.</text>
+		<text name="TestEmailSentSuccessfully">Test e-mail sent successfully.</text>
+		<text name="WebSiteLogs">Website Logs</text>
+		<text name="WebSiteLogsHeaderInfo">You can see latest logs in this page or download all logs in a single zip file.</text>
+		<text name="DownloadAll">Download all</text>
+		<text name="TenantManagement">Tenant management</text>
+		<text name="AllowTenantsToRegisterThemselves" value="Allow tenants to register to the system." />
+		<text name="AllowTenantsToRegisterThemselves_Hint"
+			  value="If you disable this, tenants will only be added by admin using tenant management page." />
+		<text name="NewRegisteredTenantsIsActiveByDefault" value="New registered tenants are active by default." />
+		<text name="NewRegisteredTenantsIsActiveByDefault_Hint"
+			  value="If you disable this, new tenants will not be active (and can not login) until admin manually activate the account." />
+		<text name="TenantSignUp">Tenant SignUp</text>
+		<text name="NewTenantRegisteredNotificationDefinition" value="On a new tenant registered to the application." />
+		<text name="NewTenantRegisteredNotificationMessage"
+			  value="A new tenant registered to the application. Tenancy name: {tenancyName}." />
+		<text name="LoginAttempts">Login attempts</text>
+		<text name="Failed">Failed</text>
+		<text name="NewTenant">New tenant</text>
+		<text name="ResizedProfilePicture_Warn_SizeLimit"
+			  value="Resized picture size must be smalled than 100KB. Please resize down and try again." />
+		<text name="RegisterFormUserNameInvalidMessage">Please do not enter an email address for username.</text>
+		<text name="UseHostDatabase" value="Use host database" />
+		<text name="DatabaseConnectionString" value="Database connection string" />
+		<text name="TenantDatabaseConnectionStringChangeWarningMessage"
+			  value="Notice: Before changing the database connection string for a tenant, you should move the tenant database to the new location. Changing connection string does not move the tenant database." />
+		<text name="Timezone">Timezone</text>
+		<text name="HasOwnDatabase">HasOwnDatabase</text>
+		<text name="TimeZoneSettingChangedRefreshPageNotification">Timezone setting changed. Click OK button to refresh page and changes to take effect.</text>
+		<text name="Ok">Ok</text>
+		<text name="View">View</text>
+
+		<!--基础数据MachineType_Manage-->
+		<text name="BasicData">Basic Data</text>
+		<text name="MachineType">Machine Type</text>
+		<text name="MachineType_Manage">Machine Type Management</text>
+		<text name="MachineSetting">MachineMaintain</text>
+		<text name="MachineSettingHeaderInfo">Add and Set Machines</text>
+		<text name="MachineSetting_Create">Add machine</text>
+		<text name="MachineSetting_Edit">Edit machine</text>
+		<text name="MachineSetting_Delete">Delete machine</text>
+		<text name="MachineSetting_Stop">Stop machine</text>
+		<text name="MachineSetting_Start">Start machine</text>
+		<text name="MachineSetting_Deal">Deal machine</text>
+		<text name="MachineSetting_Taking">Confirm acceptance</text>
+		<text name="MachineSettingDeleteWarningMessage" value="Whether to delete device {0}？" />
+		<text name="MachineSettingTakingWarningMessage" value="Confirm Receiving Device {0}？" />
+
+		<text name="MachineCode">Machine code</text>
+		<text name="MachineName">Machine name</text>
+		<text name="MachineDesc">Machine desc</text>
+		<text name="UId">User name</text>
+		<text name="SortSeq">Display order</text>
+		<text name="IsEnable">Whether to enable</text>
+		<text name="State">State</text>
+		<text name="DealDone">Deal done</text>
+		<text name="WattingDeal">Untreated</text>
+		<text name="Customer">Customer</text>
+		<text name="DeviceType">Machine type</text>
+		<text name="MachineHadTaking">The machine has been confirmed and accepted by the customer and cannot be modified!</text>
+		<text name="MachineHadSameTenant">The machine has been distributed to the customer. Please do not distribute it again!</text>
+		<text name="AssignCustomer">Distribution machine</text>
+		<text name="SelectFile">Please select the machine picture</text>
+		<text name="FileTypeError" value="File import *. {0} is not supported. Please re-select the file" />
+		<text name="Upload">Upload</text>
+		<text name="PasswordNotSame">Different passwords are entered twice</text>
+
+		<text name="GatherParamsGroupSetting">Acquisition Configuration Template</text>
+		<text name="GatherParamsGroupSetting_Manage">Template Management of Acquisition Configuration</text>
+
+		<text name="GatherParamsSetting">Collection configuration</text>
+		<text name="GatherParamsSetting_Manage">Acquisition Configuration Management</text>
+		<text name="GatherParamsName">Variable name</text>
+		<text name="GatherParamsDescription">Variable description</text>
+		<text name="DeviceAddress">Data address</text>
+		<text name="DataAccess">Access permissions</text>
+		<text name="ValueFactor">Data rate</text>
+		<text name="DefaultValue">Initial value</text>
+
+		<text name="DeviceGroups">Device Group</text>
+		<text name="ManageDeviceGroups">Management Device Group</text>
+		<text name="ManageDeviceMembers">Management Device Members</text>
+
+		<text name="WeChatNotifications">Managing Wechat Notification</text>
+		<text name="ManageNotificationTypes">Management notification type</text>
+		<text name="ManageMembers">Management member</text>
+
+		<!--生产计划-->
+		<!--<text name="PlanModule">Production plan</text>-->
+		<text name="Plan">Plan</text>
+		<text name="PlanManage">Plan management</text>
+		<text name="Plan-New">New Plan</text>
+		<text name="Plan-InProgress">Ongoing plans</text>
+		<text name="Plan-Complete">Completion plan</text>
+		<text name="Plan-Pause">Suspension plan</text>
+		<text name="Plan-Close">Closed plan</text>
+		<text name="Plan-AutoComplete">Interruption of change</text>
+
+		<!--设备监测-->
+		<text name="DevicesMonitoring">Real-time index</text>
+		<text name="DevicesMonitoring_States">Real-time status</text>
+		<text name="DevicesMonitoring_Parameters">Operating parameters</text>
+		<text name="DevicesMonitoring_States_SelectTenants">Select customers</text>
+		<text name="DevicesAlarms">Alarm message</text>
+
+		<!--统计分析-->
+		<text name="StatisticAnalysis">Equipments Efficiency Analysis</text>
+		<text name="AlarmStatistics">Alarm statistics</text>
+		<text name="HistoryParameters">Historical parameters</text>
+		<text name="EfficiencyTrends">Efficiency trend</text>
+		<text name="StatusRecords">Status record</text>
+		<text name="TimeStatistics">Time use analysis</text>
+		<text name="ComprehensiveStatistics">Comprehensive analysis</text>
+		<text name="OEE">OEE Statistics</text>
+		<text name="QualifyStatistics">Qualified statistics</text>
+		<text name="Research">Research</text>
+		<text name="Login for users">Login for users</text>
+		<text name="Login for tenants">Login for tenants</text>
+		<text name="DeviceGroupPermissions">Device group permissions</text>
+		<text name="StatisticalShift">Statistical Shift</text>
+		<text name="StatisticalMonth">Statistical Month</text>
+		<text name="StatisticalYear">Statistical Year</text>
+		<text name="StatisticalWeek">Statistical Week</text>
+		<!--班次-->
+		<text name="PagesBasicDataShiftSetting">Shift plan</text>
+		<text name="PagesBasicDataShiftSetting_Manage">Schedule management</text>
+		<text name="PagesBasicDataMachineShiftSetting">Scheduling</text>
+		<text name="PagesBasicDataMachineShiftSetting_Manage">Machine shift management</text>
+		<text name="ShiftSetting">Shift plan</text>
+		<text name="MachineShiftSetting">MachineScheduling</text>
+		<text name="NotAssociated">N/A</text>
+		<!--状态维护-->
+		<text name="StateInfo">Condition maintenance</text>
+		<text name="StateInfo_Manage">Status Maintenance Management</text>
+
+		<!--状态维护-->
+		<text name="AlarmInfo">Alarm maintenance</text>
+		<text name="AlarmInfo_Manage">Alarm Maintenance Management</text>
+
+		<!--导入数据-->
+		<text name="ImportData">Data import</text>
+		<text name="ImportData_Manage">Data import management</text>
+		<text name="Machines">Machine</text>
+		<text name="GatherParams">Acquisition parameters</text>
+		<!--人员绩效-->
+		<text name="StaffPerformance">Personnel performance</text>
+		<text name="StaffPerformance_OnlineOrOffline">Personnel registration online and offline</text>
+		<text name="StaffPerformance_OnlineOrOfflineRecord">Personnel registration online and offline logs</text>
+		<text name="StaffPerformance_StaffPerformance">Status Statistics</text>
+		<text name="StaffPerformance_StaffYield">Output statistics</text>
+
+		<!--看板Visual-->
+		<text name="Visual">Visualization</text>
+		<text name="VisualView">Visualization panel</text>
+		<text name="VisualNotice">Release announcement</text>
+		<text name="VisualNoticeManage">Management announcement</text>
+
+		<!--刀具模块-->
+		<text name="Cutter">Cutter</text>
+		<text name="CutterParameter">Cutter Parameter</text>
+		<text name="CutterParameterManage">Cutter parameter management</text>
+		<text name="CutterLoadAndUnloadRecord">Cutter load and unload record</text>
+		<text name="CutterLoadAndUnload">Cutter load and unload</text>
+		<text name="CutterType">Cutter type</text>
+		<text name="CutterTypeManage">Cutter type management</text>
+		<text name="CutterState">Cutter Monitor</text>
+		<text name="CutterStateManage">Cutter state management</text>
+		<text name="Cutter-Number">Sort by number</text>
+		<text name="Cutter-Time">Sort by time</text>
+		<text name="CutterSetting">CutterSetting</text>
+		<text name="CutterLifeMethod">Cutter life method</text>
+		<text name="NotExistLoadingCutter">Currently no loaded tool exists</text>
+
+		<!--刀具状态-->
+		<text name="New">New</text>
+		<text name="NotLoad">No cutter installed</text>
+		<text name="Loading">Installed cutter</text>
+		<text name="UnLoad">Disassembled cutter</text>
+		<text name="Normal">Normal</text>
+		<text name="Alarm">Alarm</text>
+		<text name="Warning">Warning</text>
+		<text name="Number">Number</text>
+		<text name="MethodIsNotImplemented">The method is not implemented, please contact the administrator</text>
+		<text name="UpdateRate">Update rate</text>
+		<text name="CutterRateSetting">Cutter rate setting</text>
+		<text name="CutterTVauleCantLoadingMore">The cutter position of this equipment has been installed, please do not install the cutter repeatedly</text>
+		<text name="CutterPosition">Cutter T Value</text>
+
+		<!--工单-->
+		<text name="Order">Work order</text>
+		<text name="DefectiveReasons">Reasons for nonconformity</text>
+		<text name="DefectiveReasonsManage">Management of Unqualified Causes</text>
+		<text name="CreateNewDefectiveReasons">Adding unqualified reasons</text>
+		<text name="Process">ProcessMaintain</text>
+		<text name="ProcessManage">Process management</text>
+		<text name="CreateNewProcess">New process</text>
+		<text name="StandardTime">Standard time</text>
+		<text name="StandardTimeManage">Standard Time Management</text>
+		<text name="Product">ProductMaintain</text>
+		<text name="ProductManage">Product management</text>
+		<text name="ProductionPlan">Production plan</text>
+		<text name="ProductionPlanManage">Production Planning Management</text>
+		<text name="LoginReport">Work order Login/Appointment</text>
+		<text name="LoginReportManage">Work order Login/Appointment Management</text>
+		<text name="DefectiveStatistics">Statistics of defective products</text>
+		<text name="DefectiveStatisticsManage">Statistics management of defective products</text>
+		<text name="MachineProcessManage">Management equipment conversion</text>
+		<text name="MachineProcess">Equipment conversion</text>
+		<text name="MachineReport">Submitted to the ministry</text>
+		<text name="MachineReportManage">Submitted to the ministry Management</text>
+
+		<!--工单状态-->
+		<text name="NotStart">Not started</text>
+		<text name="Producing">In production</text>
+		<text name="Completed">Completed</text>
+		<text name="Closed">Closed</text>
+		<text name="Craft">CraftMaintain</text>
+		<text name="CraftManage">Craft Management</text>
+
+		<!--计划状态-->
+		<text name="Prepared">Prepared</text>
+		<text name="Underway">Underway</text>
+		<text name="BreakOff">BreakOff</text>
+
+		<!--班次目标产量-->
+		<text name="ShiftTargetYiled">Target output of shift</text>
+		<text name="ShiftTargetYiled_Manage">Target output of management shift</text>
+
+		<!--追溯-->
+		<text name="Traceability">Traceability Parts</text>
+		<text name="TraceCatalogQuery">Retrospective query</text>
+		<text name="TraceSetings">Retrospective setting</text>
+		<text name="TraceNgParts">NG Workpiece Traceability</text>
+		<text name="TraceNgPartsManage">NG Workpiece Traceability Management</text>
+
+		<!--通知-->
+		<text name="Notification">Message notification</text>
+		<text name="NotificationRules">Notification rules</text>
+		<text name="NotificationRulesManage">Notification rule management</text>
+		<text name="NotificationRecords">Notification record</text>
+		<text name="DeviceAlarm">Device Alarm</text>
+		<text name="ToolReminder">Tool Reminder</text>
+		<text name="YieldStatistics">Output statistics</text>
+		<text name="Undispatched">Undispatched</text>
+		<text name="Dispatched">Dispatched</text>
+		<text name="WeChat">WeChat</text>
+		<text name="Email">Email</text>
+		<text name="TriggerWithTime">TriggerWithTime</text>
+		<text name="TriggerWithShift">TriggerWithShift</text>
+
+		<!--原因反馈-->
+		<text name="ReasonFeedback">Cause feedback</text>
+		<text name="ReasonFeedbackManage">Reason feedback management</text>
+		<text name="ReasonFeedbackAnalysis">Reason Feedback Analysis</text>
+
+		<!--报表-->
+		<text name="RDLCReport">Report Export</text>
+		<text name="ShiftYield">Finishing shift output</text>
+		<text name="MachineUtilizationRate">Equipment Crop Mobility</text>
+		<text name="StateConsumeTime">State Duration Ratio</text>
+		<text name ="PersonYield">Personnel output</text>
+		<text name="PersonPerformance">Personnel performance</text>
+		<text name="ReportOfPlan">Plan Achievement Rate</text>
+		<!--接口-->
+		<text name="MachineId">MachineId</text>
+		<text name="CutterNo">CutterNo</text>
+		<text name="CutterUsedStatus">Cutter Used Status</text>
+		<text name="CutterLifeStatus">Cutter Life Status</text>
+		<text name="CountingMethod">CountingMethod</text>
+		<text name="CutterTValue">Cutter Tool Value</text>
+		<text name="OriginalLife">Original Life</text>
+		<text name="RestLife">Rest Life</text>
+		<text name="UsedLife">Used Life</text>
+		<text name="WarningLife">Warning Life</text>
+
+		<!--设备维护-->
+		<text name="Maintain">Equipment maintenance</text>
+		<text name="MaintainPlan">Maintenance plan</text>
+		<text name="MaintainPlanManage">Maintenance plan management</text>
+		<text name="MaintainOrder">Maintenance worksheet</text>
+		<text name="MaintainOrderManage">Maintenance Work Order Management</text>
+		<text name="MaintainRequest">Maintenance application</text>
+		<text name="MaintainRequestManage">Maintenance application management</text>
+		<text name="MaintainRepair">Maintenance job list</text>
+		<text name="MaintainRepairManage">Repair Work Order Management</text>
+		<text name="MaintainPlan-New">MaintainPlan-New</text>
+		<text name="MaintainPlan-Processing">MaintainPlan-Processing</text>
+		<text name="MaintainPlan-Done">MaintainPlan-Done</text>
+		<text name="MaintainOrder-Undo">MaintainOrder-Undo</text>
+		<text name="MaintainOrder-Done">MaintainOrder-Done</text>
+		<text name="MaintainOrder-Over">MaintainOrder-Over</text>
+
+		<text name="StatusDistributionMap">Status Record</text>
+
+		<!--YieldStatistics页面-->
+		<text name="SearchSetting">Search setting</text>
+		<text name="StatisticalMethod">Statistical method</text>
+		<text name="ByShift">By shift</text>
+		<text name="ByDay">By Day</text>
+		<text name="ByWeek">By Week</text>
+		<text name="ByMonth">By Month</text>
+		<text name="ByYear">By Year</text>
+		<text name="TimeFrame">Time frame</text>
+		<text name="Histogram">Histogram</text>
+		<text name="DataSheet">DataSheet</text>
+		<text name="Yield">Yield</text>
+		<text name="PleaseSelectEquipment">Please Select Equipment</text>
+		<text name="PleaseSelectEquipmentGroup">Please Select Equipment Group</text>
+		<text name="Shift">Shift</text>
+		<text name="Day">Day</text>
+		<text name="Week">Week</text>
+		<text name="Month">Month</text>
+		<text name="Year">Year</text>
+
+		<!--YieldAnalysisStatistics页面-->
+		<text name="EquipmentComparison">Equipment Comparison</text>
+		<text name="UtilizationRateOfEquipment">Utilization Rate Of Equipment</text>
+		<text name="Detailed">Detailed</text>
+		<text name="ProgramNumber">Program Number</text>
+		<text name="Amount">Amount</text>
+		<text name="AverageBeatTime">Average Beat Time</text>
+		<text name="PleaseSelectAtLeastOneRecord">Please Select At Least One Record</text>
+		<text name="YieldDetails">Yield Details</text>
+		<text name="Unit">Unit</text>
+		<text name="StatusRatio">Status Ratio</text>
+		<text name="AverageValue">Average Value</text>
+		<text name="Confirm">Confirm</text>
+		<text name="QueryResultsContainTooMuchData">Query results contain too much data, which will result in slow loading of web pages. Are you sure you want to execute the query</text>
+		<text name="SelectQueryConditions">Select Query Conditions</text>
+		<text name="QueryDevice">Query Device</text>
+		<text name="UtilizationRatio">Utilization Ratio</text>
+		<text name="Compare">Compare</text>
+
+		<!--WeChatNotifications页面-->
+		<text name="NewMessageType">New Message Type</text>
+		<text name="AreYouSureToDeleteTheWechatNotificationType">Are You Sure To Delete The Wechat Notification Type</text>
+		<text name="AreYouSureToRemove{0}FromThe{1}NotificationList">Are You Sure To Remove {0} FromThe {1} Notification List</text>
+		<text name="MessageTypeNotYetDefined">Message Type Not Yet Defined</text>
+		<text name="MessageType">Message Type</text>
+		<text name="Receiver">Receiver</text>
+		<text name="NewStaff"> New Staff</text>
+		<text name="SelectMessageTypeViewer">Select Message Type Viewer</text>
+		<text name="PleaseSelectData">Please Select Data</text>
+
+
+		<!--VisualView页面-->
+		<text name="Editor">Edit</text>
+		<text name="NoticeContent">Notice Content</text>
+		<text name="RootLevelGroup(Workshop)">Root Level Group(Workshop)</text>
+		<text name="Publisher">Publisher</text>
+		<text name="ReleaseTime">Release Time</text>
+		<text name="WhetherToDeleteTheRecord">Whether To Delete The Record</text>
+		<text name="NewAnnouncement">NewAnnouncement</text>
+		<text name="PleaseMaintainWorkshopInformation">Please Maintain Workshop Information</text>
+		<text name="AlarmNumber">Alarm Number</text>
+		<text name="Stop">Stop</text>
+		<text name="Run">Run</text>
+		<text name="Free">Free</text>
+		<text name="Offline">Offline</text>
+		<text name="Debug">Debug</text>
+		<text name="RadiusMode">Radius Mode</text>
+		<text name="AreaPattern">Area Pattern</text>
+		<text name="FlightUtilizationRate">Flight Utilization Rate</text>
+		<text name="Max">Max</text>
+		<text name="Min">Min</text>
+		<text name="EquipmentShiftEfficiencySummary">Equipment Shift Efficiency Summary</text>
+		<text name="Proportion">Proportion</text>
+		<text name="Current">Current</text>
+		<text name="Previous">Previous</text>
+		<text name="PageNumber">Page {0}/ Total {1}</text>
+		<text name="ProductionProgressPanel">Production Progress Panel</text>
+		<text name="OutputValue">Output Value</text>
+		<text name="DailyGrossProduct">Daily Gross Product</text>
+		<text name="TimeUseProportionalPanel">Time Use Proportional Panel</text>
+		<text name="UnitsHours">Units(Hours)</text>
+
+		<!--Traceability页面-->
+		<text name="NGCauseSupplementOfWorkpiece">NG Cause Supplement Of Workpiece</text>
+		<text name="DefectivePart">Defective Part</text>
+		<text name="BadReason">NG Reason Maintain</text>
+		<text name="NGCause">NG Cause Supplement for Workpiece {0}</text>
+		<text name="PleaseChoose">Please Choose</text>
+		<text name="NoMatchingData">No Matching Data</text>
+		<text name="ViewProcessingParameters">View Processing Parameters</text>
+		<text name="ProcessParametersOf{0}Processing{1}">Process Parameters Of {0} Processing {1}</text>
+		<text name="Measure">Measure</text>
+		<text name="MeasurementResult">Measurement Result</text>
+		<text name="DetectionTime">Detection Time</text>
+		<text name="Result">Result</text>
+		<text name="InternalId">Internal Id</text>
+		<text name="TestFile">Test File</text>
+		<text name="MeasurementParameters">Measurement Parameters</text>
+		<text name="MeasuredValue">Measured Value</text>
+		<text name="NormalValue">Normal Value</text>
+		<text name="Code">Code</text>
+		<text name="IsQualified">IsQualified</text>
+		<text name="LowerLimitOfDeviation">Lower Limit Of Deviation</text>
+		<text name="UpperLimitOfDeviation">Upper Limit Of Deviation</text>
+		<text name="QualityTesting">Quality Testing</text>
+		<text name="AcquisitionTime">Acquisition Time</text>
+		<text name="WorkpieceNGCauseView">Workpiece NG Cause View</text>
+		<text name="Workpiece{0}NGCauseView">Workpiece {0} NG Cause View</text>
+		<text name="InputTime">Input Time</text>
+		<text name="EntryPerson">Entry Person</text>
+		<text name="TracingTheProcessingProcessOfParts">Tracing The Processing Process Of Parts</text>
+		<text name="QueryArea">Query Area</text>
+		<text name="ProductionLine">Production Line</text>
+		<text name="WorkpieceCoding">Workpiece Coding</text>
+		<text name="StartTime">Start Time</text>
+		<text name="EndTime">End Time</text>
+		<text name="List">List</text>
+		<text name="WorkpieceInformation">Workpiece Information</text>
+		<text name="WorkpieceNumber">Workpiece Number</text>
+		<text name="Label">Label</text>
+		<text name="ShiftInformation">Shift Information</text>
+		<text name="OnlineTime">Online Time</text>
+		<text name="OfflineTime">Offline Time</text>
+		<text name="FlowName">Flow Name</text>
+		<text name="Workstation">Workstation</text>
+		<text name="EntryTime">EntryTime</text>
+		<text name="LeftTime">LeftTime</text>
+		<text name="FlowState">Flow State</text>
+		<text name="ProcessLabel">Process Label</text>
+		<text name="Operator">Operator</text>
+		<text name="OperationTime">Operation time</text>
+		<text name="ProcessParameters">Process Parameters</text>
+		<text name="HasBeenOffline">Has Been Offline</text>
+		<text name="NotOffline">Not Offline</text>
+		<text name="Unknown">Unknown</text>
+		<text name="WorkstationCode">Workstation Code</text>
+		<text name="QueryResults">Query Results</text>
+		<text name="CauseSupplement">Cause Supplement</text>
+		<text name="WorkpieceQRCode">Workpiece QR Code</text>
+		<text name="StationName">Station Name</text>
+		<text name="ProcessView">Process View</text>
+		<text name="Configure">Configure</text>
+		<text name="ProcessSetting">Process Setting</text>
+		<text name="IncreaseProcess">Increase Process</text>
+		<text name="ProcessInformation">Process Information</text>
+		<text name="ProcessNumber">Process Number</text>
+		<text name="WorkstationType">Workstation Type</text>
+		<text name="StationType-FinalInspection">Final inspection</text>
+		<text name="ProcessCategory">Process Category</text>
+		<text name="EndProcessApproach">End Process Approach</text>
+		<text name="OnlyThisProcess">Only This Process</text>
+		<text name="OnlyTheLastProcess">Only The Last Process</text>
+		<text name="ThisProcessAndThePreviousProcess">This Process And The Previous Process</text>
+		<text name="WriteSignalWhenProcessTriggers">Write Signal When Process Triggers</text>
+		<text name="Open">Open</text>
+		<text name="PleaseEnterTheProcessNumber">Please Enter The Process Number</text>
+		<text name="PleaseEnterTheProcessName">Please Enter The Process Name</text>
+		<text name="SignalName">Signal Name</text>
+		<text name="Value">Value</text>
+		<text name="PressTheQualityResultToSignOff">Press The Quality Result To Sign Off</text>
+		<text name="OwnershipOfQualityResponsibility">Ownership Of Quality Responsibility</text>
+		<text name="OKOffline">OK Offline</text>
+		<text name="NGOffline">NG Offline</text>
+		<text name="CurrentProcess">Current Process</text>
+		<text name="WriteSignalWhenDataIsTriggered">Write Signal When Data Is Triggered</text>
+		<text name="ProcessRelatedData">Process Related Data</text>
+		<text name="AssociatedDataSource">Associated Data Source</text>
+		<text name="CustomAccess">Custom Access</text>
+		<text name="CustomCSV">Custom CSV</text>
+		<text name="CustomTXT">Custom TXT</text>
+		<text name="OtherCustom">Other Custom</text>
+		<text name="Path">Path</text>
+		<text name="DockingQRCode">Docking QR Code</text>
+		<text name="ObtainedThroughPLCVariables">Obtained Through PLC Variables</text>
+		<text name="NoneThroughDataOrder">None,Through Data Order</text>
+		<text name="IncreaseEquipment">Increase Equipment</text>
+		<text name="PleaseEnterTheStation">Please Enter The Station</text>
+		<text name="PleaseEnterTheNameOfTheStation">Please Enter The Name Of The Station</text>
+		<text name="BeSureToDeleteThisData">Be Sure To Delete This Data</text>
+		<text name="PleaseSelectTheProductionLineFirst">Please Select The Production Line First</text>
+		<text name="MaxLength">MaxLength</text>
+		<text name="FlowSeq">Flow Sechedule</text>
+
+		<text name="MachineCodeHasExist">The device number already exists. Do not add it again.</text>
+		<text name="MachineTypeHasExist">The device type already exists. Do not add it again.</text>
+		<text name="MachineTypeHasExistCannotUpdate">The device type already exists and cannot be updated.</text>
+		<text name="StatusReasonIsInUse">This status/reason is in use and cannot be deleted</text>
+		<text name="MachineUpFailedReason{0}">Failed to start or stop the device! Reasons for failure:{0}</text>
+		<text name="ParameterTypeDoesNotSupport">This parameter type does not support dashboard display</text>
+		<text name="StateCodingMustBeUnique">State coding must be unique</text>
+		<text name="MachineCodeCannotBeNull">Machine code cannot be empty</text>
+		<text name="MachineNameCannotBeNull">Machine name cannot be empty</text>
+		<text name="MachineTypeCannotBeNull">Machine type cannot be empty</text>
+		<text name="MachineTypeNotExist">Machine type does not exist</text>
+		<text name="DoNotImportMachineAgain">The device already exists. Do not import it again.</text>
+		<text name="StatusNameMustBeUnique">The status name must be unique</text>
+		<text name="SurnameCannotBeNull">Surname cannot be empty</text>
+		<text name="NameCannotBeNull">Name cannot be empty</text>
+		<text name="UserNameCannotBeNull">User name cannot be empty</text>
+		<text name="PasswordCannotBeNull">Password cannot be empty</text>
+		<text name="PasswordMinLengh">Password requires at least six characters to be entered</text>
+		<text name="RoleNameCannotBeNull">Role name cannot be empty</text>
+		<text name="RoleNameDoesNotExist">The role name does not exist</text>
+		<text name="EmailCannotBeNull">Mailbox cannot be empty</text>
+		<text name="MailboxAddressOccupied">The mailbox address has been occupied</text>
+		<text name="UserNameHasExist">This username already exists. Do not add it again</text>
+
+		<text name="MachineIdCanNotBeNull">Machine id can not be empty</text>
+		<text name="MachineIdMustBePositiveInteger">Machine id must be positive integer</text>
+		<text name="MachineIdNotExist">Machine id does not eist</text>
+		<text name="VariableNameCanNotBeNull">Variable name can not be empty</text>
+		<text name="DataAddressCanNotBeNull">Data address can not be empty</text>
+		<text name="DataTypeNotRight">Data type is incorrect</text>
+		<text name="AccessPermissionsNotRight">Access permissions is incorrect</text>
+		<text name="DataRateIncorrectFormat">Data multipliers are not formatted correctly</text>
+		<text name="InitialValueFormatIsIncorrect">The initial value format is incorrect</text>
+
+		<text name="MongoDbException">Mongo database operation is abnormal. Please try again. It may affect the normal acquisition. If the problem persists, please contact the administrator.</text>
+		<text name="ChildCodeCanNotBeNullOrEmpty">ChildCode can not be null or empty.</text>
+		<text name="CodeCanNotBeNullOrEmpty">code can not be null or empty.</text>
+		<text name="OperationFailed">Operation failed</text>
+		<text name="OperationSuccess">Operation success</text>
+		<text name="ModelNameMustBeUnique">Model name must be unique</text>
+		<text name="ParameterNameMustBeUnique">The parameter name must be unique</text>
+		<text name="TypeNameMustBeUnique">Type names must be unique</text>
+		<text name="CannotAddChildCutterType">Tool associations exist for the selected tool types, and sub-types cannot be added.</text>
+		<text name="CannotDeleteCutterType">The selected tool type has tool correlation and cannot be deleted.</text>
+		<text name="TheToolCannotBeUnloaded">The tool can't be unloaded!</text>
+		<text name="MachinesHasBeenInOtherDeviceGroup{0}">The following devices already exist in other device groups and cannot be added![{0}]</text>
+		<text name="NoLanguageFoundInTheApplication">No language found in the application!</text>
+		<text name="MachineAlreadyExistRecord{0}">The device already has a record numbered [{0}]. Do not add it again!</text>
+		<text name="SaveFailed{0}">Save failed:{0}</text>
+		<text name="EquipmentNotScheduled{0}{1}">The device [{0}] is not scheduled in [{1}].</text>
+		<text name="FailureToGenerateValidPlans">Failure to generate valid plans within the set date range</text>
+		<text name="PlanNameAlreadyExist">Plan name already exists</text>
+		<text name="OnlyCanDeleteMaintenancePlans">Only new maintenance plans can be deleted</text>
+		<text name="OnlyCanSavePlanInProcess">You can only modify or add new plans that are still in progress.</text>
+		<text name="PlanNotExist">The plan does not exist</text>
+		<text name="GivenUserNotificationIdNotBelonged{0}{1}">Given user notification id ({0}) is not belong to the current user ({1})</text>
+		<text name="WorkOrderFailure">Work order failure!</text>
+		<text name="ProcessCodeMustBeUnique">Procedure code must be unique</text>
+		<text name="ProcessNameMustBeUnique">Procedure name must be unique</text>
+		<text name="ProductNotExist">Product does not exist</text>
+		<text name="ProcessDoesNotExist">Process does not exist</text>
+		<text name="CannotDeleteThisPlan">The plan cannot be deleted</text>
+		<text name="NoIncomingUpdatePrimaryKey">No incoming update primary key</text>
+		<text name="StandardTimeUseRecordAlreadyExists">The standard time-use record already exists and cannot be modified or added.</text>
+		<text name="ThePlanDoesNotExistOrDeleted">The plan does not exist or has been deleted</text>
+		<text name="EnumerationArrayIsEmpty">Enumeration array is empty</text>
+		<text name="OnlyCanDeletePlanWithInsertState">Plans of new state that can only delete </text>
+		<text name="DeviceGroupWithoutShifts">Current equipment group has not selected shifts</text>
+		<text name="PlanAlreadyBeDeleted">The plan has been deleted</text>
+		<text name="NotConnected">Unconnected</text>
+		<text name="MachieShiftHasBeenEffective">Equipment on the day of the shift has been effective, can only be terminated after the shift</text>
+		<text name="TheShiftPlanHasBeenDeleted">The shift plan has been deleted</text>
+		<text name="SelectedTimeIntervalsIntersect">Selected time intervals intersect</text>
+		<text name="SchedulingHasBeenMadeDuringTime{0}{1}{2}">The {0} has been scheduled in the selected time period between {1} and {2}.</text>
+		<text name="ProductHasBeenRecorded{0}">This product has been recorded on the following dates. Do not add it again:{0}</text>
+		<text name="EquipmentWasNotScheduled{0}">The following equipment is not scheduled and fails to go online [{0}]</text>
+		<text name="NoNeedToRepeatOffline">Already offline, no need to repeat offline!</text>
+		<text name="PassRate">Pass rate</text>
+		<text name="PassRateReport">Pass rate report</text>
+		<text name="QualifiedOfflineNumber">Qualified Offline Number</text>
+		<text name="OnlineCount">On-line number</text>
+		<text name="NgCount">Ng number</text>
+		<text name="NumberOfProcessing">Number of processing</text>
+		<text name="WorkshopDoesNotExist">Equipment group (workshop) does not exist</text>
+		<text name="WriteDataFailed{0}">Write data failed:{0}</text>
+		<text name="EffectiveProductionLinesMustBeEstablished">Effective production lines must be established</text>
+		<text name="Qualified">Qualified</text>
+		<text name="Unqualified">Unqualified</text>
+		<text name="Rework">Rework</text>
+		<text name="TargetDeviceDoesNotExist">Target device does not exist or you are unauthorized</text>
+		<text name="ThisEntryAlreadyExists">This record already exists. Do not add it again!</text>
+		<text name="ThereIsNoUserWithId{0}">There is no user with id {0}</text>
+		<text name="ThereIsNoCurrentUser">There is no current user!</text>
+		<text name="ShouldSetEmailConfirmationCode">EmailConfirmationCode should be set in order to send email activation link.</text>
+		<text name="ShouldSetPasswordResetCode">PasswordResetCode should be set in order to send password reset link.</text>
+		<text name="DataInsertFailed">Data insertion failure</text>
+		<text name="DeviceGroupAlreadyExist{0}">Device group {0} already exists</text>
+		<text name="EnumerationTypesCanUseTheMethod">This method can only be used for enumeration types, error types</text>
+		<text name="DeviceIdDoesNotExist{0}">Device of {0} does not exist</text>
+		<text name="NoRightToOperateThisEquipment">Sorry, you have no right to operate this equipment.</text>
+		<text name="DevicesAreInUse{0}">The device type cannot be deleted. The following device is in use: {0}</text>
+		<text name="AlarmMessageTemplate">The alarm status of the device {0} has lasted {1} minutes. Please handle it in time.</text>
+		<text name="CutterAlarmTemplate">Tool {0} residual life {1} times, currently located in the device {2} tool position {3}, please note!</text>
+		<text name="MessageNotificationNameMustBeUnique">Message notification name must be unique</text>
+		<text name="MessageNotificationRuleAlreadyExist">The trigger condition for the message notification rule already exists</text>
+		<text name="MachineYieldTemplate">The output of device {0} on {1} day {2} is {3}.</text>
+		<text name="NgReasonCodeMustBeUnique">Reason number of defective products must be unique</text>
+		<text name="NgReasonNameMustBeUnique">The name of defective cause must be unique</text>
+		<text name="CraftCodeMustBeUnique">Process code must be unique</text>
+		<text name="CraftNameMustBeUnique">Process name must be unique</text>
+		<text name="DataHasBeenDeleted">This data has been deleted.</text>
+		<text name="PartDefectHasSaved">Workpiece {0}, equipment {1}, bad part {2}, bad reason {3} has been input, please do not repeat the input.</text>
+		<text name="ProductCodeMustBeUnique">Product code must be unique</text>
+		<text name="ProductNameMustBeUnique">Product name must be unique</text>
+		<text name="ProductGroupCodeMustBeUnique">Product group code must be unique</text>
+		<text name="ProductGroupNameMustBeUnique">Product group name must be unique</text>
+		<text name="ProductHasBeenPutIntoProduction">This product has already started production, can't be deleted again!</text>
+		<text name="ProductHasBeenInPlan">This product is already in the production plan, can not be deleted again!</text>
+		<text name="ExistingProductsUnderTheProductGroup">The existing products under this product group can not be deleted in the production plan.</text>
+		<text name="ExistingProductsBeginToProduce">The existing products under the product group have begun to produce, can not be deleted again! </text>
+		<text name="ProductDoesNotExist">The product does not exist or has been deleted</text>
+		<text name="LogOnToTheDevice{0}">Please login to the device [{0}] from the Personnel Offline page!</text>
+		<text name="IncompleteAfferentParameters">Incomplete afferent parameters</text>
+		<text name="InvalidParameterValue{0}{1}">The parameter {0} value [{1}] is not a valid value and the dashboard panel cannot be used!</text>
+		<text name="TheCurrentStatePlansCannotBeDeleted">Plans in the current state cannot be deleted</text>
+		<text name="CannotBeUpdatedToTheTargetState">The current state cannot be updated to the target state</text>
+		<text name="PlanDateTimeCompare">Planning start time should not be less than the current time</text>
+		<text name="PlanEndDateTimeCompare">The end time of the plan should not be less than the beginning time.</text>
+		<text name="PlanNameCannotBeDuplicated">The name of the plan cannot be duplicated</text>
+		<text name="OverlappingOfScheduledTimeFrames">Overlapping of scheduled time frames</text>
+		<text name="DeviceGroupAlreadyExistProcessingPlan{0}">The current production line {0} has an ongoing plan, please complete first!</text>
+		<text name="PlanHasCompleted">The current plan has been completed and cannot be edited</text>
+		<text name="CurrentStateCannotChangeTo">Current status cannot be changed to</text>
+		<text name="CannotAddOrDeleteDevices">Current plan status cannot add or delete devices</text>
+		<text name="ConflictPlans{0}">Equipment production plans are conflicted. The name of the conflicting plan is {0}.</text>
+		<text name="PlanNameCannotBeNull">Plan name cannot be empty</text>
+		<text name="ChooseProduct">Please choose the product.</text>
+		<text name="ChooseDeviceGroup">Please select the equipment group</text>
+		<text name="ChooseOutputStatisticsMachine">Please select the output statistics equipment.</text>
+		<text name="ChooseShift">Please choose the shift.</text>
+		<text name="ShiftTargetLost">Shift target quantity not set</text>
+		<text name="DeviceInFeedback">The device is in feedback.</text>
+		<text name="FeedbackAlreadyEnd">Feedback for this reason has been terminated</text>
+		<text name="ShiftSolutionIsInUse">The shift plan has been put into use, can not be deleted!</text>
+		<text name="QuerySettingsDoNotExist">Query settings do not exist</text>
+		<text name="AlreadyExistSameDevice">The same device is already included in the current settings</text>
+		<text name="FlowCodeAlreadyExist">Process number already exists</text>
+		<text name="NoNotificationTypeWithGivenName{0}">There is no notification type with given name: {0}</text>
+		<text name="NotificationTypeAlreadyExist{0}">Message type {0} already exists</text>
+		<text name="MenuNameCannotBeNull">Menu name can not be empty or null.</text>
+		<text name="MenuDisplayNameCannotBeNull">Display name of the menu can not be null.</text>
+		<text name="CutterAlarm">Cutter Alarm</text>
+		<text name="ChooseFiles">Please select the file</text>
+		<text name="NotSupportFileImport{0}">File import *. {0} is not supported. Please re-select the file</text>
+		<text name="RepeatDataInFile{0}">The file has duplicate data numbered [{0}]</text>
+		<text name="NeedToChangePassword">The password needs to be changed for this account</text>
+		<text name="InvalidRequest">Invalid request</text>
+		<text name="ReturnToLoginPageTime">s Return to the login page</text>
+		<text name="EditAlarm">Edit alarm</text>
+		<text name="AddAlarm">Create Alarm</text>
+		<text name="AlarmCode">Alarm Code</text>
+		<text name="AlarmContent">Alarm content</text>
+		<text name="PleaseSelect">Please choose</text>
+		<text name="PleaseMaintainTheEquipment">Please maintain the equipment</text>
+		<text name="AlarmImporting">Alarm importing</text>
+		<text name="ImportType">Import type</text>
+		<text name="CompleteCoverage">Complete coverage</text>
+		<text name="IncrementalAddition">Incremental addition</text>
+		<text name="PleaseChooseExcel">Select the *. xlsx or *. XLS file</text>
+		<text name="FileChooseSizeLimit">Selection of files should not exceed 1M!</text>
+		<text name="UploadSuccess">Upload success</text>
+		<text name="DataImportFailure">Data Import Failure</text>
+		<text name="DownloadTemplate">Download template</text>
+		<!--TimeStatistics页面-->
+		<text name="DeviceStatus">Device Status</text>
+		<text name="ProportionOfTimeOccupied">Proportion of Time Occupied</text>
+		<text name="Date">Date</text>
+		<text name="UnplannedOutage">Unplanned Outage</text>
+
+		<!--StatusDistributionMap页面-->
+		<text name="ViewDeviceStatusDetails">View Device Status Details</text>
+		<text name="StateId">State ID</text>
+		<text name="StateName">State Name</text>
+		<text name="GanttChartOfStateDistribution">Gantt Chart of State Distribution</text>
+		<text name="SelectDevice">Select Device</text>
+		<text name="LoadingData">Trying to load data</text>
+		<text name="StateDescription">State Description</text>
+		<text name="CheckAll">Check All</text>
+		<text name="SuccessfulOperation">Successful Operation</text>
+		<text name="StateAmplification">State Amplification</text>
+
+		<!--StateInfo页面-->
+		<text name="EditState">Edit State</text>
+		<text name="Create">Create</text>
+		<text name="Type">Type</text>
+		<text name="WhetherPlannedORNot">Whether Planned or Not</text>
+		<text name="BackgroundColor">Background Color</text>
+		<text name="ClickTheRightButtonToSelectTheColor">Click The Right Button To Select Color</text>
+		<text name="StateReasonMaintenance">State,Reason Maintenance</text>
+		<text name="Reason">Reason</text>
+		<text name="DeleteOrNot">Delete Or Not</text>
+
+		<!--StaffPerformance页面-->
+		<text name="SelectionOfficer">Selection Officer</text>
+		<text name="PleaseSelectTheShift">Please select the shift. If no data is available, please check whether the equipment scheduling is normal</text>
+		<text name="BatchOnline">Batch Online</text>
+		<text name="BatchOffline">Batch Offline</text>
+		<text name="Online">Online</text>
+		<text name="Mine">Mine</text>
+		<text name="MachineList">Machine List</text>
+		<text name="InTheOnline">In The Online</text>
+		<text name="SelectTheEmployee">Select The Employee</text>
+		<text name="SortByDevice">Sort By Device</text>
+		<text name="SortByPeople">Sort By People</text>
+		<text name="PleaseSelectEmployees">Please Select Employees</text>
+		<text name="EmployeeProduction">Employee Production</text>
+		<text name="Piece">Piece</text>
+		<text name="NoData">No Data</text>
+		<text name="TheInitFunctionIsNotExecuted">The Init Function Is Not Executed</text>
+		<text name="Season">Season</text>
+
+		<!--ShiftTargetYiled页面-->
+		<text name="ProductName">Product Name</text>
+		<text name="TargetOutput">Target Output</text>
+		<text name="FailedToObtainTheProduct">Failed To Obtain The Product</text>
+		<text name="FailedToObtainShiftPlan">Failed To Obtain Shift Plan</text>
+		<text name="AcquisitionShiftFailed">Acquisition Shift Failed</text>
+		<text name="PleaseMaintainData">Please Maintain Data</text>
+		<text name="EditTargetOutput">Edit Target Output</text>
+		<text name="ShiftName">Shift Name</text>
+		<text name="ProductNumberName">ProductNumber/Name</text>
+		<text name="SetTheTargetOutputPerShift">Set The Target Output Per Shift</text>
+		<text name="ProductNumber">Product Number</text>
+		<text name="ProductSpecification">Product Specification</text>
+		<text name="PleaseConfirmWhetherToDeleteThisRecord">Please Confirm Whether To Delete This Record</text>
+
+		<!--ShiftSetting页面-->
+		<text name="NewShift">New Shift</text>
+		<text name="LengthOfShift">Length Of Shift</text>
+		<text name="WorkHours">Work Hours</text>
+		<text name="WhetherAcrossDay">Whether Across Day</text>
+		<text name="ConfirmToDeleteThisShift">Confirm To Delete This Shift</text>
+		<text name="ShiftNameCannotBeRepeated">Shift Name Cannot Be Repeated</text>
+		<text name="ActualWorkingHoursMustBeaValidNumber">Actual Working Hours Must Be a Valid Number</text>
+		<text name="TheActualWorkingHoursMustBeGreaterThan0">The Actual Working Hours Must Be Greater Than 0</text>
+		<text name="TheActualWorkingHoursShouldNotBeLongerThanTheShiftHours">The Actual Working Hours Should Not Be Longer Than The Shift Hours</text>
+		<text name="ShiftsMustBeSetInChronologicalOrderAndTimeMustNotBeRepeated">Shifts Must Be Set In Chronological Order And Time Must Not Be Repeated</text>
+		<text name="Update">Update</text>
+		<text name="ReturnsScheduling">ReturnsScheduling</text>
+		<text name="ShiftPlansHaveNotBeenDefined">ShiftPlansHaveNotBeenDefined</text>
+		<text name="AreYouSureYouWantToDeleteShiftPlan{0}">Are You Sure You Want To Delete Shift Plan {0}</text>
+
+		<text name="PleaseSelectTheCorrespondingShiftSchedule">Please Select The Corresponding Shift Schedule</text>
+
+
+		<!--Settings页面-->
+		<text name="SystemLog">System Log</text>
+		<text name="SelectFiles">Select File</text>
+		<text name="CuttingRatio">Cutting Ratio</text>
+		<text name="Tailoring">Tailoring</text>
+		<text name="PreviewTailoring">Preview Tailoring</text>
+		<text name="PleaseUploadPicturesFirst">Please Upload Pictures First</text>
+		<text name="PleaseCropThePictureFirst">Please Crop The Picture First</text>
+		<text name="ModifySystemLOGSuccessfully">Modify System LOG Successfully</text>
+		<text name="SystemInformation">SystemInformation</text>
+		<text name="ModifyLog">Modify Log</text>
+		<text name="AfterModifyingTheSystemLog">After modifying the system log, click the "save all" button</text>
+
+		<!--ReasonFeedbackAnalysis页面-->
+		<text name="DetailRecord">Detail Record</text>
+		<text name="{0}FeedbackDetails">{0}Feedback Details</text>
+		<text name="Durations">Duration</text>
+		<text name="TimeLengthSort">Time Length Sort</text>
+		<text name="NumberOfFeedback">Number Of Feedback</text>
+		<text name="FeedbackTime">Feedback Time</text>
+		<text name="CheckDetails">Check Details</text>
+		<text name="Minutes">Minutes</text>
+		<text name="PleaseMaintainTheEquipmentGroup">Please Maintain The Equipment Group</text>
+
+		<!--ReasonFeedback页面-->
+		<text name="EquipmentHistoryFeedbackRecord">Equipment History Feedback Record</text>
+		<text name="NewFeedbacks">New Feedbacks</text>
+		<text name="EndFeedbackPerson">End Feedback Person</text>
+		<text name="TimeConsuming">Time Consuming</text>
+		<text name="ReasonsForSelectionFeedback">Reasons For Selection Feedback</text>
+		<text name="StartTimeCannotExceedCurrentTime7Days">Start Time Cannot Exceed Current Time 7 Days</text>
+		<text name="TheStartTimeOverlapsWithTheExistingFeedback">The Start Time Overlaps With The Existing Feedback</text>
+		<text name="EndFeedback">End Feedback</text>
+		<text name="PleaseEnterTheCorrectTimeFormat">Please Enter The Correct Time Format</text>
+		<text name="EndTimeCannotBeLaterThanTheCurrentTime">EndTime Cannot Be Later Than The Current Time</text>
+		<text name="TheEndTimeOverlapsWithTheExistingFeedback">The End Time Over laps With The Existing Feedback</text>
+		<text name="DeviceGroupList">Device Group List</text>
+		<text name="CauseFeedbackHistory">Cause Feedback History</text>
+		<text name="FeedbackPeople">Feedback People</text>
+		<text name="Feedback">Feedback</text>
+
+
+		<!--RDLCReport页面-->
+		<text name="TheSelectedPeriodCannotBeLongerThan30Days">The Selected Period Cannot Be Longer Than 30 Days</text>
+		<text name="DataSummaryPleaseBePatient">Data summary, please be patient</text>
+		<!--QualifyStatistics页面-->
+		<text name="Export">Export</text>
+		<!--Profile页面-->
+		<text name="AssociatedUser{0}WillBeDeleted">Associated User {0} Will Be Deleted</text>
+		<text name="Remove">Remove</text>
+		<!--Plans页面-->
+		<text name="PlanProduction">Plan Production</text>
+		<text name="BelongDeviceGroup">Belong Device Group</text>
+		<text name="PlanStartDate">Plan Start Date</text>
+		<text name="PlanEndDate">Plan End Date</text>
+		<text name="AutomaticallyClose">Automatically close the plan after the planned output reaches the standard</text>
+		<text name="AutomaticallyStart">Automatically start follow-up plans (if any)</text>
+		<text name="DimensionOfTargetQuantity">Dimension of target quantity</text>
+		<text name="TargetQuantity">Target quantity</text>
+		<text name="ProductionCalculation">Production Calculation</text>
+		<text name="TraceTheNumberOfWorkpiece">Trace The Number Of Workpiece</text>
+		<text name="AccordingToTheEquipmentOutputCounter">According to the equipment output counter</text>
+		<text name="TheScheduledDeadlineMustBeGreaterThanTheStartTime">The scheduled deadline must be greater than the start time</text>
+		<text name="DetermineTheDimensionsToChangeTheTargetQuantity">Determine the dimensions to change the target quantity</text>
+		<text name="DeviceContext">Device Context</text>
+		<text name="AllMachine">All Machine</text>
+		<text name="SelectedDevice">Selected Device</text>
+		<text name="ViewShiftTargetQuantity">View Shift Target Quantity</text>
+		<text name="ShiftTarget">Shift Target</text>
+		<text name="PlanTime">PlanTime</text>
+		<text name="DocumentsState">Documents State</text>
+		<text name="ProductionScheduleList">Production Schedule List</text>
+		<text name="NewProductionPlan">New Production Plan</text>
+		<text name="CompletedQuantity">Completed Quantity</text>
+		<text name="ProductionAlculationMethod">Production Alculation Method</text>
+		<text name="PlanStartTime">Plan Start Time</text>
+		<text name="PlanEndTime">Plan End Time</text>
+		<text name="ActualStartTime">Actual Start Time</text>
+		<text name="ActualEndTime">Actual End Time</text>
+		<text name="BeingProcessed">Being Processed</text>
+		<text name="Plan-to-be-deleted">Plan to be deleted</text>
+		<!--Craft页面-->
+		<text name="CraftCode">Craft Code</text>
+		<text name="CraftName">Craft Name</text>
+		<text name="NewProcess">New Craft</text>
+		<text name="UndefinedProcess">Undefined Process</text>
+		<text name="MouseButton">Mouse button click process sequence field can be dragged up and down to reorder</text>
+		<text name="SelectionProcess">Selection Process</text>
+		<text name="SelectingProcessCheck">Selecting Process Check</text>
+		<text name="DeleteCraft">Are you sure you want to delete process: {0}? The associated process combination will be deleted!</text>
+		<text name="OperationSequence">Operation Sequence</text>
+		<text name="ProcessCode">Process Code</text>
+		<text name="ProcessName">Process Name</text>
+		<text name="FinalProcedure">Final Procedure</text>
+		<!--DefectiveReasons页面-->
+		<text name="ReasonCode">Reason Code</text>
+		<text name="ReasonName">Reason Name</text>
+		<text name="Note">Note</text>
+		<text name="NewDefectiveParts">New Defective Parts</text>
+		<text name="UndefinedDefectiveParts">Undefined Defective Parts</text>
+		<text name="DefectReasons">Defect Reasons</text>
+		<text name="CheckDefectivePart">Check the cause of defective products after selecting a defective part</text>
+		<text name="NewSubgroups">New Subgroups</text>
+		<text name="RemoveBadParts">Are you sure you want to remove the bad parts :{0}?</text>
+		<text name="Founder">Founder</text>
+		<text name="WantToDelete">Are you sure you want to delete [{0}]?</text>
+
+		<text name="Total">Total</text>
+		<text name="ProductCode">Product Code</text>
+		<text name="ProductionPlanCode">Production Plan Code</text>
+		<text name="WorkOrderCode">Work Order Code</text>
+		<text name="DefectiveNumber">Defective Number</text>
+
+		<text name="EquipmentReporting">Equipment Reporting</text>
+		<text name="CertifiedNumber">Certified Number</text>
+		<text name="FailureToObtainDefectiveProducts">Failure to obtain defective products</text>
+		<text name="JobLogin">Job Login</text>
+		<text name="PutVolume">Put Volume</text>
+		<text name="OutPutCount">OutPut Count</text>
+		<text name="QualifiedNumber">Qualified Number</text>
+		<text name="JobReport">Job Report</text>
+		<text name="CompleteWorkOrderLogin">Complete work order login and work report</text>
+		<text name="Completion">Completion</text>
+		<text name="CloseWorkOrder">Close WorkOrder</text>
+		<text name="WorkOrderState">Work Order State</text>
+		<text name="WhetherTheFinalWorkOrder">Whether the final work order</text>
+		<text name="OrderCode">Order Code</text>
+		<text name="CirculationRatio">Circulation Ratio</text>
+		<text name="WorkOrderDetails">Work Order Details</text>
+		<text name="PleaseConfirm">Please Confirm</text>
+		<text name="AllWorkOrders{0}WillBeClosed">All work orders under plan {0} will be closed</text>
+		<text name="OnceClosed">Once closed, you cannot do anything else</text>
+		<text name="TargetQuantityOfThisWorkOrder">The target quantity of this work order is {0}. {1} has been produced, among which {2} is genuine and {3} is defective. {4}, do you want to close it immediately?</text>
+
+		<text name="ChangeProduction">Change Production</text>
+		<text name="PleaseMaintainProduct">Please Maintain Product</text>
+		<text name="PleaseMaintainProcess.">Please Maintain Process</text>
+		<text name="PleaseSelectProcess">Please Select Process</text>
+		<text name="DoNotNeedToChangeProduction">The equipment is using the same process to process the same products, do not need to change production</text>
+		<text name="WhetherToChangeProduction">The equipment is in use, whether to change production</text>
+		<text name="ChangeProductionPerson">Change Production Person</text>
+		<text name="AreYouSureYouWantToDeleteIt">Are you sure you want to delete it</text>
+
+		<text name="AdverseCauseFeedback">Adverse Cause Feedback</text>
+		<text name="DefectiveProductsShouldNotExceedTheOutput">The quantity of defective products should not exceed the output</text>
+		<text name="TotalDefectiveProductsShouldNotExceedTheOutput">The total quantity of defective products should not exceed the output</text>
+		<text name="AtLeastOneAdverseEventGreaterThan0">At least one adverse event greater than 0</text>
+		<text name="DistributionOfDefectiveProducts">Distribution of defective products</text>
+		<text name="NumberOfBad">Number Of Bad</text>
+		<text name="GoodNumber">Good Number</text>
+		<text name="DefectiveRate">Defective Rate</text>
+		<text name="BadFeedback">Bad Feedback</text>
+
+		<text name="Describe">Describe</text>
+		<text name="WhetherToDeleteTheProcess">Whether To Delete The Process</text>
+
+		<text name="ProductDescription">Product Description</text>
+		<text name="Semi-finishedProducts">Is it semi-finished</text>
+		<text name="ProductGroupNumber">Product Group Number</text>
+		<text name="ProductGroupName">Product Group Name</text>
+		<text name="ProductGroup">Product Group</text>
+		<text name="NewProductGroup">New Product Group</text>
+		<text name="UndefinedProductGroup">Undefined Product Group</text>
+		<text name="NewProduct">New Product</text>
+		<text name="ViewTheProductsThatBelongTo">Select a product group and view the products that belong to it</text>
+		<text name="AreYouSureToDeleteProductGroup">Are you sure you want to delete the product group</text>
+		<text name="TheirProcessesWillBeDeleted">This group of associated products and their processes will be deleted</text>
+		<text name="Semi-finished">Semi-finished products</text>
+		<text name="AreYouSureToDeleteProduct">Are you sure you want to delete the product</text>
+		<text name="ConfirmDeletionInProgress">Confirm deletion in progress</text>
+
+		<text name="OrderNumber">Order Number</text>
+		<text name="EstimatedTimeRange">Estimated Time Range</text>
+		<text name="ProductionPlanningWorkOrder">Production Planning Work Order</text>
+		<text name="PlanState">Plan State</text>
+		<text name="ActualStartDate">Actual Start Date</text>
+		<text name="ActualEndDate">Actual End Date</text>
+		<text name="ActualPositiveNumber">Actual Positive Number</text>
+		<text name="ActualDefectiveNumber">Actual Defective Number</text>
+		<text name="WhetherToDeleteTheProductionPlanNumbered{0}">Whether to delete the production plan numbered: {0}</text>
+
+		<text name="Second">Second</text>
+		<text name="Magnification">Magnification</text>
+		<text name="WhetherToDeleteThisData">Whether to delete this data</text>
+
+		<text name="TheTrendOfOEE">The Trend Of OEE</text>
+		<text name="TheOEEOfDetail">The OEE Of Detail</text>
+		<text name="StatisticalDate">Statistical Date</text>
+		<text name="ClickOnTheDotsInThePicture">Click on the dots to see more details</text>
+		<text name="AvailabilityRate">Availability Rate</text>
+		<text name="PerformanceIndex">Performance Index</text>
+		<text name="QualityIndex">Quality Index</text>
+		<text name="ProductionStatus">Production Status</text>
+		<text name="PlanWorkingHours">Plan Working Hours</text>
+		<text name="UnplannedSuspension">Unplanned Suspension</text>
+		<text name="ProcessingRhythm">Processing Rhythm</text>
+		<text name="ProcessedProducts">Processed Products</text>
+		<text name="IdealBeat">Ideal Beat</text>
+		<text name="ActualBeat">Actual Beat</text>
+		<text name="QualitySituation">Quality Situation</text>
+
+
+		<text name="DeleteDataEncoding{0}">Delete data coded [{0}]</text>
+		<text name="AlarmDetails">Alarm details</text>
+		<text name="DateOfProduction">Date of production</text>
+		<text name="TimeOfProduction">Generation time</text>
+		<text name="AggregateStatistics">Aggregate statistics</text>
+		<text name="ViewQuantity">View quantity</text>
+		<text name="ChartType">Chart type</text>
+		<text name="PieChart">Pie chart</text>
+		<text name="SearchDataTooMuch">Query data contains too much data, which will lead to slow loading of web pages. Are you sure you want to execute queries?</text>
+		<text name="NameOfGroup">Name of group</text>
+		<text name="SelectedEquipment">Selected equipment</text>
+		<text name="StatisticalTime">Statistical time</text>
+		<text name="NumberOfOccurrences">Number of occurrences</text>
+		<text name="Details">Details</text>
+		<text name="ModalHeader">MODAL HEADER</text>
+		<text name="CutterTypeNotFound">Cutter type not found</text>
+		<text name="PleaseChooseCutterType">Please select the type of cutter</text>
+		<text name="EquipmentCutterLocation">Equipment cutter location</text>
+		<text name="LifeCountingTypes">Life Counting Types</text>
+		<text name="RawLife">Raw life</text>
+		<text name="OperationType">Operation type</text>
+		<text name="Creator">Creator</text>
+		<text name="NewlyBuild">Create</text>
+		<text name="ParameterCoding">Parameter Code</text>
+		<text name="ParameterName">Parameter Name</text>
+		<text name="Modifier">Modifier</text>
+		<text name="ModificationTime">Modification time</text>
+		<text name="DeleteToolParameterConfiguration{0}">Whether to delete tool parameter configuration items [{0}]</text>
+		<text name="AutomaticSystemGeneration">Automatic System Generation</text>
+		<text name="ToolType">Tool type</text>
+		<text name="EnterTheInitialLife">Please enter the initial life</text>
+		<text name="EnterNumber">Please enter a number</text>
+		<text name="EnterNumberBigThanZero">Please enter a number greater than 0</text>
+		<text name="EnterUsableLife">Please enter usable life</text>
+		<text name="EnterEarlyWarningLife">Please enter early warning life</text>
+		<text name="EnterToolPosition">Please enter tool position</text>
+		<text name="EnterInteger">Please enter an integer</text>
+		<text name="EnterAPositiveIntegerGreaterThanOne">Please enter a positive integer greater than 1</text>
+		<text name="BatchUnloading">Batch unloading</text>
+		<text name="MaintainCutterType">Please maintain cutter type</text>
+		<text name="MaintainToolType">Please maintain tool type</text>
+		<text name="FollowingCuttersCannotBeUnloaded">The following numbered cutters cannot be unloaded:</text>
+		<text name="ToolPrefixNumber">Tool prefix number</text>
+		<text name="ToolLifeCountingMethod">Tool life counting method</text>
+		<text name="EnterValidNumberGreaterThanZero">Please enter a valid number greater than 0</text>
+		<text name="InitialOrEarlyWarningLifeTip">Initial or early warning life should not be less than 0</text>
+		<text name="TypeName">Type name</text>
+		<text name="IsThePrefixEditable">Is the prefix editable</text>
+		<text name="NewRootType">New root type</text>
+		<text name="UndefinedType">Undefined type</text>
+		<text name="NewToolType">New Tool Type</text>
+		<text name="LookTypeAfterSelectCutterType">Select a cutter type and check the model to which it belongs.</text>
+		<text name="NewChildType">New subtypes</text>
+		<text name="DeleteCutterTypeConfirm{0}">Are you sure you want to delete the tool type: {0}? All tool models under this type will be deleted!</text>
+		<text name="ToolTypeCount">Number of models</text>
+		<text name="Prefix">Prefix</text>
+		<text name="CutterTypeTreeCodeTip">
+			<![CDATA[
+      The black tree node indicates that the number prefix </br> grey tree node can be set for cutters of this type to indicate that the number prefix for cutters of this type can not be modified.
+      ]]>
+		</text>
+		<text name="CountingMethodDisplayText">Tool counting method</text>
+		<text name="DeleteToolTypeConfirm{0}">Are you sure you want to delete the tool model [{0}]?</text>
+		<text name="CropMotivationRateOfEquipmentShift">Crop Motivation Rate of Equipment Shift</text>
+		<text name="LastShiftCropMomentum">Last shift crop momentum</text>
+		<text name="CurrentShiftCropMobility">Current shift crop mobility</text>
+		<text name="Percentage">Percentage</text>
+		<text name="ReminderOfEquipmentSchedulesDue">Reminder of equipment schedules due</text>
+		<text name="DaysRemaining">Days Remaining</text>
+		<text name="CurrentShiftUsageRatioOfEquipment">Current shift usage ratio of equipment</text>
+		<text name="ConfigurationShortcutMenu">Configuration shortcut menu</text>
+		<text name="ConfigurationShortcutMenuSuccess">Successful Configuration of Shortcut Menu</text>
+		<text name="EquipmentDetails">Equipment details</text>
+		<text name="FailureRate">Failure rate</text>
+		<text name="OperatingRate">Operating rate</text>
+		<text name="IdleRate">Idle rate</text>
+		<text name="EquipmentNotScheduledTip">Equipment not scheduled</text>
+		<text name="ShortcutMenu">shortcut menu</text>
+		<text name="ConfigurationMenu">Configuration menu</text>
+		<text name="RemoveAll">remove all</text>
+		<text name="RestoreDefault">Restore default</text>
+		<text name="RemoveShotcutMenusConfirm">Do you want to remove all shortcut menus?</text>
+		<text name="RemoveShotcutMenusSuccess">Successful removal of all shortcut menus</text>
+		<text name="RemoveOneShotcutMenuConfirm{0}">Make sure to remove the shortcut menu: {0}?</text>
+		<text name="RemoveOneShotcutMenuSuccess">Successful removal of shortcut menu</text>
+		<text name="RestoreShortcutMenusConfirm">Is the default shortcut menu restored?</text>
+		<text name="RestoreShortcutMenusSuccess">Success in restoring default shortcut menus</text>
+		<text name="FollowingMachineWithoutShift">The following equipment has not been scheduled:</text>
+		<text name="NewEquipmentGroup">New Equipment Group</text>
+		<text name="OrganizationEquipment">Organization Equipment</text>
+		<text name="AdditionalLevelIGroup">Additional Level I Group</text>
+		<text name="DeviceGroupNotYetDefined">Device group not yet defined</text>
+		<text name="LookMachinesInGroup">Select a device group and view the device in the group</text>
+		<text name="NewSubordinateGroup">New subordinate group</text>
+		<text name="DeleteDeviceGroupConfirmTip{0}">Are you sure you want to delete the device group: {0}? This will delete all plans, traceability settings, and subgroups under the device group</text>
+		<text name="RemoveMachineOutOfGroup{0}{1}">Are you sure to remove device {0} from device group {1}?</text>
+		<text name="EquipmentEfficiency">Equipment efficiency</text>
+		<text name="WatchType">View type</text>
+		<text name="CropMobility">Crop mobility</text>
+		<text name="LinearGraph">Linear graph</text>
+		<text name="EditingAcquisitionParameters">Editing acquisition parameters</text>
+		<text name="ParameterCode">Parameter number</text>
+		<text name="DisplayMode">Display mode</text>
+		<text name="MinValue">Minimum value</text>
+		<text name="MaxValue">Maximum value</text>
+		<text name="ShowVision">Show(Vision)</text>
+		<text name="ShowState">Show(State)</text>
+		<text name="MaxCannotSmallerThanMin">Maximum cannot be less than minimum</text>
+		<text name="ParametricBatchReplicationTo">Parametric batch replication to</text>
+		<text name="AddMachineFirst">Please add equipment first</text>
+		<text name="ParameterConfiguration">Parameter configuration</text>
+		<text name="BatchReplication">Batch replication of acquisition configuration parameters</text>
+		<text name="AcquisitionEquipment">Acquisition equipment</text>
+		<text name="AcquisitionParams">Acquisition parameters</text>
+		<text name="ChooseMachineNode">Please select the device node!</text>
+		<text name="DataType">Data type</text>
+		<text name="ChooseMachineAndQuery">Please select the equipment and query the historical operation parameters of the equipment.</text>
+		<text name="ConfigParameterTip">Please configure parameter information in [Basic Data - > Collection Configuration].</text>
+		<text name="SelectFileTitle">Select file</text>
+		<text name="ImportResults">Import results</text>
+		<text name="SerialNumber">Serial number</text>
+		<text name="ImportSuccess">Successful import</text>
+		<text name="UpdatePswdNextLogin">Do you change your password next time you log in?</text>
+		<text name="FullScreen">Full screen</text>
+		<text name="ProhibitProductAuthorization">Prohibit Product Authorization in virtual environment</text>
+		<text name="AuthorizationIsUnable">Product authorization is disabled, please contact the administrator</text>
+		<text name="AuthorizationExpired">Product authorization has expired, please contact the administrator</text>
+		<text name="AuthorizationCannotUse">Product authorization is not available, please contact the administrator</text>
+		<text name="AuthorizationWillExpireTo{0}">Product authorization is about to expire and expire until {0}</text>
+		<text name="UpdateRemarks">Update remarks</text>
+		<text name="AlarmTime">Alarm time</text>
+		<text name="ContinueMinutes{0}">Continue {0} (minutes)</text>
+		<text name="Remarks">Remarks</text>
+		<text name="AlarmCount">Alarm number</text>
+		<text name="RemarkInput">Fill in notes</text>
+		<text name="ParameterValueNotValid{0}{1}">The value {1} of parameter {0} is not a valid value</text>
+		<text name="MachineAlarmInfo">Equipment alarm information</text>
+		<text name="BeAlarming">Alarming</text>
+		<text name="LoadMore">Load more</text>
+		<text name="ExportMachine">Export device</text>
+		<text name="DeviceInfo">Device information</text>
+		<text name="LastUpdateTime">Final modification time</text>
+		<text name="CheckFileIsValid{0}">Cause: {0} Check that the file type or size is legitimate</text>
+		<text name="UploadFailure">Upload failure</text>
+		<text name="BatchScheduling">Batch scheduling</text>
+		<text name="StartAndEndTimeValidate">Start not later than end</text>
+		<text name="SetMachineShift">Setting up equipment shift information</text>
+		<text name="NewShiftPlan">New shift plan</text>
+		<text name="ShiftPlanName">Scheme name</text>
+		<text name="ContinueConfirm">Need to continue?</text>
+		<text name="DeleteMachineShiftsConfirm">Are you sure you want to cancel the current associated shift of the selected equipment?</text>
+		<text name="EndTimeCannotSmallerThanStartTime">The end time should not be less than the beginning time.</text>
+		<text name="GoToSetShiftPlan">Going to Set Up Schedule</text>
+		<text name="CleanShifts">Emptying scheduling</text>
+		<text name="MachineShiftInfo">Equipment shift information</text>
+		<text name="RemoveRelationShift">Remove related shifts</text>
+		<text name="CurrentMachineNotRelateAnyShift">Current equipment is not associated with any shifts</text>
+		<text name="SettingShift">Set up shifts</text>
+		<text name="BelongToGroup">Subordinate device group</text>
+		<text name="CurrentShiftPlan">Current shift plan</text>
+		<text name="EntryIntoForceTime">entry-into-force time</text>
+		<text name="FailureTime">Failure time</text>
+		<text name="DeleteAllShiftAfterToday">The device in the table will delete all scheduling records after today</text>
+		<text name="ShiftHistoryInfo">Equipment shift history information</text>
+		<text name="ProgramCapacity">Procedure output</text>
+		<text name="CurrentProgram">Current procedure</text>
+		<text name="HasProduced">Already produced</text>
+		<text name="ObjectName">Name</text>
+		<text name="ObjectDesc">Describtion</text>
+		<text name="DeleteMachineTypeConfirm{0}">Whether to delete device type [{0}]</text>
+		<text name="DeleteAll">Delete all</text>
+		<text name="MongoExceptionMsg">Mongo Synchronization Exception Information</text>
+		<text name="JobName">Job name</text>
+		<text name="DeleteAllSuccess">Delete All Successfully</text>
+		<text name="PlanCode">Plan code</text>
+		<text name="PlanName">Plan name</text>
+		<text name="ResponsiblePerson">Responsible person</text>
+		<text name="StartDate">Start date</text>
+		<text name="EndDate">End Date</text>
+		<text name="TimeInterval">time interval</text>
+		<text name="WorkOrderNumber">Work order number</text>
+		<text name="MaintenancePersonnel">Maintenance personnel</text>
+		<text name="PlanDate">Planned date</text>
+		<text name="MaintenanceTimeConsuming">Maintenance time consuming</text>
+		<text name="PleaseMaintenancePersonnel">Please maintenance personnel</text>
+		<text name="DocumentStatus">Document Status</text>
+		<text name="MaintenanceList">Maintenance list</text>
+		<text name="PlanMaintainDate">Planned maintenance date</text>
+		<text name="MaintainDuration">Maintenance duration</text>
+		<text name="DurationDays">Interval date</text>
+		<text name="PleaseSelectPerson">Please select personnel</text>
+		<text name="MaintenancePlanList">Maintenance plan list</text>
+		<text name="NewMaintenancePlan">New maintenance plan</text>
+		<text name="Deadline">Deadline</text>
+		<text name="IntervalTime">Interval time</text>
+		<text name="WillDeletePlan{0}">The plan {0} will be deleted</text>
+		<text name="PendingMaintance">Pending maintenance</text>
+		<text name="InMaintenance">In maintenance</text>
+		<text name="Repaired">Repaired</text>
+		<text name="Repair">Repair</text>
+		<text name="RequestNo">Request No</text>
+		<text name="IsItDowntime">Is it downtime</text>
+		<text name="Declarant">Declarant</text>
+		<text name="ReportingTime">Reporting time</text>
+		<text name="StartMaintenance">Start maintenance</text>
+		<text name="EndMaintenance">End maintenance</text>
+		<text name="ApplicationNotes">Application notes</text>
+		<text name="MaintenanceStartTime">Maintenance start time</text>
+		<text name="MaintenanceEndTime">Maintenance end time</text>
+		<text name="MaintenanceTimeH">Maintenance time (h)</text>
+		<text name="MaintenanceContent">Maintenance content</text>
+		<text name="ApplicationForMaintenance">Application for maintenance</text>
+		<text name="MaintenanceApplicationList">Maintenance Application List</text>
+		<text name="WillDeleteOrder{0}">The order {0} will be deleted</text>
+		<text name="SystemCacheAndLog">System Cache and Operational Log</text>
+		<text name="MessageNotificationRecord">Message notification record</text>
+		<text name="NotificationMode">Notification mode</text>
+		<text name="NotificationTime">Notification time</text>
+		<text name="MessageContent">Message content</text>
+		<text name="RemainTimePerCount">Remaining time (minutes)/times</text>
+		<text name="TimeMinutes">Time (minutes)</text>
+		<text name="ChooseSolution">Selection plan</text>
+		<text name="NotificationOfficer">Notification Officer</text>
+		<text name="PleaseInputTheField">Please fill in this field.</text>
+		<text name="PleaseEnterAPositiveNumber">Please enter a positive number.</text>
+		<text name="PleaseEnterIntegersGreaterThanZero">Please enter integers greater than 0</text>
+		<text name="TriggerTimeShouldNotBeLessThanZero">Trigger time should not be less than 0</text>
+		<text name="RuleName">Rule name</text>
+		<text name="MessageNotificationMaintenance">Message Notification Maintenance</text>
+		<text name="MessageNotificationRules">Message Notification Rules</text>
+		<text name="NewMessageRules">New Message Rules</text>
+		<text name="ViewTheRules">Select a message type and view the rules to which it belongs</text>
+		<text name="DeleteNotificationTypesConfirmTip{0}">Are you sure you want to delete the message notification type: {0}? All notification rules under this type will be deleted!</text>
+		<text name="PleaseSelectMessageType">Please select the message type!</text>
+		<text name="DeleteMessageRulesConfirm{0}">Are you sure you want to delete the message rule [{0}]?</text>
+		<text name="TriggerCondition">Trigger condition</text>
+		<text name="BatchSwitch">Batch switch</text>
+		<text name="EmptyDataTable">No data</text>
+		<text name="OptionalField">Optional field</text>
+		<text name="OptionalResult">Optional result</text>
+
+		<!--Carton Page-->
+
+		<text name="Carton">Carton</text>
+		<text name="CartonSetting">Carton setting</text>
+		<text name="UndefinedDeviceGroup">Undefined Device Group</text>
+		<text name="PrintLabelOrNot">Print label or not</text>
+		<text name="DefaultPrinter">Default printer</text>
+		<text name="AutoCartonNo">Automatic create carton No</text>
+		<text name="CartonRule">Carton No rule</text>
+		<text name="PackingCheckItem"> Inpacking  inspection items</text>
+		<text name ="IsGoodOnly">Is only good part</text>
+		<text name="CartonCantBeNull">The box code generated by the box code rule must not be empty</text>
+		<text name ="ForbidHopSequence">Forbid skip sequence</text>
+		<text name ="ForbidRepeatPacking">Forbid repeat packing</text>
+		<text name ="TunkfulAutoPrint">Tunkful auto print</text>
+		<text name ="UnpackingRedo">Devanning packing again </text>
+		<text name ="UnpackingAfterPrint">After print devanning</text>
+		<text name ="HasToFlow">Has to go through the flow</text>
+		<text name ="IsFinalInspection">Final inspection</text>
+
+		<!--Carton Traceability Page-->
+		<text name="CartonTraceability">Carton traceability</text>
+		<text name="PackagingDetails">Packaging details</text>
+		<text name="DeviceGroup">Device group</text>
+		<text name="CartonNo">Carton No.</text>
+		<text name="PackingInfo">Packing list</text>
+		<text name="MaxPackingCount">Max packing count</text>
+		<text name="RealPackingCount">Real packing count</text>
+		<text name="LabelPrintCount">Label print count</text>
+		<text name="PartNoInCarton">Part No. in the carton</text>
+		<text name="AllPartNoInCarton">Packing records</text>
+		<text name="UndoCarton">Undo packing</text>
+		<text name="PackingShiftDay">Packing date</text>
+		<text name="Packing">Packing</text>
+		<text name="UndoPacking">UnPacking</text>
+
+		<text name ="NoPrinter">No printer was retrieved in the local environment</text>
+		<text name ="NoCartonRule">There is no carton rule</text>
+		<text name ="NoTraceFlow">There is no trace flow</text>
+		<text name ="KeyOkMaxPackingCount">Please key in correct value</text>
+		<text name ="PleaseChosePrinter">Please choose printer</text>
+		<text name ="PleaseChoseCartonRule">Please choose carton rule</text>
+		<text name ="PleaseChoseFlow">Please choose flow</text>
+
+		<!--Carton Printing Page-->
+		<text name="CartonPrinting">Packaging printing</text>
+		<text name="Restoration">Reset carton</text>
+		<text name="CartonList">The packing list</text>
+		<text name="PackingSetting">The packing setting</text>
+		<text name="FinalInspectionResults">The final inspection results</text>
+		<text name="PartScanning">Artifacts scanning</text>
+		<text name="Printer">The printer</text>
+		<text name="Print">print</text>
+		<text name="PackingMaximum">Maximum packing quantity</text>
+		<text name="PackedQuantity">Packed quantity</text>
+		<text name="PrintedLabel">Printed label quantity</text>
+		<text name="Zhang">piece</text>
+		<text name="CantFindPart">The artifact was not queried</text>
+		<text name="CantFindFirstDeviceGroupClass">The level 1 device group to which this artifact belongs was not queried</text>
+		<text name="CantFindPartCartonSetting">The packing setting of the first-level equipment group [{0}] to which the workpiece belongs was not found</text>
+		<text name="UnqualifiedCantCarton">Packing of non-qualified workpiece is prohibited</text>
+		<text name="HopSequenceCantCarton">No packing is allowed</text>
+		<text name="CantRepeatPacking">Repeated packing is prohibited.</text>
+		<text name="HasToFlowCantCarton">The workpiece has not been through the process must be prohibited packing</text>
+		<text name="ShiftDay">ShiftDay</text>
+		<text name="CartonTime">Packing time</text>
+		<text name="CartonNoSmallInfo">Enter the packing code and enter the box to continue packing</text>
+		<text name="CartonSuccess">The success using</text>
+		<text name="ConfirmSwitchCurrentCartonSetting">If the packing rule of the equipment group belonging to the workpiece is inconsistent with the current rule, click ok to replace the rule and re-box it, and click cancel to re-select the workpiece</text>
+		<text name="ConfirmSwitchCurrentCartonSettingTitle">Rule switching confirmation</text>
+		<text name="CantFindCarton">The packing case was not found</text>
+		<text name="PleaseSetCarton">The current rule will not be generated automatically. Please input the box code manually before submitting</text>
+		<text name="UpdateMaxCountError">The maximum packing quantity shall not be less than the actual packing quantity</text>
+		<text name="ConfirmAutoPrintCarton">The box is full, please confirm whether to print the label, click print label, click cancel to return to the page</text>
+		<text name="ConfirmAutoPrintCartonTitle">Print label confirmation</text>
+		<text name="ConfirmFullCartonContinue">The box is full, please confirm whether to pack a new box, click to generate a new box to continue packing, click to cancel to return to the page</text>
+		<text name="ConfirmFullCartonContinueTitle">In cases of confirmed</text>
+		<text name="CantUpdateMaxCount">The maximum number cannot be modified in the current state</text>
+		<text name="CantPrint">The current state cannot be printed</text>
+		<text name="FinalSpcNgOffline">The workpiece failed to qualify for the offline</text>
+		<text name="FinalSpcOkOffline">The workpiece qualified offline successfully</text>
+		<text name="CantFindFinalSpcFlow">The final inspection cannot be conducted if the off-line process of final inspection is not found</text>
+		<text name="CantFindFinalSpcFlowRelatedMachine">Final inspection cannot be conducted if no final inspection equipment is found</text>
+		<text name="PrintSuccess">Print success</text>
+		<text name="CantFindSelectPrinter">Failed to find connectable printers in your list of available printers :{0}</text>
+		<text name="CantFindAnyPrinter">There is no printer device to call, please configure the printer first</text>
+		<text name="FullCartonCantPutIn">Box {0} is full and cannot be packed</text>
+		<text name="PartNoCantBeNull">Part number can't be null</text>
+		<text name="SeriesNumUseEnd">Running out of running codes of length {0}</text>
+
+		<text name ="Setting">Setting</text>
+
+
+		<text name="FmsCutter">Cutter</text>
+		<text name="CutterStockNo">StockNo</text>
+		<text name="CutterCase">Case</text>
+		<text name="Diameter">Diameter</text>CutterCase
+		<text name="CompensateNo">CompensateNo</text>
+		<text name="LengthCompensate">Length Compensate</text>
+		<text name="DiameterCompensate">Diameter Compensate</text>
+		<text name="CurrentLife">Current Life</text>
+		<text name="UseType">Use Type</text>
+		<text name="CountType">Count Type</text>
+		<text name="Degree">Degree</text>
+		<text name="UseLength">Use Length</text>
+
+		<text name="DisplayType">Display Type</text>
+		<text name="SingleLineTextBox">TextBox</text>
+		<text name="SingleDropList">Dropdown List</text>
+		<text name="CheckBox">CheckBox</text>
+		<text name="Radio">Radio</text>
+		<text name="DefaultValues">Default Value</text>
+	</texts>
+</localizationDictionary>

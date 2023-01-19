@@ -1,0 +1,122 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Cutter_CutterType;
+}
+@section Styles
+{
+    <link rel="stylesheet" href="~/view-resources/Views/Cutter/CutterType/Index.css" asp-append-version="true" />
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/Cutter/CutterType/Index.js" asp-append-version="true"></script>
+    <script src="~/Scripts/layer/layer.js" asp-append-version="true"></script>
+    <script src="~/Scripts/select2.js"></script>
+}
+
+<section class="content-header">
+
+    <h1>
+        @L("CutterType")
+    </h1>
+
+</section>
+
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-lg-4">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-sitemap"></i> @L("ToolType")
+                        <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+
+                    </h3>
+
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_Cutter_CutterType_Manage))
+                        {
+                            <a id="btnCreateRootCutterType" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("NewRootType")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+                <div class="box-body">
+
+                    <div id="cutterTypeTree"></div>
+
+                    <div id="cutterTypeTreeEmptyInfo" class="text-muted">
+
+                        @L("UndefinedType")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-8">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-object-group"></i> @L("CutterType")
+
+                        <span id="SelectedCutterTypeRightTitle"></span>
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_Cutter_CutterType_Manage))
+                        {
+                            <a id="btnCreateCutterModel" class="btn btn-circle btn-default">
+
+                                <i class="fa fa-plus"></i> @L("NewToolType")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+
+                <div class="box-body">
+
+                    <table id="table" class="table table-bordered table-striped table-hover"></table>
+
+                    <div id="cutterModelEmptyInfo" class="text-muted">
+
+                        @L("LookTypeAfterSelectCutterType")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

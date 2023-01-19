@@ -1,0 +1,104 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals;
+@model Wimi.BtlCore.Web.Models.CraftMaintain.TongViewModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("Create")))
+
+<style>
+
+    .select2 {
+        width: 100%;
+    }
+</style>
+
+<div class="modal-body">
+    <form name="CreateOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="row">
+            <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+                <label>@L("TongCode")</label>
+                <input class="form-control Code" type="text" name="Code" checkSpace="true" required maxlength="100" @(Model.IsEditMode ? "readonly" : "")
+                       value="@(Model.IsEditMode ? Model.Dto.Code : string.Empty)">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+                <label>@L("TongName")</label>
+                <input class="form-control Name" type="text" name="Name" checkSpace="true" required maxlength="100"
+                       value="@(Model.IsEditMode ? Model.Dto.Name : string.Empty)">
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6" style="height:50px">
+                <label>@L("TongCapacity")</label>
+                <select class="form-control Capacity" name="Capacity" id="" required style="width:100%;">
+                </select>
+            </div>
+
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+                <label>A @L("TypeProgram")</label>
+                <input class="form-control ProgramA" type="text" name="ProgramA" checkSpace="true" maxlength="40" required
+                       value="@(Model.IsEditMode ? Model.Dto.ProgramA : string.Empty)">
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6 no2" @(Model.Dto.Capacity < 2 ? "hidden" : "")>
+                @if (Model.Dto.Capacity < 2)
+                {
+                    <span class="text-red">※</span>
+                }
+                <label>B @L("TypeProgram")</label>
+                <input class="form-control ProgramB" type="text" name="ProgramB" maxlength="40"
+                       value="@(Model.IsEditMode ? Model.Dto.ProgramB : string.Empty)">
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6 no3" @(Model.Dto.Capacity < 3 ? "hidden" : "")>
+                @if (Model.Dto.Capacity < 3)
+                {
+                    <span class="text-red">※</span>
+                }
+                <label>C @L("TypeProgram")</label>
+                <input class="form-control ProgramC" type="text" name="ProgramC" maxlength="40"
+                       value="@(Model.IsEditMode ? Model.Dto.ProgramC : string.Empty)">
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6 no4" @(Model.Dto.Capacity < 4 ? "hidden" : "")>
+                @if (Model.Dto.Capacity < 4)
+                {
+                    <span class="text-red">※</span>
+                }
+                <label>D @L("TypeProgram")</label>
+                <input class="form-control ProgramD" type="text" name="ProgramD" maxlength="40"
+                       value="@(Model.IsEditMode ? Model.Dto.ProgramD : string.Empty)">
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6 no5" @(Model.Dto.Capacity < 5 ? "hidden" : "")>
+                @if (Model.Dto.Capacity < 5)
+                {
+                    <span class="text-red">※</span>
+                }
+                <label>E @L("TypeProgram")</label>
+                <input class="form-control ProgramE" type="text" name="ProgramE" maxlength="40"
+                       value="@(Model.IsEditMode ? Model.Dto.ProgramE : string.Empty)">
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6 no6" @(Model.Dto.Capacity < 6 ? "hidden" : "")>
+                @if (Model.Dto.Capacity < 6)
+                {
+                    <span class="text-red">※</span>
+                }
+                <label>F @L("TypeProgram")</label>
+                <input class="form-control ProgramF" type="text" name="ProgramF" maxlength="40"
+                       value="@(Model.IsEditMode ? Model.Dto.ProgramF : string.Empty)">
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label no-hint col-xs-12 col-sm-6">
+                <label>@L("Note")</label>
+                <input class="form-control Note" type="text" name="Note" maxlength="100"
+                       value="@(Model.IsEditMode ? Model.Dto.Note : string.Empty)">
+            </div>
+
+
+
+            <input type="hidden" id="Id" name="Id" value="@(Model.IsEditMode ? Model.Dto.Id : 0)" />
+            <input type="hidden" id="num" name="num" value="@(Model.IsEditMode ? Model.Dto.Capacity : 1)" />
+        </div>
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

@@ -1,0 +1,26 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Order.DefectiveReason.CreateDefectivePartModal
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("NewDefectiveParts")))
+
+
+<div class="modal-body">
+
+    <form name="DefectivePartForm" role="form" novalidate class="form-validation">
+
+        <input type="hidden" name="ParentId" value="@Model.ParentId" />
+
+        <div class="form-group">
+
+            <label>@L("DefectivePart")</label>
+
+            <input class="form-control" type="text" name="Name" checkSpace="true" required maxlength="50">
+
+        </div>
+
+    </form>
+
+</div>
+
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

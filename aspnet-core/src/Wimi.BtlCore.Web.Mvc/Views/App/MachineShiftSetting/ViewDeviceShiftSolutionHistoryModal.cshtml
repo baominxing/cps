@@ -1,0 +1,70 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model IEnumerable<Wimi.BtlCore.Shift.Dtos.DeviceHistoryShiftInfoDto>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("ShiftHistoryInfo")))
+
+<div class="modal-body">
+
+    <ul class="timeline">
+
+        @foreach (var item in Model)
+        {
+            <!-- timeline time label -->
+            <li class="time-label">
+                @if (!item.IsHistory)
+                {
+                    <span class="bg-green">
+                        @item.EndDate
+                    </span>
+                }
+                else
+                {
+                    <span class="bg-grey">
+                        @item.EndDate
+                    </span>
+                }
+            </li>
+            <!-- /.timeline-label -->
+
+            <!-- timeline item -->
+            <li>
+                <!-- timeline icon -->
+                <i class="fa fa-user bg-blue"></i>
+                <div class="timeline-item">
+
+                    <h3 class="timeline-header">
+                        <a href="#">@item.ShiftSolutionName</a>
+                    </h3>
+
+                    <div class="timeline-body">
+                        @for (var j = 0; j < item.ShiftInfoDtos.Count; j++)
+                        {
+                            <label>@item.ShiftInfoDtos[j].Name : @item.ShiftInfoDtos[j].StartTime -- @item.ShiftInfoDtos[j].EndTime @item.ShiftInfoDtos[j].Duration</label>
+                            <br />
+                        }
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+
+            <!-- timeline time label -->
+            <li class="time-label">
+                @if (!item.IsHistory)
+                {
+                    <span class="bg-green">
+                        @item.StartDate
+                    </span>
+                }
+                else
+                {
+                    <span class="bg-grey">
+                        @item.StartDate
+                    </span>
+                }
+            </li>
+            <!-- /.timeline-label -->
+        }
+    </ul>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithCancel.cshtml")

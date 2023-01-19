@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>1.0.0.0</VersionPrefix>
+    <TargetFramework>net7.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AssemblyName>Wimi.BtlCore.Application</AssemblyName>
+    <PackageId>Wimi.BtlCore.Application</PackageId>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RootNamespace>Wimi.BtlCore</RootNamespace>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Orders\**" />
+    <EmbeddedResource Remove="Orders\**" />
+    <None Remove="Orders\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ThirdpartyApis\Dto\ProductPlanYieldDto.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Abp.Web.Common" Version="8.0.0" />
+    <PackageReference Include="AgileConfig.Client" Version="1.6.11" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="EPPlus" Version="4.5.3.3" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.8.0-beta4" />
+    <PackageReference Include="Hangfire.Core" Version="1.8.0-beta4" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.4.0" />
+    <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="161.47021.0" />
+    <PackageReference Include="MongoDB.Bson" Version="2.18.0" />
+    <PackageReference Include="NClone" Version="1.2.0" />
+    <PackageReference Include="Senparc.Weixin" Version="6.15.8.1" />
+    <PackageReference Include="Senparc.Weixin.MP" Version="16.18.10.1" />
+    <PackageReference Include="Senparc.Weixin.QY" Version="4.4.1" />
+    <PackageReference Include="SharpZipLib" Version="1.4.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="Nancy" Version="2.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.10.0" />
+    <PackageReference Include="Telnet" Version="0.11.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wimi.BtlCore.Core\Wimi.BtlCore.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Localization\Language\" />
+    <Folder Include="Reasons\ReasonFeedbackCalendar\Dtos\" />
+    <Folder Include="Traceability\" />
+    <Folder Include="Maintain\" />
+    <Folder Include="Editions\" />
+    <Folder Include="Timing\" />
+    <Folder Include="CraftMaintain\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DeviceDataReader">
+      <HintPath>Visual\Plugins\DeviceDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceMonitorClient">
+      <HintPath>Visual\Plugins\DeviceMonitorClient.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

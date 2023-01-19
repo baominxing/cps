@@ -1,0 +1,118 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.Plan.ProcessPlans.PlanViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.ProducePlan_Plans;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/Plan/ProcessPlans/Index.js" asp-append-version="true"></script>
+}
+@section Styles
+{
+    <style src="~/view-resources/Views/Plan/ProcessPlans/Index.css" asp-append-version="true"></style>
+}
+
+<section class="content-header">
+
+    <h1>
+        @L("Plan")
+    </h1>
+
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i> @L("QueryArea")
+                    </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <form class="form-horizontal no-padding">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 ">
+                                <label class="col-sm-4 control-label">
+                                    <b class="text-primary">@L("PlanName")</b>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="input-plan-name" type="text">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 ">
+                                <label class="col-sm-4 control-label">
+                                    <b class="text-primary">@L("ProductName")</b>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select type="text" class="form-control" id="input-product-name">
+                                        <option value="">@L("All")</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 ">
+                                <label class="col-sm-4 control-label">
+                                    <b class="text-primary">@L("PlanTime")</b>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="daterange-btn">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" style="margin-top: 5px;">
+
+                            <div class="col-xs-12 col-sm-8">
+                                <label class="col-sm-2 control-label">
+                                    <b class="text-primary">@L("DocumentsState")</b>
+                                </label>
+                                <div class="col-sm-10">
+                                    <label class="checkbox-inline"><input type="checkbox" name="checkboxStatus" value="New" checked />@L("Plan-New")</label>
+                                    <label class="checkbox-inline"><input type="checkbox" name="checkboxStatus" value="InProgress" checked />@L("Plan-InProgress")</label>
+                                    <label class="checkbox-inline"><input type="checkbox" name="checkboxStatus" value="Complete" checked />@L("Plan-Complete")</label>
+                                    <label class="checkbox-inline"><input type="checkbox" name="checkboxStatus" value="Pause" checked />@L("Plan-Pause")</label>
+                                    <label class="checkbox-inline"><input type="checkbox" name="checkboxStatus" value="AutoComplete" checked />@L("Plan-AutoComplete")</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button"
+                                            id="btnQuery"
+                                            class="btn btn-primary btn-sm pull-right">
+                                        @L("Research")
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-menu"></i> @L("ProductionScheduleList")
+                    </h3>
+
+                    <button type="button"
+                            class="btn btn-primary btn-sm pull-right" id="btn-add-plan">
+                        @L("NewProductionPlan")
+                    </button>
+                </div>
+                <div class="box-body">
+                    <table id="table" class="table table-bordered table-striped table-hover"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

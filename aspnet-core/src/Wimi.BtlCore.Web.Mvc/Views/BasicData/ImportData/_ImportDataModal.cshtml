@@ -1,0 +1,17 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@model Wimi.BtlCore.Web.Models.BasicData.ImportData.ImportDataViewModal
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("SelectFileTitle")))
+
+<div class="modal-body">
+    <form id="ImportDataForm" method="POST" action="@(ApplicationPath + "ImportData/ImportData")">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("PleaseSelect")</label>
+            <input class="form-control" type="file" name="UploadFiles"/>
+            <input type="hidden" name="Type"/>
+        </div>
+        <div class="xs-pv-20">
+        </div>
+    </form>
+</div>

@@ -1,0 +1,82 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Maintain.MaintainRepair.MaintainRepairViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (Model.Status == Wimi.BtlCore.Maintain.EnumRepairRequestStatus.Undo ? L("StartMaintenance") : L("EndMaintenance")) : L("View")))
+<style>
+    .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+        height: 31px !important;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+<div class="modal-body">
+
+    <form name="lookOrRepairForm" role="form" novalidate class="form-validation" data-is-edit="@Model.IsEditMode">
+        <div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2">@L("WorkOrderNumber")</label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" name="Mode" readonly maxlength="50"
+                           value="@Model.Code">
+                </div>
+                <label class="control-label col-sm-2">@L("Declarant")</label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="RequestUserName" value="@Model.RequestUserName" name="RequestUserId" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="control-label col-sm-2">@L("MachineType")</label>
+                <div class="col-sm-4">
+                    <input class="form-control " type="text" id="MachineType" name="MachineType" readonly value="@(Model.MachineType)">
+                </div>
+
+                <label class="control-label col-sm-2">@L("MachineCode")</label>
+                <div class="col-sm-4">
+                    <input class="form-control" id="MachineCode" name="MachineCode" value="@Model.MachineCode" readonly>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2">@L("IsItDowntime")</label>
+                <div class="col-sm-4">
+                    <input class="form-control" readonly type="text" name="IsShutdown" value="@Model.ShutDownStatus">
+                </div>
+                <label class="control-label col-sm-2">@L("PlanMaintainDate")</label>
+                <div class="col-sm-4">
+                    <input class="form-control dateTimeRangePicker" type="text" disabled name="RequestDate"
+                           value="@Model.RequestPlanDate">
+                </div>
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label">
+                <label>@L("ApplicationNotes")</label>
+                <textarea class="form-control" readonly name="RequestMemo" rows="3" checkSpace="true" required value=" @Model.RequestMemo">@Model.RequestMemo</textarea>
+            </div>
+        </div>
+        <HR style="border:3px double #987cb9" width="100%" color=#987cb9 SIZE=3>
+        <div class="row">
+            <div class="form-group col-sm-4">
+                <label class="control-label">@L("MaintenanceStartTime")</label>
+                <input @(Model.IsEditMode ? string.Empty : "disabled") class="form-control dateTimeRangePicker" type="text" name="RepaireStartTime" required id="RepaireStartTime" value="@(Model.StartTime)">
+
+            </div>
+            <div class="form-group col-sm-4" style="display:@(Model.Status!=Wimi.BtlCore.Maintain.EnumRepairRequestStatus.Undo?"block":"none")">
+                <label class="control-label dateTimeRangePicker">@L("MaintenanceEndTime")</label>
+                <input @(Model.IsEditMode ? string.Empty : "disabled") @(Model.Status == Wimi.BtlCore.Maintain.EnumRepairRequestStatus.Undo ? string.Empty : "required") class="form-control dateTimeRangePicker" type="text" id="RepairEndTime" value="@(Model.EndTime)">
+            </div>
+            <div class="form-group col-sm-4" style="display:@(Model.Status!=Wimi.BtlCore.Maintain.EnumRepairRequestStatus.Undo?"block":"none")">
+                <label class="control-label">@L("MaintenanceTimeH")</label>
+                <input class="form-control" type="text" id="Cost" name="Cost" readonly value="@Model.Cost">
+            </div>
+            <div class="form-group  col-sm-12 form-md-line-input form-md-floating-label">
+                <label>@L("MaintenanceContent")</label>
+                <textarea class="form-control" @(Model.IsEditMode ? string.Empty : "readonly") id="RepairMemo" name="RepairMemo" rows="3" checkSpace="true" value="@Model.RepairMemo">@Model.RepairMemo </textarea>
+            </div>
+
+        </div>
+        <input type="hidden" id="Id" value="@Model.Id" />
+        <input type="hidden" id="Status" value="@Model.Status">
+        <input type="hidden" id="IsEditMode" value="@(Model.IsEditMode?"1":"0")" />
+    </form>
+</div>
+@(Model.IsEditMode ? await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml") : await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithCancel.cshtml"))

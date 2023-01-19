@@ -1,0 +1,140 @@
+﻿@using Abp.Timing
+@using Wimi.BtlCore;
+@using Wimi.BtlCore.Web.Resources
+@using Abp.Web.Security.AntiForgery
+@using Wimi.BtlCore.Configuration;
+@inject ScriptPaths ScriptPaths
+@inject IAbpAntiForgeryManager AbpAntiForgeryManager
+@{
+    Layout = null;
+    AbpAntiForgeryManager.SetCookie(Context);
+}
+
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+
+<html lang="en">
+
+<!--<![endif]-->
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>@AppVersionHelper.AppName</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+
+    @* Fill these meta tags upon your project specification *@
+    <meta content="Wimi BtlCore" name="description" />
+
+    <meta content="Wimi BtlCore" name="keywords">
+
+    <meta content="Wimi BtlCore" name="author" />
+
+    <link rel="shortcut icon" href="~/favicon.ico" />
+
+    <script src="~/Scripts/jquery-2.2.0.min.js" asp-append-version="true"></script>
+
+    <link rel="stylesheet" href="/view-resources/Views/_Bundles/Bundle.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="/view-resources/Views/Account/_Layout.css" asp-append-version="true" />
+
+    @RenderSection("Styles", false)
+
+    <style>
+        html, body{ margin:0; height:100%; }
+    </style>
+
+    <script type="text/javascript">
+        @* This is used to get the application's root path from javascript.
+        It's useful if you're running application in a virtual directory under IIS. *@
+        var abp = abp || {};
+        abp.appPath = '@ApplicationPath';
+        abp.appAPIPath = abp.appPath + "api/services/app/";
+    </script>
+
+
+</head>
+
+<body class="hold-transition login-page">
+
+    <div class="menu-toggler sidebar-toggler">
+
+    </div>
+
+    <div style="height:100%;">
+
+        @RenderBody()
+
+    </div>
+
+@*    <div class="copyright text-center" hidden="@(!Convert.ToBoolean(SettingManager.GetSettingValue(AppSettings.FooterControl.IsShowCopyRight)))" >
+
+        <strong>Copyright &copy; 2017-@DateTime.Today.Year @L("FootTagWimi").</strong> All rights reserved.
+
+    </div>*@
+
+
+    <!--[if lt IE 9]>
+
+        <script src="~/Scripts/others/respond.min.js"></script>
+
+        <script src="~/Scripts/others/excanvas.min.js"></script>
+
+    <![endif]-->
+    @* *@
+    <script src="~/Scripts/json2.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/jquery.blockUI.js" asp-append-version="true"></script>
+    <script src="~/Scripts/jquery.cookie.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/toastr.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/others/spinjs/spin.js" asp-append-version="true"></script>
+    <script src="~/Scripts/others/spinjs/jquery.spin.js" asp-append-version="true"></script>
+    <script src="~/Scripts/sweet-alert.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/moment-with-locales.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/jquery.validate.min.js" asp-append-version="true"></script>
+    @*<script src="~/Scripts/jquery-validation/localization/messages_zh.min.js" asp-append-version="true"></script>*@
+    <script src="~@ScriptPaths.JQuery_Validation_Localization" asp-append-version="true"></script>
+    <script src="~/Scripts/appConsts.js" asp-append-version="true"></script>
+
+
+
+    <script src="~/view-resources/Views/_Bundles/Foundation.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/_Bundles/AbpStaff.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/Account/_Layout.js" asp-append-version="true"></script>
+
+
+    <script type="text/javascript">
+        abp.localization.defaultSourceName = '@LocalizationSourceName';
+    </script>
+
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+
+    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
+
+
+    @RenderSection("Scripts", false)
+
+
+    <script>
+        jQuery(document).ready(function () {
+            AccountLayout.init();
+
+            if (CurrentPage) {
+                CurrentPage.init();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

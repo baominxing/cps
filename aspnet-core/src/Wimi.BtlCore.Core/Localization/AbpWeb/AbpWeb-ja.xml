@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="ja">
+  <texts>
+    <text name="InternalServerError" value="リクエスト中に内部エラーが発生しました!" />
+    <text name="ValidationError" value="あなたの要求は無効です!" />
+    <text name="AreYouSure" value="よろしいですか？" />
+    <text name="Cancel" value="いいえ" />
+    <text name="Yes" value="はい" />
+    <text name="ValidationNarrativeTitle" value="検証中に以下のエラーが検出されました." />
+    <text name="DefaultError" value="エラーが発生しました!" />
+    <text name="DefaultErrorDetail" value="サーバーによって送られないエラー詳細." />
+    <text name="DefaultError401" value="あなたは認証されません!" />
+    <text name="DefaultErrorDetail401" value="この操作を実行するために認証されなければなりません." />
+    <text name="DefaultError403" value="許可されない!" />
+    <text name="DefaultErrorDetail403" value="この操作を行うことはできません" />
+    <text name="DefaultError404" value="リソースが見つかりません!" />
+    <text name="DefaultErrorDetail404" value="要求されたリソースはサーバ上で見つからなかった." />
+    <text name="EntityNotFound" value="ID = { 1 }というエンティティ{ 0 }はありません!" />
+  </texts>
+</localizationDictionary>

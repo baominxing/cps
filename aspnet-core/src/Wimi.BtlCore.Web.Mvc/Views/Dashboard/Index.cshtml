@@ -1,0 +1,120 @@
+﻿@using Abp.Extensions
+@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.App.TenantDashboardViewModal
+@{
+    ViewBag.CurrentPageName = PageNames.App.Tenant.Dashboard;
+}
+
+<script type="text/javascript" src="~/Scripts/echarts.min.js"></script>
+<script type="text/javascript" src="~/Scripts/vue.js"></script>
+<script type="text/javascript" src="~/view-resources/Views/Dashboard/Index.js"></script>
+<script type="text/javascript" src="~/view-resources/Views/Dashboard/_StateStatisticsModule.js"></script>
+<script type="text/javascript" src="~/view-resources/Views/Dashboard/_MachineActivationStatistics.js"></script>
+<script type="text/javascript" src="~/view-resources/Views/Dashboard/_MachineUsedTimeRateStatistics.js"></script>
+
+<!-- #region Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        @L("Dashboard")<small></small>
+    </h1>
+    <div class="row header-tools pull-right" style="width: 100%">
+        <div class="col-sm-12">
+            <div class="col-sm-4 col-lg-8"></div>
+            @if (Model.IsShiftExpiry)
+            {
+                <div class="header-tools shift-warning col-sm-4 col-lg-2 pull-right" style="cursor: pointer">
+                    <div class="box box-danger box-solid">
+                        <div class="box-header">
+                            <h5 class="box-title pull-left"><i class="fa fa-bullhorn"></i> @L("ReminderOfEquipmentSchedulesDue")</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (!Model.MachineShiftNotSchedulings.IsNullOrWhiteSpace())
+            {
+                <div class="header-tools col-sm-4 col-lg-2 pull-right shift-scheduling" data-shift="@Model.MachineShiftNotSchedulings" style="cursor: pointer">
+                    <div class="box box-warning box-solid">
+                        <div class="box-header">
+                            <h5 class="box-title pull-left"><i class="fa fa-bullhorn"></i> @L("EquipmentNotScheduledTip")</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- #endregion -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-4">
+
+            @{ await Html.RenderPartialAsync("_StateStatisticsModule"); }
+
+
+            <!-- Small boxes (Stat box) -->
+
+            <div class="box box-solid" id="app-shortcutMenu" v-cloak>
+                <div class="box-header bg-light-blue">
+                    <h4 class="xs-mv-0"><i class="fa fa-bars"></i> @L("ShortcutMenu")</h4>
+                    <div class="activationheaderinfo"></div>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool text-white" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+
+                    <a class="btn btn-app"
+                       v-for="menu in bindMenus"
+                       v-bind:href="menu.url"
+                       v-bind:data="menu"
+                       v-on:mouseenter="menu.showRemove=true"
+                       v-on:mouseleave="menu.showRemove=false">
+                        <!--必须阻止事件冒泡，否则会跳转页面-->
+                        <span v-if="menu.showRemove"
+                              v-on:click.stop.prevent="removeMenu(menu)"
+                              class="badge bg-red">X</span>
+                        <i v-bind:class="menu.icon"></i>
+                        {{ menu.displayName }}
+                    </a>
+
+                </div>
+                <div class="box-footer">
+
+                    <button type="button"
+                            class="btn btn-primary"
+                            v-on:click="openMenuModal">
+                        @L("ConfigurationMenu")
+                    </button>
+                    <button type="button" class="btn btn-primary "
+                            v-bind:disabled="bindMenus.length<=0"
+                            v-on:click="clearAll">
+                        @L("RemoveAll")
+                    </button>
+                    <button type="button"
+                            class="btn btn-primary"
+                            v-on:click="restoreDefaults">
+                        @L("RestoreDefault")
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            @{await Html.RenderPartialAsync("_MachineActivationStatistics"); }
+
+            @{await Html.RenderPartialAsync("_MachineUsedTimeRateStatistics"); }
+
+        </div>
+    </div>
+    @{
+        var stateList = Model.StatusInfoList;
+        foreach (var state in stateList)
+        {
+            <input type="hidden" id="state-@(state.Code)" value="@state.Hexcode" />
+        }
+
+    }
+</section>

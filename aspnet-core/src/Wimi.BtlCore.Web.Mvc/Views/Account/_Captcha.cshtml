@@ -1,0 +1,53 @@
+﻿@*@model CaptchaMvc.Models.MathBuildInfoModel
+
+
+<div class="form-inline">
+
+    <div class="form-group">
+
+        <img id="@Model.ImageElementId" src="@Model.ImageUrl" style="height: 30px"/>
+
+        @Html.Hidden(Model.TokenElementId, Model.TokenValue)
+        @{
+            var id = Guid.NewGuid().ToString("N");
+            var functionName = string.Format("______{0}________()", Guid.NewGuid().ToString("N"));
+            <script type="text/javascript">
+
+                $(function() {
+                    $('#@id').show();
+                });
+
+
+                function @functionName {
+                    $('#@id').hide();
+                    $.post("@Model.RefreshUrl", {
+                            @Model.TokenParameterName: $('#@Model.TokenElementId').val(),
+                            @Model.MathParamterName: "0"
+                        },
+                        function() {
+                            $('#@id').show();
+                        });
+                    return false;
+                }
+            </script>
+
+            <a href="#@Model.InputElementId" id="@id" onclick="@functionName" style="display: none;" class="btn btn-primary">
+                <i class="fa fa-refresh"></i>
+            </a>
+            if (Model.IsRequired)
+            {
+                @Html.TextBox(Model.InputElementId, null, new Dictionary<string, object> { { "data-val", "true" }, { "data-val-required", Model.RequiredMessage }, { "class", "form-control" } })
+            }
+            else
+            {
+                @Html.TextBox(Model.InputElementId, null, new Dictionary<string, object> { { "class", "form-control" } })
+            }
+
+        }
+
+
+
+    </div>
+
+
+</div>*@

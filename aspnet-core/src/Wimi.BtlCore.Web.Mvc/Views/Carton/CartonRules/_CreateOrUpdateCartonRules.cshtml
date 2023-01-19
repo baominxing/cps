@@ -1,0 +1,47 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Carton.CartonRules.CartonRuleCreateOrUpdateModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("Create")))
+
+<div class="modal-body">
+
+    <form name="createOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("Name")</label>
+            <input class="form-control code" type="text" name="Name" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength"
+                   value="@(Model.IsEditMode ? Model.Name : string.Empty)">
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("IsActive")</label>
+            <select class="form-control" name="IsActive" id="IsActive" required>
+
+                @if (Model.IsEditMode)
+                {
+                    if (Model.IsActive)
+                    {
+
+                        <option value="Yes" selected>@L("Yes")</option>
+                        <option value="No">@L("No")</option>
+                    }
+                    else
+                    {
+
+                        <option value="Yes">@L("Yes")</option>
+                        <option value="No" selected>@L("No")</option>
+                    }
+                }
+                else
+                {
+                    <option value="Yes" selected>@L("Yes")</option>
+                    <option value="No">@L("No")</option>
+                }
+
+            </select>
+        </div>
+        <input type="hidden" name="Id" id="Id" value="@(Model.IsEditMode ? Model.Id : 0)" />
+
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

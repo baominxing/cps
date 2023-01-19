@@ -1,0 +1,32 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("NGCauseSupplementOfWorkpiece")))
+
+<div class="modal-body">
+    <form name="CollectionDefectsModalForm" role="form" class="form-validation">
+
+        <div class="box box-solid" id="PartDefectCauses">
+            <div class="box-header with-border">
+                <h3 class="box-title">
+                    <i class="fa fa-th"></i>  @L("DefectivePart")
+                </h3>
+            </div>
+            <div class="box-body">
+                <select class="form-control" style="width:100%;" name="DefectivePartId" checkSpace="true" id="CollectionDefectivePartId"></select>
+            </div>
+
+            <div class="box-header with-border">
+                <h3 class="box-title">
+                    <i class="fa fa-th"></i>  @L("BadReason")
+                </h3>
+            </div>
+            <div class="box-body">
+                <select class="form-control" name="DefectiveReasonId" id="CollectionDefectiveReasonId" style="width:100%" required></select>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndContinueAndCancel.cshtml")

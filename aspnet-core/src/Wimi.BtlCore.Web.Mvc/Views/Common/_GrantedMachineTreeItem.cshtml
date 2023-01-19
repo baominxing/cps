@@ -1,0 +1,71 @@
+﻿@using Abp.Extensions
+@using Wimi.BtlCore.Configuration
+@using Wimi.BtlCore.Web.Models.Common
+@model GrantedMachineTreeItemModel
+@{
+    var machineTreeLength = AppSettings.MachineTreeLength;
+    var group = Model.EditModel.DeviceGroups.Where(p => p.ParentId == Model.ParentId).OrderBy(p => p.Seq).ToList();
+    if (!group.Any())
+    {
+        return;
+    }
+
+    foreach (var item in group)
+    {
+        if (!Model.EditModel.GrantedGroupIds.Contains(item.Id))
+        {
+            @await Html.PartialAsync("~/Views/Common/_GrantedMachineTreeItem.cshtml", new GrantedMachineTreeItemModel(Model.EditModel, item.Id))
+        }
+        else
+        {
+            var deviceGroup = item;
+            var existSubGroup = Model.EditModel.DeviceGroups.Exists(q => q.ParentId == deviceGroup.Id);
+            if (item.MemberCount > 0 || existSubGroup)
+            {
+                <li id="@item.Id" data-jstree='{"selected": false,"icon":"fa fa-object-group"}'>
+
+                    @item.DisplayName
+                    <ul id="ulmore_@item.Id">
+                        @{
+                            if (item.MemberCount > 0)
+                            {
+                                var machines = Model.EditModel.Machines.Where(q => q.DeviceGroupId == deviceGroup.Id).OrderBy(p => p.SortSeq).ThenBy(p => p.Code).ToList();
+
+                                for (var n = 0; n < machines.Count; n++)
+                                {
+                                    var flatMachineDto = machines[n];
+                                    if (n < machineTreeLength)
+                                    {
+                                        <li id="@item.Id#@flatMachineDto.Id" data-machineid='@flatMachineDto.Id' data-jstree='{"selected": false' class="MachineNode">
+
+                                            @flatMachineDto.Name
+                                        </li>
+                                    }
+
+                                    if (n >= machineTreeLength)
+                                    {
+                                        <li id="@item.Id#@flatMachineDto.Id" data-machineid='@flatMachineDto.Id' data-jstree='{"selected": false' class="hidden MachineNode">
+
+                                            @flatMachineDto.Name
+                                        </li>
+                                    }
+                                }
+                                if (machines.Count > machineTreeLength)
+                                {
+                                    <li data-jstree='{"selected": false' onclick="morebtn(this)" class="moreAndless">
+
+                                    </li>
+                                }
+
+                            }
+
+                            @await Html.PartialAsync("~/Views/Common/_GrantedMachineTreeItem.cshtml", new GrantedMachineTreeItemModel(Model.EditModel, item.Id))
+
+                        }
+                    </ul>
+
+                </li>
+            }
+        }
+    }
+}

@@ -1,0 +1,142 @@
+﻿@using Wimi.BtlCore.FmsCutters
+@using Wimi.BtlCore.Web.Models.Common.Modals;
+@model Wimi.BtlCore.Web.Models.CraftMaintain.FmsCutterSettingViewModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(@Model.IsEdit ? "编辑" : "新增"))
+
+<div class="modal-body">
+    <form name="CreateOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="row">
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("Name")</label>
+                <input type="text" class="form-control" name="Name" checkSpace="true" value="@Model.Field.Name" required />
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("DisplayType")</label>
+
+                <select class="form-control" id="DisplayType" name="DisplayType" required disabled='@Model.IsEdit'>
+                    @{
+                        if (!Model.IsEdit)
+                        {
+                            foreach (int type in Enum.GetValues(typeof(EnumCustomDisplayType)))
+                            {
+                                <option value="@type">@L(Enum.GetName(typeof(EnumCustomDisplayType), type))</option>
+                            }
+                        }
+                        else
+                        {
+                            foreach (int type in Enum.GetValues(typeof(EnumCustomDisplayType)))
+                            {
+                                if (Enum.GetName(typeof(EnumCustomDisplayType), type) == Enum.GetName(typeof(EnumCustomDisplayType), Model.Field.DisplayType))
+                                {
+                                    <option value="@type" selected="selected">@L(Enum.GetName(typeof(EnumCustomDisplayType), type))</option>
+                                }
+                                else
+                                {
+                                    <option value="@type">@L(Enum.GetName(typeof(EnumCustomDisplayType), type))</option>
+                                }
+
+                            }
+                        }
+
+                    }
+                </select>
+            </div>
+
+            @{
+                if (!Model.IsEdit)
+                {
+                    <div class="col-md-12 form-group hidden" id="backupValue">
+                        <div class="col-md-12">
+                            <label style="line-height: 2.8">@L("DefaultValues")</label>
+                            <div class="btn btn-sm btn-primary pull-right md-mv-5" id="createNewRow"><i class="fa fa-plus"></i></div>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control md-mv-5 extend-field" />
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-12 form-group" id="backupValue">
+                        @if (Model.Field.DisplayType != EnumCustomDisplayType.SingleLineTextBox)
+                        {
+                            @Html.Raw(Model.Field.HtmlTemplate)
+                        }
+                    </div>
+                }
+            }
+
+            <div id="textboxField">
+                <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                    <label>最大长度</label>
+                    <input type="number" class="form-control" name="MaxLength" min="1" max="200" value="@(Model.Field.MaxLength==0? 1:Model.Field.MaxLength)" required />
+                </div>
+                <div class="col-md-12 form-group">
+                    @{
+                        if (Model.Field.IsRequired)
+                        { <label>
+                                <input type="checkbox" id="IsRequired" name="IsRequired" checked="checked">必填
+                            </label>
+                        }
+                        else
+                        {
+                            <label>
+                                <input type="checkbox" id="IsRequired" name="IsRequired">必填
+                            </label>
+                        }
+                    }
+                </div>
+            </div>
+
+            <input type="hidden" id="Id" name="Id" value="@Model.Field.Id" />
+        </div>
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+
+<script id="select-template" type="text/x-handlebars-template">
+    <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+        <label>{{param.Name}}</label>
+        <select class="col-md-12 form-control type-select">
+            {{#each item}}
+            <option value="{{value}}">{{value}}</option>
+            {{/each}}
+        </select>
+    </div>
+</script>
+
+<script id="checkbox-template" type="text/x-handlebars-template">
+    <div class="form-group form-md-line-input form-md-floating-label col-md-12">
+        <label>{{param.Name}}</label>
+        {{#each item}}
+        {{#if @@first}}
+        <input type="checkbox" class="type-input" value="{{value}}" checked> <label class="control-label">{{value}} </label>
+        {{else}}
+        <input type="checkbox" class="type-input" value="{{value}}"> <label class="control-label">{{value}} </label>
+        {{/if}}
+        {{/each}}
+    </div>
+</script>
+
+
+<script id="radio-template" type="text/x-handlebars-template">
+    <div class="form-group form-md-line-input form-md-floating-label col-md-12">
+        <label>{{param.Name}}</label>
+        {{#each item}}
+        {{#if @@first}}
+        <input type="radio" name="radio" class="type-input" value="{{value}}" checked> <label class="control-label">{{value}} </label>
+        {{else}}
+        <input type="radio" name="radio" class="type-input" value="{{value}}"> <label class="control-label">{{value}} </label>
+        {{/if}}
+        {{/each}}
+    </div>
+</script>
+
+<script id="textbox-template" type="text/x-handlebars-template">
+    <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+        <label>{{param.Name}}</label>
+        <input class="form-control type-input" type="text" name="{{param.Name}}" {{param.Required}} maxlength="{{param.MaxLength}}">
+    </div>
+</script>

@@ -1,0 +1,28 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@model Wimi.BtlCore.Web.Models.BasicData.AlarmInfos.AlarmInfoViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditModal ? L("EditAlarm") : L("AddAlarm")))
+
+<div class="modal-body">
+    <form name="AlarmInfoForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("AlarmCode")</label>
+            <input class="form-control" type="text" name="Code" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength" value="@Model.AlarmInfo.Code"
+                   @(Model.IsEditModal ? "readonly" : string.Empty)>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("AlarmContent")</label>
+            <input class="form-control" type="text" name="Message" checkSpace="true" required maxlength="400"
+                   value="@Model.AlarmInfo.Message">
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("Machines")</label>
+            <select class="form-control" id="MachineSelect" name="MachineSelect" required></select>
+        </div>
+        <input type="hidden" id="Id" name="Id" value="@Model.AlarmInfo.Id" />
+        <input type="hidden" id="MachineId" value="@Model.AlarmInfo.MachineId" />
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

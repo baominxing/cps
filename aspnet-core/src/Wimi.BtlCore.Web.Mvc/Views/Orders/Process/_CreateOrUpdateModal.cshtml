@@ -1,0 +1,28 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Order.Process.ProcessModel
+
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("Create")))
+
+<div class="modal-body">
+    <form name="ProcessForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("ProcessCode")</label>
+            <input class="form-control" type="text" name="Code" checkSpace="true" required maxlength="50"
+                   value="@(Model.IsEditMode ? Model.Code : string.Empty)" @(Model.IsEditMode ? "readonly" : string.Empty)>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("ProcessName")</label>
+            <input class="form-control" type="text" name="Name" checkSpace="true" required maxlength="50"
+                   value="@(Model.IsEditMode ? Model.Name : string.Empty)">
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("Describe")</label>
+            <input class="form-control" type="text" name="Memo" maxlength="100"
+                   value="@(Model.IsEditMode ? Model.Memo : string.Empty)">
+        </div>
+        <input type="hidden" name="Id" value="@(Model.IsEditMode ? Model.Id : 0)" />
+    </form>
+
+</div>
+
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")

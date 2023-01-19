@@ -1,0 +1,161 @@
+﻿@using Wimi.BtlCore.BasicData.DeviceGroups
+@using Wimi.BtlCore.Web.Models.BasicData.Shifts
+@model CreateShiftInfoModalViewModel
+
+<style>
+    .btn-delete {
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+</style>
+
+<div class="modal-body">
+    <div class="row">
+        <h4 class="col-md-3">@L("ShiftInformation")</h4>
+        <div class="pull-right box-tools">
+            @if (!Model.IsUsing)
+            {
+                <a id="AddShiftInfo" class="btn btn-circle btn-default"> <i class="fa fa-plus"></i> @L("NewShift")</a>
+            }
+        </div>
+    </div>
+
+    <form name="ShiftInfoForm" role="form" novalidate class="form-validation">
+        <input type="hidden" id="ShiftSolutionId" value="@Model.ShiftSolutionId.ToString()" />
+        <input type="hidden" id="State" value="@Model.State.ToString()" />
+        <div class="no-padding">
+            <table class="table table-condensed" id="ShiftInfoTableEdit">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 60px">@L("Actions")</th>
+                        <th class="text-center" style="width: 80px">@L("ShiftName")</th>
+                        <th class="text-center" style="width: 80px">@L("StartTime")</th>
+                        <th class="text-center" style="width: 80px">@L("EndTime")</th>
+                        <th class="text-center" style="width: 80px">@L("LengthOfShift")</th>
+                        <th class="text-center" style="width: 80px">@L("WorkHours") </th>
+                        <th class="text-center" style="width: 80px">@L("WhetherAcrossDay") </th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    @if (Model.State == EnumOperationState.Create)
+                    {
+                        // 新增班次
+                        <tr class="tr">
+                            <td>
+                                <input class="form-control input shiftSolutionId" type="hidden" name="ShiftInfo[0].ShiftSolutionId" value="@Model.ShiftSolutionId.ToString()" required>
+                                <input class="form-control input id" type="hidden" name="ShiftInfo[0].Id" value="0" required>
+                                @*<button type="button" class="btn btn-default btn-xs edit" title="编辑"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>*@
+
+                                <button type="button" style="margin-left: 20px; margin-top: 5px;" class="text-center btn btn-default btn-xs btn-delete" title="@L("Delete")">
+                                    <i class="fa fa fa-trash-o" aria-hidden="true"></i>
+                                </button>
+
+                            </td>
+                            <td>
+                                <div class="form-group"><input class="form-control name" type="text" name="ShiftInfo[0].Name" checkSpace="true" required maxlength="@DeviceGroup.MaxDisplayNameLength"></div>
+                            </td>
+                            <td>
+                                @*<input class="form-control startTime" type="text" name="ShiftInfo[0].StartTime" required>*@
+                                <div class="input-group bootstrap-timepicker timepicker">
+                                    <input type="text" class="form-control input-small startTime" name="ShiftInfo[0].StartTime" readonly>
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                </div>
+                            </td>
+                            <td>
+                                @*<input class="form-control endTime" type="text" name="ShiftInfo[0].EndTime" required>*@
+                                <div class="input-group bootstrap-timepicker timepicker">
+                                    <input type="text" class="form-control input-small endTime" name="ShiftInfo[0].EndTime" readonly>
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <input class="form-control input shiftTime" type="text" value="0" readonly>
+                            </td>
+                            <!----实际工作时间---->
+                            <td class="text-center">
+                                <input class="form-control input shiftTime duration" type="number" min="0" name="ShiftInfo[0].Duration" value="0">
+                            </td>
+
+                            <td class="text-center">
+                                <input type="checkbox" class="input isnextday" style="vertical-align:-webkit-baseline-middle" name="ShiftInfo[0].IsNextDay" />
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        // 编辑班次
+                        for (var i = 0; i < Model.CreateShiftInfoModalDetailViewModel.Length; i++)
+                        {
+                            var startTime = Model.CreateShiftInfoModalDetailViewModel[i].StartTime;
+                            var endTime = Model.CreateShiftInfoModalDetailViewModel[i].EndTime;
+                            decimal shiftTime = 0.0m;
+                            if (endTime >= startTime)
+                            {
+                                TimeSpan timeSpan = endTime - startTime;
+                                shiftTime = timeSpan.Hours + Math.Round((Convert.ToDecimal(timeSpan.Minutes * 60 + timeSpan.Seconds) / 3600 * 100)) / 100;
+                            }
+                            else
+                            {
+                                shiftTime = 23 - startTime.Hour + endTime.Hour + Math.Round(Convert.ToDecimal(3600 + endTime.Minute * 60 - startTime.Minute * 60 + endTime.Second - startTime.Second) / 3600 * 100) / 100;
+                            }
+                            <tr class="tr">
+                                <td>
+                                    <input class="form-control input shiftSolutionId" type="hidden" name="ShiftInfo[@i].ShiftSolutionId" value="@Model.CreateShiftInfoModalDetailViewModel[i].ShiftSolutionId" required>
+                                    <input class="form-control input id" type="hidden" name="ShiftInfo[@i].Id" value="@Model.CreateShiftInfoModalDetailViewModel[i].Id" required>
+                                    @*<button type="button" class="btn btn-default btn-xs edit" title="编辑"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>*@
+                                    @if (Model.CanDelete)
+                                    {
+                                        <button type="button" class="text-center btn btn-default btn-xs btn-delete" title="@L("Delete")">
+                                            <i class="fa fa fa-trash-o" aria-hidden="true"></i>
+                                        </button>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="form-group"><input class="form-control name" type="text" name="ShiftInfo[@i].Name" value="@Model.CreateShiftInfoModalDetailViewModel[i].Name" required maxlength="@DeviceGroup.MaxDisplayNameLength"></div>
+                                </td>
+                                <td>
+                                    @*<input class="form-control startTime" type="text" name="ShiftInfo[@i].StartTime" value="@Model.CreateShiftInfoModalDetailViewModel[i].StartTime.ToString("HH:mm")" required>*@
+                                    <div class="input-group bootstrap-timepicker timepicker">
+                                        <input type="text" class="form-control input-small startTime" name="ShiftInfo[@i].StartTime" value="@startTime.ToString("HH:mm")" readonly>
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    @*<input class="form-control endTime" type="text" name="ShiftInfo[@i].EndTime" value="@Model.CreateShiftInfoModalDetailViewModel[i].EndTime.ToString("HH:mm")" required>*@
+                                    <div class="input-group bootstrap-timepicker timepicker">
+                                        <input type="text" class="form-control input-small endTime" name="ShiftInfo[@i].EndTime" value="@endTime.ToString("HH:mm")" readonly>
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                    </div>
+                                </td>
+
+                                <td class="text-center">
+                                    <input class="form-control input shiftTime" type="text"
+                                           value="@shiftTime" readonly>
+                                </td>
+                                <td class="text-center">
+                                    <input class="form-control input shiftTime duration" type="number" min="0" name="ShiftInfo[@i].Duration" value="@Model.CreateShiftInfoModalDetailViewModel[i].Duration">
+                                </td>
+                                <td class="text-center">
+                                    @if (Model.CreateShiftInfoModalDetailViewModel[i].IsNextDay)
+                                    {
+                                        <input type="checkbox" class="input isnextday" style="vertical-align: -webkit-baseline-middle" name="ShiftInfo[0].IsNextDay" checked="checked" />
+                                    }
+                                    else
+                                    {
+                                        <input type="checkbox" class="input isnextday" style="vertical-align: -webkit-baseline-middle" name="ShiftInfo[0].IsNextDay" />
+                                    }
+                                    <input type="hidden" value="@Model.CreateShiftInfoModalDetailViewModel[i].CreationTime" class="input creationTime" name="ShiftInfo[0].CreationTime" />
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </form>
+
+</div>
+
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

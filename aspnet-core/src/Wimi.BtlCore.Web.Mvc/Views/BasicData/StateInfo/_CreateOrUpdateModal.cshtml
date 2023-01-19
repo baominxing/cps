@@ -1,0 +1,45 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@using Wimi.BtlCore.BasicData.Machines
+
+@model Wimi.BtlCore.Web.Models.BasicData.StateInfo.StateInfoViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("EditState") : L("Create")))
+
+<div class="modal-body">
+    <form name="StateInfoForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label" @(Model.IsStatic ? "hidden" : string.Empty)>
+            <label>@L("Code")</label>
+
+            <input class="form-control" type="text" name="Code" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength"
+                   value="@(Model.IsEditMode ? Model.Code : string.Empty)"
+                   @(Model.IsEditMode ? "readonly" : string.Empty)>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label" @(Model.IsStatic ? "hidden" : string.Empty)>
+            <label>@L("Name")</label>
+            <input class="form-control" type="text" name="DisplayName" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength"
+                   value="@(Model.IsEditMode ? Model.DisplayName : string.Empty)">
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label" @(Model.IsStatic ? "hidden" : string.Empty)>
+            <label>@L("Type")</label>
+
+            <select asp-items="@Html.GetEnumSelectList(typeof(EnumMachineStateType))" name="Type" class="form-control" id="Type" typeValue="@(Model.Type==EnumMachineStateType.Reason ? 1:0)"></select>
+
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label select">
+            <label>@L("WhetherPlannedORNot")</label>
+            @Html.DropDownListFor(model => model.IsPlaned, Model.YesNoModel, new { @class = "form-control" })
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label" @(Model.IsStatic ? "hidden" : string.Empty)>
+            <label>@L("BackgroundColor")</label>
+            <div class="input-group colorpicker-element">
+                <input class="form-control" type="text" name="Hexcode" required maxlength="@BtlCoreConsts.MaxLength"
+                       value="@(Model.IsEditMode ? Model.Hexcode : string.Empty)" placeholder="@L("ClickTheRightButtonToSelectTheColor")">
+                <div class="input-group-addon">
+                    <i></i>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="Id" value="@(Model.IsEditMode ? Model.Id : null)" />
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

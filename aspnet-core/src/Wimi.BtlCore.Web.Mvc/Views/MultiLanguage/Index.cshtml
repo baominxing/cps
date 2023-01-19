@@ -1,0 +1,82 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.MultiLanguage_LanguageManage;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/MultiLanguage/Index.js" asp-append-version="true"></script>
+}
+<!-- #region Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        添加多语言 <a class="button pull-right" href="~/Download/Template/LMS(E-MES)_LanguageModel.xlsx" id="downloadTemplate">下载模板</a>
+    </h1>
+
+
+</section>
+<!-- #endregion -->
+
+<section class="content">
+
+    <div class="row">
+        <form id="LanguageForm" class="form-validation">
+            <div class="col-md-6 col-xs-6">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">配置信息</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            <label>Sheet的序号</label><small>(默认为第一个)</small>
+                            <input class="form-control col-sm-8" type="text" name="SheetIndex" required maxlength="20"
+                                   value="1">
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            <label>Code的列序号</label><small>(默认为第一列)</small>
+                            <input class="form-control" type="text" name="CodeIndex" required maxlength="20"
+                                   value="1">
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            <label>翻译内容的列序号</label><small>(默认为第二列)</small>
+                            <input class="form-control" type="text" name="ValueIndex" required maxlength="100"
+                                   value="2">
+                        </div>
+
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            <label>去掉表头</label>
+                            <input type="checkbox" checked name="TitleCheck" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-6">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">基础操作</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group form-md-line-input form-md-floating-label ">
+                            <label class="control-label">
+                                <b class="text-primary">选择语言</b>
+                            </label>
+                            <select class="form-control" name="Culture" id="countryCulture"></select>
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            @*      <form id="ImportDataForm" method="POST" action="@(ApplicationPath + "ImportData/ImportData")">*@
+                            <label class="text-primary">请选择文件</label>
+                            <input class="form-control" type="file" required name="UploadFiles" />
+                            <input type="hidden" name="Type" />
+                            @*</form>*@
+                        </div>
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            <button id="AddButton" type="button" class="btn btn-primary dropdown-toggle"><i class="fa fa-add"></i>添加</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

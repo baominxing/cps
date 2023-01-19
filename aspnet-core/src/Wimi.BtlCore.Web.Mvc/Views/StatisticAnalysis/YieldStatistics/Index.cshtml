@@ -1,0 +1,67 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.StatisticAnalysis.EfficiencyTrend.EfficiencyTrendsViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.StatisticAnalysis_YieldStatistics;
+}
+
+@section Scripts
+{
+    <link href="~/Scripts/scrollTabs/scrolltabs.css" rel="stylesheet" />
+    <script src="~/Scripts/echarts.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.mousewheel.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.scrolltabs.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/StatisticAnalysis/YieldStatistics/Index.js" asp-append-version="true"></script>
+}
+<!-- #region Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        @L("YieldStatistics")<small></small>
+    </h1>
+    <div class="header-tools">
+        <button id="btnQuery" class="btn btn-primary blue">
+            <i class="fa fa-pencil-square-o"></i> @L("Research")
+        </button>
+
+        <button type="button" id="btnExport" class="btn btn-primary"><i class="fa fa-file-excel-o"></i> @L("Export")</button>
+    </div>
+
+</section>
+<!-- #endregion -->
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="nav-tabs-custom">
+                <div class="nav pull-left" style="margin-left:8px;text-align:center;margin-top: 6px">
+                    <label class="checkbox-inline"><input type="checkbox" id="showName" />@L("ShowPillarName")</label>
+                    <label class="checkbox-inline"><input type="checkbox" id="showValue" checked />@L("ShowPillarValue")</label>
+                </div>
+                <ul class="nav nav-tabs pull-right">
+                    <li class="active1">
+                        <a href="#tab_1-1" data-toggle="tab">@L("Histogram")</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1-1">
+                        <div id="tabDate" class="scroll_tabs_theme_light"></div>
+                        <div id="chart-bar" style="height: 350px"></div>
+                    </div>
+                    <div class="md-m-20">
+                        <table id="timeStatisticsTable" class="table table-bordered table-hover table-striped"></table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script id="tab-date-template" type="text/x-handlebars-template">
+    {{#each dates}}
+    {{#if @@first}}
+    <span class="tab_selected" data-id="{{this.id}}">{{this.name}}</span>
+    {{else}}
+    <span data-id="{{this.id}}">{{this.name}}</span>
+    {{/if}}
+    {{/each}}
+</script>

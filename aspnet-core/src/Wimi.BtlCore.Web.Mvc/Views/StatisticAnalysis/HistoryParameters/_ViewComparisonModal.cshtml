@@ -1,0 +1,39 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("设备参数比对图"))
+<div class="modal-body">
+    <div class="form-group form-md-line-input form-md-floating-label">
+        <div class="col-xs-12 col-sm-10 ">
+            <label for="Product" class="col-sm-2 control-label" style="top: 7px">
+                <b class="text-primary md-pv-10">设备</b>
+            </label>
+            <div class="col-sm-10">
+                <select style="width:100%;" disabled class="form-control input-sm" name="machineId" id="machineId"></select>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12" style="height:10px;">
+        </div>
+        <div class="col-xs-12 col-sm-10 ">
+            <label class="col-sm-2 control-label" style="top: 7px">
+                <span class="text-red">※</span>
+                <b class="text-primary">参数</b>
+            </label>
+            <div class="col-sm-10">
+                <select style="width:100%;" class="form-control input-sm" name="paramterCode" id="paramterCode"></select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            <div class="col-sm-offset-4 col-sm-8">
+                <button type="button" id="btnParamQuery" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> 查询</button>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12" style="height: 20px;margin-bottom:10px;">
+        </div>
+        <div id="paramChartline" style="height:400px;position:initial;">
+
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithCancel.cshtml")
+

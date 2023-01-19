@@ -1,0 +1,32 @@
+﻿@using Wimi.BtlCore.Web.Models.Common
+@model GrantedDeviceGroupTreeItemModel
+@{
+    var group = Model.EditModel.DeviceGroups.Where(p => p.ParentId == Model.ParentId).OrderBy(p => p.Seq).ToList();
+    if (!group.Any())
+    {
+        return;
+    }
+
+    foreach (var item in group)
+    {
+        if (!Model.EditModel.GrantedGroupIds.Contains(item.Id))
+        {
+            @await Html.PartialAsync("~/Views/Common/_GrantedDeviceGroupTreeItem.cshtml", new GrantedDeviceGroupTreeItemModel(Model.EditModel, item.Id))
+        }
+        else
+        {
+            var deviceGroup = item;
+            var existSubGroup = Model.EditModel.DeviceGroups.Exists(q => q.ParentId == deviceGroup.Id);
+            if (existSubGroup || item.MemberCount > 0)
+            {
+                <li id="@item.Id" data-jstree='{"selected": false,"icon":"fa fa-object-group"}'>
+
+                    @item.DisplayName
+                    <ul>
+                        @await Html.PartialAsync("~/Views/Common/_GrantedDeviceGroupTreeItem.cshtml", new GrantedDeviceGroupTreeItemModel(Model.EditModel, item.Id))
+                    </ul>
+                </li>
+            }
+        }
+    }
+}

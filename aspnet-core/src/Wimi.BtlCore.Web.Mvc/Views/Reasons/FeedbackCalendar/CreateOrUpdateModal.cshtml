@@ -1,0 +1,49 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Reasons.ReasonFeedback.FeedbackCalendarViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("Create")))
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Reasons/FeedbackCalendar/CreateOrUpdateModal.js" asp-append-version="true"></script>
+
+}
+
+<div class="modal-body">
+    <form name="CreateOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="row">
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("Code")</label>
+                <input class="form-control Code" type="text" name="Code" checkSpace="true" required maxlength="100" @(Model.IsEditMode ? "readonly" : "") value="@Model.Dto.Code">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("RuleName")</label>
+                <input class="form-control Name" type="text" name="Name" checkSpace="true" required maxlength="100"
+                       value="@Model.Dto.Name">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("Reason")</label>
+                <select id="StateCode" name="StateCode" class="form-control" required></select>
+                <input type="hidden" id="stateSelected" value="@Model.Dto.StateCode" />
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("Duration")@(" (")@L("Minutes")@(")")</label>
+                <input class="form-control Duration" type="number" min="1" name="Duration" required value="@Model.Dto.Duration">
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12">
+                <label>@L("Cron")</label>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <input class="form-control Cron" id="cron" readonly="readonly" type="text" name="Cron" required maxlength="100" value="@Model.Dto.Cron">
+                    </div>
+                    <div class="col-sm-2">
+
+                        <div class="btn btn-primary btn-sm @(Model.IsEditMode? "hidden":"")" id="cronButton"><i class="fa fa-plus"></i> @L("Select")</div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="Id" name="Id" value="@Model.Dto.Id" />
+        </div>
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")

@@ -1,0 +1,78 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Notification_Records;
+}
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery.dotdotdot.min.js"></script>
+    <script src="~/view-resources/Views/Notification/NotificationRecords/Index.js" asp-append-version="true"></script>
+}
+<style>
+    th, td {
+        white-space:nowrap;overflow:hidden;text-overflow: ellipsis;
+    }
+
+    div.dataTables_wrapper {
+        /*width: 100%;*/
+        table-layout: fixed;
+        word-wrap: break-word;
+    }
+</style>
+
+<section class="content-header">
+
+    <h1>
+        @L("MessageNotificationRecord")
+    </h1>
+
+</section>
+
+
+<section class="content">
+
+    <div class="row">
+        <div class="col-md-3 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i>@L("SearchSetting")
+                    </h3>
+
+                </div>
+                <div class="box-body">
+
+                    <form id="TextsFilterForm">
+
+                        <div class="input-group xs-pv-5">
+                            <span class="input-group-addon no-border"><b class="text-primary">@L("TimeFrame")</b></span>
+                            <input type="text" class="form-control" id="reservationtime">
+                        </div>
+
+                        <div class="box-footer col-md-12">
+
+                            <button type="button" id="btnQuery" class="btn btn-primary btn-sm btn-block">@L("Research")</button>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i>@L("QueryResults")
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <table id="table" class="table table-bordered table-striped table-hover"></table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>

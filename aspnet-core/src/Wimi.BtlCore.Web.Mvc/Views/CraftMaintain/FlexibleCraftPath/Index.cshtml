@@ -1,0 +1,197 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.CraftMaintain_FlexibleCraftPath;
+}
+
+@section Styles{
+    <link href="~/Scripts/bootstrap-drawer/css/bootstrap-drawer.min.css" rel="stylesheet" />
+    <link href="~/view-resources/Views/CraftMaintain/FlexibleCraftPath/Index.css" rel="stylesheet" />
+    <link href="~/Scripts/layer/skin/moon/style.css" rel="stylesheet" />
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/CraftMaintain/FlexibleCraftPath/Index.js" asp-append-version="true"></script>
+    <script src="~/Scripts/jquery.steps.min.js"></script>
+    <script src="~/Scripts/select2.js"></script>
+    <script src="~/Scripts/bootstrap-drawer/js/drawer.min.js"></script>
+    <script src="~/view-resources/Views/CraftMaintain/FlexibleCraftPath/_CreateProcesseModal.js" asp-append-version="true"></script>
+
+    <script src="~/Scripts/layer/layer.js"></script>
+    <script src="~/Scripts/echarts.min.js"></script>
+}
+
+<section class="content-header">
+    <h1>
+        @L("FlexibleCraftPathManage")
+    </h1>
+</section>
+
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-lg-3">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-beer"></i> @L("FlexibleProduct")
+
+                    </h3>
+                </div>
+
+                <div class="box-body">
+                    <!-- search form -->
+                    <form action="#" method="get" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" id="searchProductTree" class="form-control" placeholder="关键字搜索...">
+                            <span class="input-group-btn">
+                                <button type="button" name="search" id="search-btn" class="btn btn-flat">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- /.search form -->
+                    <div id="productGroupTree"></div>
+
+                    <div id="productGroupTreeEmptyInfo" class="text-muted">
+                        没有数据
+                    </div>
+
+                </div>
+                <div class="overlay product-loadding" style="display:none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-map-signs"></i> @L("FlexibleCraft")
+
+                        <span id="SelectedProductGroupRightTitle"></span>
+                    </h3>
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_CraftMaintain_FlexibleCraftPath_Manage))
+                        {
+                            <button class="btn btn-circle btn-default" id="createCraft" style="display:none"><i class="fa fa-plus"></i> @L("Create")</button>
+                            <button class="btn btn-circle btn-default" id="viewCraftPathMap" style="display:none"><i class="fa fa-sitemap"></i>工艺路线图</button>
+                        }
+                    </div>
+                </div>
+
+
+                <div class="box-body">
+                    <div class="box-group" id="accordion_craft">
+                        <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">请选择产品</p>
+                    </div>
+                </div>
+                <div class="overlay craft-loadding" style="display:none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-legal"></i> @L("FlexibleCraftProcedureCutter")
+
+                        <span id="SelectedProductGroupRightTitle"></span>
+                    </h3>
+                </div>
+
+
+                <div class="box-body">
+                    <div class="box-group" id="accordion_cutter">
+
+                    </div>
+                </div>
+                <div class="overlay cutter-loadding" style="display:none">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script id="list-craft-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="panel box">
+        <div class="box-header">
+            <h4 class="box-title">
+                <a data-id="{{id}}" data-toggle="collapse" data-parent="#accordion_craft" href="#{{name}}{{id}}">
+                    {{name}}
+                </a>
+            </h4>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool btn-editCraft" data-widget="collapse" style="display:none;">
+                    <i class="fa fa-paint-brush"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool btn-deleteCraft" data-widget="collapse" style="display:none;">
+                    <i class="fa fa-trash"></i>
+                </button>
+                <input type="hidden" value="{{id}}" data-name="{{name}}" />
+            </div>
+        </div>
+        <div id="{{name}}{{id}}" class="panel-collapse collapse">
+            <div class="box-body">
+                <table class="table table-bordered table-striped dataTable no-footer">
+                    <thead><tr role="row"><th>工序</th><th>顺序</th><th>夹具</th><th>程序</th></tr></thead>
+                    <tbody>
+                        {{#each craftProcesses}}
+                        <tr role="row"><td>{{name}}</td><td>{{sequence}}</td><td>{{tongName}}</td><td>{{{programes}}}</td></tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+<script id="list-cutter-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="panel box">
+        <div class="box-header">
+            <h4 class="box-title">
+                <a>
+                    {{craftProcesseName}}/{{procedureNumber}}
+                </a>
+            </h4>
+        </div>
+        <div class="panel-collapse collapse in">
+            <div class="box-body">
+                <table class="table table-bordered table-striped dataTable no-footer">
+                    <thead><tr role="row"><th>刀具编号</th><th>刀具类型</th></tr></thead>
+                    <tbody>
+                        {{#each cutterDetails}}
+                        <tr role="row"><td>{{cutterNo}}</td><td>{{type}}</td></tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script> 

@@ -1,0 +1,21 @@
+﻿@using Wimi.BtlCore.Cutter.Dto
+@using Wimi.BtlCore.Web.Models.Common
+@using Wimi.BtlCore.Web.Models.Cutter.CutterState
+@model CutterTypeTreeItemModel
+@{
+
+    var cutterTypes = Model.EditModel.CutterTypes.Where(p => p.PId == Model.PId || (p.PId == null && Model.PId == null)).ToList();
+
+    if (cutterTypes.Any())
+    {
+        <ul>
+            @foreach (var cutterType in cutterTypes)
+            {
+                <li id="@cutterType.Id" class="jstree-open" data-jstree='{"selected": false,"icon":"fa fa-cutlery"}'>
+                    @cutterType.Name
+                    @await Html.PartialAsync("~/Views/Common/_CutterTypeTreeItem.cshtml", new CutterTypeTreeItemModel(Model.EditModel, cutterType.Id))
+                </li>
+            }
+        </ul>
+    }
+}

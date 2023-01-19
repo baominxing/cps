@@ -1,0 +1,138 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.BasicData.Machines
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.BasicData.GatherParamsSetting.GatherParamsSettingEditViewModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EditingAcquisitionParameters") + "：" + Model.Code))
+
+<div class="modal-body">
+
+    <form name="GatherParamForm" role="form" novalidate class="form-validation">
+
+
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="MachineId" value="@Model.MachineId" />
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+
+                    <label>@L("ParameterCode")</label>
+
+                    <input class="form-control" type="text" name="Code" disabled value="@Model.Code" />
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+
+                    <label>@L("ParameterName")</label>
+
+                    <input class="form-control" type="text" name="Name" disabled required maxlength="@BtlCoreConsts.MaxLength" value="@Model.Name">
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+
+                    <label>@L("Unit")</label>
+
+                    <input class="form-control" type="text" name="Unit" maxlength="@BtlCoreConsts.MaxLength" value="@Model.Unit">
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+
+                    <label>@L("DisplayMode")</label>
+
+                    @{
+                        var Disabled = Model.FixedDataValue.Any(m => Model.Code.ToLower().Equals(m.ToLower()));
+                    }
+                    <select asp-items="@Html.GetEnumSelectList(typeof(EnumParamsDisplayStyle))" name="DisplayStyle" id="displayStyle" class="form-control" typeValue="@((int)Model.DisplayStyle)"
+                            disabled=@Disabled></select>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 min" hidden>
+
+                <div class="form-group">
+
+                    <label>@L("MinValue")</label>
+
+                    <input class="form-control" type="number" id="min" name="min" min="0" value="@Model.Min">
+                </div>
+
+            </div>
+
+            <div class="col-md-6 max" hidden>
+
+                <div class="form-group">
+
+                    <label>@L("MaxValue")</label>
+
+                    <input class="form-control" type="number" id="max" name="max" min="0" value="@Model.Max">
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="form-group">
+
+                    <label>@L("SortSeq")</label>
+
+                    <input class="form-control sortSeq" name="SortSeq" type="text" value="@Model.SortSeq" required digits="true" />
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>@L("BackgroundColor")</label>
+                    <input class="form-control colorpicker-element hexcode" name="Hexcode" type="text" value="@Model.Hexcode" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>@L("ShowVision")</label>
+                    @Html.DropDownListFor(model => model.IsShowForVisual, Model.YesNoModel, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>@L("ShowState")</label>
+                    @Html.DropDownListFor(model => model.IsShowForStatus, Model.YesNoModel, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>@L("ShowParam")</label>
+                    @Html.DropDownListFor(model => model.IsShowForParam, Model.YesNoModel, new { @class = "form-control" })
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>
+
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

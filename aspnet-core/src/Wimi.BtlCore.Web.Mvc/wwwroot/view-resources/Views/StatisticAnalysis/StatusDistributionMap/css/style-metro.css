@@ -1,0 +1,123 @@
+/***
+Modify bootstrap buttons
+***/
+
+.label-important, .badge-important {
+    background-color: #ed4e2a;
+    background-image: none !important;
+    text-shadow: none !important;
+}
+.badge {
+    padding: 5px;
+    border-radius: 3px !important;
+        display: inline-block;
+        line-height: 14px;
+    color: #fff;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.callout {
+    position: absolute;
+    margin: 18px 0;
+    padding: 5px;
+    z-index: 99;
+    /* width: 300px; */
+    text-align: center;
+    border: 1px solid #7992B0;
+    background-color: #4B8DF8;
+    color: #FFFFFF;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+}
+
+.editable-input {
+    vertical-align: top;
+    display: inline-block;
+    width: auto;
+    white-space: normal;
+    zoom: 1;
+    *display: inline;
+}
+
+.editable-buttons {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 7px;
+    zoom: 1;
+    *display: inline;
+}
+
+.callout .notch_top {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    margin: 0;
+    border-bottom: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #4B8DF8;
+    padding: 0;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    _border-right-color: pink;
+    _border-left-color: pink;
+    _filter: chroma(color=pink);
+    z-index: 99;
+}
+
+.callout {
+    position: absolute;
+    margin: 18px 0;
+    padding: 5px;
+    z-index: 99;
+    /* width: 300px; */
+    text-align: center;
+    border: 1px solid #7992B0;
+    background-color: #4B8DF8;
+    color: #FFFFFF;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+}
+.control-group label{
+    width: 89px;
+    float: left;
+}
+.control-group .controls.controls-control-label{
+    width: 150px;
+    float: right;
+    padding-top:7px!important
+}
+.control-group .form-horizontal .control-label{
+    padding-top:0!important; 
+}
+.control-group{
+    overflow: hidden;
+}
+#table_statusDiv{
+    background: #fff;
+    padding: 15px;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    border-top: 3px solid rgb(210, 214, 222);
+}
+#statusDetail > li {
+    float: right;
+    margin-right: 15px;
+    z-index: 10000;
+}
+#statusDetail {
+    position: absolute;
+    top: 20px;
+    color: black !important;
+}

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/18/2021 11:21:08" ReportInfo.Modified="03/16/2021 16:01:05" ReportInfo.CreatorVersion="2019.4.4.0">
+  <Styles Name="Standard">
+    <Style Name="Title" Font="宋体, 12pt, style=Bold"/>
+    <Style Name="Header" Font="宋体, 10pt, style=Bold"/>
+    <Style Name="Group" Font="宋体, 10pt, style=Bold"/>
+    <Style Name="Data" Font="宋体, 9pt"/>
+    <Style Name="Footer" Font="宋体, 9pt"/>
+    <Style Name="EvenRows" Fill.Color="WhiteSmoke" Font="宋体, 9pt"/>
+  </Styles>
+  <Dictionary>
+    <BusinessObjectDataSource Name="DataInit" ReferenceName="DataInit" DataType="System.Int32" Enabled="true">
+      <Column Name="ProductName" DataType="System.String"/>
+      <Column Name="PlanName" DataType="System.String"/>
+      <Column Name="PlanAmount" DataType="System.String"/>
+      <Column Name="TotalCompleteRate" DataType="System.String"/>
+      <Column Name="StatisticalWay" DataType="System.String"/>
+      <Column Name="StatisticalWayAmount" DataType="System.String"/>
+      <Column Name="MachineGroupName" DataType="System.String"/>
+      <Column Name="CompleteAmount" DataType="System.String"/>
+      <Column Name="SummaryDate" DataType="System.String"/>
+      <Column Name="SummaryDateAmount" DataType="System.String"/>
+      <Column Name="SummaryDateCompleteRate" DataType="System.String"/>
+    </BusinessObjectDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="320" FirstPageSource="15" OtherPagesSource="15" Watermark.Font="宋体, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="1134" Height="66.15">
+      <TextObject Name="Text1" Width="1134" Height="66.15" Dock="Fill" Text="计划达成报表" HorzAlign="Center" VertAlign="Center" Font="宋体, 12pt, style=Bold" Style="Title"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="ColumnHeader1" Top="70.15" Width="1134" Height="18.9">
+      <TextObject Name="Text7" Left="207.9" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" Text="计划产量" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text3" Width="85.05" Height="18.9" Border.Lines="All" Text="计划名称" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="85.05" Width="122.85" Height="18.9" Border.Lines="All" Text="产品名称" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text9" Left="283.5" Width="75.6" Height="18.9" Border.Lines="All" Text="完成产量" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text11" Left="359.1" Width="75.6" Height="18.9" Border.Lines="All" Text="总达成率" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text13" Left="434.7" Width="141.75" Height="18.9" Border.Lines="All" Text="目标维度" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text15" Left="576.45" Width="141.75" Height="18.9" Border.Lines="All" Text="目标量" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text19" Left="859.95" Width="141.75" Height="18.9" Border.Lines="All" Text="日期完成量" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text17" Left="718.2" Width="141.75" Height="18.9" Border.Lines="All" Text="统计日期" Font="宋体, 10pt, style=Bold"/>
+      <TextObject Name="Text20" Left="1001.7" Width="141.75" Height="18.9" Border.Lines="All" Text="统计日期目标达成率" Font="宋体, 10pt, style=Bold"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Top="93.05" Width="1134" Height="18.9" CanGrow="true" Style="Data" DataSource="DataInit">
+      <TextObject Name="Text2" Width="85.05" Height="18.9" Border.Lines="All" Text="[DataInit.PlanName]" Duplicates="Merge" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text4" Left="85.05" Width="122.85" Height="18.9" Border.Lines="All" Text="[DataInit.ProductName]" Duplicates="Merge" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text6" Left="207.9" Width="75.6" Height="18.9" Border.Lines="All" CanGrow="true" Text="[DataInit.PlanAmount]" Font="宋体, 9pt"/>
+      <TextObject Name="Text8" Left="283.5" Width="75.6" Height="18.9" Border.Lines="All" Text="[DataInit.CompleteAmount]" Font="宋体, 9pt"/>
+      <TextObject Name="Text10" Left="359.1" Width="75.6" Height="18.9" Border.Lines="All" Text="[DataInit.TotalCompleteRate]" Font="宋体, 9pt"/>
+      <TextObject Name="Text12" Left="434.7" Width="141.75" Height="18.9" Border.Lines="All" Text="[DataInit.StatisticalWay]" Font="宋体, 9pt"/>
+      <TextObject Name="Text14" Left="576.45" Width="141.75" Height="18.9" Border.Lines="All" Text="[DataInit.StatisticalWayAmount]" Font="宋体, 9pt"/>
+      <TextObject Name="Text16" Left="718.2" Width="141.75" Height="18.9" Border.Lines="All" Text="[DataInit.SummaryDate]" Font="宋体, 9pt"/>
+      <TextObject Name="Text18" Left="859.95" Width="141.75" Height="18.9" Border.Lines="All" Text="[DataInit.SummaryDateAmount]" Font="宋体, 9pt"/>
+      <TextObject Name="Text21" Left="1001.7" Width="141.75" Height="18.9" Border.Lines="All" Text="[DataInit.SummaryDateCompleteRate]" Font="宋体, 9pt"/>
+      <Sort>
+        <Sort Expression="[DataInit.PlanName]"/>
+        <Sort Expression="[DataInit.ProductName]"/>
+      </Sort>
+    </DataBand>
+  </ReportPage>
+</Report>

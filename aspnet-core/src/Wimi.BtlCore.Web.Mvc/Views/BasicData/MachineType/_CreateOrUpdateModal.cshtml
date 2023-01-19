@@ -1,0 +1,25 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.BasicData.MachineType.MachineTypeModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("NewlyBuild")))
+
+<div class="modal-body">
+    <form name="MachineTypeForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("ObjectName")</label>
+
+            <input class="form-control" type="text" name="Name" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength"
+                   value="@(Model.IsEditMode ? Model.Name : string.Empty)">
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("ObjectDesc")</label>
+            <input class="form-control" type="text" name="Desc" maxlength="@BtlCoreConsts.MaxLength"
+                   value="@(Model.IsEditMode ? Model.Desc : string.Empty)">
+        </div>
+
+        <input type="hidden" name="Id" value="@(Model.IsEditMode ? Model.Id : 0)" />
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

@@ -1,0 +1,74 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Maintain.MaintainRequest.MaintainRequestViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? (Model.Status == Wimi.BtlCore.Maintain.EnumRepairRequestStatus.Undo ? L("Editor") : L("View")) : L("NewlyBuild")))
+<style>
+    .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+        height: 31px !important;
+    }
+
+    .select2-container {
+        width: 100% !important;
+    }
+</style>
+<div class="modal-body">
+
+    <form name="createOrUpdateForm" role="form" novalidate class="form-validation" data-is-edit="@Model.IsEditMode">
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("RequestNo")</label>
+            <input class="form-control name" type="text" name="Mode" readonly maxlength="50"
+                   value="@(Model.IsEditMode ? Model.Code : string.Empty)">
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("Declarant")</label>
+            <select class="form-control" type="text" id="RequestUserId" value="@(Model.IsEditMode ? Model.RequestUserId.ToString() : string.Empty)" name="RequestUserId" required></select>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("Machines")</label>
+            <select class="form-control" id="MachineCode" name="MachineId" value="@(Model.IsEditMode ? Model.MachineId.ToString() : string.Empty)" @(Model.IsEditMode ? "disabled" : string.Empty) required></select>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("MachineType")</label>
+            <input class="form-control" type="text" id="MachineType" name="MachineType" readonly
+                   value="@(Model.IsEditMode ? Model.MachineType : string.Empty)">
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("IsItDowntime")</label>
+            <select class="form-control" type="text" name="IsShutdown" required>
+                @{
+                    var s = string.Empty;
+                    if (Model.IsEditMode) { s = Model.IsShutDown ? "selected" : string.Empty; }
+
+                    if (s == "selected")
+                    {
+                        <option value="0" selected>@L("No")</option>
+                        <option value="1" selected>
+                            @L("Yes")
+                        </option>
+                    }
+                    else
+                    {
+                        <option value="0" selected>@L("No")</option>
+                        <option value="1">
+                            @L("Yes")
+                        </option>
+                    }
+
+                }
+            </select>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("PlanFixDate")</label>
+            <input class="form-control dateTimeRangePicker" type="text" name="RequestDate"
+                   value="@(Model.IsEditMode ? Model.RequestDate: DateTime.Now)">
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("ApplicationNotes")</label>
+            <textarea class="form-control" name="RequestMemo" rows="3" checkSpace="true" required value="@(Model.IsEditMode ? Model.RequestMemo:string.Empty)">@(Model.IsEditMode ? Model.RequestMemo:string.Empty)</textarea>
+        </div>
+        <input type="hidden" id="Id" value="@Model.Id" />
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

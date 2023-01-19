@@ -1,0 +1,43 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@model Wimi.BtlCore.Web.Models.Visual.CreateOrEditNoticesViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditModel ? L("Editor") : L("NewAnnouncement")))
+
+<div class="modal-body">
+    <form name="noticesInfoForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("NoticeContent")</label>
+            <input class="form-control" type="text" name="Content" checkSpace="true" required maxlength="@BtlCoreConsts.MaxDescLength*5" value="@(Model.IsEditModel ? Model.Content : string.Empty)">
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("RootLevelGroup(Workshop)")</label>
+            <select id="WorkShopCode" name="RootDeviceGroupCode" class="form-control">
+                @{
+                    if (Model.WorkShopList.Any())
+                    {
+                        var selecedOption = Model.WorkShopList.FirstOrDefault(w => w.Code == Model.RootDeviceGroupCode);
+                        foreach (var item in Model.WorkShopList)
+                        {
+                            if (item.Equals(selecedOption))
+                            {
+                                <option value="@item.Code" selected="selected">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.Code">@item.Name</option>
+                            }
+                        }
+                    }
+
+                }
+            </select>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("IsEnable")</label>
+            @Html.DropDownListFor(model => model.IsActive, Model.YesNoModel, new { @class = "form-control" })
+        </div>
+        <input type="hidden" id="Id" name="Id" value="@(Model.IsEditModel ? Model.Id : null)" />
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

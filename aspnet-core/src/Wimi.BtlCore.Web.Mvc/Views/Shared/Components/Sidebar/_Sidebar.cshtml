@@ -1,0 +1,107 @@
+﻿@using Abp.Collections.Extensions
+@using Wimi.BtlCore.Web.Views
+@model Wimi.BtlCore.Web.Views.Shared.Components.Sidebar.SidebarViewModel
+@{
+    var calculateMenuUrl = new Func<string, string>(url =>
+        {
+            if (string.IsNullOrEmpty(url))
+            {
+                return ApplicationPath;
+            }
+
+            if (UrlChecker.IsRooted(url))
+            {
+                return url;
+            }
+
+            return ApplicationPath + url;
+        });
+}
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+
+
+    <ul class="sidebar-menu">
+
+        @for (var i = 0; i < Model.Menu.Items.Count; i++)
+        {
+            var menuItem = Model.Menu.Items[i];
+            var isActive = Model.CurrentPageName == menuItem.Name || (!menuItem.Items.IsNullOrEmpty() && menuItem.Items.Any(item => item.Name == Model.CurrentPageName));
+            if (menuItem.Items.IsNullOrEmpty())
+            {
+                <li class=" treeview-module @(i == 0 ? "start" : string.Empty) @(isActive ? "active" : string.Empty)">
+
+                    <a href="@calculateMenuUrl(menuItem.Url)" target="@menuItem.Target">
+
+                        <i class="@menuItem.Icon"></i>
+
+                        <span class="title">@menuItem.DisplayName</span>
+                       
+                    </a>
+
+                </li>
+            }
+            else
+            {
+                <li class="treeview treeview-module @(i == 0 ? "start" : string.Empty) @(isActive ? "active" : string.Empty)">
+
+                    <a href="javascript:;" class="auto">
+
+                        <i class="@menuItem.Icon"></i>
+
+                        <span class="title">@menuItem.DisplayName</span>
+                        @if (isActive)
+                        {
+                            <i class="fa fa-angle-up pull-right" aria-hidden="true"></i>
+                        }
+                        else
+                        {
+
+                            <i class="fa fa-angle-down pull-right" aria-hidden="true"></i>
+                        }
+                    </a>
+
+                    <ul class="treeview-menu">
+
+                        @foreach (var childMenuItem in menuItem.Items)
+                        {
+                            <li class="@(Model.CurrentPageName == childMenuItem.Name ? "active" : string.Empty)">
+
+                                @if (childMenuItem.Items.IsNullOrEmpty())
+                                {
+                                    <a class="treeview-item" href="@calculateMenuUrl(childMenuItem.Url)" target="@menuItem.Target">
+
+                                       <i class="@childMenuItem.Icon"></i>  @childMenuItem.DisplayName
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="javascript:;" class="auto">
+                                        <span class="title"> <i class="@childMenuItem.Icon"></i> @childMenuItem.DisplayName</span>
+                                    </a>
+                                    <ul class="sub-menu">
+
+                                        @foreach (var secondLevelChildMenuItem in childMenuItem.Items)
+                                        {
+                                            <li class=" @(Model.CurrentPageName == secondLevelChildMenuItem.Name ? "active" : string.Empty)">
+
+                                                <a class="treeview-item" href="@calculateMenuUrl(secondLevelChildMenuItem.Url)" target="@menuItem.Target">
+
+                                                    <span><i class="sub-menu-icon @secondLevelChildMenuItem.Icon"></i> @secondLevelChildMenuItem.DisplayName</span>
+                                                </a>
+
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                            </li>
+                        }
+                    </ul>
+
+                </li>
+            }
+        }
+    </ul>
+
+
+</section>

@@ -1,0 +1,33 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Cutter_CutterParameter;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/Cutter/CutterParameter/Index.js" asp-append-version="true"></script>
+}
+<!-- #region Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        @L("CutterParameter")
+    </h1>
+    <div class="header-tools">
+        <div class="header-tools">
+            @if (IsGranted(PermissionNames.Pages_Cutter_CutterParameter_Manage))
+            {
+                <button class="btn btn-primary pull-right" id="btnCreate"><i class="fa fa-plus" aria-hidden="true"></i>@L("NewlyBuild")</button>
+            }
+        </div>
+    </div>
+</section>
+<!-- #endregion -->
+
+<section class="content">
+    <div class="box box-solid">
+        <div class="box-body">
+            <table id="table" class="table table-bordered table-hover" style="width: 100%"></table>
+        </div>
+    </div>
+</section>
+

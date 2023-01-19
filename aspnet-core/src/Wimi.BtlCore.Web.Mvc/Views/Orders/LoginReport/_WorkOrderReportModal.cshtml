@@ -1,0 +1,19 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("JobReport")))
+<div class="modal-body">
+    <form name="ReportForm" role="form" class="form-horizontal">
+        <div class="row">
+            <div class="form-group xs-ph-5 col-xs-12">
+                <label>@L("CertifiedNumber")</label>
+                <input type="number" name="qualifiedCount" class="form-control" required min="1" />
+            </div>
+
+            <div class="form-group xs-ph-5 xs-pv-10 col-xs-12">
+                <label>@L("DefectiveNumber")</label>
+                <input type="number" name="defectiveCount" class="form-control" required min="0" />
+            </div>
+        </div>
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+

@@ -1,0 +1,1793 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="zh-Hans">
+	<texts>
+		<text name="FootTagWimi">上海微茗智能科技有限公司</text>
+		<text name="HomePage" value="主页" />
+		<text name="AboutUs" value="关于我们" />
+		<text name="Administration" value="系统管理" />
+		<text name="Roles" value="角色维护" />
+		<text name="Users" value="用户维护" />
+		<text name="InvalidFormMessage" value="部分输入信息不符合要求，请检查并改正." />
+		<text name="InvalidUserNameOrPassword" value="用户名或密码无效" />
+		<text name="ThereIsNoTenantDefinedWithName{0}" value="客户 {0}不存在" />
+		<text name="TenantIsNotActive{0}" value="客户 {0} 未激活." />
+		<text name="UserIsNotActiveAndCanNotLogin{0}" value="用户 {0} 未激活，不能登录." />
+		<text name="EmailIsNotConfirmedAndCanNotLogin" value="邮箱未确认,不能登陆." />
+		<text name="PleaseEnterLoginInformation" value="请输入登录信息" />
+		<text name="TenancyName" value="客户名称" />
+		<text name="UserNameOrEmail" value="用户名或邮箱地址" />
+		<text name="Password" value="密码" />
+		<text name="ResetPassword" value="重置密码" />
+		<text name="PasswordNotSameRepeat" value="密码和密码（核对）不一致" />
+		<text name="PleaseFirstEnterPassword" value="请先输入密码" />
+		<text name="EnterPasswordAgain" value="请再次输入密码" />
+		<text name="RememberMe" value="记住我" />
+		<text name="LogIn" value="登录" />
+		<text name="ForgotPassword" value="不记得密码了?" />
+		<text name="DontYouHaveAnAccount" value="还不是系统用户?" />
+		<text name="CreateAnAccount" value="注册" />
+		<text name="Pages" value="页面" />
+		<text name="RoleName" value="角色名" />
+		<text name="EditRole" value="修改角色" />
+		<text name="CreateNewRole" value="添加角色" />
+		<text name="RoleProperties" value="角色属性" />
+		<text name="Permissions" value="权限" />
+		<text name="Save" value="保存" />
+		<text name="SavePage" value="保存本页" />
+		<text name="Cancel" value="取消" />
+		<text name="RolesHeaderInfo" value="使用角色进行权限分组." />
+		<text name="Static" value="系统" />
+		<text name="Actions" value="操作" />
+		<text name="Delete" value="删除" />
+		<text name="SavedSuccessfully" value="保存成功." />
+		<text name="AreYouSure" value="您确定吗?" />
+		<text name="YesDelete" value="是, 执行删除!" />
+		<text name="DeletingUser" value="删除用户" />
+		<text name="UsersHeaderInfo" value="管理用户及权限." />
+		<text name="CreateNewUser" value="添加用户" />
+		<text name="UserName" value="用户名" />
+		<text name="WeChatId" value="微信企业号账号" />
+		<text name="Name" value="名字" />
+		<text name="Surname" value="姓氏" />
+		<text name="EmailAddress" value="邮箱地址" />
+		<text name="LastLoginTime" value="上次登录时间" />
+		<text name="EditUser" value="修改用户" />
+		<text name="UserInformations" value="用户信息" />
+		<text name="PasswordRepeat" value="密码 (核对)" />
+		<text name="SuccessfullyDeleted" value="删除成功." />
+		<text name="SuccessfullyCleared" value="清除成功." />
+		<text name="RoleDeleteWarningMessage" value="角色 {0} 将被删除，拥有此角色的用户将取消此角色." />
+		<text name="UserDeleteWarningMessage" value="用户 {0} 将被删除." />
+		<text name="Active" value="激活" />
+		<text name="EmailConfirm" value="邮箱地址验认" />
+		<text name="Yes" value="是" />
+		<text name="No" value="否" />
+		<text name="MySettings" value="我" />
+		<text name="Logout" value="注销" />
+		<text name="Reset" value="重置" />
+		<text name="ResetPermissionsTooltip" value="重置用户权限后，用户仅拥有所属角色包含的权限，为用户直接指定的权限将取消." />
+		<text name="ResetSuccessfully" value="重置成功" />
+		<text name="Tenants" value="客户" />
+		<text name="TenantsHeaderInfo" value="管理客户." />
+		<text name="CreateNewTenant" value="添加客户" />
+		<text name="TenancyCodeName" value="客户编码" />
+		<text name="TenantName" value="客户名称" />
+		<text name="TenantDeleteWarningMessage" value="客户 {0} 将被删除." />
+		<text name="AdminEmailAddress" value="管理员邮箱" />
+		<text name="AdminPassword" value="管理员密码" />
+		<text name="AdminPasswordRepeat" value="管理员密码(核对)" />
+		<text name="EditTenant" value="修改客户" />
+		<text name="ChangingPermissions" value="更改权限" />
+		<text name="EditingUser" value="修改用户" />
+		<text name="CreatingNewUser" value="添加用户" />
+		<text name="Edit" value="修改" />
+		<text name="EditingTenant" value="修改客户" />
+		<text name="CreatingNewTenant" value="添加客户" />
+		<text name="DeletingTenant" value="删除客户" />
+		<text name="EditingRole" value="修改角色" />
+		<text name="CreatingNewRole" value="添加角色" />
+		<text name="DeletingRole" value="删除角色" />
+		<text name="CreationTime" value="创建时间" />
+		<text name="SearchWithThreeDot" value="搜索..." />
+		<text name="ResetSpecialPermissions" value="重置直接指定权限" />
+		<text name="SavingWithThreeDot" value="保存中..." />
+		<text name="Settings" value="其他设置" />
+		<text name="SaveAll" value="保存全部" />
+		<text name="SettingsHeaderInfo" value="显示和修改程序设置." />
+		<text name="EmailSmtp" value="邮箱 (SMTP)" />
+		<text name="DefaultFromAddress" value="默认发送邮箱地址" />
+		<text name="DefaultFromDisplayName" value="默认发送人名字" />
+		<text name="SmtpHost" value="SMTP服务器" />
+		<text name="SmtpPort" value="SMTP端口" />
+		<text name="UseDefaultCredentials" value="默认身份验证" />
+		<text name="DomainName" value="域名" />
+		<text name="UseSsl" value="使用SSL" />
+		<text name="ThisWebSiteRootAddress" value="网站http根路径" />
+		<text name="ThisWebSiteRootAddress_Hint" value="示例： http://mydomain.com/ ，用于外部链接本系统，如密码重置链接" />
+		<text name="General" value="基本信息" />
+		<text name="SendPasswordResetLink_Information" value="系统在几十秒内向您发送一封密码重置邮件，如果在3分钟内还没收到这封邮件，请重试." />
+		<text name="Send" value="发送" />
+		<text name="PasswordReset" value="重置密码" />
+		<text name="InvalidUserNameOrEmailAddress" value="用户名或Email地址无效" />
+		<text name="PasswordResetEmail_Subject" value="重置密码" />
+		<text name="PasswordResetEmail_Title" value="重置密码." />
+		<text name="PasswordResetEmail_SubTitle" value="进行密码重置." />
+		<text name="PasswordResetEmail_ClickTheLinkBelowToResetYourPassword" value="请点击以下链接重置密码:" />
+		<text name="EmailActivation_Subject" value="激活您的用户账号" />
+		<text name="EmailActivation_Title" value="欢迎使用系统." />
+		<text name="EmailActivation_SubTitle" value="系统发送此邮件验证您的邮箱地址,并激活您的用户账号." />
+		<text name="EmailActivation_ClickTheLinkBelowToVerifyYourEmail" value="请点击以下链接确认您的邮箱地址,并激活您的用户账号:" />
+
+		<text name="InvalidPasswordResetCode" value="密码重置已失效" />
+		<text name="InvalidPasswordResetCode_Detail" value="请您务必通过点击邮件中的重置链接进入本页面.如果已经这样做了,还存在问题,请重试一遍密码重置操作!" />
+		<text name="PleaseEnterYourNewPassword" value="请输入新密码." />
+		<text name="UserEmailIsNotConfirmedAndCanNotLogin"
+			  value="您的邮箱未通过验证.请检查您的邮箱地址是否正确,查收邮件并点击邮件内容中的验证链接进行验证和激活.如果没有收到邮件,请点击[邮箱验证],系统会重新发送一封邮件." />
+		<text name="LoginFailed" value="登录失败!" />
+		<text name="InvalidEmailConfirmationCode" value="邮箱验证已失效" />
+		<text name="InvalidEmailConfirmationCode_Detail" value="请您务必通过点击邮件中的重置链接进入本页面.如果已经这样做了,还存在问题,请重试一遍邮箱验证操作!" />
+		<text name="YourEmailIsConfirmedMessage" value="您的邮箱已通过验证." />
+		<text name="ShouldChangePasswordOnNextLogin" value="下次登录需要修改密码." />
+		<text name="SetRandomPassword" value="使用随机密码." />
+		<text name="EmailActivation" value="发送激活邮件" />
+		<text name="SendEmailActivationLink_Information"
+			  value="系统在几十秒内向您发送一封邮件,用于激活您的用户账号，请接收并点击邮件内容中的激活链接。如果在2分钟内还没收到这封邮件，请重试." />
+		<text name="SendActivationEmail" value="发送激活邮件." />
+		<text name="ChangePassword" value="修改密码" />
+		<text name="CurrentPassword" value="当前密码" />
+		<text name="NewPassword" value="新密码" />
+		<text name="NewPasswordRepeat" value="新密码 (核对)" />
+		<text name="YourPasswordHasChangedSuccessfully" value="密码修改成功." />
+		<text name="SelfUserRegistrationIsDisabledMessage" value="您不能注册!" />
+		<text name="SelfUserRegistrationIsDisabledMessage_Detail" value="注册功能被禁用，请联系您的系统管理员为您建立用户账号." />
+		<text name="SuccessfullyRegistered" value="注册成功" />
+		<text name="ConfirmationMailSentPleaseClickLinkInTheEmail" value="已往您的{0}邮箱发送了一封邮件，请点击邮件中的链接，验证您的邮箱地址." />
+		<text name="YourAccountIsWaitingToBeActivatedByAdmin" value="您的用户账号尚未激活，待系统管理员激活后方能登录使用系统." />
+		<text name="NameSurname" value="姓名" />
+		<text name="UserManagement" value="用户管理" />
+		<text name="AllowUsersToRegisterThemselves" value="允许用户注册." />
+		<text name="AllowUsersToRegisterThemselves_Hint" value="如果此项被禁用，只能由管理员通过用户管理页面添加用户." />
+		<text name="NewRegisteredUsersIsActiveByDefault" value="注册用户默认激活." />
+		<text name="NewRegisteredUsersIsActiveByDefault_Hint" value="如果此项被禁用，新用户需要通过邮件激活后才能登录." />
+		<text name="Default" value="默认" />
+		<text name="DefaultRole_Description" value="新用户将默认拥有此角色." />
+		<text name="StaticRole_Tooltip" value="不能删除系统角色." />
+		<text name="EmailConfirmationRequiredForLogin" value="必须验证邮箱地址后才能登录." />
+		<text name="{0}UserCannotBeDeleted" value="不能删除{0}用户." />
+		<text name="TenantNameCanNotBeEmpty" value="客户名不能为空" />
+		<text name="ExportToExcel" value="导出到Excel" />
+		<text name="ChangeProfilePicture" value="修改头像" />
+		<text name="TenantName_Regex_Description" value="客户名称必须由2个以上字母、数字、-、_组成,以字母开头" />
+		<text name="ProfilePicture_Change_Info" value="只能选择1mb内的JPG/JPEG/PNG图片." />
+		<text name="ProfilePicture_Change_Error" value="头像修改错误." />
+		<text name="ProfilePicture_Warn_SizeLimit" value="只能选择1MB内的JPG/JPEG图片，请重新选择文件." />
+		<text name="ProfilePicture_Warn_FileType" value="只能选择JPG/JPEG/PNG类型图片，请重新选择文件." />
+		<text name="Dashboard" value="主菜单" />
+		<text name="DashboardHeaderInfo" value="分析与报告" />
+		<text name="GoToApplication" value="登录系统" />
+		<text name="TenantInformations" value="客户信息" />
+		<text name="PersonalInformations" value="个人信息" />
+		<text name="AccountSettings" value="账号设置" />
+		<text name="Captha_Hint" value="输入图片中的验证码:" />
+		<text name="Back" value="返回" />
+		<text name="Submit" value="提交" />
+		<text name="SignUp" value="注册" />
+		<text name="CaptchaCanNotBeEmpty" value="验证码不能为空." />
+		<text name="IncorrectCaptchaAnswer" value="验证码无效." />
+		<text name="FormIsNotValidMessage" value="部分输入信息不符合要求，请检查并改正.." />
+		<text name="CanNotChangeAdminUserName" value="管理用户，不能修改用户名." />
+		<text name="Error" value="错误!" />
+		<text name="OopsYouAreLost" value="噢! 失踪了." />
+		<text name="WeCanNotFindThePage" value="我们无法提供您想要访问的页面." />
+		<text name="WelcomePage_Title" value="欢迎!" />
+		<text name="WelcomePage_Info" value="欢迎使用本应用，您可以从左边的菜单启动要使用的功能。如果您没有看到任何菜单，可能是因为您没有获得任何一项授权，您可以联系您的系统管理员获得授权. " />
+		<text name="RequestedFileDoesNotExists" value="请求的文件不存在!" />
+		<text name="MailSent" value="邮件已发送" />
+		<text name="PasswordResetMailSentMessage" value="已向您的邮箱发送了一封密码重置邮件，请查收." />
+		<text name="ActivationMailSentMessage" value="已向您的邮箱发送了一封邮箱地址验证邮件，请查收." />
+		<text name="UseCaptchaOnRegistration" value="用户注册时使用图片验证码(captcha)." />
+		<text name="FormBasedRegistration" value="基于表单身份验证" />
+		<text name="LdapSettings" value="LDAP设置" />
+		<text name="EnableLdapAuthentication" value="启用轻量目录访问协议(LDAP)认证." />
+		<text name="OtherSettings" value="其他设置" />
+		<text name="AuditLogs" value="审计日志" />
+		<text name="Success" value="成功" />
+		<text name="Time" value="时间" />
+		<text name="Service" value="服务" />
+		<text name="Action" value="操作" />
+		<text name="Duration" value="持续时间" />
+		<text name="IpAddress" value="IP地址" />
+		<text name="Client" value="客户端" />
+		<text name="Browser" value="浏览器" />
+		<text name="Xms" value="{0} ms" />
+		<text name="Close" value="关闭" />
+		<text name="Refresh" value="刷新" />
+		<text name="ErrorState" value="错误状态" />
+		<text name="All" value="全部" />
+		<text name="HasError" value="出现错误" />
+		<text name="ShowAdvancedFilters" value="显示高级过滤" />
+		<text name="HideAdvancedFilters" value="隐藏高级过滤" />
+		<text name="AuditLogDetail" value="审计日志详情" />
+		<text name="Parameters" value="参数" />
+		<text name="DateRange" value="日期范围" />
+		<text name="ActionInformations" value="操作信息" />
+		<text name="Today" value="今天" />
+		<text name="Yesterday" value="昨天" />
+		<text name="Last7Days" value="最近7天" />
+		<text name="Last30Days" value="最近30天" />
+		<text name="ThisMonth" value="这个月" />
+		<text name="LastMonth" value="上个月" />
+		<text name="TenantSelection" value="选择客户" />
+		<text name="TenantSelection_Detail" value="请选择一个客户" />
+		<text name="LoginWith" value="登录" />
+		<text name="PasswordChangeDontRememberMessage" value="忘记密码？ {0}." />
+		<text name="ClickHere" value="点击这里" />
+		<text name="Apply" value="应用" />
+		<text name="CustomRange" value="自定义范围" />
+		<text name="SeeDemo" value="查看示例" />
+		<text name="Edition" value="版本" />
+		<text name="EditionDisplayName" value="显示名称" />
+		<text name="Editions" value="版本列表" />
+		<text name="EditionsHeaderInfo" value="管理当前应用的版本和特性参数" />
+		<text name="CreateNewEdition" value="创建新的版本" />
+		<text name="EditEdition" value="编辑版本" />
+		<text name="EditionProperties" value="版本属性列表" />
+		<text name="EditionName" value="版本名称" />
+		<text name="Features" value="特性参数列表" />
+		<text name="EditionDeleteWarningMessage" value="{0}已经分配给客户的版本会被删除." />
+		<text name="CreatingNewEdition" value="创建一个新的版本" />
+		<text name="EditingEdition" value="正在编辑版本" />
+		<text name="DeletingEdition" value="正在删除版本" />
+		<text name="ChangingFeatures" value="正在修改特性参数" />
+		<text name="ResetSpecialFeatures" value="重置特殊的特性参数" />
+		<text name="ResetFeaturesTooltip" value="重置客户指定的特性参数设置并且保存.当前客户只会拥有已注册版本的特性参数." />
+		<text name="NotAssigned" value="没有分配" />
+		<text name="InvalidFeaturesWarning" value="一个或者多个特性参数值无效" />
+		<text name="Languages" value="语言列表" />
+		<text name="LanguagesHeaderInfo" value="管理语言包的文本头信息" />
+		<text name="CreateNewLanguage" value="创建新的语言" />
+		<text name="CreatingNewLanguage" value="正在创建新的语言" />
+		<text name="EditingLanguage" value="正在编辑语言" />
+		<text name="DeletingLanguages" value="正在删除语言" />
+		<text name="ChangingTexts" value="正在修改文本信息" />
+		<text name="SuccessfullySaved" value="保存成功." />
+		<text name="Language" value="语言管理" />
+		<text name="Flag" value="标记" />
+		<text name="SetAsDefaultLanguage" value="设置当前语言为默认语言" />
+		<text name="InvlalidLanguageCode" value="无效的语言代码." />
+		<text name="EditLanguage" value="编辑语言" />
+		<text name="ChangeTexts" value="改变文本信息" />
+		<text name="TargetValue" value="目标值" />
+		<text name="BaseValue" value="默认值" />
+		<text name="Key" value="键值" />
+		<text name="SaveAndClose" value="保存 &amp; 关闭" />
+		<text name="SaveAndNext" value="保存 &amp; 文本" />
+		<text name="EditText" value="编辑文本" />
+		<text name="LanguageTexts" value="语言的文本信息" />
+		<text name="LanguageTextsHeaderInfo" value="编辑语言的文本头信息." />
+		<text name="EmptyOnes" value="空值" />
+		<text name="Source" value="选择源" />
+		<text name="BaseLanguage" value="默认语言" />
+		<text name="TargetLanguage" value="目标语言" />
+		<text name="DocumentUpload">文档上传</text>
+		<text name="DocumentUpload_Manage">文档上传管理</text>
+		<text name="LanguageDeleteWarningMessage" value="确定要删除当前语言包吗 {0}?" />
+		<text name="CanNotEditOrDeleteDefaultLanguages" value="不能删除默认语言.只能删除或者修改自己增加的语言. 但可以改变所有语言的文本信息." />
+		<text name="LookingForMpaVersion" value="查找多页面应用版本号" />
+		<text name="LookingForSpaVersion" value="查找单页面应用版本号" />
+		<text name="ThisLanguageAlreadyExists" value="这种语言已经存在!" />
+		<text name="OrganizationUnits" value="部门" />
+		<text name="OrganizationUnitsHeaderInfo" value="归属用户成员" />
+		<text name="OrganizationTree" value="部门架构" />
+		<text name="Members" value="成员" />
+		<text name="SelectAnOrganizationUnitToSeeMembers" value="选择部门后查看部门内成员" />
+		<text name="OrganizationUnitDeleteWarningMessage" value="你确定删除部门 {0}?" />
+		<text name="AddSubUnit" value="新增下级部门" />
+		<text name="AddMember" value="新增成员" />
+		<text name="SuccessfullyAdded" value="已新增" />
+		<text name="RemoveUserFromOuWarningMessage" value="你确定将成员 {0} 从部门 {1} 移出吗?" />
+		<text name="SuccessfullyRemoved" value="已删除" />
+		<text name="SelectAnItem" value="选择一项" />
+		<text name="NewOrganizationUnit" value="新建部门" />
+		<text name="SelectAUser" value="选择用户" />
+		<text name="Select" value="选择" />
+		<text name="UserIsAlreadyInTheOrganizationUnit" value="部门中已存在此用户!" />
+		<text name="AddRootUnit" value="新增一级部门" />
+		<text name="AddUser" value="添加用户" />
+		<text name="NoOrganizationUnitDefinedYet" value="还没有创建部门." />
+		<text name="OrganizationUnitMoveConfirmMessage" value="你确定将部门 {0} 移至部门 {1} 下吗." />
+		<text name="Root" value="根" />
+		<text name="SuccessfullyMoved" value="已移动." />
+		<text name="AddedTime" value="添加时间" />
+		<text name="ManagingMembers" value="管理成员" />
+		<text name="ManagingOrganizationTree" value="管理组织架构" />
+		<text name="LoginForUsers" value="用户登录" />
+		<text name="LoginAsThisUser" value="切换此账户登录" />
+		<text name="BackToMyAccount" value="回到我的帐户" />
+		<text name="LoginForTenants" value="租户登录" />
+		<text name="LoginAsThisTenant" value="Login as this tenant" />
+		<text name="AuditLogImpersonatedOperationInfo"
+			  value="Note: This operation is performed by another user on behalf of this user." />
+		<text name="CustomData" value="自定义数据" />
+		<text name="None" value="无" />
+		<text name="YouCanBackToYourAccount" value="你可以在这里回到你的帐户" />
+		<text name="CascadeImpersonationErrorMessage"
+			  value="无法进行层叠模拟。这已经是一个模拟登录！" />
+		<text name="FromTenantToHostImpersonationErrorMessage" value="无法从租户用户模拟主机用户！" />
+		<text name="DifferentTenantImpersonationErrorMessage" value="无法模拟其他租户的用户！" />
+		<text name="ImpersonationTokenErrorMessage" value="模拟令牌无效或已过期！" />
+		<text name="NotImpersonatedLoginErrorMessage" value="这不是模拟登录！" />
+		<text name="YouCannotLinkToSameAccount">不可以关联同一个账户</text>
+		<text name="ChangePasswordBeforeLinkToAnAccount">关联此帐户前必须更改密码!</text>
+		<text name="YouAreNotLinkedToAnyAccount">你没有关联任何账户!</text>
+		<text name="DonotCallThisMethodWithASuccessResult">不要用成功的结果调用此方法</text>
+		<text name="LinkedAccounts">关联的账户</text>
+		<text name="ManageAccounts">管理账户</text>
+		<text name="LinkNewAccount">关联新账户</text>
+		<text name="SuccessfullyUnlinked">关联已取消</text>
+		<text name="LinkedUserDeleteWarningMessage">Link to user {0} will be deleted.</text>
+		<text name="SwitchToLinkedAccountTokenErrorMessage" value="模拟令牌无效或已过期！" />
+		<text name="WelcomeToTheApplicationNotificationMessage" value="欢迎访问WIMI BTL! " />
+		<text name="NewUserRegisteredNotificationDefinition" value="新用户注册发送通知." />
+		<text name="NewUserRegisteredNotificationMessage" value="有新用户注册. 用户名: {userName}, 邮件地址: {emailAddress}." />
+		<text name="SeeAllNotifications" value="查看所有通知" />
+		<text name="SetAsRead" value="标记为已读" />
+		<text name="SetAllAsRead" value="全部标记为已读" />
+		<text name="NotificationSettings" value="通知设定" />
+		<text name="ReceiveNotifications" value="接收通知" />
+		<text name="ReceiveNotifications_Definition" value="此选项可以开启或关闭通知提醒" />
+		<text name="NotificationTypes" value="通知类型" />
+		<text name="ReceiveNotifications_DisableInfo" value="已关闭通知提醒。你选择通知类型启用你需要接收的通知提醒。" />
+		<text name="Notifications" value="通知" />
+		<text name="ThereIsNoNotification" value="没有新通知." />
+		<text name="Unread" value="未读" />
+		<text name="YouCanNotDeleteOwnAccount" value="不可以删除自身账号" />
+		<text name="On" value="On" />
+		<text name="Off" value="Off" />
+		<text name="Maintenance">维护</text>
+		<text name="Caches">缓存</text>
+		<text name="CacheSuccessfullyCleared">缓存已清除</text>
+		<text name="AllCachesSuccessfullyCleared">所有缓存均已清除</text>
+		<text name="ClearAll">全部清除</text>
+		<text name="Clear">清除</text>
+		<text name="CachesHeaderInfo">清除系统缓存</text>
+		<text name="TestEmailSettingsHeader">测试Email设置</text>
+		<text name="SendTestEmail">发送测试Email</text>
+		<text name="TestEmail_Subject">WIMI BTL测试邮件</text>
+		<text name="TestEmail_Body">这是一封测试邮件。</text>
+		<text name="TestEmailSentSuccessfully">测试邮件已发送</text>
+		<text name="WebSiteLogs">站点日志</text>
+		<text name="WebSiteLogsHeaderInfo">查看最新日志或打包下载所有的站点日志</text>
+		<text name="DownloadAll">下载全部</text>
+		<text name="TenantManagement">客户管理</text>
+		<text name="AllowTenantsToRegisterThemselves" value="允许注册新客户。" />
+		<text name="AllowTenantsToRegisterThemselves_Hint" value="如果禁用该选项，新客户的创建只有通过Host管理员在系统中添加。" />
+		<text name="NewRegisteredTenantsIsActiveByDefault" value="新注册客户默认激活。" />
+		<text name="NewRegisteredTenantsIsActiveByDefault_Hint" value="如果关闭此选项，新注册客户需要管理员在系统中手动激活后才可以使用。" />
+		<text name="TenantSignUp">客户注册</text>
+		<text name="NewTenantRegisteredNotificationDefinition" value="新客户注册发送通知" />
+		<text name="NewTenantRegisteredNotificationMessage" value="有新客户注册. 客户名为: {tenancyName}." />
+		<text name="LoginAttempts">登陆记录</text>
+		<text name="Failed">失败</text>
+		<text name="NewTenant">新客户</text>
+		<text name="ResizedProfilePicture_Warn_SizeLimit" value="图片大小不可以超过1MB. 请压缩后重新上传." />
+		<text name="RegisterFormUserNameInvalidMessage">请不要用邮件地址作为用户名</text>
+		<text name="UseHostDatabase" value="使用Host数据库" />
+		<text name="DatabaseConnectionString" value="默认连接字符串" />
+		<text name="TenantDatabaseConnectionStringChangeWarningMessage"
+			  value="注意: 在改变客户的连接字符串之前, 你需要确保已将数据库转移到目标地址. 改变连接字符串系统不会帮助你迁移数据库" />
+		<text name="Timezone">时区</text>
+		<text name="HasOwnDatabase">HasOwnDatabase</text>
+		<text name="TimeZoneSettingChangedRefreshPageNotification">时区设定已修改，请点击确定按钮刷新页面查看最新设定</text>
+		<text name="Ok">Ok</text>
+		<text name="View">查看</text>
+		<text name="HistoryRecords">历史记录</text>
+		<!--基础数据MachineType_Manage-->
+		<text name="BasicData">基础数据</text>
+		<text name="MachineType">设备类型</text>
+		<text name="MachineType_Manage">设备类型管理</text>
+		<text name="MachineSetting">设备维护</text>
+		<text name="MachineSettingHeaderInfo">添加设备及设定</text>
+		<text name="MachineSetting_Create">新增设备</text>
+		<text name="MachineSetting_Edit">编辑设备</text>
+		<text name="MachineSetting_Delete">删除</text>
+		<text name="MachineSetting_Stop">停用</text>
+		<text name="MachineSetting_Start">启用</text>
+		<text name="MachineSetting_Deal">派发设备</text>
+		<text name="MachineSetting_Taking">确认接受</text>
+		<text name="MachineSettingDeleteWarningMessage" value="是否将设备{0}删除？" />
+		<text name="MachineSettingTakingWarningMessage" value="确认接收设备{0}？" />
+		<text name="TcpPort">端口号</text>
+		<text name="PingTest">Ping测试</text>
+		<text name="TelnetTest">Telnet测试</text>
+		<text name="DMPTelnetTest">DMP测试</text>
+		<text name="Test">测试</text>
+		<text name="TestSuccessfully">测试成功</text>
+		<text name="BatchSave">批量保存</text>
+
+    <text name="MachineCode">设备编号</text>
+    <text name="MachineName">设备名称</text>
+    <text name="MachineDesc">设备描述</text>
+    <text name="UId">用户名</text>
+    <text name="SortSeq">显示顺序</text>
+    <text name="IsEnable">是否启用</text>
+    <text name="State">状态</text>
+    <text name="DealDone">已派发</text>
+    <text name="WattingDeal">未处理</text>
+    <text name="Customer">客户</text>
+    <text name="DeviceType">设备类型</text>
+    <text name="MachineHadTaking">该设备已经被客户确认接受,不能修改！</text>
+    <text name="MachineHadSameTenant">设备已经被派发至此客户,请勿重复派发！</text>
+    <text name="AssignCustomer">派发设备</text>
+    <text name="SelectFile">请选择设备图片</text>
+    <text name="FileTypeError" value="不支持*.{0}文件导入,请重新选择文件" />
+    <text name="Upload">上传</text>
+    <text name="PasswordNotSame">两次输入密码不相同</text>
+	  <text name="GatherParamsGroupSetting">采集配置模板</text>
+    <text name="GatherParamsGroupSetting_Manage">采集配置模板管理</text>
+
+		<text name="GatherParamsSetting">采集配置</text>
+		<text name="GatherParamsSetting_Manage">采集配置管理</text>
+		<text name="GatherParamsName">变量名称</text>
+		<text name="GatherParamsDescription">变量描述</text>
+		<text name="DeviceAddress">数据地址</text>
+		<text name="DataAccess">存取权限</text>
+		<text name="ValueFactor">数据倍率</text>
+		<text name="DefaultValue">初始值</text>
+
+		<text name="DeviceGroups">设备分组</text>
+		<text name="ManageDeviceGroups">管理设备组</text>
+		<text name="ManageDeviceMembers">管理设备成员</text>
+
+		<text name="WeChatNotifications">管理微信通知</text>
+		<text name="ManageNotificationTypes">管理通知类型</text>
+		<text name="ManageMembers">管理成员</text>
+
+		<!--生产计划-->
+		<!--<text name="PlanModule">生产计划</text>-->
+		<text name="Plan">生产计划</text>
+		<text name="PlanManage">计划管理</text>
+		<text name="Plan-New">新增</text>
+		<text name="Plan-InProgress">进行中</text>
+		<text name="Plan-Complete">完成</text>
+		<text name="Plan-Pause">暂停</text>
+		<text name="Plan-Close">关闭</text>
+		<text name="Plan-AutoComplete">变更中断</text>
+
+		<!--设备监测-->
+		<text name="DevicesMonitoring">实时指标</text>
+		<text name="DevicesMonitoring_States">实时状态</text>
+		<text name="DevicesMonitoring_Parameters">运行参数</text>
+		<text name="DevicesMonitoring_States_SelectTenants">选择客户</text>
+		<text name="DevicesAlarms">报警信息</text>
+
+		<!--统计分析-->
+		<text name="StatisticAnalysis">效率分析</text>
+		<text name="AlarmStatistics">报警统计</text>
+		<text name="HistoryParameters">历史参数</text>
+		<text name="EfficiencyTrends">效率趋势</text>
+		<text name="StatusRecords">状态记录</text>
+		<text name="TimeStatistics">用时分析</text>
+		<text name="ComprehensiveStatistics">综合分析</text>
+		<text name="OEE">OEE统计</text>
+		<text name="QualifyStatistics">合格统计</text>
+		<text name="Research">查询</text>
+		<text name="Login for users">用户登录</text>
+		<text name="Login for tenants">客户登录</text>
+		<text name="DeviceGroupPermissions">设备组权限</text>
+		<text name="StatisticalShift">统计班次</text>
+		<text name="StatisticalMonth">统计月份</text>
+		<text name="StatisticalYear">统计年份</text>
+		<text name="StatisticalWeek">统计周数</text>
+		<text name="ShowPillarName">显示柱条名称</text>
+		<text name="ShowPillarValue">显示柱条值</text>
+
+		<!--班次-->
+		<text name="ShiftSolutionNameAlreadyExists">班次方案名称已存在</text>
+		<text name="RecordIsNotExists">记录不存在</text>
+		<text name="ShiftTimeDurationRangeIsCrossed">班次时间段有重叠</text>
+		<text name="PagesBasicDataShiftSetting">班次方案</text>
+		<text name="PagesBasicDataShiftSetting_Manage">班次方案管理</text>
+		<text name="PagesBasicDataMachineShiftSetting">排班</text>
+		<text name="PagesBasicDataMachineShiftSetting_Manage">设备班次管理</text>
+		<text name="ShiftSetting">班次方案</text>
+		<text name="MachineShiftSetting">设备排班</text>
+		<text name="NotAssociated">N/A</text>
+		<!--状态维护-->
+		<text name="StateInfo">状态维护</text>
+		<text name="StateInfo_Manage">状态维护管理</text>
+
+		<!--状态维护-->
+		<text name="AlarmInfo">报警维护</text>
+		<text name="AlarmInfo_Manage">报警维护管理</text>
+
+		<!--导入数据-->
+		<text name="ImportData">数据导入</text>
+		<text name="ImportData_Manage">数据导入管理</text>
+		<text name="Machines">设备</text>
+		<text name="GatherParams">采集参数</text>
+		<!--人员绩效-->
+		<text name="StaffPerformance">人员绩效</text>
+		<text name="StaffPerformance_OnlineOrOffline">人员上下线</text>
+		<text name="StaffPerformance_OnlineOrOfflineRecord">上下线日志</text>
+		<text name="StaffPerformance_StaffPerformance">状态统计</text>
+		<text name="StaffPerformance_StaffYield">员工产量</text>
+
+		<!--看板Visual-->
+		<text name="Visual">智能看板</text>
+		<text name="VisualView">智能看板</text>
+		<text name="VisualNotice">公告发布</text>
+		<text name="VisualNoticeManage">公告管理</text>
+
+		<!--刀具模块-->
+		<text name="Cutter">刀具管理</text>
+		<text name="CutterParameter">刀具参数</text>
+		<text name="CutterParameterManage">刀具参数配置管理</text>
+		<text name="CutterLoadAndUnloadRecord">换刀记录</text>
+		<text name="CutterLoadAndUnload">装/卸刀</text>
+		<text name="CutterTypeManage">刀具型号维护管理</text>
+		<text name="CutterState">刀具监控</text>
+		<text name="CutterStateManage">刀具状态管理</text>
+		<text name="Cutter-Number">按次数</text>
+		<text name="Cutter-Time">按时间</text>
+		<text name="CutterSetting">刀具设置</text>
+		<text name="CutterLifeMethod">寿命计算方式</text>
+		<text name="ByComponent">通过刀具组件</text>
+		<text name="ByCount">通过产量计数</text>
+		<!--刀具状态-->
+		<text name="New">新增</text>
+		<text name="NotLoad">未装刀</text>
+		<text name="Loading">已装刀</text>
+		<text name="UnLoad">已拆卸</text>
+		<text name="Normal">正常</text>
+		<text name="Alarm">报警</text>
+		<text name="Warning">警告</text>
+		<text name="Number">次数</text>
+		<text name="MethodIsNotImplemented">方法未实现,请联系管理员</text>
+		<text name="UpdateRate">倍率修改</text>
+		<text name="NotExistLoadingCutter">当前不存在装载的刀具</text>
+		<text name="CutterRateSetting">刀位倍率设置</text>
+		<text name="CutterTVauleCantLoadingMore">该设备刀位已装刀，请勿重复装刀</text>
+		<text name="CutterPosition">刀位</text>
+
+		<!--工单-->
+		<text name="Order">生产工单</text>
+		<text name="DefectiveReasons">NG原因维护</text>
+		<text name="DefectiveReasonsManage">不良原因管理</text>
+		<text name="CreateNewDefectiveReasons">新建不良原因</text>
+		<text name="Process">工序维护</text>
+		<text name="ProcessManage">工序管理</text>
+		<text name="CreateNewProcess">新建工序</text>
+		<text name="StandardTime">用时维护</text>
+		<text name="StandardTimeManage">标准用时管理</text>
+		<text name="Product">产品维护</text>
+		<text name="ProductManage">产品管理</text>
+		<text name="ProductionPlan">工单计划</text>
+		<text name="ProductionPlanManage">工单计划管理</text>
+		<text name="LoginReport">登录/报工</text>
+		<text name="LoginReportManage">工单登录/报工管理</text>
+		<text name="DefectiveStatistics">次品统计</text>
+		<text name="DefectiveStatisticsManage">次品统计管理</text>
+		<text name="MachineProcessManage">管理设备换产</text>
+		<text name="MachineProcess">设备换产</text>
+		<text name="MachineReport">报工统计</text>
+		<text name="MachineReportManage">报工管理</text>
+
+		<!--工单状态-->
+		<text name="NotStart">未开始</text>
+		<text name="Producing">生产中</text>
+		<text name="Completed">已完成</text>
+		<text name="Closed">关闭</text>
+		<text name="Craft">工艺维护</text>
+		<text name="CraftManage">工艺管理</text>
+
+		<!--计划状态-->
+		<text name="Prepared">准备</text>
+		<text name="Underway">进行中</text>
+		<text name="BreakOff">结束</text>
+
+		<!--班次目标产量-->
+		<text name="ShiftTargetYiled">班次目标产量</text>
+		<text name="ShiftTargetYiled_Manage">管理班次目标产量</text>
+
+		<!--追溯-->
+		<text name="Traceability">工件追溯</text>
+		<text name="TraceCatalogQuery">追溯查询</text>
+		<text name="TraceSetings">流程维护</text>
+		<text name="StationType-QualityInspection">质检</text>
+		<text name="StationType-Machining">机加</text>
+		<text name="StationType-Feeding">料道</text>
+		<text name="StationType-Other">其他</text>
+		<text name="StationType-FinalInspection">人工终检</text>
+		<text name="FlowType-OnlineFlow">上线流程</text>
+		<text name="FlowType-ProcessFlow">经过流程</text>
+		<text name="FlowType-OfflineFlow">下线流程</text>
+		<text name="FlowType-OptionFlow">可选流程</text>
+		<text name="FeedingType-All">综合料道</text>
+		<text name="FeedingType-Ok">合格料道</text>
+		<text name="FeedingType-Ng">废品料道</text>
+		<text name="TraceNgParts">NG工件追溯</text>
+		<text name="TraceNgPartsManage">NG工件追溯管理</text>
+
+		<!--通知-->
+		<text name="Notification">消息通知</text>
+		<text name="NotificationRules">通知规则</text>
+		<text name="NotificationRulesManage">通知规则管理</text>
+		<text name="NotificationRecords">通知记录</text>
+		<text name="DeviceAlarm">设备报警</text>
+		<text name="ToolReminder">刀具提醒</text>
+		<text name="YieldStatistics">产量统计</text>
+		<text name="Undispatched">已发送</text>
+		<text name="Dispatched">未发送</text>
+		<text name="WeChat">微信</text>
+		<text name="Email">邮件</text>
+		<text name="TriggerWithTime">按时间触发</text>
+		<text name="TriggerWithShift">按班次结束触发</text>
+
+		<!--原因反馈-->
+		<text name="ReasonFeedback">原因反馈</text>
+		<text name="ReasonFeedbackManage">原因反馈管理</text>
+		<text name="ReasonFeedbackAnalysis">原因分析</text>
+
+		<!--报表-->
+		<text name="RDLCReport">报表导出</text>
+		<text name="ShiftYield">精加工班次产量</text>
+		<text name="MachineUtilizationRate">设备效率报表</text>
+		<text name="StateConsumeTime">状态用时报表</text>
+		<text name ="PersonYield">人员产量报表</text>
+		<text name="PersonPerformance">人员绩效报表</text>
+		<text name="ReportOfPlan">计划达成报表</text>
+		<!--接口-->
+		<text name="MachineId">设备Id</text>
+		<text name="CutterNo">刀具编号</text>
+		<text name="CutterUsedStatus">使用状态</text>
+		<text name="CutterLifeStatus">寿命状态</text>
+		<text name="CountingMethod">寿命计数方式</text>
+		<text name="CutterTValue">刀具刀位</text>
+		<text name="OriginalLife">初始寿命</text>
+		<text name="RestLife">剩余寿命</text>
+		<text name="WarningLife">预警值</text>
+
+		<!--设备维护-->
+		<text name="Maintain">维护保养</text>
+		<text name="MaintainPlan">保养计划</text>
+		<text name="MaintainPlanManage">保养计划管理</text>
+		<text name="MaintainOrder">保养工单</text>
+		<text name="MaintainOrderManage">保养工单管理</text>
+		<text name="MaintainRequest">维修申请</text>
+		<text name="MaintainRequestManage">维修申请管理</text>
+		<text name="MaintainRepair">维修工单</text>
+		<text name="MaintainRepairManage">维修工单管理</text>
+		<text name="MaintainPlan-New">新增</text>
+		<text name="MaintainPlan-Processing">进行中</text>
+		<text name="MaintainPlan-Done">完成</text>
+		<text name="MaintainOrder-Undo">未保养</text>
+		<text name="MaintainOrder-Done">已保养</text>
+		<text name="MaintainOrder-Over">已逾期</text>
+
+		<text name="StatusDistributionMap">状态记录</text>
+
+		<text name="MachineCodeHasExist">该设备编号已经存在,请勿重复添加！</text>
+		<text name="MachineTypeHasExist">该设备类型已经存在,请勿重复添加！</text>
+		<text name="MachineTypeHasExistCannotUpdate">该设备类型已经存在,无法更新！</text>
+		<text name="StatusReasonIsInUse">该状态/原因已投入使用,无法删除！</text>
+		<text name="MachineUpFailedReason{0}">设备启用或停用失败！失败原因：{0}</text>
+		<text name="ParameterTypeDoesNotSupport">该参数类型不支持仪表盘显示!</text>
+		<text name="StateCodingMustBeUnique">状态编码必须唯一</text>
+		<text name="MachineCodeCannotBeNull">设备编号不能为空</text>
+		<text name="MachineNameCannotBeNull">设备名称不能为空</text>
+		<text name="MachineTypeCannotBeNull">设备类型不能为空</text>
+		<text name="MachineTypeNotExist">设备类型不存在</text>
+		<text name="DoNotImportMachineAgain">该设备已经存在，请勿重复导入</text>
+		<text name="StatusNameMustBeUnique">状态名称必须唯一</text>
+		<text name="SurnameCannotBeNull">姓氏不能为空</text>
+		<text name="NameCannotBeNull">名字不能为空</text>
+		<text name="UserNameCannotBeNull">用户名不能为空</text>
+		<text name="PasswordCannotBeNull">密码不能为空</text>
+		<text name="PasswordMinLengh">密码最少要输入6个字符</text>
+		<text name="RoleNameCannotBeNull">角色名不能为空</text>
+		<text name="RoleNameDoesNotExist">该角色名不存在</text>
+		<text name="EmailCannotBeNull">邮箱不能为空</text>
+		<text name="MailboxAddressOccupied">该邮箱地址已被占用</text>
+		<text name="UserNameHasExist">该用户名已经存在，请勿重复添加</text>
+
+		<text name="MachineIdCanNotBeNull">设备Id不能为空</text>
+		<text name="MachineIdMustBePositiveInteger">设备Id只能为正整数</text>
+		<text name="MachineIdNotExist">设备Id不存在</text>
+		<text name="VariableNameCanNotBeNull">变量名称不能为空</text>
+		<text name="DataAddressCanNotBeNull">数据地址不能为空</text>
+		<text name="DataTypeNotRight">数据类别不正确</text>
+		<text name="AccessPermissionsNotRight">存取权限不正确</text>
+		<text name="DataRateIncorrectFormat">数据倍率格式不正确</text>
+		<text name="InitialValueFormatIsIncorrect">初始值格式不正确</text>
+
+    <text name="MongoDbException">mongo数据库操作异常，请重试。可能会影响到正常采集。如果问题持续发生，请联系管理员</text>
+    <text name="ChildCodeCanNotBeNullOrEmpty">子编号不能为空</text>
+    <text name="CodeCanNotBeNullOrEmpty">编号不能为空</text>
+    <text name="OperationFailed">操作失败</text>
+    <text name="OperationSuccess">操作成功</text>
+    <text name="ModelNameMustBeUnique">型号名称必须唯一</text>
+    <text name="ParameterNameMustBeUnique">参数名称必须唯一</text>
+    <text name="TypeNameMustBeUnique">类型名称必须唯一</text>
+    <text name="CannotAddChildCutterType">所选刀具类型已有刀具关联,不能再添加子类型.</text>
+    <text name="CannotDeleteCutterType">所选刀具型号已有刀具关联,不能删除.</text>
+    <text name="TheToolCannotBeUnloaded">该刀具不能卸刀！</text>
+    <text name="MachinesHasBeenInOtherDeviceGroup{0}">以下设备已存在于其他设备组，无法添加！【{0}】</text>
+    <text name="NoLanguageFoundInTheApplication">在应用程序中找不到语言！</text>
+    <text name="MachineAlreadyExistRecord{0}">该设备已经存在报警编号为【{0}】的记录，请勿重复添加！</text>
+    <text name="SaveFailed{0}">保存失败:{0}</text>
+	  <text name="SaveFailed">保存失败</text>
+    <text name="EquipmentNotScheduled{0}{1}">设备[{0}]在[{1}]没有排班!</text>
+    <text name="FailureToGenerateValidPlans">设定日期范围内无法生成有效计划</text>
+    <text name="PlanNameAlreadyExist">计划名称已存在</text>
+    <text name="OnlyCanDeleteMaintenancePlans">只能删除新增的保养计划</text>
+    <text name="OnlyCanSavePlanInProcess">只能修改或者新增还在进行中的计划</text>
+    <text name="PlanNotExist">计划不存在</text>
+    <text name="GivenUserNotificationIdNotBelonged{0}{1}">给定的用户通知ID（{0}）不属于当前用户（{1}）</text>
+    <text name="WorkOrderFailure">工单报工失败！</text>
+    <text name="ProcessCodeMustBeUnique">工序编号必须唯一</text>
+    <text name="ProcessNameMustBeUnique">工序名称必须唯一</text>
+    <text name="ProductNotExist">产品不存在</text>
+    <text name="ProcessDoesNotExist">工艺不存在</text>
+    <text name="CannotDeleteThisPlan">不可以删除该计划</text>
+    <text name="NoIncomingUpdatePrimaryKey">未传入更新主键</text>
+    <text name="StandardTimeUseRecordAlreadyExists">该标准用时记录已经存在，无法修改或者添加</text>
+    <text name="ThePlanDoesNotExistOrDeleted">计划不存在或已被删除</text>
+    <text name="EnumerationArrayIsEmpty">枚举数组为空</text>
+    <text name="OnlyCanDeletePlanWithInsertState">仅可删除新增状态的计划</text>
+    <text name="DeviceGroupWithoutShifts">当前设备组没有选定班次</text>
+	<text name="DeviceGroupHasNoShifts">所选设备组没有班次</text>
+    <text name="PlanAlreadyBeDeleted">计划已经被删除</text>
+    <text name="NotConnected">未连接</text>
+    <text name="MachieShiftHasBeenEffective">设备当天班次已经生效,只能解除之后的班次</text>
+    <text name="TheShiftPlanHasBeenDeleted">该班次方案已被删除</text>
+    <text name="SelectedTimeIntervalsIntersect">所选时间段有交集</text>
+    <text name="SelectedTimeIntervalsIntersect2">当前排班首日班次时间段与之前已排班次时间段有交集</text>
+    <text name="SchedulingHasBeenMadeDuringTime{0}{1}{2}">{0}在所选时间段{1} ~ {2}内已有排班</text>
+    <text name="ProductHasBeenRecorded{0}">该产品在以下日期已有该班次记录，请勿重复添加：{0}</text>
+    <text name="EquipmentWasNotScheduled{0}">以下设备未排班，上线失败【{0}】</text>
+    <text name="EquipmentHasNoSchedule">以下设备未排班，上线失败</text>
+    <text name="NoNeedToRepeatOffline">已下线，无需重复下线！</text>
+    <text name="PassRate">合格率</text>
+    <text name="PassRateReport">合格率报表</text>
+    <text name="QualifiedOfflineNumber">合格下线数</text>
+    <text name="OnlineCount">上线数</text>
+    <text name="NgCount">Ng数</text>
+    <text name="NumberOfProcessing">正在加工个数</text>
+    <text name="WorkshopDoesNotExist">设备组（车间）不存在</text>
+    <text name="WriteDataFailed{0}">写入数据失败：{0}</text>
+    <text name="EffectiveProductionLinesMustBeEstablished">必须设定有效的产线</text>
+    <text name="Qualified">合格</text>
+    <text name="Unqualified">不合格</text>
+    <text name="Rework">返工</text>
+    <text name="TargetDeviceDoesNotExist">目标设备不存在或你未经授权</text>
+    <text name="ThisEntryAlreadyExists">该条记录已存在，请勿重复添加！</text>
+    <text name="ThereIsNoUserWithId{0}">没有ID为{0}的用户</text>
+    <text name="ThereIsNoCurrentUser">没有当前用户</text>
+    <text name="ShouldSetEmailConfirmationCode">为了发送电子邮件激活链接，应设置电子邮件确认代码。</text>
+    <text name="ShouldSetPasswordResetCode">为了发送密码重置链接，应设置密码重置代码。</text>
+    <text name="DataInsertFailed">数据插入失败</text>
+    <text name="DeviceGroupAlreadyExist{0}">设备组{0}已存在</text>
+    <text name="NgCodeAlreadyExist{0}">不良部位【{0}】已存在</text>
+    <text name="NgCodeAlreadyExist">此不良部位已存在，请勿重复添加</text>
+    <text name="EnumerationTypesCanUseTheMethod">仅枚举类型才可用此方法, 出错类型</text>
+    <text name="DeviceIdDoesNotExist{0}">{0}的设备不存在</text>
+    <text name="NoRightToOperateThisEquipment">对不起，你没有权限操作此设备</text>
+    <text name="DevicesAreInUse{0}">该设备类型无法删除，以下设备正在使用：{0}</text>
+    <text name="AlarmMessageTemplate">设备【{0}】报警状态已经持续【{1}】分钟,请及时处理！</text>
+    <text name="CutterAlarmTemplate">刀具【{0}】剩余寿命【{1}】次,当前位于设备【{2}】刀位【{3}】,请注意！</text>
+    <text name="MessageNotificationNameMustBeUnique">消息通知名称必须唯一</text>
+    <text name="MessageNotificationRuleAlreadyExist">消息通知规则的触发条件已经存在</text>
+    <text name="MachineYieldTemplate">设备【{0}】在【{1}】日【{2}】的产量为【{3}】件。</text>
+    <text name="NgReasonCodeMustBeUnique">原因编号必须唯一</text>
+    <text name="NgReasonNameMustBeUnique">原因名称必须唯一</text>
+    <text name="CraftCodeMustBeUnique">工艺编号必须唯一</text>
+    <text name="CraftNameMustBeUnique">工艺名称必须唯一</text>
+    <text name="DataHasBeenDeleted">该条数据已经被删除</text>
+    <text name="PartDefectHasSaved">工件【{0}】,设备【{1}】,不良部位【{2}】,不良原因【{3}】已完成录入，请勿重复录入</text>
+    <text name="ProductCodeMustBeUnique">产品编号必须唯一</text>
+    <text name="ProductNameMustBeUnique">产品名称必须唯一</text>
+    <text name="ProductGroupCodeMustBeUnique">产品组编码必须唯一</text>
+    <text name="ProductGroupNameMustBeUnique">产品组名称必须唯一</text>
+    <text name="ProductHasBeenPutIntoProduction">该产品已开始生产,不可以再删除!</text>
+    <text name="ProductHasBeenInPlan">该产品已在生产计划中,不可以再删除!</text>
+    <text name="ExistingProductsUnderTheProductGroup">该产品组下已有产品在生产计划中,不可以再删除!</text>
+    <text name="ExistingProductsBeginToProduce">该产品组下已有产品开始生产,不可以再删除!</text>
+    <text name="ProductDoesNotExist">产品不存在或已被删除</text>
+    <text name="LogOnToTheDevice{0}">请从【人员上下线】页面登录设备[{0}]！</text>
+    <text name="IncompleteAfferentParameters">传入参数不完整</text>
+    <text name="InvalidParameterValue{0}{1}">参数{0}值[{1}]不是有效数值，不能使用仪表盘面板！</text>
+    <text name="TheCurrentStatePlansCannotBeDeleted">当前状态下的计划不可以删除</text>
+    <text name="CannotBeUpdatedToTheTargetState">当前状态无法更新到目标状态</text>
+    <text name="PlanDateTimeCompare">计划开始时间不能小于当前时间</text>
+    <text name="PlanEndDateTimeCompare">计划结束时间不能小于开始时间</text>
+    <text name="RepairEndDateTimeCompare">维修结束时间必须大于开始时间</text>
+    <text name="PlanNameCannotBeDuplicated">计划名称不能重复</text>
+    <text name="OverlappingOfScheduledTimeFrames">计划的时间范围重叠</text>
+    <text name="DeviceGroupAlreadyExistProcessingPlan{0}">当前产线{0}已存在进行中的计划，请先完成!</text>
+    <text name="PlanHasCompleted">当前计划已完成，不可编辑</text>
+    <text name="CurrentStateCannotChangeTo">当前状态无法变更至</text>
+    <text name="CannotAddOrDeleteDevices">当前计划状态不可以增删设备</text>
+    <text name="ConflictPlans{0}">设备生产计划有冲突，冲突的计划名称为：{0}</text>
+    <text name="PlanNameCannotBeNull">计划名称不能为空</text>
+    <text name="ChooseProduct">请选择产品</text>
+    <text name="ChooseDeviceGroup">请选择设备组</text>
+    <text name="ChooseOutputStatisticsMachine">请选择产量统计设备</text>
+    <text name="ChooseShift">请选择班次</text>
+    <text name="ShiftTargetLost">班次目标量未设定</text>
+    <text name="DeviceInFeedback">该设备正在反馈中</text>
+    <text name="FeedbackAlreadyEnd">该原因反馈已经被结束</text>
+    <text name="ShiftSolutionIsInUse">该班次方案已投入使用,无法删除！</text>
+    <text name="QuerySettingsDoNotExist">查询的设定不存在</text>
+    <text name="AlreadyExistSameDevice">当前设定中已经包含相同的设备</text>
+    <text name="FlowCodeAlreadyExist">流程编号已存在</text>
+    <text name="NoNotificationTypeWithGivenName{0}">没有具有给定名称的通知类型：{0}</text>
+    <text name="NotificationTypeAlreadyExist{0}">消息类型{0}已存在</text>
+    <text name="MenuNameCannotBeNull">菜单名不能为空</text>
+    <text name="MenuDisplayNameCannotBeNull">菜单中的显示名称不应为空</text>
+    <text name="CutterAlarm">刀具预警</text>
+    <text name="ChooseFiles">请选择文件</text>
+    <text name="NotSupportFileImport{0}">不支持*.{0}文件导入,请重新选择文件</text>
+    <text name="RepeatDataInFile{0}">文件中有编号为[{0}]的重复数据</text>
+    <text name="NeedToChangePassword">此账户需要修改密码</text>
+    <text name="InvalidRequest">非法请求</text>
+    <text name="ReturnToLoginPageTime">秒后回到登录页面</text>
+    <text name="EditAlarm">编辑报警</text>
+    <text name="AddAlarm">新建报警</text>
+    <text name="AlarmCode">报警编号</text>
+    <text name="AlarmContent">报警内容</text>
+    <text name="AlarmList">报警维护列表</text>
+    <text name="PleaseSelect">请选择</text>
+    <text name="PleaseMaintainTheEquipment">请维护设备</text>
+    <text name="AlarmImporting">报警导入</text>
+    <text name="ImportType">导入类型</text>
+    <text name="CompleteCoverage">完全覆盖</text>
+    <text name="IncrementalAddition">增量添加</text>
+    <text name="PleaseChooseExcel">请选择*.xlsx或*.xls文件</text>
+    <text name="FileChooseSizeLimit">选择文件不能超过1M！</text>
+    <text name="UploadSuccess">上传成功</text>
+    <text name="DataImportFailure">数据导入失败</text>
+    <text name="DownloadTemplate">下载模板</text>
+
+		<!--YieldStatistics页面-->
+		<text name="SearchSetting">查询设定</text>
+		<text name="StatisticalMethod">统计方式</text>
+		<text name="ByShift">按班次</text>
+		<text name="ByDay">按天</text>
+		<text name="ByWeek">按周</text>
+		<text name="ByMonth">按月</text>
+		<text name="ByYear">按年</text>
+		<text name="TimeFrame">时间范围</text>
+		<text name="Histogram">柱状图</text>
+		<text name="DataSheet">数据表</text>
+		<text name="Yield">产量</text>
+		<text name="PleaseSelectEquipment">请选择设备</text>
+		<text name="PleaseSelectEquipmentGroup">请选择设备组</text>
+		<text name="Shift">班次</text>
+		<text name="Day">天</text>
+		<text name="Week">周</text>
+		<text name="Month">月</text>
+		<text name="Year">年</text>
+
+		<!--YieldAnalysisStatistics页面-->
+		<text name="EquipmentComparison">设备比较</text>
+		<text name="UtilizationRateOfEquipment">设备利用率</text>
+		<text name="Detailed">详细</text>
+		<text name="ProgramNumber">程序号</text>
+		<text name="Amount">数量</text>
+		<text name="AverageBeatTime">平均节拍</text>
+		<text name="PleaseSelectAtLeastOneRecord">请至少选择一笔记录</text>
+		<text name="YieldDetails">产量详情</text>
+		<text name="Unit">单位</text>
+		<text name="StatusRatio">状态比率</text>
+		<text name="AverageValue">平均值</text>
+		<text name="Confirm">确定</text>
+		<text name="QueryResultsContainTooMuchData">查询结果包含过多数据，会导致网页加载较慢，确定要执行查询吗</text>
+		<text name="SelectQueryConditions">选择查询条件</text>
+		<text name="QueryDevice">查询设备</text>
+		<text name="UtilizationRatio">利用率</text>
+		<text name="Compare">比较</text>
+
+		<!--WeChatNotifications页面-->
+		<text name="NewMessageType">新增消息类型</text>
+		<text name="AreYouSureToDeleteTheWechatNotificationType">你确定要删除微信通知类型</text>
+		<text name="AreYouSureToRemove{0}FromThe{1}NotificationList">你确定将{0}从{1}通知列表中移出吗</text>
+		<text name="MessageTypeNotYetDefined">还未定义消息类型</text>
+		<text name="MessageType">消息类型</text>
+		<text name="Receiver">接受消息人员</text>
+		<text name="NewStaff"> 新增人员</text>
+		<text name="SelectMessageTypeViewer">选择一种消息类型查看人员</text>
+		<text name="PleaseSelectData">请选择数据</text>
+
+		<!--VisualView页面-->
+		<text name="Editor">编辑</text>
+		<text name="NoticeContent">公告内容</text>
+		<text name="RootLevelGroup(Workshop)">一级设备组</text>
+		<text name="Publisher">发布人</text>
+		<text name="ReleaseTime">发布时间</text>
+		<text name="WhetherToDeleteTheRecord">是否删除该记录</text>
+		<text name="NewAnnouncement">新建公告</text>
+		<text name="PleaseMaintainWorkshopInformation">请维护车间信息</text>
+		<text name="AlarmNumber">报警编号</text>
+		<text name="Stop">停机</text>
+		<text name="Run">运行</text>
+		<text name="Free">空闲</text>
+		<text name="Offline">离线</text>
+		<text name="Debug">设定</text>
+		<text name="RadiusMode">半径模式</text>
+		<text name="AreaPattern">面积模式</text>
+		<text name="FlightUtilizationRate">班次利用率</text>
+		<text name="Max">最大值</text>
+		<text name="Min">最小值</text>
+		<text name="EquipmentShiftEfficiencySummary">设备班次效率汇总</text>
+		<text name="Current">当前</text>
+		<text name="Previous">前一</text>
+		<text name="PageNumber">第{0}页/共{1}页</text>
+		<text name="ProductionProgressPanel">生产进度看板</text>
+		<text name="OutputValue">产值</text>
+		<text name="DailyGrossProduct">当天总产值</text>
+		<text name="TimeUseProportionalPanel">用时比例看板</text>
+		<text name="UnitsHours">单位（小时）</text>
+
+		<!--Traceability页面-->
+		<text name="NGCauseSupplementOfWorkpiece">工件NG原因补录</text>
+		<text name="DefectivePart">不良部位</text>
+		<text name="BadReason">NG原因维护</text>
+		<text name="NGCause">工件【{0}】NG原因补录</text>
+		<text name="PleaseChoose">请选择</text>
+		<text name="NoMatchingData">没有匹配数据</text>
+		<text name="ViewProcessingParameters">查看加工过程参数</text>
+		<text name="ProcessParametersOf{0}Processing{1}">{0}加工【{1}】过程参数</text>
+		<text name="Measure">测量</text>
+		<text name="MeasurementResult">测量结果</text>
+		<text name="DetectionTime">检测时间</text>
+		<text name="Result">结果</text>
+		<text name="InternalId">内部Id</text>
+		<text name="TestFile">检测文件</text>
+		<text name="MeasurementParameters">测量参数</text>
+		<text name="MeasuredValue">测量值</text>
+		<text name="NormalValue">正常值</text>
+		<text name="Code">编号</text>
+		<text name="IsQualified">是否合格</text>
+		<text name="LowerLimitOfDeviation">偏差下限</text>
+		<text name="UpperLimitOfDeviation">偏差上限</text>
+		<text name="QualityTesting">质检</text>
+		<text name="AcquisitionTime">采集时间</text>
+		<text name="WorkpieceNGCauseView">工件NG原因查看</text>
+		<text name="Workpiece{0}NGCauseView">工件【{0}】NG原因查看</text>
+		<text name="DefectiveReasonNames">工件NG原因</text>
+		<text name="InputTime">录入时间</text>
+		<text name="EntryPerson">录入人</text>
+		<text name="TracingTheProcessingProcessOfParts">追溯零件加工过程</text>
+		<text name="QueryArea">查询区域</text>
+		<text name="ProductionLine">生产线</text>
+		<text name="WorkpieceCoding">工件编号</text>
+		<text name="StartTime">开始时间</text>
+		<text name="EndTime">结束时间</text>
+		<text name="List">列表</text>
+		<text name="WorkpieceInformation">工件信息</text>
+		<text name="WorkpieceNumber">工件编号</text>
+		<text name="Label">标签</text>
+		<text name="ShiftInformation">班次信息</text>
+		<text name="OnlineTime">上线时间</text>
+		<text name="OfflineTime">下线时间</text>
+		<text name="FlowName">流程名称</text>
+		<text name="Workstation">工位</text>
+		<text name="EntryTime">进入时间</text>
+		<text name="LeftTime">离开时间</text>
+		<text name="FlowState">流程状态</text>
+		<text name="ProcessLabel">流程标签</text>
+		<text name="Operator">操作人员</text>
+		<text name="OperationTime">操作时间</text>
+		<text name="ProcessParameters">流程参数</text>
+		<text name="HasBeenOffline">已下线</text>
+		<text name="NotOffline">未下线</text>
+		<text name="Unknown">未知</text>
+		<text name="WorkstationCode">工位编码</text>
+		<text name="QueryResults">查询结果</text>
+		<text name="CauseSupplement">原因补录</text>
+		<text name="WorkpieceQRCode">工件编号</text>
+		<text name="StationName">工位名称</text>
+		<text name="ProcessView">加工过程查看</text>
+		<text name="Configure">配置</text>
+		<text name="ProcessSetting">流程设置</text>
+		<text name="IncreaseProcess">增加流程</text>
+		<text name="ProcessInformation">流程信息</text>
+		<text name="ProcessNumber">流程编号</text>
+		<text name="WorkstationType">工位类型</text>
+		<text name="ProcessCategory">流程类别</text>
+		<text name="EndProcessApproach">结束流程方式</text>
+		<text name="OnlyThisProcess">仅本流程</text>
+		<text name="OnlyTheLastProcess">仅上个流程</text>
+		<text name="ThisProcessAndThePreviousProcess">本流程和上个流程</text>
+		<text name="WriteSignalWhenProcessTriggers">流程触发时写信号</text>
+		<text name="Open">开启</text>
+		<text name="PleaseEnterTheProcessNumber">请输入流程编号</text>
+		<text name="PleaseEnterTheProcessName">请输入流程名称</text>
+		<text name="PleaseEnterTheStationType">请选择工位类型</text>
+		<text name="SignalName">信号名称</text>
+		<text name="Value">值</text>
+		<text name="PressTheQualityResultToSignOff">按质量结果下线</text>
+		<text name="OwnershipOfQualityResponsibility">质量责任归属</text>
+		<text name="OKOffline">ok下线</text>
+		<text name="NGOffline">NG下线</text>
+		<text name="CurrentProcess">当前流程</text>
+		<text name="WriteSignalWhenDataIsTriggered">数据触发时写信号</text>
+		<text name="ProcessRelatedData">处理相关数据</text>
+		<text name="AssociatedDataSource">关联数据源</text>
+		<text name="CustomAccess">客制Access</text>
+		<text name="CustomCSV">客制csv</text>
+		<text name="CustomTXT">客制txt</text>
+		<text name="OtherCustom">其他客制</text>
+		<text name="Path">路径</text>
+		<text name="DockingQRCode">对接二维码</text>
+		<text name="ObtainedThroughPLCVariables">通过PLC变量获取</text>
+		<text name="NoneThroughDataOrder">无，通过数据顺序</text>
+		<text name="IncreaseEquipment">增加设备</text>
+		<text name="PleaseEnterTheStation">请输入工位</text>
+		<text name="PleaseEnterTheNameOfTheStation">请输入工位名称</text>
+		<text name="BeSureToDeleteThisData">确定删除此条数据</text>
+		<text name="PleaseSelectTheProductionLineFirst">请先选择产线</text>
+		<text name="MaxLength">最大长度为</text>
+		<text name="FlowSeq">流程顺序</text>
+
+		<!--TimeStatistics页面-->
+		<text name="DeviceStatus">设备状态</text>
+		<text name="ProportionOfTimeOccupied">占时比例</text>
+		<text name="Date">日期</text>
+		<text name="UnplannedOutage">非计划停机</text>
+
+		<!--StatusDistributionMap页面-->
+		<text name="ViewDeviceStatusDetails">查看设备状态明细</text>
+		<text name="StateId">状态ID</text>
+		<text name="StateName">状态名称</text>
+		<text name="GanttChartOfStateDistribution">状态分布甘特图</text>
+		<text name="SelectDevice">选择设备</text>
+		<text name="LoadingData">正在努力加载数据</text>
+		<text name="StateDescription">状态描述</text>
+		<text name="CheckAll">全选</text>
+		<text name="SuccessfulOperation">操作成功</text>
+		<text name="StateAmplification">状态放大</text>
+		<!--StateInfo页面-->
+		<text name="EditState">编辑状态</text>
+		<text name="Create">新建</text>
+		<text name="Type">类型</text>
+		<text name="WhetherPlannedORNot">是否计划内</text>
+		<text name="ClickTheRightButtonToSelectTheColor">点击右边按钮选取颜色</text>
+		<text name="StateReasonMaintenance">状态、原因维护</text>
+		<text name="Reason">原因</text>
+		<text name="DeleteOrNot">是否删除状态</text>
+		<!--StaffPerformance页面-->
+		<text name="SelectionOfficer">选择人员</text>
+		<text name="PleaseSelectTheShift">请选择班次,如没有可选数据,请检查设备排班是否正常</text>
+		<text name="BatchOnline">批量上线</text>
+		<text name="BatchOffline">批量下线</text>
+		<text name="Online">上线</text>
+		<text name="Mine">我的</text>
+		<text name="MachineList">设备列表</text>
+		<text name="InTheOnline">在线中</text>
+		<text name="SelectTheEmployee">选择员工</text>
+		<text name="SortByDevice">按设备</text>
+		<text name="SortByPeople">按人员</text>
+		<text name="PleaseSelectEmployees">请选择员工</text>
+		<text name="EmployeeProduction">员工产量</text>
+		<text name="NoData">无数据</text>
+		<text name="TheInitFunctionIsNotExecuted">未执行init函数</text>
+		<text name="Season">季</text>
+
+		<!--ShiftTargetYiled页面-->
+		<text name="ProductName">产品名称</text>
+		<text name="TargetOutput">目标产量</text>
+		<text name="FailedToObtainTheProduct">获取产品失败</text>
+		<text name="FailedToObtainShiftPlan">获取班次方案失败</text>
+		<text name="AcquisitionShiftFailed">获取班次失败</text>
+		<text name="PleaseMaintainData">请维护数据</text>
+		<text name="EditTargetOutput">编辑目标产量</text>
+		<text name="ShiftName">班次名称</text>
+		<text name="ProductNumberName">产品编号/名称</text>
+		<text name="SetTheTargetOutputPerShift">设置产品每班次的目标产量</text>
+		<text name="ProductNumber">产品编码</text>
+		<text name="ProductSpecification">产品规格</text>
+		<text name="PleaseConfirmWhetherToDeleteThisRecord">是否删除该条记录,请确认</text>
+
+
+		<!--ShiftSetting页面-->
+		<text name="NewShift">新增班次</text>
+		<text name="LengthOfShift">班次时长</text>
+		<text name="WorkHours">工作时长</text>
+		<text name="WhetherAcrossDay">是否跨天</text>
+		<text name="ConfirmToDeleteThisShift">确定删除此班次,点击保存生效</text>
+		<text name="ShiftNameCannotBeRepeated">班次名称不能重复</text>
+		<text name="ActualWorkingHoursMustBeaValidNumber">实际工作时长必须为有效数字</text>
+		<text name="TheActualWorkingHoursMustBeGreaterThan0">实际工作时长必须大于0</text>
+		<text name="TheActualWorkingHoursShouldNotBeLongerThanTheShiftHours">实际工作时长不能大于班次时长</text>
+		<text name="ShiftsMustBeSetInChronologicalOrderAndTimeMustNotBeRepeated">班次必须按照时间顺序设置且时间不可重复</text>
+		<text name="Update">更新</text>
+		<text name="ReturnsScheduling">返回排班</text>
+		<text name="ShiftPlansHaveNotBeenDefined">还未定义班次方案</text>
+		<text name="AreYouSureYouWantToDeleteShiftPlan{0}">你确定要删除班次方案{0}吗</text>
+		<text name="PleaseSelectTheCorrespondingShiftSchedule">请选择要对应的班次方案</text>
+
+		<!--Settings页面-->
+		<text name="SystemLog">系统Log</text>
+		<text name="SelectFiles">选取文件</text>
+		<text name="CuttingRatio">裁剪比例</text>
+		<text name="Tailoring">裁剪</text>
+		<text name="PreviewTailoring">预览裁剪</text>
+		<text name="PleaseUploadPicturesFirst">请先上传图片</text>
+		<text name="PleaseCropThePictureFirst">请先裁剪图片</text>
+		<text name="ModifySystemLOGSuccessfully">修改系统LOG成功</text>
+		<text name="SystemInformation">系统信息</text>
+		<text name="ModifyLog">修改Log</text>
+		<text name="AfterModifyingTheSystemLog">修改系统log后，请点击"保存全部"按钮</text>
+
+		<!--ReasonFeedbackAnalysis页面-->
+		<text name="DetailRecord">明细记录</text>
+		<text name="{0}FeedbackDetails">{0}反馈明细</text>
+		<text name="Durations">时长</text>
+		<text name="TimeLengthSort">按时长</text>
+		<text name="NumberOfFeedback">反馈次数</text>
+		<text name="FeedbackTime">反馈时长</text>
+		<text name="CheckDetails">查看明细</text>
+		<text name="Minutes">分钟</text>
+		<text name="PleaseMaintainTheEquipmentGroup">请维护设备组</text>
+		<text name="HistoryNotice">点击右上角按钮可查看历史反馈记录</text>
+
+		<!--ReasonFeedback页面-->
+		<text name="EquipmentHistoryFeedbackRecord">设备历史反馈记录</text>
+		<text name="NewFeedbacks">新建反馈人</text>
+		<text name="EndFeedbackPerson">结束反馈人</text>
+		<text name="TimeConsuming">耗时</text>
+		<text name="ReasonsForSelectionFeedback">选择反馈原因</text>
+		<text name="StartTimeCannotExceedCurrentTime7Days">开始时间不能超过当前时间7天</text>
+		<text name="TheStartTimeOverlapsWithTheExistingFeedback">开始时间与已有的反馈重合,在【{0} ~ {1}】之间已有反馈</text>
+		<text name="EndFeedback">结束反馈</text>
+		<text name="PleaseEnterTheCorrectTimeFormat">请输入正确的时间格式</text>
+		<text name="EndTimeCannotBeLaterThanTheCurrentTime">结束时间不能晚于当前时间</text>
+		<text name="TheEndTimeOverlapsWithTheExistingFeedback">结束时间与已有的反馈重合,在【{0}】已有反馈</text>
+		<text name="DeviceGroupList">设备组列表</text>
+		<text name="CauseFeedbackHistory">原因反馈历史</text>
+		<text name="FeedbackPeople">反馈人</text>
+		<text name="Feedback">反馈</text>
+
+		<!--RDLCReport页面-->
+		<text name="TheSelectedPeriodCannotBeLongerThan30Days">所选时间段不能大于31天</text>
+		<text name="DataSummaryPleaseBePatient">数据汇总中,请耐心等待</text>
+
+		<!--QualifyStatistics页面-->
+		<text name="Export">导出</text>
+
+		<!--Profile页面-->
+		<text name="AssociatedUser{0}WillBeDeleted">关联用户{0}将会被删除</text>
+		<text name="Remove">移除</text>
+
+		<!--Plans页面-->
+		<text name="PlanName">计划名称</text>
+		<text name="PlanProduction">计划产量</text>
+		<text name="BelongDeviceGroup">所属设备组</text>
+		<text name="PlanStartDate">计划开始日期</text>
+		<text name="PlanEndDate">计划截止日期</text>
+		<text name="AutomaticallyClose">计划生产量达标后自动关闭计划</text>
+		<text name="AutomaticallyStart">自动开启后续计划(如果存在)</text>
+		<text name="DimensionOfTargetQuantity">目标量维度</text>
+		<text name="TargetQuantity">目标量</text>
+		<text name="ProductionCalculation">产量计算</text>
+		<text name="TraceTheNumberOfWorkpiece">按追溯工件下线数</text>
+		<text name="AccordingToTheEquipmentOutputCounter">按设备产量计数器</text>
+		<text name="TheScheduledDeadlineMustBeGreaterThanTheStartTime">计划截止时间必须大于开始时间</text>
+		<text name="DetermineTheDimensionsToChangeTheTargetQuantity">确定改变目标量维度</text>
+		<text name="DeviceContext">关联设备</text>
+		<text name="AllMachine">所有设备</text>
+		<text name="SelectedDevice">已选设备</text>
+		<text name="ViewShiftTargetQuantity">查看班次目标量</text>
+		<text name="ShiftTarget">班次目标量</text>
+		<text name="PlanTime">计划时间</text>
+		<text name="DocumentsState">单据状态</text>
+		<text name="ProductionScheduleList">生产计划列表</text>
+		<text name="NewProductionPlan">新建生产计划</text>
+		<text name="CompletedQuantity">已完成量</text>
+		<text name="ProductionAlculationMethod">产量计算方式</text>
+		<text name="PlanStartTime">计划开始时间</text>
+		<text name="PlanEndTime">计划截止时间</text>
+		<text name="ActualStartTime">实际开始时间</text>
+		<text name="ActualEndTime">实际截止时间</text>
+		<text name="BeingProcessed">正在加工</text>
+		<text name="Plan-to-be-deleted">将要删除计划</text>
+
+		<!--Craft页面-->
+		<text name="CraftCode">工艺编号</text>
+		<text name="CraftName">工艺名称</text>
+		<text name="NewProcess">新建工艺</text>
+		<text name="UndefinedProcess">还未定义工艺</text>
+		<text name="MouseButton">鼠标按钮点击工序顺序字段可以上下拖动重新排序</text>
+		<text name="SelectionProcess">选择工序</text>
+		<text name="SelectingProcessCheck">选定一项工艺后查看工序组合</text>
+		<text name="DeleteCraft">你确定要删除工艺 : {0}吗？将会删除相关联的工序组合!</text>
+		<text name="OperationSequence">工序顺序</text>
+		<text name="ProcessCode">工序编号</text>
+		<text name="ProcessName">工序名称</text>
+		<text name="FinalProcedure">最后工序</text>
+		<!--DefectiveReasons页面-->
+		<text name="ReasonCode">原因编号</text>
+		<text name="ReasonName">原因名称</text>
+		<text name="Note">备注</text>
+		<text name="NewDefectiveParts">新建不良部位</text>
+		<text name="UndefinedDefectiveParts">还未定义不良部位</text>
+		<text name="DefectReasons">次品原因</text>
+		<text name="CheckDefectivePart">选定一项不良部位后查看次品原因</text>
+		<text name="NewSubgroups">新增下级组</text>
+		<text name="RemoveBadParts">你确定要删除不良部位:{0}吗？</text>
+		<text name="Founder">创建人</text>
+		<text name="WantToDelete">你确定删除【{0}】吗?</text>
+
+		<text name="Total">总量</text>
+		<text name="ProductCode">产品编号</text>
+		<text name="ProductionPlanCode">生产计划编号</text>
+		<text name="WorkOrderCode">工单编号</text>
+		<text name="DefectiveNumber">次品数</text>
+
+		<text name="EquipmentReporting">设备报工</text>
+		<text name="CertifiedNumber">正品数</text>
+		<text name="FailureToObtainDefectiveProducts">获取次品原因失败</text>
+		<text name="JobLogin">工单登录</text>
+		<text name="PutVolume">投放量</text>
+		<text name="PutVolumeNeedMoreThenZero">投放量必须大于0</text>
+		<text name="AimVolumeNeedMoreThenZero">目标量必须大于0</text>
+		<text name="OutPutCount">产出量</text>
+		<text name="QualifiedNumber">合格数</text>
+		<text name="JobReport">工单报工</text>
+		<text name="CompleteWorkOrderLogin">完成工单登录和报工操作</text>
+		<text name="Completion">完成率</text>
+		<text name="CloseWorkOrder">关闭工单</text>
+		<text name="WorkOrderState">工单状态</text>
+		<text name="WhetherTheFinalWorkOrder">是否最后工序工单</text>
+		<text name="OrderCode">订单编号</text>
+		<text name="CirculationRatio">循环倍率</text>
+		<text name="WorkOrderDetails">工单详情</text>
+		<text name="PleaseConfirm">请确认</text>
+		<text name="AllWorkOrders{0}WillBeClosed">将会关闭计划{0}下所有工单</text>
+		<text name="OnceClosed">一旦关闭不可再做任何操作</text>
+		<text name="TargetQuantityOfThisWorkOrder">该工单目标量{0},已生产{1},其中正品{2}次品{3}。{4}，是否立即关闭？</text>
+
+
+		<text name="ChangeProduction">换产</text>
+		<text name="PleaseMaintainProduct">请维护产品</text>
+		<text name="PleaseMaintainProcess.">请维护工序</text>
+		<text name="PleaseSelectProcess">请选择工序</text>
+		<text name="DoNotNeedToChangeProduction">该设备正在使用相同的工序加工相同的产品，不需要换产</text>
+		<text name="WhetherToChangeProduction">该设备正在使用中，是否换产</text>
+		<text name="ChangeProductionPerson">换产人</text>
+		<text name="AreYouSureYouWantToDeleteIt">确认要删除吗</text>
+
+		<text name="AdverseCauseFeedback">不良原因反馈</text>
+		<text name="DefectiveProductsShouldNotExceedTheOutput">不良品的数量不能大于产量</text>
+		<text name="TotalDefectiveProductsShouldNotExceedTheOutput">不良品的总量不能大于产量</text>
+		<text name="AtLeastOneAdverseEventGreaterThan0">至少一项大于0的不良原因</text>
+		<text name="DistributionOfDefectiveProducts">不良品分布</text>
+		<text name="NumberOfBad">不良数</text>
+		<text name="GoodNumber">良品数</text>
+		<text name="DefectiveRate">不良率</text>
+		<text name="BadFeedback">不良反馈</text>
+
+		<text name="Describe">描述</text>
+		<text name="WhetherToDeleteTheProcess">是否删除工序</text>
+
+		<text name="ProductDescription">产品描述</text>
+		<text name="Semi-finishedProducts">是否是半成品</text>
+		<text name="ProductGroupNumber">产品组编号</text>
+		<text name="ProductGroupName">产品组名称</text>
+		<text name="ProductGroup">产品组</text>
+		<text name="NewProductGroup">新建产品组</text>
+		<text name="UndefinedProductGroup">还未定义产品组</text>
+		<text name="NewProduct">新建产品</text>
+		<text name="ViewTheProductsThatBelongTo">选定一项产品组后查看所属的产品</text>
+		<text name="AreYouSureToDeleteProductGroup">你确定要删除产品组</text>
+		<text name="TheirProcessesWillBeDeleted">将会删除该组相关联的产品及其工艺</text>
+		<text name="Semi-finished">半成品</text>
+		<text name="AreYouSureToDeleteProduct">你确定要删除产品</text>
+		<text name="ConfirmDeletionInProgress">正在进行中是否确认删除</text>
+		<text name="DrawingNumber">图纸号</text>
+		<text name="PartType">零件类型</text>
+
+		<text name="OrderNumber">订单号</text>
+		<text name="EstimatedTimeRange">预计时间范围</text>
+		<text name="ProductionPlanningWorkOrder">生产计划工单</text>
+		<text name="PlanState">计划状态</text>
+		<text name="ActualStartDate">实际开始日期</text>
+		<text name="ActualEndDate">实际结束日期</text>
+		<text name="ActualPositiveNumber">实际生产正品数</text>
+		<text name="ActualDefectiveNumber">实际次品数</text>
+		<text name="WhetherToDeleteTheProductionPlanNumbered{0}">是否删除编号为:{0}的生产计划</text>
+
+		<text name="Second">秒</text>
+		<text name="Magnification">倍率</text>
+		<text name="MagnificationIsNotIntegers">倍率必须为整数</text>
+		<text name="WhetherToDeleteThisData">是否删除该条数据</text>
+
+		<text name="TheTrendOfOEE">的OEE趋势</text>
+		<text name="TheOEEOfDetail">的OEE明细</text>
+		<text name="StatisticalDate">统计日期</text>
+		<text name="ClickOnTheDotsInThePicture">点击图中圆点查看详情</text>
+		<text name="AvailabilityRate">可用率</text>
+		<text name="PerformanceIndex">表现指数</text>
+		<text name="QualityIndex">质量指数</text>
+		<text name="ProductionStatus">生产状况</text>
+		<text name="PlanWorkingHours">计划工作时间</text>
+		<text name="UnplannedSuspension">非计划暂停</text>
+		<text name="ProcessingRhythm">加工节拍</text>
+		<text name="ProcessedProducts">加工产品</text>
+		<text name="IdealBeat">理想节拍</text>
+		<text name="ActualBeat">实际节拍</text>
+		<text name="QualitySituation">质量情况</text>
+
+		<text name="DeleteDataEncoding{0}">删除编码为[{0}]的数据</text>
+		<text name="AlarmDetails">报警详情</text>
+		<text name="DateOfProduction">产生日期</text>
+		<text name="TimeOfProduction">产生时间</text>
+		<text name="AggregateStatistics">总量统计</text>
+		<text name="ViewQuantity">查看数量</text>
+		<text name="ChartType">图表类型</text>
+		<text name="PieChart">饼图</text>
+		<text name="SearchDataTooMuch">查询数据包含过多数据,会导致网页加载比较慢,确定要执行查询吗?</text>
+		<text name="NameOfGroup">所在组名</text>
+		<text name="SelectedEquipment">所选设备</text>
+		<text name="StatisticalTime">统计时间</text>
+		<text name="NumberOfOccurrences">出现次数</text>
+		<text name="Proportion">占比</text>
+		<text name="Details">明细</text>
+		<text name="ModalHeader">MODAL HEADER</text>
+		<text name="CutterType">刀具型号</text>
+		<text name="ToolType">刀具类型</text>
+		<text name="CutterTypeNotFound">未找到刀具类型</text>
+		<text name="PleaseChooseCutterType">请选择刀具类型</text>
+		<text name="EquipmentCutterLocation">设备刀位</text>
+		<text name="LifeCountingTypes">寿命计数类型</text>
+		<text name="RawLife">原始寿命</text>
+		<text name="UsedLife">已用寿命</text>
+		<text name="OperationType">操作类型</text>
+		<text name="Creator">创建人</text>
+		<text name="NewlyBuild">新建</text>
+		<text name="ParameterCoding">参数编号</text>
+		<text name="ParameterName">参数名称</text>
+		<text name="Modifier">修改人</text>
+		<text name="ModificationTime">修改时间</text>
+		<text name="DeleteToolParameterConfiguration{0}">是否删除刀具参数配置项[{0}]</text>
+		<text name="AutomaticSystemGeneration">系统自动生成</text>
+		<text name="EnterTheInitialLife">请输入初始寿命</text>
+		<text name="EnterNumber">请输入数字</text>
+		<text name="EnterNumberBigThanZero">请输入大于0的数字</text>
+		<text name="EnterUsableLife">请输入可用寿命</text>
+		<text name="EnterEarlyWarningLife">请输入预警寿命</text>
+		<text name="EnterToolPosition">请输入刀具刀位</text>
+		<text name="EnterInteger">请输入整数</text>
+		<text name="EnterAPositiveIntegerGreaterThanOne">请输入大于1的正整数</text>
+		<text name="BatchUnloading">批量卸刀</text>
+		<text name="MaintainCutterType">请维护刀具型号</text>
+		<text name="MaintainToolType">请维护刀具类型</text>
+		<text name="FollowingCuttersCannotBeUnloaded">以下编号刀具不能卸刀：</text>
+		<text name="ToolPrefixNumber">刀具前缀编号</text>
+		<text name="ToolLifeCountingMethod">刀具寿命计数方式</text>
+		<text name="EnterValidNumberGreaterThanZero">请输入一个大于0的有效数字</text>
+		<text name="InitialOrEarlyWarningLifeTip">初始寿命和预警寿命必须大于0</text>
+		<text name="OriginalLifeCanNotLessThanRestLife">初始寿命不能小于剩余寿命</text>
+		<text name="OriginalLifeCanNotLessThanWarningLife">初始寿命不能小于预警值</text>
+		<text name="TypeName">类型名称</text>
+		<text name="IsThePrefixEditable">前缀是否可编辑</text>
+		<text name="NewRootType">新增根类型</text>
+		<text name="UndefinedType">还未定义类型</text>
+		<text name="NewToolType">新增刀具型号</text>
+		<text name="LookTypeAfterSelectCutterType">选定一项刀具类型后查看所属的型号</text>
+		<text name="NewChildType">新增子类型</text>
+		<text name="DeleteCutterTypeConfirm{0}">你确定要删除刀具类型 : {0}吗？将会删除该类型下所有的刀具型号！</text>
+		<text name="ToolTypeCount">型号个数</text>
+		<text name="Prefix">前缀</text>
+		<text name="CutterTypeTreeCodeTip">
+			<![CDATA[
+      黑色树节点表示此类型下的刀具可以设定编号前缀</br>灰色树节点表示此类型下的刀具不可修改编号前缀
+      ]]>
+		</text>
+		<text name="CountingMethodDisplayText">刀具计数方式</text>
+		<text name="DeleteToolTypeConfirm{0}">你确定要删除刀具型号[{0}]吗？</text>
+		<text name="CropMotivationRateOfEquipmentShift">设备班次稼动率</text>
+		<text name="LastShiftCropMomentum">上个班次稼动率</text>
+		<text name="CurrentShiftCropMobility">当前班次稼动率</text>
+		<text name="Percentage">百分比</text>
+		<text name="ReminderOfEquipmentSchedulesDue">设备排班到期提醒</text>
+		<text name="DaysRemaining">剩余天数</text>
+		<text name="CurrentShiftUsageRatioOfEquipment">设备当前班次用时比例</text>
+		<text name="ConfigurationShortcutMenu">配置快捷菜单</text>
+		<text name="ConfigurationShortcutMenuSuccess">配置快捷菜单成功</text>
+		<text name="EquipmentDetails">设备明细</text>
+		<text name="FailureRate">故障率</text>
+		<text name="OperatingRate">运行率</text>
+		<text name="IdleRate">空闲率</text>
+		<text name="EquipmentNotScheduledTip">有设备还未排班</text>
+		<text name="ShortcutMenu">快捷菜单</text>
+		<text name="ConfigurationMenu">配置菜单</text>
+		<text name="RemoveAll">移除全部</text>
+		<text name="RestoreDefault">恢复默认</text>
+		<text name="RemoveShotcutMenusConfirm">是否移除全部快捷菜单?</text>
+		<text name="RemoveShotcutMenusSuccess">移除全部快捷菜单成功</text>
+		<text name="RemoveOneShotcutMenuSuccess">移除快捷菜单成功</text>
+		<text name="RemoveOneShotcutMenuConfirm{0}">确定移除快捷菜单:{0} 吗?</text>
+		<text name="RestoreShortcutMenusConfirm">是否恢复到默认的快捷菜单?</text>
+		<text name="RestoreShortcutMenusSuccess">恢复默认的快捷菜单成功</text>
+		<text name="FollowingMachineWithoutShift">以下设备还未排班：</text>
+		<text name="NewEquipmentGroup">新建设备组</text>
+		<text name="OrganizationEquipment">组织设备</text>
+		<text name="AdditionalLevelIGroup">新增一级组</text>
+		<text name="DeviceGroupNotYetDefined">还未定义设备组</text>
+		<text name="LookMachinesInGroup">选定一项设备组后查看组内设备</text>
+		<text name="NewSubordinateGroup">新增下级组</text>
+		<text name="DeleteDeviceGroupConfirmTip{0}">你确定要删除设备组：{0}吗？这将删除该设备组下的所有计划、追溯设定和子设备组</text>
+		<text name="RemoveMachineOutOfGroup{0}{1}">你确定将设备{0}从设备组{1}移出吗</text>
+		<text name="EquipmentEfficiency">设备效率情况</text>
+		<text name="WatchType">查看类型</text>
+		<text name="CropMobility">稼动率</text>
+		<text name="LinearGraph">线性图</text>
+		<text name="EditingAcquisitionParameters">编辑采集参数</text>
+		<text name="ParameterCode">参数编号</text>
+		<text name="DisplayMode">显示方式</text>
+		<text name="MinValue">最小数值</text>
+		<text name="MaxValue">最大数值</text>
+		<text name="BackgroundColor">背景色</text>
+		<text name="ShowVision">显示(看板)</text>
+		<text name="ShowState">显示(状态)</text>
+		<text name="ShowParam">显示(参数)</text>
+		<text name="MaxCannotSmallerThanMin">最大值不能小于最小值</text>
+		<text name="ParametricBatchReplicationTo">参数批量复制到</text>
+		<text name="AddMachineFirst">请先添加设备</text>
+		<text name="ParameterConfiguration">参数配置</text>
+		<text name="BatchReplication">采集配置参数批量复制</text>
+		<text name="GroupCopy">批量复制</text>
+		<text name="AcquisitionEquipment">采集设备</text>
+		<text name="AcquisitionParams">采集参数</text>
+		<text name="ChooseMachineNode">请选择设备节点！</text>
+		<text name="DataType">数据类型</text>
+		<text name="ChooseMachineAndQuery">请选择设备，查询设备历史运行参数</text>
+		<text name="ConfigParameterTip">请在[基础数据->采集配置]中配置参数信息！</text>
+		<text name="SelectFileTitle">选取文件</text>
+		<text name="ImportResults">导入结果</text>
+		<text name="SerialNumber">序号</text>
+		<text name="ImportSuccess">导入成功</text>
+		<text name="UpdatePswdNextLogin">下次登录是否修改密码</text>
+		<text name="FullScreen">全屏</text>
+		<text name="ProhibitProductAuthorization">禁止在虚拟环境中进行产品授权</text>
+		<text name="AuthorizationIsUnable">产品授权已禁用，请联系管理员</text>
+		<text name="AuthorizationExpired">产品授权已过期，请联系管理员</text>
+		<text name="AuthorizationCannotUse">产品授权不可用，请联系管理员</text>
+		<text name="AuthorizationWillExpireTo{0}">产品授权即将过期，有效期至{0}</text>
+		<text name="UpdateRemarks">更新备注</text>
+		<text name="AlarmTime">报警时间</text>
+		<text name="ContinueMinutes{0}">持续 {0}(分钟)</text>
+		<text name="Remarks">备注</text>
+		<text name="AlarmCount">报警数</text>
+		<text name="RemarkInput">填写备注</text>
+		<text name="ParameterValueNotValid{0}{1}">参数{0}的值{1}不是有效值</text>
+		<text name="MachineAlarmInfo">设备报警信息</text>
+		<text name="BeAlarming">报警中</text>
+		<text name="LoadMore">加载更多</text>
+		<text name="ExportMachine">导出设备</text>
+		<text name="DeviceInfo">设备信息</text>
+		<text name="LastUpdateTime">最后修改时间</text>
+		<text name="CheckFileIsValid{0}">原因：{0}请检查文件类型或大小是否合法</text>
+		<text name="UploadFailure">上传失败</text>
+		<text name="BatchScheduling">批量排班</text>
+		<text name="StartAndEndTimeValidate">开始时间不能晚于结束时间</text>
+		<text name="SetMachineShift">设置设备班次信息</text>
+		<text name="NewShiftPlan">新增班次方案</text>
+		<text name="ShiftPlanName">方案名称</text>
+		<text name="ContinueConfirm">是否需要继续?</text>
+		<text name="DeleteMachineShiftsConfirm">你确定要解除选中设备当前关联的班次?</text>
+		<text name="EndTimeCannotSmallerThanStartTime">结束时间不能小于开始时间</text>
+		<text name="GoToSetShiftPlan">前往设置班次方案</text>
+		<text name="CleanShifts">清空排班</text>
+		<text name="MachineShiftInfo">设备班次信息</text>
+		<text name="RemoveRelationShift">清空排班</text>
+		<text name="CurrentMachineNotRelateAnyShift">当前设备未关联任何班次</text>
+		<text name="SettingShift">设置班次</text>
+		<text name="BelongToGroup">所属设备组</text>
+		<text name="CurrentShiftPlan">当前班次方案</text>
+		<text name="EntryIntoForceTime">生效时间</text>
+		<text name="FailureTime">失效时间</text>
+		<text name="DeleteAllShiftAfterToday">表格中设备将删除今天之后的所有排班记录</text>
+		<text name="ShiftHistoryInfo">设备班次历史信息</text>
+		<text name="ProgramCapacity">程序产量</text>
+		<text name="CurrentProgram">当前程序</text>
+		<text name="HasProduced">已生产</text>
+		<text name="Piece">件</text>
+		<text name="ObjectName">名称</text>
+		<text name="ObjectDesc">描述</text>
+		<text name="DeleteMachineTypeConfirm{0}">是否删除设备类型[{0}]</text>
+		<text name="DeleteAll">全部删除</text>
+		<text name="MongoExceptionMsg">Mongo同步异常信息</text>
+		<text name="JobName">作业名称</text>
+		<text name="DeleteAllSuccess">全部删除成功</text>
+		<text name="PlanCode">计划编号</text>
+		<text name="ResponsiblePerson">负责人员</text>
+		<text name="StartDate">开始日期</text>
+		<text name="EndDate">结束日期</text>
+		<text name="TimeInterval">时间间隔</text>
+		<text name="WorkOrderNumber">工单编号</text>
+		<text name="MaintenancePersonnel">保养人员</text>
+		<text name="PlanDate">计划日期</text>
+		<text name="MaintenanceTimeConsuming">保养耗时</text>
+		<text name="PleaseMaintenancePersonnel">请维修人员</text>
+		<text name="DocumentStatus">单据状态</text>
+		<text name="MaintenanceList">保养工单列表</text>
+		<text name="PlanMaintainDate">计划保养日期</text>
+		<text name="MaintainDuration">保养时长</text>
+		<text name="DurationDays">间隔日期</text>
+		<text name="PleaseSelectPerson">请选择人员</text>
+		<text name="MaintenancePlanList">保养计划列表</text>
+		<text name="NewMaintenancePlan">新建保养计划</text>
+		<text name="Deadline">截止时间</text>
+		<text name="IntervalTime">间隔时间</text>
+		<text name="WillDeletePlan{0}">将要删除计划{0}</text>
+		<text name="PendingMaintance">待维修</text>
+		<text name="InMaintenance">维修中</text>
+		<text name="Repaired">已维修</text>
+		<text name="Repair">维修</text>
+		<text name="RequestNo">维修单号</text>
+		<text name="IsItDowntime">是否停机</text>
+		<text name="Declarant">申报人</text>
+		<text name="ReportingTime">申报时间</text>
+		<text name="PlanFixDate">计划维修日期</text>
+		<text name="StartMaintenance">开始维修</text>
+		<text name="EndMaintenance">结束维修</text>
+		<text name="ApplicationNotes">申请备注</text>
+		<text name="MaintenanceStartTime">维修开始时间</text>
+		<text name="MaintenanceEndTime">维修结束时间</text>
+		<text name="MaintenanceTimeH">维修耗时(h)</text>
+		<text name="MaintenanceContent">维修内容</text>
+		<text name="ApplicationForMaintenance">申请维修</text>
+		<text name="MaintenanceApplicationList">维修申请列表</text>
+		<text name="WillDeleteOrder{0}">将要删除单号{0}</text>
+		<text name="SystemCacheAndLog">系统缓存及操作日志</text>
+		<text name="MessageNotificationRecord">消息通知记录</text>
+		<text name="NotificationMode">通知方式</text>
+		<text name="NotificationTime">通知时间</text>
+		<text name="MessageContent">消息内容</text>
+		<text name="RemainTimePerCount">剩余时间(分钟)/次数</text>
+		<text name="TimeMinutes">时间(分钟)</text>
+		<text name="ChooseSolution">选择方案</text>
+		<text name="NotificationOfficer">通知人员</text>
+		<text name="PleaseInputTheField">请填写该字段</text>
+		<text name="PleaseEnterAPositiveNumber">请输入正数字</text>
+		<text name="PleaseEnterIntegersGreaterThanZero">请输入大于0的整数</text>
+		<text name="TriggerTimeShouldNotBeLessThanZero">触发时间不能小于0</text>
+		<text name="RuleName">规则名称</text>
+		<text name="MessageNotificationMaintenance">消息通知维护</text>
+		<text name="MessageNotificationRules">消息通知规则</text>
+		<text name="NewMessageRules">新增消息规则</text>
+		<text name="ViewTheRules">选定一项消息类型后查看所属的规则</text>
+		<text name="DeleteNotificationTypesConfirmTip">你确定要删除吗？将会删除该类型下所有的通知规则!</text>
+		<text name="PleaseSelectMessageType">请选择消息类型！</text>
+		<text name="DeleteMessageRulesConfirm{0}">你确定要删除触发条件为[{0}]的规则吗?</text>
+		<text name="TriggerCondition">触发条件</text>
+		<text name="BatchSwitch">批量开关</text>
+		<text name="EmptyDataTable">表中数据为空</text>
+
+		<text name="OptionalField">选择字段</text>
+		<text name="OptionalResult">选择结果</text>
+
+		<!--包装页面-->
+
+		<text name="Carton">包装打印</text>
+		<text name="CartonSetting">包装设定</text>
+
+		<!--包装追溯页面字段-->
+		<text name="CartonTraceability">包装追溯</text>
+		<text name="PackagingDetails">工件包装明细查询</text>
+		<text name="DeviceGroup">设备组</text>
+		<text name="CartonNo">箱码</text>
+		<text name="PackingInfo">装箱清单</text>
+		<text name="MaxPackingCount">最大包装数</text>
+		<text name="RealPackingCount">实际包装数</text>
+		<text name="LabelPrintCount">打印标签次数</text>
+		<text name="PartNoInCarton">已装箱工件</text>
+		<text name="AllPartNoInCarton">进出箱工件记录</text>
+		<text name="UndoCarton">拆箱重装</text>
+		<text name="PackingShiftDay">装箱日期</text>
+		<text name="Packing">进箱</text>
+		<text name="UndoPacking">出箱</text>
+		<text name ="Setting">设定</text>
+
+		<text name="UndefinedDeviceGroup">还未定义设备组</text>
+		<text name="PrintLabelOrNot">是否打印标签</text>
+		<text name="DefaultPrinter">默认打印机</text>
+		<text name="AutoCartonNo">自动生成箱码</text>
+		<text name="CartonRule">箱码规则</text>
+		<text name="PackingCheckItem">进箱检查项</text>
+		<text name ="IsGoodOnly">仅合格件</text>
+		<text name ="ForbidHopSequence">禁止跳序</text>
+		<text name ="ForbidRepeatPacking">禁止重复装箱</text>
+		<text name ="TunkfulAutoPrint">满箱自动打印</text>
+		<text name ="UnpackingRedo">拆箱重装</text>
+		<text name ="UnpackingAfterPrint">打印后拆箱</text>
+		<text name ="HasToFlow">必须经过流程</text>
+		<text name ="IsFinalInspection">人工终检</text>
+		<text name ="NoPrinter">本机环境下未检索到打印机</text>
+		<text name ="NoCartonRule">没有对应的箱码规则</text>
+		<text name ="NoTraceFlow">还未创建追溯流程</text>
+		<text name ="KeyOkMaxPackingCount">请输入有效的最大装箱数量</text>
+		<text name ="PleaseChosePrinter">请选择打印机</text>
+		<text name ="PleaseChoseCartonRule">请选择箱码规则</text>
+		<text name ="PleaseChoseFlow">请选择必经流程</text>
+
+		<!--包装打印页面-->
+		<text name="CartonPrinting">包装打印</text>
+		<text name="Restoration">复位</text>
+		<text name="CartonList">装箱列表</text>
+		<text name="PackingSetting">装箱设置</text>
+		<text name="FinalInspectionResults">终检结果</text>
+		<text name="PartScanning">工件扫描</text>
+		<text name="Printer">打印机</text>
+		<text name="Print">打印</text>
+		<text name="PackingMaximum">最大装箱数量</text>
+		<text name="PackedQuantity">已装箱数量</text>
+		<text name="PrintedLabel">已打印标签</text>
+		<text name="Zhang">张</text>
+		<text name="CantFindPart">未查询到该工件</text>
+		<text name="CantFindFirstDeviceGroupClass">未查询到该工件所属一级设备组</text>
+		<text name="CantFindPartCartonSetting">未查询到该工件所属一级设备组【{0}】的装箱设定</text>
+		<text name="UnqualifiedCantCarton">非合格工件禁止装箱</text>
+		<text name="HopSequenceCantCarton">跳序工件禁止装箱</text>
+		<text name="CantRepeatPacking">禁止重复装箱</text>
+		<text name="HasToFlowCantCarton">该工件未经过必须经过流程，禁止装箱</text>
+		<text name="SeriesNumUseEnd">长度为{0}的流水码已用完</text>
+
+		<text name="ShiftDay">班次日</text>
+		<text name="CartonTime">装箱时间</text>
+		<text name="CartonNoSmallInfo">输入包装箱码回车后可进箱继续打包</text>
+		<text name="CartonSuccess">装箱成功</text>
+		<text name="ConfirmSwitchCurrentCartonSetting">该工件所属设备组装箱规则与当前规则不一致，点击确定更换规则并重新装箱，点击取消重新选择工件</text>
+		<text name="ConfirmSwitchCurrentCartonSettingTitle">规则切换确认</text>
+		<text name="CantFindCarton">未找到该包装箱</text>
+		<text name="PleaseSetCarton">当前规则不会自动生成箱码，请手动输入箱码后再提交</text>
+		<text name="UpdateMaxCountError">最大打包数量不得小于实际打包数量</text>
+		<text name="ConfirmAutoPrintCarton">箱已装满，请确认是否打印标签，点击是打印标签，点击取消返回页面</text>
+		<text name="ConfirmAutoPrintCartonTitle">打印标签确认</text>
+		<text name="ConfirmFullCartonContinue">该箱已装满，请确认是否包装新箱子，点击是生成新箱继续打包，点击取消返回页面</text>
+		<text name="ConfirmFullCartonContinueTitle">换箱确认</text>
+		<text name="CantUpdateMaxCount">当前状态无法修改最大数量</text>
+		<text name="CantPrint">当前状态无法打印</text>
+		<text name="FinalSpcNgOffline">该工件成功不合格下线</text>
+		<text name="FinalSpcOkOffline">该工件成功合格下线</text>
+		<text name="CantFindFinalSpcFlow">未找到终检下线流程，无法终检</text>
+		<text name="CantFindFinalSpcFlowRelatedMachine">未找到终检设备，无法终检</text>
+		<text name="PrintSuccess">打印成功</text>
+		<text name="CantFindSelectPrinter">在你可使用的打印机列表中，未能发现设置可连接的打印机:{0}</text>
+		<text name="CantFindAnyPrinter">当前不存在打印机设备进行调用，请先配置打印机</text>
+		<text name="FullCartonCantPutIn">箱子{0}已装满，无法装箱</text>
+		<text name="PartNoCantBeNull">工件编号不得为空</text>
+		<text name="NoShiftItems">请维护班次方案</text>
+
+		<text name="CartonRules">箱号规则</text>
+		<text name="CartonRulesSetting">箱号规则设定</text>
+		<text name="NewCartonRules">新增规则</text>
+		<text name="NewCartonRulesDetail">新增规则明细</text>
+		<text name="DuplicateCartonRuleName">箱号规则名称不允许重复</text>
+		<text name="CartonRulesList">箱号规则列表</text>
+		<text name="CartonRulesDetail">箱号规则明细</text>
+		<text name="CartonNoLength">箱号长度</text>
+		<text name="DeleteCartonRulesConfirm{0}">你确定要删除规则[{0}]吗？</text>
+		<text name="Length">长度</text>
+		<text name="Remark">备注</text>
+		<text name="SequenceNo">顺序</text>
+		<text name="SpecialNumber">特殊码</text>
+		<text name="DowloadTemplate">模板下载</text>
+		<text name="Import">导入</text>
+		<text name="RemainderTable">余数对照表</text>
+		<text name="Remainder">余数</text>
+		<text name="RelevantChar">检查符对应字符</text>
+		<text name="Divisor">除数</text>
+		<text name="EndIndex">结束位</text>
+		<text name="StartIndex">开始位</text>
+		<text name="CalibratorCode">校验码</text>
+		<text name="ResetDayly">每日归零</text>
+		<text name="SerialNum">流水号</text>
+		<text name="FixedString">固定字符串</text>
+		<text name="Ascii">Ascii码</text>
+		<text name="Add">添加</text>
+		<text name="IsActive">是否启用</text>
+		<text name="NaturalDay">自然天</text>
+		<text name="DayOfYear">全年第几天</text>
+		<text name="Preview">预览</text>
+		<text name="SpecialCode">特殊码</text>
+		<text name="Quarter">季度</text>
+		<text name="Line">产线</text>
+		<text name="RuleIsInUsing">当前规则正在使用，不允许禁用或删除</text>
+		<text name="Examine">查看</text>
+		<text name="DeleteRulesDetailConfirm">删除该条规则明细</text>
+		<text name="DuplicateSequenceNo{0}">顺序为【{0}】不允许重复</text>
+		<text name="ShiftNotMatch">工件的班次与规则不匹配</text>
+		<text name="ImportSuccessfully">导入成功</text>
+		<text name="StartIndexGreaterEndIndex">开始位不得大于结束位</text>
+		<text name="SureRemainderExcelCorrect">导入Excel格式不符合模板格式</text>
+		<text name="CartonRulesSequenceNoSame">批量新增顺序不能相同</text>
+		
+		<!-- 工艺管理 -->
+		<text name="CraftMaintain">工艺管理</text>
+		<text name="FmsCutterManage">刀具管理</text>
+
+
+		<!-- 夹具 -->
+		<text name="TongsMaintain">夹具维护</text>
+		<text name="TongsMaintainManage">夹具维护管理</text>
+		<text name="TongCode">夹具编号</text>
+		<text name="TongName">夹具名称</text>
+		<text name="TongCapacity">夹具容量</text>
+		<text name="ProgramName">程序名称</text>
+		<text name="WhetherToDeleteTong">是否删除该夹具</text>
+		<text name="TongCodeMustBeUnique">夹具编号必须唯一</text>
+		<text name="TongNameMustBeUnique">夹具名称必须唯一</text>
+
+		<!-- 工艺路径 -->
+		<text name="FlexibleProduct">产品</text>
+		<text name="FlexibleCraftPath">工艺路径</text>
+		<text name="FlexibleCraftPathManage">工艺路径管理</text>
+		<text name="FlexibleCraft">工艺</text>
+		<text name="FlexibleCraftProcesse">工序</text>
+		<text name="FlexibleCraftProcedureCutter">刀具</text>
+		<text name="Sequence">顺序</text>
+		<text name="Programes">程序号</text>
+		<text name="Program">程序号</text>
+		<text name="TypeProgram">面程序名称</text>
+
+		<!-- 刀具管理 -->
+		<text name="FmsCutter">刀具管理</text>
+		<text name="CutterStockNo">刀库编号</text>
+		<text name="CutterCase">刀套编号</text>
+		<text name="Diameter">直径</text>CutterCase
+		<text name="CompensateNo">补偿号</text>
+		<text name="LengthCompensate">长度补偿</text>
+		<text name="DiameterCompensate">直径补偿</text>
+		<text name="CurrentLife">当前寿命</text>
+		<text name="UseType">使用类型</text>
+		<text name="CountType">计数类型</text>
+		<text name="Degree">次数</text>
+		<text name="UseLength">切削长度</text>
+		<text name="DisplayType">显示类型</text>
+		<text name="SingleLineTextBox">文本框</text>
+		<text name="SingleDropList">下拉框</text>
+		<text name="CheckBox">复选框</text>
+		<text name="Radio">单选按钮</text>
+		<text name="DefaultValues">预设值</text>
+		<text name="Unactivated">未激活</text>
+		<text name="Disabled">异常禁用</text>
+		<text name="Unused">未使用</text>
+
+		<text name="FeedbackCalendar">反馈频率</text>
+		<text name="FeedbackCalendarManage">反馈频率管理</text>
+		<text name="PleaseMaintainTheFeedbackState">请维护反馈原因</text>
+		<text name="Cron">执行计划表达式</text>
+		<text name="LastJobState">最近执行状态</text>
+		<text name="LastExecution">最近执行时间</text>
+		<text name="NextExecution">下次执行时间</text>
+		<text name="JobException">异常信息</text>
+		<text name="WhetherToDeleteFeedbackCalendar">删除该条规则</text>
+
+
+		<text name="Top10">前10个</text>
+
+		<text name="Archives">数据归档</text>
+		<text name="ArchiveEntry">数据归档记录</text>
+
+		<text name="DmpList">DMP实例列表</text>
+		<text name="DmpMachineSetting">采集实例</text>
+		<text name="DmpMachineSettingManage">采集实例管理</text>
+		<text name="DmpsNotYetDefined">Dmp实例尚未定义</text>
+		<text name="LookMachinesInDmp">选定一个DMP实例后查看实例内设备</text>
+		<text name="RemoveMachineOutOfDmp{0}{1}">你确定将设备{0}从DMP实例{1}移出吗</text>
+		<text name="MachinesHasBeenInOtherDmp{0}">以下设备已存在于其他DMP实例，无法添加！【{0}】</text>
+		<text name="BatchDelete">批量删除</text>
+
+		<text name="PageSetting">页面设置</text>
+		<text name="PageSize">每页条数</text>
+		<text name="PageSizeOptions">输入每页条数选项，用英文逗号隔开，第一个为默认选中的每页条数</text>
+		<text name="PageSizeOptions{0}WrongFormat">每页条数配置{0}格式错误！</text>
+		<text name="QueryDataIsTooLarge">当前操作需要等待时间长</text>
+		<text name="DmpMachineSetting_Manage">采集实例管理</text>
+	</texts>
+</localizationDictionary>

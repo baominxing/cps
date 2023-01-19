@@ -1,0 +1,141 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Carton_CartonRules;
+}
+
+<link href="~/view-resources/Views/Traceability/Query/Index.css" />
+
+<script src="~/Scripts/barcode/jquery-barcode.js"></script>
+<script type="text/javascript" src="~/Scripts/vue.js"></script>
+<script src="~/view-resources/Views/Carton/CartonRules/Index.js"></script>
+
+<style>
+    .fliterWrap {
+        padding: 10px;
+        overflow: hidden;
+        background: #fff;
+        margin-bottom: 10px;
+    }
+
+        .fliterWrap .form-group {
+            min-width: 200px;
+            margin: 0 10px;
+        }
+
+    .proInfo {
+        padding: 10px;
+        overflow: hidden;
+    }
+
+        .proInfo > div {
+            margin: 10px 0;
+        }
+
+    .infoList {
+        padding: 10px;
+    }
+
+    [v-cloak] {
+        display: none;
+    }
+
+    .selected {
+        background-color: #a8e4ff;
+    }
+
+    .t {
+        padding-right: 10px;
+    }
+
+    .sub-tt {
+        font-weight: bold;
+        width: 60px;
+        display: inline-block;
+        text-align: right;
+    }
+
+    .refresh-btn {
+        padding: 0px 5px;
+    }
+
+    .popover-content {
+        padding: 5px 14px;
+    }
+
+    div.popover-content > div > div:nth-child(70) {
+        margin-bottom: 5px;
+    }
+
+    .popover {
+        max-width: 1200px;
+    }
+</style>
+
+<section class="content-header">
+    <h1>
+        @L("CartonRules")<small>@L("CartonRulesSetting")</small>
+    </h1>
+</section>
+<section class="content" id="traceCatalogQuery">
+
+    <div class="">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            <i class="fa fa-object-group"></i>@L("CartonRulesList")
+                        </h3>
+                        <div class="pull-right box-tools">
+                            <a id="btnCreateRule" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("NewCartonRules")
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <table id="ruleTable" class="table table-bordered table-hover" style="width: 100%"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            <i class="fa fa-object-group"></i> @L("CartonRulesDetail")
+                        </h3>
+                        <div class="pull-right box-tools">
+                            <a id="btnCreateRuleDetail" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("NewCartonRulesDetail")
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="proInfo" v-cloak>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <span class="sub-tt">@L("CartonNoLength")：</span>{{cartonNoLength}}
+                                </div>
+                                <div class="col-md-2">
+                                    <a id="preview" class="pull-left">
+
+                                        @L("Preview")
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infoList" v-cloak style="overflow-x: auto">
+                            <table id="ruleDetailTable" class="table table-bordered table-hover" style="width: 100%;"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+

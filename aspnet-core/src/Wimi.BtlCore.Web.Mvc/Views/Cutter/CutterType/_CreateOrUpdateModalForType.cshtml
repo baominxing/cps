@@ -1,0 +1,36 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Cutter.CutterType.CutterTypeModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("NewlyBuild")))
+
+<div class="modal-body">
+
+    <form name="createOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("TypeName")</label>
+            <input class="form-control name" type="text" name="Name" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength"
+                   value="@(Model.IsEditMode ? Model.Name : string.Empty)">
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("ToolPrefixNumber")</label>
+            <input class="form-control cutterNoPrefix" type="text" name="CutterNoPrefix" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength"
+                   value="@(Model.IsEditMode ? Model.CutterNoPrefix : string.Empty)">
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("IsThePrefixEditable")</label>
+            <select class="form-control isCutterNoPrefixCanEdit" type="text" name="IsCutterNoPrefixCanEdit" id="IsCutterNoPrefixCanEdit" required>
+                <option value="false" selected>@L("No")</option>
+                <option value="true">@L("Yes")</option>
+            </select>
+        </div>
+
+        <input type="hidden" id="IsEditMode" value="@Model.IsEditMode" />
+        <input type="hidden" id="PId" value="@Model.PId" />
+        <input type="hidden" id="SelectedIsCutterNoPrefixCanEdit" value="@Model.IsCutterNoPrefixCanEdit.ToString().ToLower()" />
+        <input type="hidden" id="Id" value="@Model.Id" />
+        <input type="hidden" id="CreationTime" value="@Model.CreationTime" />
+        <input type="hidden" id="CreatorUserId" value="@Model.CreatorUserId" />
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

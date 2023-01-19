@@ -1,0 +1,208 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.StatisticAnalysis.YieldAnalysisStatistics.YieldAnalysisStatisticsViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.StatisticAnalysis_YieldAnalysisStatistics;
+}
+@section Styles
+{
+    <link rel="stylesheet" href="~/Scripts/scrollTabs/scrolltabs.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Scripts/layer/skin/default/layer.css" asp-append-version="true" />
+
+    <style>
+        .td-popover {
+            cursor: pointer;
+        }
+
+        .popover-content {
+            padding: 5px !important;
+        }
+
+        #statusDetail {
+            position: absolute;
+            top: 20px;
+            color: black !important;
+        }
+
+            #statusDetail > li {
+                float: right;
+                margin-right: 15px;
+                z-index: 10000;
+            }
+
+        div.d3-tooltip {
+            position: absolute;
+            width: 400px;
+            font-family: "Muli", "Helvetica", Arial, sans-serif;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 10px;
+            padding-left: 0;
+            padding-top: 0;
+            pointer-events: none;
+            line-height: 12px;
+            display: block;
+            padding-bottom: 1px;
+            background-color: white;
+            z-index: 999999;
+        }
+
+            div.d3-tooltip .glyphicon {
+                top: 0;
+            }
+
+            div.d3-tooltip.left {
+                text-align: left;
+                border-left: 1px solid;
+            }
+
+            div.d3-tooltip.right {
+                text-align: right;
+                border-right: 1px solid;
+            }
+
+        .axis path,
+        .axis line {
+            display: none;
+        }
+
+        .axis text {
+            font-size: 12px;
+            font-family: "Muli", "Helvetica", Arial, sans-serif;
+            -moz-osx-font-smoothing: grayscale;
+            fill: #333;
+        }
+
+        .td-align-left {
+            text-align: left !important;
+        }
+    </style>
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+    <script src="~/Scripts/echarts.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.mousewheel.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.scrolltabs.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/StatisticAnalysis/YieldAnalysisStatistics/Index.js" asp-append-version="true"></script>
+    <script src="~/Scripts/layer/layer.js" asp-append-version="true"></script>
+    <script src="~/Scripts/d3.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/state-gantt-chart.js" asp-append-version="true"></script>
+}
+
+<section class="content-header">
+    <h1>
+        @L("ComprehensiveStatistics")
+        <small>
+            <ul id="statusDetail" style="list-style: none; color: #FFFFFF;">
+                @foreach (var item in Model.StateInfoList)
+                {
+                    <li>
+                        <label style="background-color: @item.Hexcode; width: 30px; height: 15px;"></label>
+                        <span style="font-size: 12px; position: relative; top: -8px;">
+                            @(item.IsStatic ? L(item.Code) : item.Code)
+                        </span>
+                    </li>
+                }
+            </ul>
+        </small>
+    </h1>
+    <div class="header-tools pull-right">
+        <button class="btn btn-primary " id="CompareMachineYiledInfo">@L("EquipmentComparison")</button>
+        <button class="btn btn-primary " id="SelectQueryConditions">@L("Research")</button>
+    </div>
+</section>
+
+<section class="content">
+    <div class="box box-solid">
+        <div class="box-body">
+            <div id="tabsDate" class="scroll_tabs_theme_light col-md-12">
+
+            </div>
+
+            <div id="customTable" class="col-md-12"></div>
+        </div>
+    </div>
+</section>
+
+
+@*scrollTab模板*@
+<script id="tab-date-template" type="text/x-handlebars-template">
+    {{#each dates}}
+    {{#if @@first}}
+    <span class="tab_selected">{{this}}</span>
+    {{else}}
+    <span>{{this}}</span>
+    {{/if}}
+    {{/each}}
+</script>
+
+@*自定义表格模板*@
+<script id="custom-table-template" type="text/x-handlebars-template">
+    <table class="table table-hover table-bordered table_width_100 text-center">
+        <tbody>
+            <tr>
+                <th style="width:150px">@L("MachineName")</th>
+                <th style="width:100px">@L("DeviceGroups")</th>
+                <th style="width:60px">@L("Yield")</th>
+                <th style="width:90px">@L("UtilizationRateOfEquipment")</th>
+                <th><div id="time-line"></div></th>
+                <th style="width:60px">@L("Detailed")</th>
+            </tr>
+            {{#each this}}
+            <tr>
+                <td class="td-align-left">
+                    <div class="checkbox no-margin">
+                        <label>
+                            <input type="checkbox" value="{{machineId}}" />
+                            {{machineName}}
+                        </label>
+                    </div>
+                </td>
+                <td class="groupName">{{machineGroupName}}</td>
+                <td class="td-popover" data-type="yield">{{yield}}</td>
+                <td class="td-popover" data-type="utilizationRate">{{utilizationRate}}%  {{addTableClass utilizationTendency}} </td>
+                <td colspan="1"><div class="td-gantt-chart" data-key="{{machineId}}"></div></td>
+                <td><button class="btn btn-xs btn-search" data-machineid="{{machineId}}"><i class="fa fa-search" aria-hidden="true"></i></button></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</script>
+
+@*产量弹出层模板*@
+<script id="td-yield-popover-template" type="text/x-handlebars-template">
+    <table class="table table-hover table-bordered table_width_100">
+        <tbody>
+            <tr>
+                <th>@L("ProgramNumber")</th>
+                <th>@L("Amount")</th>
+                <th>@L("AverageBeatTime")</th>
+            </tr>
+            {{#each this}}
+            <tr>
+                <td>{{programName}}</td>
+                <td>{{yield}}</td>
+                <td>{{avgDuration}} {{#if avgDuration}}s{{/if}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</script>
+
+@*利用率弹出层模板*@
+<script id="td-utilizationRate-popover-template" type="text/x-handlebars-template">
+    <table class="table table-bordered table_width_100">
+        <tbody>
+            <tr>
+                <th>@L("Today")</th>
+                <th>@L("Last7Days")</th>
+                <th>@L("Last30Days")</th>
+            </tr>
+            <tr>
+                {{#each this}}
+                <td>{{Data}} {{#if Data}}%{{/if}}</td>
+                {{/each}}
+            </tr>
+        </tbody>
+    </table>
+</script>

@@ -1,0 +1,117 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@using Wimi.BtlCore.Authorization
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.BasicData_DeviceGroup;
+}
+@section Styles
+{
+    <link rel="stylesheet" href="~/view-resources/Views/BasicData//DeviceGroups/Index.css" asp-append-version="true" />
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/BasicData//DeviceGroups/Index.js" asp-append-version="true"></script>
+}
+<section class="content-header">
+
+    <h1>
+
+        @L("DeviceGroups") <small>@L("OrganizationEquipment")</small>
+
+    </h1>
+
+</section>
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-lg-4">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-sitemap"></i> @L("DeviceGroups")
+
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_BasicData_DeviceGroups_ManageDeviceTree))
+                        {
+                            <a id="AddRootUnitButton" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("AdditionalLevelIGroup")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+                <div class="box-body">
+
+                    <div id="OrganizationUnitEditTree"></div>
+
+                    <div id="OrganizationUnitTreeEmptyInfo" class="text-muted">
+
+                        @L("DeviceGroupNotYetDefined")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-8">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-object-group"></i> @L("Machines")
+
+                        <span id="SelectedOuRightTitle"></span>
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_BasicData_DeviceGroups_ManageMembers))
+                        {
+                            <a id="AddUserToOuButton" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("MachineSetting_Create")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+
+                <div class="box-body">
+
+                    <table id="OuMembersTable" class="table table-bordered table-hover table-striped"></table>
+
+                    <div id="OuMembersEmptyInfo" class="text-muted">
+
+                        @L("LookMachinesInGroup")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

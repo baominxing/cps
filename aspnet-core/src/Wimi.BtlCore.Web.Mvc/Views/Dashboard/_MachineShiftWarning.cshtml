@@ -1,0 +1,10 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("ReminderOfEquipmentSchedulesDue")))
+<div class="modal-body">
+    <form name="ShiftWarningForm" role="form" novalidate class="form-validation form-horizontal">
+        <table id="shiftWarning" class="table table-bordered table_width_100"></table>
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithCancel.cshtml")

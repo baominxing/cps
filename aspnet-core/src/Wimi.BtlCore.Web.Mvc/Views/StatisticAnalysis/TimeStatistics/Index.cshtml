@@ -1,0 +1,140 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.StatisticAnalysis.EfficiencyTrend.EfficiencyTrendsViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.StatisticAnalysis_TimeStatistics;
+}
+
+@section Scripts
+{
+    <link href="~/Scripts/scrollTabs/scrolltabs.css" rel="stylesheet" />
+
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+    <script src="~/Scripts/echarts.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.mousewheel.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.scrolltabs.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/StatisticAnalysis/TimeStatistics/Index.js" asp-append-version="true"></script>
+}
+
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+</style>
+
+<!-- #region Content Header (Page header) -->
+
+<section class="content-header">
+
+    <h1>
+
+        @L("TimeStatistics")<small></small>
+
+    </h1>
+
+    <div class="header-tools">
+        <button type="button" id="btnExport" class="btn btn-primary pull-right xs-mh-10"><i class="fa fa-file-excel-o"></i> @L("Export")</button>
+        <button id="btnQuery" class="btn btn-primary blue">
+            <i class="fa fa-pencil-square-o"></i> @L("Research")
+        </button>
+    </div>
+
+</section>
+
+<!-- #endregion -->
+
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-md-12 col-xs-12">
+
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <span class="col-md-7 pull-right">
+                        <b id="searchFilter" class="text-primary pull-left"></b>
+                        <label class="checkbox-inline pull-right"><input type="checkbox" id="showValue" checked />@L("ShowPillarValue")</label>
+                        <label class="checkbox-inline pull-right" style="margin-right:20px"><input type="checkbox" id="showName" />@L("ShowPillarName")</label>
+                    </span>
+
+                </div>
+                <div class="box-body">
+
+
+                    <div class="" id="tab_1-1">
+
+                        <ul class="col-md-12 text-right">
+
+                            <li class="fa fa-stop" style="color: #1d89cf !important">
+                                <h5 class="box-title">
+                                    <small>@L("Debug")</small>
+                                </h5>
+                            </li>
+
+                            <li class="fa fa-stop" style="color: #c4c4c4 !important">
+                                <h5 class="box-title">
+                                    <small>@L("Offline")</small>
+                                </h5>
+                            </li>
+
+                            <li class="fa fa-stop" style="color: #f2a332 !important">
+                                <h5 class="box-title">
+                                    <small>@L("Free")</small>
+                                </h5>
+                            </li>
+
+                            <li class="fa fa-stop" style="color: #4cae4c !important">
+                                <h5 class="box-title">
+                                    <small>@L("Run")</small>
+                                </h5>
+                            </li>
+
+                            <li class="fa fa-stop" style="color: #d43a36 !important">
+                                <h5 class="box-title">
+                                    <small>@L("Alarm")</small>
+                                </h5>
+                            </li>
+
+                        </ul>
+
+                        <div id="TimeStatisticChart" style="height: 350px"></div>
+                    </div>
+
+                    <div class="" id="tab_2-2" style="margin-top:50px">
+
+                        <div>
+
+                            <table id="timeStatisticsTable" class="table table-bordered table-striped table-hover" style="width: 100%"></table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<script id="chart-template" type="text/x-handlebars-template">
+    <div id="tabData" class="scroll_tabs_theme_light">
+    </div>
+    <div style="width: 100%;" id="visavail_container">
+        <div id="TimeStatisticShiftChart" style="height: 350px">
+        </div>
+    </div>
+</script>
+
+<script id="tab-data-template" type="text/x-handlebars-template">
+    {{#each datas}}
+    {{#if @@first}}
+    <span class="tab_selected">{{this.machineShiftSolutionName}}</span>
+    {{else}}
+    <span>{{this.machineShiftSolutionName}}</span>
+    {{/if}}
+    {{/each}}
+</script>

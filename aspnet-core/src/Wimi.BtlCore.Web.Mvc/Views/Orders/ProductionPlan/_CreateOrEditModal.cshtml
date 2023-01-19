@@ -1,0 +1,149 @@
+﻿@model Wimi.BtlCore.Web.Models.Users.CreateOrEditUserModalViewModel
+
+<div>
+    <form name="ProductionPlanForm" role="form" novalidate
+          id="app-productionPlanForm"
+          class="form-validation">
+        
+       
+        <!-- 是不是可以 使用vue.js 的组件方式？ -->
+        <div class="modal-header">
+
+            <button type="button" class="close"
+                    data-dismiss="modal" aria-hidden="true">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+            <h4 class="modal-title">
+                <span v-if="vm.id!=null" >@L("Editor")</span>
+                <span v-if="vm.id==null">@L("Create")</span>
+            </h4>
+        </div>
+
+        <div class="modal-body row">
+
+            <div class="form-group col-md-6">
+                <label>@L("ProductionPlanCode")</label>
+                <input class="form-control"
+                       v-model="vm.code"
+                       type="text"
+                       name="Code"
+                       readonly="readonly">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>@L("OrderCode")</label>
+                <input class="form-control"
+                       v-model="vm.orderCode"
+                       type="text"
+                       name="OrderCode">
+            </div>
+
+
+
+            <div class="form-group col-md-12">
+                <label>@L("EstimatedTimeRange")</label>
+
+                <wimi-daterangepick v-on:change="dateRangeVm.dateRangeChange"
+                                    v-bind:start="dateRangeVm.start"
+                                    v-bind:end="dateRangeVm.end">
+
+                </wimi-daterangepick>
+
+            </div>
+
+            <div class="form-group col-md-6">
+
+                <label>@L("ProductName")</label>
+
+                <wimi-select2 v-bind:datas="productListVm.datas"
+                              v-bind:enable="vm.id==null"
+                              v-on:change="productListVm.selectChanged"
+                              v-model="productListVm.selected"
+                              required
+                              name="productId">
+
+                </wimi-select2>
+
+            </div>
+            <div class="form-group col-md-6">
+                <label>@L("CraftName")</label>
+
+                <wimi-select2 class="form-control"
+                              v-bind:datas="carftListVm.datas"
+                              v-bind:enable="vm.id==null"
+                              v-on:change="carftListVm.selectChanged"
+                              v-model="carftListVm.selected"
+                              name="carftId"
+                              required>
+                </wimi-select2>
+            </div>
+
+
+
+            <div class="form-group col-md-6">
+                <label>@L("PutVolume")</label>
+                <input class="form-control"
+                       v-model="vm.putVolume"
+                       type="number"
+                       name="PutVolume"
+                       min="1"
+                       required>
+            </div>
+            <div class="form-group col-md-6">
+                <label>@L("TargetQuantity")</label>
+                <input class="form-control"
+                       v-model="vm.aimVolume"
+                       type="number"
+                       name="AimVolume"
+                       min="1"
+                       required>
+            </div>
+
+
+
+            <div class="form-group col-md-6">
+
+                <label>@L("Unit")</label>
+                <input class="form-control"
+                       v-model="vm.unit"
+                       type="text"
+                       name="Unit">
+            </div>
+            <div class="form-group col-md-6">
+                <label>@L("TenancyName")</label>
+                <input class="form-control"
+                       v-model="vm.clientName"
+                       type="text"
+                       name="ClientName">
+            </div>
+
+
+            <div class="form-group col-md-12">
+                <label>@L("Note")</label>
+                <textarea class="form-control"
+                          v-model="vm.memo"
+                          type="text"
+                          name="Memo"
+                          rows="3">
+                    
+            
+                </textarea>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button type="button"
+                    class="btn btn-primary close-button"
+                    data-dismiss="modal">
+                @L("Cancel")
+            </button>
+            <button type="button" class="btn btn-primary blue save-button">
+                <i class="fa fa-save"></i> <span>@L("Save")</span>
+            </button>
+        </div>
+
+    </form>
+</div>

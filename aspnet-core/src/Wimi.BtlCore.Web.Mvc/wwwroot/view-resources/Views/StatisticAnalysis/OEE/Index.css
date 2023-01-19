@@ -1,0 +1,56 @@
+﻿  .td-popover { cursor: pointer; }
+
+  .popover-content { padding: 5px !important; }
+
+  #statusDetail {
+      position: absolute;
+      top: 20px;
+      color: black !important;
+  }
+
+  #statusDetail > li {
+      float: right;
+      margin-right: 15px;
+      z-index: 10000;
+  }
+
+  div.d3-tooltip {
+      position: absolute;
+      width: 200px;
+      font-family: "Muli", "Helvetica", Arial, sans-serif;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 10px;
+      padding-left: 0;
+      padding-top: 0;
+      pointer-events: none;
+      line-height: 12px;
+      display: block;
+      padding-bottom: 1px;
+      background-color: white;
+      z-index: 999999;
+  }
+
+  div.d3-tooltip .glyphicon { top: 0; }
+
+  div.d3-tooltip.left {
+      text-align: left;
+      border-left: 1px solid;
+  }
+
+  div.d3-tooltip.right {
+      text-align: right;
+      border-right: 1px solid;
+  }
+
+  .axis path,
+  .axis line { display: none; }
+
+  .axis text {
+      font-size: 12px;
+      font-family: "Muli", "Helvetica", Arial, sans-serif;
+      -moz-osx-font-smoothing: grayscale;
+      fill: #333;
+  }
+
+  .td-align-left { text-align: left !important; }body {
+}

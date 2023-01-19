@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AssemblyName>Wimi.BtlCore.Migrator</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>Wimi.BtlCore.Migrator</PackageId>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="appsettings.json;log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Abp.Castle.Log4Net" Version="8.0.0" />
+    <PackageReference Include="AgileConfig.Client" Version="1.6.11" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wimi.BtlCore.Core\Wimi.BtlCore.Core.csproj" />
+    <ProjectReference Include="..\Wimi.BtlCore.EntityFrameworkCore\Wimi.BtlCore.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+</Project>

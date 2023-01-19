@@ -1,0 +1,53 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.StatisticAnalysis.EfficiencyTrend.EfficiencyTrendsViewModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("SearchSetting")))
+
+<script src="~/view-resources/Views/Common/_MachinesTree.js"></script>
+<script src="~/Scripts/layer/layer.js"></script>
+<div class="modal-body">
+    <form name="EfficiencyTrendsFilterForm" role="form" novalidate class="form-validation">
+
+        <div class="input-group xs-pv-10 xs-ph-5 col-xs-12">
+
+            <span class="input-group-addon no-border"><b class="text-primary">@L("WatchType")</b></span>
+            <select class="form-control input-sm" id="groupType">
+                @*<option value="0">故障率</option>*@
+                <option value="2">@L("CropMobility")</option>
+                <option value="1">@L("OperatingRate")</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group xs-mb-15 xs-ph-5 col-xs-12">
+
+            <span class="input-group-addon no-border"><b class="text-primary">@L("StatisticalMethod")</b></span>
+            <select class="form-control input-sm" id="statisticalWay">
+                <option value="ByShift">@L("ByShift")</option>
+                <option value="ByDay" selected="selected">@L("ByDay")</option>
+                <option value="ByWeek">@L("ByWeek")</option>
+                <option value="ByMonth">@L("ByMonth")</option>
+                @*<option value="ByYear">@L("ByYear")</option>*@
+            </select>
+
+        </div>
+
+        <div class="input-group xs-mb-15 xs-ph-5 col-xs-12">
+
+            <span class="input-group-addon no-border"><b class="text-primary">@L("DateRange")</b></span>
+            <input type="text" data-type="calendar" class="form-control input-sm" id="daterange-btn" />
+        </div>
+
+
+        <div class="input-group xs-ph-5 xs-pv-10  col-xs-12">
+
+            @await Html.PartialAsync("~/Views/Common/_GrantedDeviceGroupAndMachinesTree.cshtml", Model)
+        </div>
+
+        <div class="input-group xs-pv-5 xs-ph-5 col-xs-12 input-shift" style="display: none">
+            <span class="input-group-addon no-border"><b class="text-primary">@L("ChooseShift")</b></span>
+            <select class="form-control checkbox-shift" id="checkbox-shift"></select>
+        </div>
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

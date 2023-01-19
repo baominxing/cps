@@ -1,0 +1,26 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@model LookupModalViewModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.Title ?? L("SelectAnItem")))
+
+
+<div class="modal-body">
+
+    <form ng-if="vm.options.showFilter">
+
+        <div class="input-group margin-bottom-10">
+
+            <input class="form-control lookup-filter-text" placeholder="@L("SearchWithThreeDot")" type="text">
+
+            <span class="input-group-btn">
+                <button class="btn default lookup-filter-button" type="submit"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+
+    </form>
+
+    <table class="table table-hover table-bordered" id="lookup-modal-table" style="width: 100%"></table>
+
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

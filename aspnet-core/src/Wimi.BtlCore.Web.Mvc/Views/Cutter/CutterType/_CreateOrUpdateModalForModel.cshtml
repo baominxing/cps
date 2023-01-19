@@ -1,0 +1,78 @@
+﻿@using Wimi.BtlCore
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Cutter.CutterType.CutterModelModel
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.IsEditMode ? L("Editor") : L("NewlyBuild")))
+
+<style>
+    .selected {
+        background-color: #a8e4ff;
+    }
+
+    .select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+        height: 30px !important;
+    }
+</style>
+
+<div class="modal-body">
+
+    <form name="createOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="row">
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("CutterType")</label>
+                <input class="form-control name" type="text" name="Name" checkSpace="true" required maxlength="@BtlCoreConsts.MaxLength"
+                       value="@(Model.IsEditMode ? Model.Name : string.Empty)">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("ToolPrefixNumber")</label>
+                <input class="form-control cutterNoPrefix" type="text" name="CutterNoPrefix" required maxlength="@BtlCoreConsts.MaxLength"
+                       value="@Model.CutterNoPrefix">
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("ToolLifeCountingMethod")</label>
+                <select class="form-control countingMethod" type="text" name="CountingMethod" id="CountingMethod" required>
+                    @foreach (var status in Model.ValidStatusList)
+                    {
+                        var tag = status.IsSelected ? "selected" : string.Empty;
+                        <option value="@status.Value" tag>@status.DisplayText</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("OriginalLife")</label>
+                <input class="form-control originalLife" type="number" min="0" name="OriginalLife" required digits="true" maxlength="@BtlCoreConsts.MaxLength"
+                       value="@(Model.IsEditMode ? Model.OriginalLife : 0)">
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-xs-12 col-sm-6">
+                <label>@L("WarningLife")</label>
+                <input class="form-control warningLife" type="number" min="0" name="WarningLife" required digits="true" maxlength="@BtlCoreConsts.MaxLength"
+                       value="@(Model.IsEditMode ? Model.WarningLife : 0)">
+            </div>
+
+            @*动态参数*@
+
+        </div>
+        <input type="hidden" id="Id" value="@Model.Id" />
+        <input type="hidden" id="CutterTypeId" value="@(Model.CutterTypeId)" />
+        <input type="hidden" id="IsCutterNoPrefixCanEdit" value="@(Model.IsCutterNoPrefixCanEdit.ToString().ToLower())" />
+        <input type="hidden" id="CountingMethodValue" value="@Model.CountingMethod" />
+        <input type="hidden" id="Parameter1" value="@Model.Parameter1" />
+        <input type="hidden" id="Parameter2" value="@Model.Parameter2" />
+        <input type="hidden" id="Parameter3" value="@Model.Parameter3" />
+        <input type="hidden" id="Parameter4" value="@Model.Parameter4" />
+        <input type="hidden" id="Parameter5" value="@Model.Parameter5" />
+        <input type="hidden" id="Parameter6" value="@Model.Parameter6" />
+        <input type="hidden" id="Parameter7" value="@Model.Parameter7" />
+        <input type="hidden" id="Parameter8" value="@Model.Parameter8" />
+        <input type="hidden" id="Parameter9" value="@Model.Parameter9" />
+        <input type="hidden" id="Parameter10" value="@Model.Parameter10" />
+        <input type="hidden" id="CreationTime" value="@Model.CreationTime" />
+        <input type="hidden" id="CreatorUserId" value="@Model.CreatorUserId" />
+    </form>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+
+<script>
+</script>

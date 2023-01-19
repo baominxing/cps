@@ -1,0 +1,187 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.CraftMaintain_FmsCutter;
+}
+
+@section Styles{
+    <link href="~/Scripts/bootstrap-drawer/css/bootstrap-drawer.min.css" rel="stylesheet" />
+    <link href="~/Scripts/icheck/skins/minimal/_all.css" rel="stylesheet" />
+}
+
+
+@section Scripts
+{
+     <script type="text/javascript" src="~/Scripts/vue.js"></script>
+    <script src="~/view-resources/Views/CraftMaintain/FmsCutter/Index.js" asp-append-version="true"></script>
+    <script src="~/Scripts/bootstrap-drawer/js/drawer.min.js"></script>
+    <script src="~/Scripts/jquery-sortable/jquery-sortable-min.js"></script>
+    <script src="~/Scripts/Sortable/Sortable.js"></script>
+    <script src="~/Scripts/icheck/icheck.min.js"></script>
+}
+
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+
+    .list-group-item {
+        min-height: 40px !important
+    }
+
+    .close-btn {
+        cursor: pointer;
+    }
+
+    .handle {
+        cursor: move;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @L("FmsCutter")<small></small>
+    </h1>
+</section>
+
+<section class="content has-drawer">
+
+    <div class="box box-solid">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-search"></i> @L("QueryArea")
+            </h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="box-body">
+            <form class="form-horizontal no-padding">
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <label class="col-sm-4 control-label">
+                            <b class="text-primary">@L("CutterNo")</b>
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="CutterNo" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="col-sm-4 control-label">
+                            <b class="text-primary">@L("CutterCase")</b>
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="CutterCase" />
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <label class="col-sm-4 control-label">
+                            <b class="text-primary">@L("Type")</b>
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="Type" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 md-mv-15">
+                    <div class="col-sm-1 pull-right">
+                        <button class="btn btn-primary btn-sm form-control" id="OpenDrawer" href="#drawer" data-toggle="drawer"><i class="fa fa-cog"></i> 设置</button>
+                    </div>
+
+                    @if (IsGranted(PermissionNames.Pages_CraftMaintain_FmsCutter_Manage))
+                    {
+                        <div class="col-sm-1 pull-right">
+                            <div class="btn btn-primary btn-sm form-control" id="create"><i class="fa fa-plus"></i> @L("Create")</div>
+                        </div>
+                    }
+
+                    <div class="col-sm-1 pull-right">
+                        <div class="btn btn-primary btn-sm form-control" id="search"><i class="fa fa-search"></i> @L("Research")</div>
+                    </div>
+                </div>
+            </form>
+
+            @* 自定义字段设置也没 *@
+            <div id="drawer" class="drawer dw-xs-6 dw-sm-12 dw-md-5 fold drawer-right" data-toggle="drawer" aria-labelledby="drawer">
+                <div class="drawer-contents">
+                    <div class="drawer-heading">
+                        <h3 class="drawer-title">字段设置</h3>
+                    </div>
+                    <div class="drawer-body">
+                        <div class="col-md-12 custom-field">
+                            <div class="col-md-8">
+                                <div class="box box-info">
+                                    <div class="box-header with-border">
+                                        <div class="box-title"> 可选字段</div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="box-title col-md-12 text-light-blue">基础字段</div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 md-mv-10" v-for="(item,index) in fields.basic">
+                                                <input type="checkbox" :id="index" v-on:click.stop="basicFiedlClick(item,index)" v-model="item.isShow">
+                                                <label class="control-label">{{item.name}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="box-title col-md-8 md-mv-10 text-light-blue">自定义字段</div>
+
+                                        <div class="box-title col-md-1 col-xs-4 pull-right text-center">
+                                            <button class="btn btn-danger btn-xs" id="deleteField" v-on:click.stop="deleteExtendField">@L("Delete")</button>
+                                        </div>
+                                        <div class="box-title col-md-1  col-xs-4 pull-right text-center">
+                                            <button class="btn btn-primary btn-xs" id="createField" v-on:click.stop="createExtendField">@L("Create")</button>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-4 md-mv-10" v-for="(item,index) in fields.extend">
+                                                <input type="checkbox" :id="index" :data-id="item.id" class="extend" v-on:click.stop="extendFiedlClick(item,index)" v-model="item.isShow">
+                                                <label class="control-label">{{item.name}}  <i class="fa fa-edit" style="cursor: pointer" v-on:click.stop="updateExtendField(item.code)"></i></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="box box-danger">
+                                    <div class="box-header with-border">
+                                        <div class="box-title"> 当前选定的字段<small class="text-muted">(拖动排序)</small></div>
+                                    </div>
+                                    <div class="box-body">
+                                        <div id="handle" class="row">
+                                            <div id="example5" class="list-group col">
+                                                <div class="list-group-item" v-for="(item,index) in selected">
+                                                    <div class="handle col-sm-9" :data-code="item.code"><i class="fas fa fa-ellipsis-v"></i> <i class="fas fa fa-ellipsis-v"></i>&nbsp;&nbsp; {{item.name}}</div>
+                                                    <div class="col-sm-2 pull-right close-btn" v-on:click="deleteSelected(item)"><i class="fa fa-times" aria-hidden="true"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="drawer-footer" style="border-top: 1px solid #dfdfdf; display:inline-block">
+                        <div class="col-sm-1 pull-right md-mh-10">
+                            <button class="btn btn-primary pull-right" v-on:click.stop="save()" id="drawerSave"><i class="fa fa-save"></i> 保存</button>
+                        </div>
+
+                        <div class="col-sm-1 pull-right hidden">
+                            <button class="btn btn-default pull-right" id="drawerClose" href="#drawer" data-toggle="drawer"> 取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box box-solid">
+        <div class="box-body">
+            <table id="table" class="table table-bordered table-hover" style="width: 100%"></table>
+        </div>
+    </div>
+</section>

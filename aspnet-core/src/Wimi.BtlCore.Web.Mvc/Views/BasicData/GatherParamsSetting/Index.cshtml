@@ -1,0 +1,82 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@using Wimi.BtlCore.Authorization
+@model Wimi.BtlCore.Web.Models.BasicData.GatherParamsSetting.GatherParamsSettingViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.BasicData_GatherParamsSetting;
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/BasicData//GatherParamsSetting/Index.js" asp-append-version="true"></script>
+    <script src="~/Scripts/bootstrap-colorpicker.min.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/Content/css/bootstrap-colorpicker.css" asp-append-version="true" />
+}
+
+<!-- #region Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        @L("GatherParamsSetting")<small>@L("ParameterConfiguration")</small>
+    </h1>
+    <div class="header-tools">
+        @{
+            if (IsGranted(PermissionNames.Pages_BasicData_GatherParamsSetting_Manage))
+            {
+                <div class="pull-right">
+                    <button type="button" class="btn btn-primary xs-mr-5" id="btn-refresh">
+                        <i class="fa fa-refresh">@L("Refresh")</i>
+                    </button>
+
+                    <button type="button" class="btn btn-primary xs-mr-5" id="btnBatchSend">
+                        <i class="fa fa-check-square"> @L("BatchSwitch")</i>
+                    </button>
+
+                    <button type="button" class="btn btn-primary dropdown-toggle" id="BulkSetButton">
+                        <i class="fa fa-pencil">@L("GroupCopy")</i>
+                    </button>
+
+                    @*<button type="button" class="btn btn-primary dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><i class="fa fa-pencil"></i> @L("Action")</button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                            <li>
+                                <a href="#" id="BulkSetButton">@L("BatchReplication")</a>
+                            </li>
+                        </ul>*@
+                </div>
+            }
+
+        }
+    </div>
+</section>
+<!-- #endregion -->
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@L("AcquisitionEquipment")</h3>
+                </div>
+                <div class="box-body">
+                    @await Html.PartialAsync("~/Views/Common/_GrantedMachineTree.cshtml", Model)
+                    <div id="machineTreeEmptyInfo" class="text-muted hidden">
+                        @L("AddMachineFirst")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@L("AcquisitionParams")</h3>
+                </div>
+                <div class="box-body">
+                    <table id="ParamsTable" class="table table-bordered table-hover table-striped nowrap" style="width: 100%"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

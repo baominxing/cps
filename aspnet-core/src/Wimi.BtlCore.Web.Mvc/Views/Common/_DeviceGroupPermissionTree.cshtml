@@ -1,0 +1,7 @@
+﻿@using Wimi.BtlCore.Web.Models.Common
+
+@model IDeviceGroupPermissionsEditViewModel
+
+<div class="machines-group-tree">
+    @await Html.PartialAsync("~/Views/Common/_DeviceGroupPermissionTreeItem.cshtml", new DeviceGroupPermissionsEditViewModel(Model, null))
+</div>

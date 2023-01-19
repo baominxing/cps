@@ -1,0 +1,95 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.App.TenantDashboardViewModal
+@{
+    ViewBag.CurrentPageName = PageNames.App.Tenant.Dashboard;
+}
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EquipmentDetails")))
+
+<div class="modal-body">
+    <div class="row">
+
+        @foreach (var machine in Model.MachineList)
+        {
+            <div class="col-lg-6">
+                <div class="box machine-box" data-machine-id="@machine.Id" data-machine-code="@machine.Code">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">@machine.Name</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool btn-refresh">
+                                <i class="fa fa-refresh"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <div class="row">
+                            <div class="col-md-10 xs-pr-0">
+                                <div class="pad no-padding">
+                                    <!-- Map will be created here -->
+                                    <div class="statistic-detailchart" style="height: 212px;"></div>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-2 xs-pl-0">
+                                <div class="pad box-pane-right statistic-pad">
+                                    <div class="row">
+                                        <!-- /.description-block -->
+                                        <div class="col-xs-4 col-md-12 text-center" style="min-height: 64px;">
+                                            <h5>
+                                                <strong><span class="stop-rate"></span>%</strong>
+                                            </h5>
+                                            <div>
+                                                <strong>@L("FailureRate")</strong>
+                                            </div>
+                                        </div>
+                                        <!-- /.description-block -->
+                                        <div class="col-xs-4 col-md-12 text-center" style="min-height: 64px;">
+                                            <h5>
+                                                <strong><span class="run-rate"></span>%</strong>
+                                            </h5>
+                                            <div>
+                                                <strong>@L("OperatingRate")</strong>
+                                            </div>
+                                        </div>
+                                        <!-- /.description-block -->
+                                        <div class="col-xs-4 col-md-12 text-center" style="min-height: 64px;">
+                                            <h5>
+                                                <strong><span class="free-rate"></span>%</strong>
+                                            </h5>
+                                            <div>
+                                                <strong>@L("IdleRate")</strong>
+                                            </div>
+                                        </div>
+                                        <!-- /.description-block -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        }
+
+        @{
+            var stateList = Model.StatusInfoList;
+            foreach (var state in stateList)
+            {
+                <input type="hidden" id="state-@(state.Code)" value="@state.Hexcode" />
+            }
+
+        }
+
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary close-button" data-dismiss="modal">@L("Cancel")</button>
+</div>

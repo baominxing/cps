@@ -1,0 +1,19 @@
+﻿
+@using Wimi.BtlCore.Web.Models.Common
+@model DeviceGroupPermissionsEditViewModel
+@{
+    var group = Model.EditModel.DeviceGroups.Where(p => p.ParentId == Model.ParentId || (p.ParentId == null && Model.ParentId == null)).ToList();
+    if (group.Any())
+    {
+        <ul>
+            @foreach (var subItem in group)
+            {
+                var selected = Model.EditModel.GrantedDeviceGroupPermissions.Contains(subItem.Id);
+                <li id="@subItem.Id" class="jstree-open" data-jstree='{"selected": @selected.ToString().ToLower()}'>
+                    @subItem.DisplayName
+                    @await Html.PartialAsync("~/Views/Common/_DeviceGroupPermissionTreeItem.cshtml", new DeviceGroupPermissionsEditViewModel(Model.EditModel, subItem.Id))
+                </li>
+            }
+        </ul>
+    }
+}

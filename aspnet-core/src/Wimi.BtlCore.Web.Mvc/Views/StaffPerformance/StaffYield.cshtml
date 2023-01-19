@@ -1,0 +1,92 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.StatisticAnalysis.EfficiencyTrend.EfficiencyTrendsViewModel
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.StaffPerformance_StaffYield;
+}
+
+@section Styles{
+    <link href="~/Scripts/scrollTabs/scrolltabs.css" rel="stylesheet" />
+}
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/Scripts/vue.js"></script>
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+    <script src="~/Scripts/echarts.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.mousewheel.js" asp-append-version="true"></script>
+    <script src="~/Scripts/scrollTabs/jquery.scrolltabs.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/StaffPerformance/StaffYield.js" asp-append-version="true"></script>
+
+}
+<!-- #region Content Header (Page header) -->
+
+<section class="content-header">
+
+    <h1>
+        @L("EmployeeProduction")<small></small>
+    </h1>
+
+    <div class="header-tools">
+        <button id="btnQuery" class="btn btn-primary blue">
+            <i class="fa fa-pencil-square-o"></i> @L("Research")
+        </button>
+    </div>
+
+</section>
+
+<!-- #endregion -->
+<section class="content" id="app-yield">
+
+    <div class="row">
+
+        <div class="col-md-12 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-th"></i> @L("SortByPeople")
+                    </h3>
+                    <span class="col-md-7 pull-right">
+                        <b id="searchFilter" class="text-primary pull-left"></b>
+                    </span>
+                    <div class="nav pull-right col-md-5" style="margin-left:8px;text-align:center;margin-top: 6px">
+                        <label class="checkbox-inline"><input type="checkbox" id="showName" />@L("ShowPillarName")</label>
+                        <label class="checkbox-inline"><input type="checkbox" id="showValue" checked />@L("ShowPillarValue")</label>
+                    </div>
+                </div>
+               
+                <div class="box-body">
+                    <div id="userTabs" class="scroll_tabs_theme_light">
+                    </div>
+                   
+                    <div class="tab-pane active" id="tab_1-2">
+                        <div id="chartByUser" style="height: 400px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="col-md-12 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-th"></i> @L("SortByDevice")
+                    </h3>
+                    <span class="col-md-7 pull-right">
+                        <b id="searchFilter2" class="text-primary pull-left"></b>
+                    </span>
+                </div>
+                <div class="box-body">
+                    <div id="machineTabs" class="scroll_tabs_theme_light">
+                    </div>
+
+                    <div class="tab-pane active" id="tab_1-2">
+                        <div id="chartByMachine" style="height: 400px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

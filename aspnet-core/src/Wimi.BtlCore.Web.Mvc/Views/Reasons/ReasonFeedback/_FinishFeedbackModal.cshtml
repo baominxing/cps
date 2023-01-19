@@ -1,0 +1,34 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("EndFeedback")))
+<div class="modal-body">
+    <form name="FinishFeedbackForm" role="form" novalidate class="form-validation form-horizontal">
+        <div class="row">
+            @*<input type="hidden" name="id" value="" />*@
+            <div class="form-group col-xs-12 ">
+                <label class="col-sm-2 control-label">@L("StartTime")</label>
+                <div class="input-group col-xs-10">
+                    <input type="datetime" class="form-control startTime" name="StartTime" readonly>
+                </div>
+            </div>
+            <div class="form-group  col-xs-12">
+                <label class="col-sm-2 control-label">@L("EndTime")</label>
+                <div class="input-group input-group-sm col-xs-10">
+                    <div class="input-group">
+                        <input type="datetime" class="form-control endTime" name="EndTime" readonly="readonly">
+                        <span class="input-group-btn ">
+                            <button class="btn btn-info btn-flat" id="btnChange" type="button" readonly>@L("Edit")</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-xs-12">
+
+                <label class="col-sm-2 control-label">@L("TimeConsuming")+(@L("Minutes"))</label>
+                <div class="input-group col-xs-10">
+                    <input type="datetime" class="form-control duration" name="Duration" readonly>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

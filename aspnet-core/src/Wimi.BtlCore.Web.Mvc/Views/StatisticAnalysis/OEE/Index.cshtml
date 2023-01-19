@@ -1,0 +1,178 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.OEE.StatisticAnalysis.OEEAnalysisViewModal
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.StatisticAnalysis_OEE;
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/StatisticAnalysis/OEE/Index.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+    <script src="~/Scripts/echarts.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/d3.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/state-gantt-chart.js" asp-append-version="true"></script>
+}
+@section Styles
+{
+    <link rel="stylesheet" href="~/view-resources/Views/StatisticAnalysis/OEE/Index.css" asp-append-version="true" />
+}
+
+<section class="content-header">
+    <h1>
+        @L("OEE")<small></small>
+    </h1>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12 col-md-3">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i> @L("SearchSetting")
+                    </h3>
+                </div>
+
+                <div class="box-body">
+                    <form class="form">
+                        <div class="input-group xs-mb-15 xs-ph-5 col-xs-12">
+                            <span class="input-group-addon no-border"><b class="text-primary">@L("StatisticalMethod")</b></span>
+                            <select class="form-control input-sm" id="statistical-way">
+                                <option value="ByShift">@L("ByShift")</option>
+                                <option value="ByDay" selected="selected">@L("ByDay")</option>
+                                <option value="ByWeek">@L("ByWeek")</option>
+                                <option value="ByMonth">@L("ByMonth")</option>
+                                @*<option value="ByYear">@L("ByYear")</option>*@
+                            </select>
+                        </div>
+                        <div class="input-group xs-mb-15 xs-ph-5 col-xs-12">
+                            <span class="input-group-addon no-border"><b class="text-primary">@L("DateRange")</b></span>
+                            <input type="text" class="form-control input-sm" id="daterange-btn" />
+                        </div>
+                        <div class="input-group xs-ph-5 xs-pv-10  col-xs-12">
+                            @await Html.PartialAsync("~/Views/Common/_GrantedMachineTree.cshtml", Model)
+                        </div>
+                        <div class="box-footer col-md-12">
+                            <button type="button" id="btnQuery" class="btn btn-primary btn-sm btn-block">@L("Research")</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-9">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs pull-right">
+                    <li class="active">
+                        <a href="#tab_1-1" data-toggle="tab" class="dataPane1">@L("LinearGraph")</a>
+                    </li>
+                    <li>
+                        <a href="#tab_2-2" data-toggle="tab" class="dataPane2">@L("DataSheet")</a>
+                    </li>
+                    <li class="pull-left header"><i class="fa fa-th"></i> @L("QueryResults")</li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1-1">
+
+                        <div id="legend_page" style="width:60px;height:20px;right:10px;top:73px;border:0px solid;position:absolute;display:none;z-index:99">
+                            <a id="prePage"><span class="glyphicon glyphicon-triangle-left" style="color:#334B5C;"></span></a>
+                            <span id="page_text"></span>
+                            <a id="nextPage"><span class="glyphicon glyphicon-triangle-right" style="color:#D53A35;"></span></a>
+                        </div>
+
+                        <div class="row">
+                            <div id="chart-line" class="col-md-12" style="height: 400px"></div>
+                            <div class="md-mh-20 col-md-12">
+                                <h3 class="box-title ">
+                                    <span id="shiftday"></span><small id="detailTitle" class="hidden">(@L("ClickOnTheDotsInThePicture"))</small>
+                                </h3>
+                            </div>
+
+                            <div id="time-line" class="col-md-12"></div>
+
+                            <div class="col-md-3">
+                                <div id="detailOee"> </div>
+                            </div>
+                            <div class="col-md-9 md-mv-5">
+
+                                <div class="td-gantt-chart col-xs-12" data-key=""></div>
+                                <div id="detailDailyOee" class="col-xs-12"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_2-2">
+                        <div>
+                            <table id="EfficiencyTrendsTable" class="table table-bordered table-hover table-striped" style="width: 100%"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script id="machineOEEtemplate" type="text/x-handlebars-template">
+    <div class="col-md-2"></div>
+    <div class="col-md-10 md-mv-20" style="overflow: hidden; ">
+        <h3>OEE: {{oee}}%</h3>
+        <div>
+            <b>@L("AvailabilityRate") :</b>
+            <span>{{#if availability}} {{availability}} {{else}} 0% {{/if}}</span><br>
+            <b>@L("PerformanceIndex") :</b>
+            <span>{{#if performanceIndicators}} {{performanceIndicators}} {{else}} 0% {{/if}}</span><br>
+            <b>@L("QualityIndex") :</b>
+            <span>{{#if qualityIndicators}} {{qualityIndicators}} {{else}} 0% {{/if}}</span>
+        </div>
+    </div>
+</script>
+
+<script id="detailDailyItemtemplate" type="text/x-handlebars-template">
+    <div class="md-mv-10" style="overflow: hidden;">
+        <div class="col-xs-6 col-md-4 invoice-col">
+            <h3 class="md-mv-5">@L("ProductionStatus")</h3>
+            <b>@L("PlanWorkingHours") :</b>
+            <span>{{productionStatus.plannedWorkTime}} {{#if productionStatus.plannedWorkTime}} min {{else}} 0 {{/if}} </span>
+            <br>
+            <b>@L("OperationTime") :</b>
+            <span>{{productionStatus.actualWorkTime}} {{#if productionStatus.plannedWorkTime}} min {{else}} 0 {{/if}}  </span>
+            <br>
+            <b>@L("UnplannedSuspension")</b>
+            <br>
+            {{#each productionStatus.unplannedPauses}}
+            <b class="md-mv-0"><span class="label label-warning md-mh-5" style="background-color:{{hexcode}} !important"> </span>{{name}} :</b>
+            <span class="md-mv-0">{{duration}} min</span>
+            <br>
+            {{/each}}
+        </div>
+        <div class="col-xs-6 col-md-4 md-mv-5 invoice-col">
+            <h3>@L("ProcessingRhythm")</h3>
+            {{#each processingTimes}}
+            <b>@L("ProcessedProducts") :</b>
+            <span>{{productName}}</span>
+            <br>
+            <b>@L("IdealBeat") :</b>
+            <span>{{#if perfectTime}} {{perfectTime}} min/@L("Piece") {{else}} 0 {{/if}}</span>
+            <br>
+            <b>@L("ActualBeat") :</b>
+            <span>{{#if actualTime}} {{actualTime}} min/@L("Piece") {{else}} 0 {{/if}} </span>
+            <br>
+            <p></p>
+            {{/each}}
+        </div>
+        <div class="col-xs-6 col-md-4 md-mv-5 invoice-col">
+            <h3>@L("QualitySituation")</h3>
+            {{#each qualityStatus}}
+            <b>@L("Product") :</b>
+            <span>{{productName}} </span>
+            <br>
+            <b>@L("NumberOfBad")/@L("GoodNumber") :</b>
+            <span>{{unqualifiedCount}}/{{qualifiedCount}} </span>
+            <br>
+            <p></p>
+            {{/each}}
+        </div>
+    </div>
+</script>
+
+

@@ -1,0 +1,42 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.Maintain.MaintenanceViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.BasicData_Maintain;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/Maintain/index.js" asp-append-version="true"></script>
+}
+<section class="content-header">
+    <h1>
+        @L("Maintain")<small></small>
+    </h1>
+    <div class="header-tools">
+        <button id="allDelete" class="btn btn-primary blue">
+            <i class="fa fa-pencil-square-o"></i> @L("DeleteAll")
+        </button>
+    </div>
+</section>
+
+<!-- #endregion -->
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-object-group"></i> @L("MongoExceptionMsg")
+                    </h3>
+                </div>
+
+                <div class="box-body">
+                    <table id="syncDataTable" class="table table-bordered table-striped"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,266 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.Trace.TraceabilitySelectGroupViewModal
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Traceability_Catalog_Query;
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Traceability/Query/Index.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/Scripts/vue.js"></script>
+}
+@section Styles
+{
+    <style src="~/view-resources/Views/Traceability/Query/Index.css" asp-append-version="true"></style>
+}
+<script>
+    var ngPartCatlogId = '@ViewBag.NgPartCatlogId';
+</script>
+<style>
+    .fliterWrap {
+        padding: 10px;
+        overflow: hidden;
+        background: #fff;
+        margin-bottom: 10px;
+    }
+
+        .fliterWrap .form-group {
+            min-width: 200px;
+            margin: 0 10px;
+        }
+
+    .proInfo {
+        padding: 10px;
+        overflow: hidden;
+    }
+
+        .proInfo > div {
+            margin: 10px 0;
+        }
+
+    .infoList {
+        padding: 10px;
+    }
+
+    [v-cloak] {
+        display: none;
+    }
+
+    .selected {
+        background-color: #a8e4ff;
+    }
+
+    .t {
+        padding-right: 10px;
+    }
+
+    .sub-tt {
+        font-weight: bold;
+        width: 60px;
+        display: inline-block;
+        text-align: right;
+    }
+
+    .refresh-btn {
+        padding: 0px 5px;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        @L("TraceCatalogQuery")<small>@L("TracingTheProcessingProcessOfParts")</small>
+    </h1>
+</section>
+<section class="content" id="traceCatalogQuery">
+
+    <div class="box box-solid">
+
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-search"></i> @L("QueryArea")
+            </h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="box-body">
+            <form class="form-horizontal no-padding">
+                <div class="col-xs-12 col-sm-3 ">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("DeviceGroup")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="DeviceGroup"><option value="0">@L("All")</option></select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3 ">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("WorkpieceCoding")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="PartNo" name="PartNo" />
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-3">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("MachineName")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="Machine"></select>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-3">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("Shift")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="Shift">
+                            <option value="0">@L("All")</option>
+                            @foreach (var item in Model.Items)
+                            {
+                                <optgroup label="@item.Name">
+                                    @foreach (var option in item.ChildNode)
+                                    {
+                                        <option value="@option.Id">@option.Name</option>
+                                    }
+                                </optgroup>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br />
+                <div class="col-xs-12 col-sm-3 ">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("StartTime")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="daterange-startDate" @*data-type="calendar"*@ />
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-3 ">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("EndTime")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="daterange-endDate" @*data-type="calendar"*@ />
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-3 ">
+                    <label class="col-sm-4 control-label">
+                        <b class="text-primary">@L("WorkstationCode")</b>
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="StationCode" name="StationCode" />
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-1 "></div>
+
+                <div class="col-xs-12 col-sm-2 pull-right">
+                    <div class="col-sm-6">
+                        <div class="btn btn-primary btn-sm pull-right xs-mv-5 form-control" v-on:click="searchFn" style="min-width:80px"><i class="fa fa-search"></i>@L("Research")</div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="btn btn-primary pull-right btn-sm xs-mv-5 form-control" v-on:click="exportFn" style="min-width:60px"><i class="fa "></i>@L("Export")</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            <i class="fa fa-object-group"></i>@L("List")
+                        </h3>
+                    </div>
+                    <div class="box-body">
+                        <table id="traceTable" class="table table-bordered table-hover" style="width: 100%"></table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            <i class="fa fa-object-group"></i> @L("WorkpieceInformation")
+                        </h3>
+                        <button class="btn pull-right refresh-btn" v-on:click="getTraceRecord()"><span class="glyphicon glyphicon-repeat"></span></button>
+                    </div>
+                    <div class="box-body">
+                        <div class="proInfo" v-cloak>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <span class="sub-tt">@L("WorkpieceNumber")：</span>{{partDetails.partNo}}
+                                </div>
+                                <div class="col-md-8">
+                                    <span class="sub-tt">@L("Label")：</span>
+                                    <span class="label label-default" v-for="item in partDetails.tags">{{item}}</span>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <span class="sub-tt">@L("ShiftInformation")：</span>{{partDetails.shiftName}}
+                                </div>
+                                <div class="col-md-4">
+                                    <span class="t"><span class="sub-tt">@L("OnlineTime")：</span>{{partDetails.onlineTime|formatData}}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <span class="t"><span class="sub-tt">@L("OfflineTime")：</span>{{partDetails.offlineTime|formatData}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infoList" v-cloak style="overflow-x: auto">
+                            <table id="infoTable" class="table table-bordered table-hover" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>@L("FlowName")</th>
+                                        <th>@L("MachineCode")</th>
+                                        <th>@L("MachineName")</th>
+                                        <th>@L("Workstation")</th>
+                                        <th>@L("EntryTime")</th>
+                                        <th>@L("LeftTime")</th>
+                                        <th>@L("FlowState")</th>
+                                        <th>@L("ProcessLabel")</th>
+                                        <th>@L("Operator")</th>
+                                        <th>@L("ProcessParameters")</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="row in traceRecords">
+                                        <td>{{row.flowDisplayName}}</td>
+                                        <td>{{row.machineCode}}</td>
+                                        <td>{{row.machineName}}</td>
+                                        <td>{{row.station}}</td>
+                                        <td>{{row.entryTime |formatData}}</td>
+                                        <td>{{row.leftTime|formatData}}</td>
+                                        <td>{{row.flowState|escapeFlowState}}</td>
+                                        <td>{{row.flowTag|escapeFlowTag}}</td>
+                                        <td>{{row.userName}}</td>
+                                        <td><a href="javascript:void(0);" v-on:click="openModal(row)" v-if="row.showFlowParameters">查看</a></td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

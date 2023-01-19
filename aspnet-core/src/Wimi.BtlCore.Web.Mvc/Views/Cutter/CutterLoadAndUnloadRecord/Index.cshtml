@@ -1,0 +1,128 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+
+@model Wimi.BtlCore.Web.Models.Cutter.CutterLoadAndUnloadRecord.CutterLoadAndUnloadRecordViewMOdal
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Cutter_CutterLoadAndUnloadRecord;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/Cutter/CutterLoadAndUnloadRecord/Index.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+}
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+
+    div.dataTables_wrapper {
+        width: 100%;
+    }
+
+    .popover {
+        max-width: 800px;
+    }
+</style>
+<!-- #region Content Header (Page header) -->
+
+<section class="content-header">
+    <h3>
+        @L("CutterLoadAndUnloadRecord")
+    </h3>
+</section>
+
+<!-- #endregion -->
+<section class="content">
+    <div class="row">
+
+        <div class="col-md-12 col-xs-12">
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i>@L("SearchSetting")
+                    </h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="box-body">
+
+                    <form id="TextsFilterForm" class="form-horizontal no-padding">
+
+                        <div class="col-xs-12 col-sm-2 ">
+                            <label class="col-sm-4 control-label"><b class="text-primary">@L("CutterNo")</b></label>
+                            <div class="col-sm-8">
+                                <input id="TextFilter" class="form-control" placeholder="@L("CutterNo")" type="text" />
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 ">
+                            <label class="col-sm-4 control-label"><b class="text-primary">@L("CutterType")</b></label>
+                            <div class="col-sm-8">
+                                <select class="form-control input-sm" id="CutterModelsSelect"></select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-2 ">
+                            <label class="col-sm-4 control-label"><b class="text-primary">@L("TimeFrame")</b></label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="reservationtime">
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-xs-12 col-sm-3 ">
+                            <label class="col-sm-4 control-label"><b class="text-primary">@L("SelectDevice")</b></label>
+                            <div class="col-sm-8">
+                                <select id="machineId" name="MachineId" class="form-control" required></select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-2 pull-right">
+                            <div class="col-sm-6">
+                                <button type="button" id="btnQuery" class="btn btn-primary btn-sm pull-right xs-mv-5 form-control">@L("Research")</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="btn btn-default pull-right btn-sm xs-mv-5 form-control" id="btnExport"><i class="fa "></i>@L("Export")</div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i>@L("QueryResults")
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <table id="table" class="table table-bordered table-striped table-hover" style="width: 100%"></table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+

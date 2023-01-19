@@ -1,0 +1,48 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CutterLoadAndUnload")))
+<div class="modal-body maxModalHeight">
+    <div name="loadOrUnLoadCutterModalForm" role="form" novalidate class="form-validation">
+        <div id="loadingCutterTab" class="scroll_tabs_theme_light col-md-12">
+
+        </div>
+
+        <div class="col-md-12">
+            <div class="no-padding" style="overflow-x:hidden;overflow-y:auto;">
+                <div class="row">
+                    <h4 class="col-md-12" style="text-align:left">@L("CutterRateSetting")</h4>
+                    @*<button class="btn btn-primary pull-right col-md-2" id="btnSavePage"> @L("SavePage")</button>*@
+                    <hr />
+                    <div class="form-horizontal no-padding" id="tvalueDetail">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+
+<script id="loadingCutterTab-template" type="text/x-handlebars-template">
+    {{#each this}}
+    {{#if @@first}}
+    <span class="tab_selected" value="{{machineId}}">{{machineName}}</span>
+    {{else}}
+    <span value="{{machineId}}">{{machineName}}</span>
+    {{/if}}
+    {{/each}}
+</script>
+
+<script id="block-panel" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="col-xs-12 col-sm-4 xs-mb-5 cutterRate">
+        <label class="col-sm-5 control-label tValue">@L("CutterPosition")-{{tValue}}</label>
+        <div class="col-sm-7">
+            <input type="number" class="form-control rate" value="{{rate}}">
+        </div>
+    </div>
+
+    {{/each}}
+
+</script>
+
+

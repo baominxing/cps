@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="nl">
+  <texts>
+    <text name="InternalServerError" value="Er is een interne fout opgetreden tijdens uw verzoek!" />
+    <text name="ValidationError" value="Uw verzoek is niet geldig!" />
+    <text name="AreYouSure" value="Weet je het zeker?" />
+    <text name="Cancel" value="Annuleren" />
+    <text name="Yes" value="Ja" />
+    <text name="ValidationNarrativeTitle" value="Tijdens de validatie werden de volgende fouten ontdekt." />
+    <text name="DefaultError" value="Er is een fout opgetreden!" />
+    <text name="DefaultErrorDetail" value="Foutdetails niet verzonden door server." />
+    <text name="DefaultError401" value="U bent niet geauthenticeerd!" />
+    <text name="DefaultErrorDetail401" value="U dient te worden geauthenticeerd (teken in) om deze operatie uit te voeren." />
+    <text name="DefaultError403" value="U bent niet bevoegd!" />
+    <text name="DefaultErrorDetail403" value="U mag deze operatie niet uitvoeren." />
+    <text name="DefaultError404" value="Hulpbron niet gevonden!" />
+    <text name="DefaultErrorDetail404" value="De gevraagde bron kon niet op de server worden gevonden." />
+    <text name="EntityNotFound" value="Er is geen entiteit {0} met id {1}!" />
+  </texts>
+</localizationDictionary>

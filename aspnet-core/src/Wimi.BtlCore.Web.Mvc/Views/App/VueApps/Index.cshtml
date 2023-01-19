@@ -1,0 +1,8 @@
+@using Microsoft.SqlServer.Management.Smo
+@using Wimi.BtlCore.Web.Startup
+@using Wimi.BtlCore.Authorization
+
+
+@*当前页面的菜单激活放在BtlCoreNavigationProvider 用customData字段处理*@
+@*黑屏问题可以读取缓存*@
+@Html.Raw(System.IO.File.ReadAllText("wwwroot/view-resources/vue-app/index.html"))

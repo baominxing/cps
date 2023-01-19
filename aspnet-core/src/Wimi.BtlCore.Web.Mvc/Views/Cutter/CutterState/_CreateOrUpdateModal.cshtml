@@ -1,0 +1,104 @@
+﻿
+@using Wimi.BtlCore.Cutter
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@model Wimi.BtlCore.Web.Models.Cutter.CutterState.CutterStateCreateOrUpdateViewModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(@Model.IsEditModal ? L("NewlyBuild") : L("New")))
+
+<div class="modal-body">
+    <form name="createOrUpdateForm" role="form" novalidate class="form-validation">
+        <div class="row">
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("CutterNo")</label>
+                <input type="text" class="form-control" name="cutterNo" disabled="disabled"
+                       value="@(Model.IsEditModal ? Model.CutterState.CutterNo : L("AutomaticSystemGeneration")) " />
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("CutterUsedStatus")</label>
+                <select class="form-control enumDropDown" id="CutterUsedStatus" name="CutterUsedStatus">
+                    @{
+                        if (!Model.IsEditModal)
+                        {
+                            <option value="@EnumCutterUsedStates.New" selected disabled>@L("New")</option>
+                        }
+                        else
+                        {
+                            var notLoadselectedTags = Model.CutterUsedStatus == EnumCutterUsedStates.NotLoad ? "selected" : string.Empty;
+                            
+                           var unLoadselectedTags = Model.CutterUsedStatus == EnumCutterUsedStates.UnLoad ? "selected" : string.Empty;
+                            
+                            <option value="@EnumCutterUsedStates.NotLoad" notLoadselectedTags>@L("NotLoad")</option>
+                            <option value="@EnumCutterUsedStates.UnLoad" unLoadselectedTags>@L("UnLoad")</option>
+                        }
+
+                    }
+                </select>
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6" id="cutter_type_cnt">
+                <label>@L("ToolType")</label>
+                <div id="cutterType_Create" class="form-control" name="cutterType" required></div>
+                <input type="hidden" id="CutterTypeId" name="cutterTypeId" value="@(Model.IsEditModal ? Model.CutterState.CutterTypeId : 0)" />
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("CutterType")</label>
+                <select class="form-control" id="cutterModel_Create" name="cutterModel" required></select>
+            </div>
+
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("CountingMethod")</label>
+                <select class="form-control required enumDropDown" name="CountingMethod" id="CountingMethod">
+                    @{
+
+                        foreach (int type in Enum.GetValues(typeof(EnumCountingMethod)))
+                        {
+                            <option value="@type">@L(Enum.GetName(typeof(EnumCountingMethod), type))</option>
+
+                        }
+                    }
+                </select>
+                @*@Html.EnumDropDownListFor(model => model.CountingMethod, null, new { @class = "form-control required enumDropDown" })*@
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("OriginalLife")</label>
+                <input type="number" name="originalLife" min="0" value="@(Model.IsEditModal ? Model.CutterState.OriginalLife : 0)" class="form-control" required />
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("RestLife")</label>
+                <input type="number" name="restLife" min="0" value="@(Model.IsEditModal ? Model.CutterState.RestLife : 0)" class="form-control" required />
+            </div>
+            <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                <label>@L("WarningLife")</label>
+                <input type="number" name="warningLife" min="0" value="@(Model.IsEditModal ? Model.CutterState.WarningLife : 0)" class="form-control" required />
+            </div>
+
+            @*动态加载配置参数*@
+            @foreach (var param in Model.ParameterMap)
+            {
+                var result = string.Empty;
+                if (Model.IsEditModal && Model.CutterState != null)
+                {
+                    var property = Model.CutterState.GetType().GetProperty(param.Name);
+                    if (property != null)
+                    {
+                        var obj = property.GetValue(Model.CutterState, null);
+                        if (obj != null)
+                        {
+                            result = obj.ToString();
+                        }
+                    }
+                }
+
+                <div class="form-group form-md-line-input form-md-floating-label col-md-6">
+                    <label>@param.Value</label>
+                    <input type="number" min="0.1" name="@param.Name.ToLower()" value="@result" class="form-control" maxlength="50" />
+                </div>
+            }
+
+            @* ReSharper disable once PossibleNullReferenceException *@
+            <input type="hidden" id="CutterModelId" name="cutterModelId" value="@(Model.IsEditModal ? Model.CutterState.CutterModelId : 0)" />
+            <input type="hidden" id="id" name="id" value="@(Model.IsEditModal ? Model.Id : null)" />
+        </div>
+    </form>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+

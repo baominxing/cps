@@ -1,0 +1,38 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@using Wimi.BtlCore.Authorization
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.BasicData_StateInfo;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/BasicData/StateInfo/Index.js" asp-append-version="true"></script>
+    <script src="~/Scripts/bootstrap-colorpicker.min.js" asp-append-version="true"></script>
+}
+@section Styles
+{
+    <link rel="stylesheet" href="~/Content/css/bootstrap-colorpicker.css" asp-append-version="true" />
+}
+<!-- #region Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        @L("StateInfo")<small>@L("StateReasonMaintenance")</small>
+    </h1>
+    <div class="header-tools">
+        <div class="header-tools">
+            @if (IsGranted(PermissionNames.Pages_BasicData_StateInfo_Manage))
+            {
+                <button class="btn btn-primary pull-right" id="CreateNewStateInfo"><i class="fa fa-plus" aria-hidden="true"></i>@L("Create")</button>
+            }
+        </div>
+    </div>
+</section>
+<!-- #endregion -->
+
+<section class="content">
+    <div class="box box-solid">
+        <div class="box-body">
+            <table id="stateInfoTables" class="table table-bordered table-hover" style="width: 100%"></table>
+        </div>
+    </div>
+</section>
+

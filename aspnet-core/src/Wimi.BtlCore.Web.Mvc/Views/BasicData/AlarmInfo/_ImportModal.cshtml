@@ -1,0 +1,28 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("AlarmImporting")))
+
+<div class="modal-body">
+    <form id="ImportDataForm" method="POST" action="@(ApplicationPath + "AlarmInfo/ImportData")">
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("Machines")</label>
+            <select class="form-control" id="MachineId" name="MachineId" required>
+                <option value="" selected="selected"></option>
+            </select>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("ImportType")</label>
+            <select class="form-control" id="ImportType" name="ImportType" required>
+                <option value="0" selected="selected">@L("CompleteCoverage")</option>
+                <option value="1">@L("IncrementalAddition")</option>
+            </select>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <label>@L("ChooseFiles")</label>
+            <input class="form-control" type="file" name="UploadFiles"/>
+        </div>
+
+        <div class="form-group form-md-line-input form-md-floating-label xs-pv-20">
+            <button id="Save" class="btn btn-primary pull-right"><i class="fa fa-save" aria-hidden="true"></i>@L("Save")</button>
+        </div>
+    </form>
+</div>

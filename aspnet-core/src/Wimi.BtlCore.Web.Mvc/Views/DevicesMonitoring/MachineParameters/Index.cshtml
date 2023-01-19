@@ -1,0 +1,117 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.DevicesMonitoring.MachineStates.ParamtersChartViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.DevicesMonitoring_Parameters;
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/DevicesMonitoring/MachineParameters/Index.js" asp-append-version="true"></script>
+    <script src="~/Scripts/echarts.min.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+}
+<style>
+    span.product-description:hover {
+        text-overflow: inherit;
+        overflow: visible;
+    }
+</style>
+
+<section class="content-header">
+    <h1>
+        @L("DevicesMonitoring_Parameters")<small></small>
+    </h1>
+    <div class="header-tools">
+    </div>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-md-3 col-xs-12 col-sm-12 xs-pr-0">
+            <div class="box box-widget">
+                <div class="box-header with-border">
+                    <h3 class="box-title">@L("MachineList")</h3>
+                </div>
+                <div class="box-body">
+                    @await Html.PartialAsync("~/Views/Common/_GrantedMachineTree.cshtml", Model)
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9 col-sm-12">
+            <!-- Box Comment -->
+            <div class="box box-widget">
+                <div class="box-header with-border">
+                    <div class="user-block">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img class="img-circle" src="/Content/Images/CNC1-128x128.png" alt="User Image">
+                                <span class="username machinename"><a href="#"></a></span>
+                                <div class="row">
+                                    <span class="label col-md-2 machinestate" style="margin-right: 9px; margin-left: 5px; margin-top: 5px;"></span>
+                                    <div class="col-md-8 machinealarm">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.user-block -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-12" id="blockMessage">
+                        </div>
+
+
+                        <div class="col-md-10 col-sm-12 pull-right" style="max-height: 300px; overflow-y: auto; overflow-x: hidden">
+                            <div class="row gauge">
+                            </div>
+                        </div>
+
+                        <div class="col-md-10 col-sm-12 pull-right" id="chart-line" style="height: 300px">
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+
+        <input type="hidden" name="machineCode" value="@Model.MachineCode" />
+    </div>
+</section>
+
+<script id="block-panel" type="text/x-handlebars-template">
+    <div class="col-xs-12 col-md-12 block-chart">
+        {{#each this}}
+        <div class="col-md-12 col-xs-12">
+            <div class="box box-widget widget-device">
+                <div class="box-header text-center" style="background-color: {{hexcode}} !important">
+                    <h4 class="box-title" style="color: #ffffff">{{name}}</h4>
+                </div>
+                <div class="box-body text-center">
+                    {{#if value}}
+                    <span>{{value}}</span>
+                    {{else}}
+                    <span>--</span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</script>
+
+<script id="alarm-panel" type="text/x-handlebars-template">
+    <h6 style="color:#D9534F">
+        <i class="fa fa-bell"></i>
+        @L("AlarmNumber"):
+        {{#each this}}
+        <span class="label label-danger no-padding" data-toggle="tooltip" data-placement="bottom">{{no}}</span>
+        {{/each}}
+    </h6>
+</script>

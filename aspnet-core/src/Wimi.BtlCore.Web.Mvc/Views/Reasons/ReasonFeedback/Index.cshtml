@@ -1,0 +1,198 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.Reasons.ReasonFeedback.MachineStateViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.ReasonFeedback_Feedback;
+}
+
+@section Scripts
+{
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/Reasons/ReasonFeedback/Index.js" asp-append-version="true"></script>
+}
+
+<section class="content-header">
+    <h1>
+
+        @L("ReasonFeedback")<small></small>
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-2 xs-pr-0 ">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h4 class="box-title"><i class="fa fa-th-large"></i> @L("DeviceGroupList")</h4>
+                </div>
+                <div class="box-body machinegroup-list">
+                    @await Html.PartialAsync("~/Views/Common/_GrantedDeviceGroupTree.cshtml", Model)
+                </div>
+            </div>
+        </div>
+        <style>
+            .widget-device .widget-device-desc {
+                margin-top: 8px;
+            }
+
+            .widget-device-desc i + i {
+                margin-left: 10px;
+            }
+        </style>
+        <div class="col-md-10">
+            <div class="box box-solid">
+                <div class="box-body">
+                    <div class="row" id="machineContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script id="machineFeedback-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="col-md-4 col-xs-12">
+        <div class="box box-widget widget-user-2">
+            <div class="widget-user-header bg-black-active" style="background-color: {{hexcode}} !important">
+                @*<button type="button" class="btn btn-warning btn-xs pull-right refresh" id="btnHistory" machineId={{machineId}}><i class="fa fa-history"></i></button>*@
+                <div class="widget-user-image">
+                    {{renderImage imagePath}}
+                </div>
+                <div class="ellipsis" data-toggle="tooltip" data-placement="top">
+
+                    <h3 class="widget-user-username">{{machineName}}</h3>
+                </div>
+
+                <div class="widget-user-desc">
+                    <h5 class="widget-device-desc">
+                        <span class="label bg-black" style="opacity:0.9">
+                            <i class="fa"> {{machineStateDisplayName}}</i>
+                            {{#each groupName}}
+                            <i class="fa fa-sitemap">{{this}}</i>
+                            {{/each}}
+                        </span>
+                    </h5>
+                </div>
+            </div>
+
+            <div class="box-footer box-comments">
+                <div class="box-comment">
+                    <div class="comment-text no-margin">
+                        <span class="">
+                            {{#if stateCode}}
+                            <i class="fa"></i>@L("Code") : {{stateCode}}<small></small>
+                            <span class="text-muted pull-right">{{startTime}}</span>
+                            {{else}}
+                            <i class="fa"></i><small></small>
+                            <span class="text-muted pull-right"></span>
+                            {{/if}}
+                        </span><br />
+                        <span class="">
+                            {{#if stateDisplayName}}
+                            <i class="fa "></i>@L("Name") : {{stateDisplayName}}<small></small>
+                            <span class="text-muted pull-right">@L("FeedbackPeople") : {{feedbackPersonName}}</span>
+                            {{else}}
+                            <i class="fa "></i><small></small>
+                            <span class="text-muted pull-right"></span>
+                            {{/if}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    {{#if feedbacking}}
+                    <button class="btn btn-primary btn-xs col-sm-12 col-xs-12 finishFeedback" machineId="{{machineId}}">@L("EndFeedback")</button>
+                    {{else}}
+                    <button class="btn btn-primary btn-xs col-sm-12 col-xs-12 feedback" machineId="{{machineId}}">@L("Feedback")</button>
+                    {{/if}}
+                </div>
+
+                <div class="col-sm-6 col-xs-12">
+                    <button class="btn btn-info btn-xs col-sm-12 col-xs-12 pull-right" id="btnHistory" machineId="{{machineId}}">@L("HistoryRecords")</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<script id="alarm-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="col-md-3 col-xs-12" data-groupId="{{groupId}}" data-machineId="{{machineId}}" data-code="{{code}}" id="machine-{{code}}">
+            <div class="box box-widget widget-user-2">
+                <div class="widget-user-header bg-black-active" style="background-color: {{statusInfo.hexcode}} !important">
+                    <div class="widget-user-image">
+                        {{renderImage imagePath}}
+                    </div>
+                    {{#if statusInfo}}
+                    <button type="button" class="btn btn-warning btn-xs pull-right refresh"><i class="fa fa-refresh"></i></button>
+                    {{/if}}
+                    <div class="ellipsis" data-toggle="tooltip" data-placement="top">
+                        <h3 class="widget-user-username">{{name}}</h3>
+                    </div>
+
+                    <div class="widget-user-desc">
+                        {{#if statusInfo}}
+                        <span class="group-tags label bg-black" style="opacity:0.8">{{statusInfo.displayName}}</span>
+                        {{else}}
+                        <span class="group-tags label bg-black" style="opacity:0.8">[未连接]</span>
+                        {{/if}}
+                    </div>
+                </div>
+
+                <div class="box-footer box-comments">
+                    {{#if mongoAlarmInfo.alarmItems}}
+                    {{#each mongoAlarmInfo.alarmItems}}
+                    <div class="box-comment">
+                        {{#if isAlarming}}
+                        <div class="comment-text no-margin text-red">
+                            <span class="username text-red">
+                                <i class="fa fa-bell"></i> {{code}}<small>   [报警中]</small>
+                                <span class="text-muted pull-right text-red">{{creationTime}}</span>
+                            </span>
+                            <span class="ellipsis">{{message}}</span>
+                        </div>
+
+                        {{else}}
+                        <div class="comment-text no-margin">
+                            <span class="username">
+                                <i class="fa fa-bell"></i> {{code}}
+                                <span class="text-muted pull-right">{{creationTime}}</span>
+                            </span>
+                            <span class="ellipsis">{{message}}</span>
+                        </div>
+                        {{/if}}
+                    </div>
+                    {{/each}}
+                    <button class="btn btn-default btn-xs col-md-12 col-xs-12 loadMore">加载更多</button>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>*@

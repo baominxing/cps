@@ -1,0 +1,6 @@
+﻿@using Wimi.BtlCore.Web.Models.Common
+@model Wimi.BtlCore.Web.Models.Common.ICutterTypeViewModal
+ 
+<div class="cutter-type-tree">
+        @await Html.PartialAsync("~/Views/Common/_CutterTypeTreeItem.cshtml", new CutterTypeTreeItemModel(Model,null))
+</div>

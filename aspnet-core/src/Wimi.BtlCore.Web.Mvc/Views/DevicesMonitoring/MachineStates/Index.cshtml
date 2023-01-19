@@ -1,0 +1,308 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.DevicesMonitoring.MachineStates.MachineStatesViewModel
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor  _httpContextAccessor
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.DevicesMonitoring_States;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/DevicesMonitoring/MachineStates/Index.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/DevicesMonitoring/MachineStates/masonry.pkgd.min.js" asp-append-version="true"></script>
+    <script src="~/Scripts/layer/layer.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+    <script src="~/Scripts/icheck/icheck.min.js" asp-append-version="true"></script>
+    <script>
+        var stateCode = '@_httpContextAccessor.HttpContext.Request.Query["stateCode"]';
+    </script>
+}
+@section Styles
+{
+    <link rel="stylesheet" href="~/Scripts/layer/skin/default/layer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Scripts/icheck/skins/minimal/_all.css" asp-append-version="true" />
+}
+<style>
+    .ellipsis {
+        height: 30px !important;
+        width: 80% !important;
+    }
+
+    .showD {
+        color: #c4c4c4 !important;
+    }
+
+    .content {
+        position: relative;
+    }
+
+    .widget-device-image {
+        right: 3px !important;
+        width: 70px;
+        height: 70px;
+        background-size: 70px 70px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .widget-device-header {
+        height: auto !important;
+    }
+
+    .widget-device-desc {
+        width: 110% !important;
+    }
+
+    .widget-device .widget-device-image > img {
+        border: 0px;
+    }
+
+    #machines-cnt .form-inline .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+
+
+    .widget-device .box-footer .col-sm-3 {
+        height: auto;
+    }
+
+    .arrow {
+        font-size: 66px;
+        position: absolute;
+        z-index: 99999;
+        opacity: 0;
+        cursor: pointer;
+        color: #1d89cf;
+    }
+
+    .content:hover .arrow {
+        opacity: 1
+    }
+
+    #previous {
+        left: 0;
+    }
+
+    #next {
+        right: 0;
+    }
+
+    .widget-device .widget-device-name {
+        font-size: 16px;
+    }
+
+    .flexClass > div.row {
+        display: flex;
+        flex-flow: row wrap;
+        word-wrap: break-word;
+    }
+
+    .checkbox-inline {
+        padding-left: 0 !important;
+    }
+
+    #StateContainer {
+        margin-left: 10px;
+    }
+
+        #StateContainer span {
+            margin-left: 5px;
+        }
+</style>
+
+<section class="content-header">
+    <h1>
+        @L("DevicesMonitoring_States")
+        <small>
+            <div id="StateContainer" class="pull-right">
+            </div>
+        </small>
+    </h1>
+    <div class="header-tools">
+        <div class="pull-right">
+            <button class="btn btn-primary" id="OpenTreeLayer">@L("PleaseSelectEquipment")</button>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="content">
+    <i class="glyphicon glyphicon-menu-left arrow showD" id="previous"></i>
+    <i class="glyphicon glyphicon-menu-right arrow" id="next"></i>
+    <div class="row">
+        <div class="col-md-12 col-xs-12 xs-pr-0">
+            <div class="box box-solid">
+                <div class="box-header with-border hidden">
+                    <h3 class="box-title">
+                        <i class="fa fa-object-group"></i> @L("DeviceGroups")
+                    </h3>
+                </div>
+                <!--   <div class="box-body"> -->
+                <div class="layer_notice hidden xs-p-10">
+                    @await Html.PartialAsync("~/Views/Common/_GrantedDeviceGroupAndMachinesTree.cshtml", Model)
+                </div>
+
+                <!-- <div class="col-md-1">
+                    <h4 class="box-title"><i class="fa fa-eye"></i> 已显示:</h4>
+                </div>
+                <div id="SelectedGroupTags" class="btn-group col-md-11 xs-mt-5">
+
+                </div> -->
+                <!--       </div> -->
+            </div>
+        </div>
+        <div class="col-md-12 col-xs-12 no-padding">
+            <div class="machines-cnt-first machines-cnt">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script id="entry-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="col-xs-12 col-sm-4 index-{{machineId}}" id="machine-{{code}}" data-groupId="{{groupId}}">
+        @using (Html.BeginForm("Index", "MachineParameters", FormMethod.Post, new { @class = "form-inline" }))
+        {
+            <input type="hidden" name="machineCode" value="{{code}}" />
+            <input type="hidden" name="machineTreeId" value="{{machineId}}" />
+            <div class="box box-widget widget-device">
+                <div class="widget-device-far">
+                    <div class="widget-device-header bg-black-active" style="background-color: {{statusInfo.hexcode}} !important">
+                        <div class="ellipsis" data-toggle="tooltip" data-placement="top" title="{{name}}">
+                            <h3 class="widget-device-name">
+                                {{name}}
+                                <small>
+                                    {{#if statusInfo.displayName}} [{{statusInfo.displayName}}&nbsp;<span class="yield">{{ mongoMachineInfo.statusDuration}}@L("Minutes")</span>]{{else}}[@L("NotConnected")]{{/if}}
+
+                                </small>
+                            </h3>
+                        </div>
+                        <div class="row">
+                            <div class="widget-device-desc col-md-12">
+                                <div class="group-tags label bg-black group-ellipsis" style="opacity:0.9">
+                                    {{#if mongoMachineInfo}}
+                                    <i class="fa fa-user hidden">@L("ProgramCapacity"):<span class="yield">{{ mongoMachineInfo.programCount}}</span></i>
+
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-device-image">
+                    {{renderImage imagePath}}
+                </div>
+                <div class="box-footer box-footer1 flexClass">
+                    <div class="row row-{{code}}">
+                        {{#each mongoMachineInfo.paramsItemList}}
+                        <div {{addBorderRight @@index}}>
+                            <div class="description-block">
+                                <h6 class="description-text">{{name}}</h6>
+                                <h5 class="description-header description-header-{{machineId}}" value="{{value}}">{{value}}<small>{{unit}}</small></h5>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="box-footer2">
+                    {{#if mongoMachineInfo.isHadProgram}}
+                    <div class="box-footer clearfix  ">
+                        <h6><i class="fa fa-setting"></i>@L("CurrentProgram"): {{mongoMachineInfo.programName}}，@L("HasProduced") {{mongoMachineInfo.programCount}} @L("Piece")</h6>
+                    </div>
+                    {{/if}}
+                </div>
+
+                <div class="box-footer3">
+                    {{#if mongoMachineInfo.alarmItems}}
+                    <div class="box-footer clearfix  ">
+                        <div class="col-sm-12">
+                            <h6 style="color:#D9534F">
+                                <i class="fa fa-bell"></i>@L("AlarmNumber"):
+                                {{#each mongoMachineInfo.alarmItems}}
+                                <span class="label label-danger no-padding" data-toggle="tooltip" data-placement="bottom" title="@L("AlarmContent")：{{message}}">{{no}}</span>
+                                {{/each}}
+                            </h6>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+
+            </div>
+        }
+    </div>
+    {{/each}}
+</script>
+
+<script id="entry-template1" type="text/x-handlebars-template">
+
+    <!--     <div class="widget-device-far" > -->
+    <div class="widget-device-header bg-black-active" style="background-color: {{statusInfo.hexcode}} !important">
+        <div class="ellipsis" data-toggle="tooltip" data-placement="top" title="{{name}}">
+            <h3 class="widget-device-name">
+                {{name}}
+                <small>
+                    {{#if statusInfo.displayName}} [{{statusInfo.displayName}}&nbsp;<span class="yield">{{ mongoMachineInfo.statusDuration}}@L("Minutes")</span>]{{else}}[@L("NotConnected")]{{/if}}
+
+                </small>
+            </h3>
+        </div>
+        <div class="row">
+            <div class="widget-device-desc col-md-12">
+                <div class="group-tags label bg-black group-ellipsis" style="opacity:0.9">
+                    {{#if mongoMachineInfo}}
+                    <i class="fa fa-user hidden">@L("ProgramCapacity"):<span class="yield">{{ mongoMachineInfo.programCount}}</span></i>
+
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--     </div> -->
+
+</script>
+<script id="entry-template2" type="text/x-handlebars-template">
+
+    <!--                    <div class="box-footer"> -->
+    <div class="row row-{{code}}">
+        {{#each mongoMachineInfo.paramsItemList}}
+        <div {{addBorderRight @@index}}>
+            <div class="description-block">
+                <h6 class="description-text">{{name}}</h6>
+                <h5 class="description-header description-header-{{machineId}}" value="{{value}}">{{value}}<small>{{unit}}</small></h5>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+        <!--          </div> -->
+
+</script>
+
+<script id="entry-template3" type="text/x-handlebars-template">
+
+    {{#if mongoMachineInfo.isHadProgram}}
+    <div class="box-footer clearfix  ">
+        <h6><i class="fa fa-setting"></i>@L("CurrentProgram"): {{mongoMachineInfo.programName}}，@L("HasProduced") {{mongoMachineInfo.programCount}} @L("Piece")</h6>
+    </div>
+    {{/if}}
+
+</script>
+
+<script id="entry-template4" type="text/x-handlebars-template">
+
+    {{#if mongoMachineInfo.alarmItems}}
+    <div class="box-footer clearfix  ">
+        <div class="col-sm-12">
+            <h6 style="color:#D9534F">
+                <i class="fa fa-bell"></i>@L("AlarmNumber"):
+                {{#each mongoMachineInfo.alarmItems}}
+                <span class="label label-danger no-padding" data-toggle="tooltip" data-placement="bottom" title="@L("AlarmContent")：{{message}}">{{no}}</span>
+                {{/each}}
+            </h6>
+        </div>
+    </div>
+    {{/if}}
+
+</script>

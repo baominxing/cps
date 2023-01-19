@@ -1,0 +1,79 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>1.0.0.0</VersionPrefix>
+    <TargetFramework>net7.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AssemblyName>Wimi.BtlCore.Core</AssemblyName>
+    <PackageId>Wimi.BtlCore.Core</PackageId>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <UserSecretsId>Wimi-BtlCore-56C2EF2F-ABD6-4EFC-AAF2-2E81C34E8FB1</UserSecretsId>
+    <RootNamespace>Wimi.BtlCore</RootNamespace>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\SourceFiles\*.xml" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Emailing\EmailTemplates\default.html" />
+    <None Remove="Localization\AbpWeb\AbpWeb-ja.xml" />
+    <None Remove="Localization\AbpWeb\AbpWeb-ko.xml" />
+    <None Remove="Localization\AbpWeb\AbpWeb-nl.xml" />
+    <None Remove="Localization\AbpWeb\AbpWeb-zh-Hans.xml" />
+    <None Remove="Localization\AbpZero\AbpZero-zh-Hans.xml" />
+    <None Remove="SoapRequestXmlTemplates.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Emailing\EmailTemplates\default.html" />
+    <EmbeddedResource Include="Localization\AbpWeb\AbpWeb-ja.xml" />
+    <EmbeddedResource Include="Localization\AbpWeb\AbpWeb-ko.xml" />
+    <EmbeddedResource Include="Localization\AbpWeb\AbpWeb-nl.xml" />
+    <EmbeddedResource Include="Localization\AbpWeb\AbpWeb-zh-Hans.xml" />
+    <EmbeddedResource Include="Localization\AbpZero\AbpZero-zh-Hans.xml" />
+    <EmbeddedResource Include="SoapRequestXmlTemplates.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Abp.AutoMapper" Version="8.0.0" />
+    <PackageReference Include="Abp.HangFire" Version="8.0.0" />
+    <PackageReference Include="Abp.ZeroCore.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="AgileConfig.Client" Version="1.6.11" />
+    <PackageReference Include="Barcoder" Version="1.1.0" />
+    <PackageReference Include="Barcoder.Renderer.Image" Version="1.1.0" />
+    <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="3.4.0" />
+    <PackageReference Include="Confluent.Kafka" Version="1.9.3" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="FastReport.Compat" Version="2022.2.0" />
+    <PackageReference Include="FastReport.Web" Version="2020.3.4" />
+    <PackageReference Include="Flurl" Version="3.0.7" />
+    <PackageReference Include="Flurl.Http" Version="3.2.4" />
+    <PackageReference Include="Flurl.Http.Xml" Version="2.0.0" />
+    <PackageReference Include="Hangfire.Core" Version="1.8.0-beta4" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.8.0-beta4" />
+    <PackageReference Include="InfluxDB.Collector" Version="1.1.1" />
+    <PackageReference Include="InfluxDB.LineProtocol" Version="1.1.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="4.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.1" />
+    <PackageReference Include="MongoDB.Bson" Version="2.18.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
+    <PackageReference Include="Nancy" Version="2.0.0" />
+    <PackageReference Include="NCalc2" Version="2.1.0" />
+    <PackageReference Include="NodaTime" Version="3.1.6" />
+    <PackageReference Include="NUglify" Version="1.20.4" />
+    <PackageReference Include="StackTraceParser.Source" Version="1.3.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Archives\Repository\Dto\" />
+    <Folder Include="Feedback\Dto\" />
+    <Folder Include="Order\MachineReport\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SoapRequestXmlTemplates.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+</Project>

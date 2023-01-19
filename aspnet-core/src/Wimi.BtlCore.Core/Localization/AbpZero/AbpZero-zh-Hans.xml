@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="zh-Hans">
+	<texts>
+		<text name="Identity.InvalidUserName" value="用户名不符合要求, 只能包含字母和数字." />
+		<text name="Identity.DuplicateUserName"  value="用户名已被占用." />
+    <text name="Identity.PasswordRequireNonAlphanumeric" value="密码必须包含一位非字母特殊符号." />
+	</texts>
+</localizationDictionary>

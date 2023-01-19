@@ -1,0 +1,42 @@
+﻿@using Wimi.BtlCore.BasicData.DeviceGroups
+@using Wimi.BtlCore.Web.Models.Common.Modals
+@using Wimi.BtlCore.Web.Models.BasicData.Shifts
+@model CreateShiftSolutionModalViewModel
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(Model.State == EnumOperationState.Create ? L("NewShiftPlan") : L("Update") + L("ShiftSetting")))
+
+<div class="modal-body">
+
+    <form name="ShiftSolutionForm" role="form" novalidate class="form-validation">
+        <input type="hidden" Id="State" value="@Model.State.ToString()">
+        @if (Model.State == EnumOperationState.Create)
+        {
+            <input type="hidden" name="Id" />
+
+            <div class="form-group">
+
+                <label>@L("Name")</label>
+
+                <input class="form-control" type="text" name="Name" checkSpace="true" required maxlength="@DeviceGroup.MaxDisplayNameLength">
+
+            </div>
+        }
+        else
+        {
+            <input type="hidden" name="Id" value="@Model.Id" />
+
+            <div class="form-group">
+
+                <label>@L("Name")</label>
+
+                <input class="form-control" type="text" name="Name" value="@Model.Name" checkSpace="true" required maxlength="@DeviceGroup.MaxDisplayNameLength">
+
+            </div>
+        }
+
+    </form>
+
+</div>
+
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

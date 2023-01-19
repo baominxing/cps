@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StateConsumeTimeDataSet" targetNamespace="http://tempuri.org/StateConsumeTimeDataSet.xsd" xmlns:mstns="http://tempuri.org/StateConsumeTimeDataSet.xsd" xmlns="http://tempuri.org/StateConsumeTimeDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="StateConsumeTimeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="StateConsumeTimeDataSet" msprop:Generator_UserDSName="StateConsumeTimeDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MachineGroupName" msprop:Generator_ColumnVarNameInTable="columnMachineGroupName" msprop:Generator_ColumnPropNameInRow="MachineGroupName" msprop:Generator_ColumnPropNameInTable="MachineGroupNameColumn" msprop:Generator_UserColumnName="MachineGroupName" type="xs:string" minOccurs="0" />
+              <xs:element name="MachineName" msprop:Generator_ColumnVarNameInTable="columnMachineName" msprop:Generator_ColumnPropNameInRow="MachineName" msprop:Generator_ColumnPropNameInTable="MachineNameColumn" msprop:Generator_UserColumnName="MachineName" type="xs:string" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
+              <xs:element name="ShiftSolutionName" msprop:Generator_ColumnVarNameInTable="columnShiftSolutionName" msprop:Generator_ColumnPropNameInRow="ShiftSolutionName" msprop:Generator_ColumnPropNameInTable="ShiftSolutionNameColumn" msprop:Generator_UserColumnName="ShiftSolutionName" type="xs:string" minOccurs="0" />
+              <xs:element name="Shift" msprop:Generator_ColumnVarNameInTable="columnShift" msprop:Generator_ColumnPropNameInRow="Shift" msprop:Generator_ColumnPropNameInTable="ShiftColumn" msprop:Generator_UserColumnName="Shift" type="xs:string" minOccurs="0" />
+              <xs:element name="RunTime" msprop:Generator_ColumnVarNameInTable="columnRunTime" msprop:Generator_ColumnPropNameInRow="RunTime" msprop:Generator_ColumnPropNameInTable="RunTimeColumn" msprop:Generator_UserColumnName="RunTime" type="xs:string" minOccurs="0" />
+              <xs:element name="RunPercent" msprop:Generator_ColumnVarNameInTable="columnRunPercent" msprop:Generator_ColumnPropNameInRow="RunPercent" msprop:Generator_ColumnPropNameInTable="RunPercentColumn" msprop:Generator_UserColumnName="RunPercent" type="xs:string" minOccurs="0" />
+              <xs:element name="StopTime" msprop:Generator_ColumnVarNameInTable="columnStopTime" msprop:Generator_ColumnPropNameInRow="StopTime" msprop:Generator_ColumnPropNameInTable="StopTimeColumn" msprop:Generator_UserColumnName="StopTime" type="xs:string" minOccurs="0" />
+              <xs:element name="StopPercent" msprop:Generator_ColumnVarNameInTable="columnStopPercent" msprop:Generator_ColumnPropNameInRow="StopPercent" msprop:Generator_ColumnPropNameInTable="StopPercentColumn" msprop:Generator_UserColumnName="StopPercent" type="xs:string" minOccurs="0" />
+              <xs:element name="AvaliableTime" msprop:Generator_ColumnVarNameInTable="columnAvaliableTime" msprop:Generator_ColumnPropNameInRow="AvaliableTime" msprop:Generator_ColumnPropNameInTable="AvaliableTimeColumn" msprop:Generator_UserColumnName="AvaliableTime" type="xs:string" minOccurs="0" />
+              <xs:element name="AvaliablePercent" msprop:Generator_ColumnVarNameInTable="columnAvaliablePercent" msprop:Generator_ColumnPropNameInRow="AvaliablePercent" msprop:Generator_ColumnPropNameInTable="AvaliablePercentColumn" msprop:Generator_UserColumnName="AvaliablePercent" type="xs:string" minOccurs="0" />
+              <xs:element name="DebugTime" msprop:Generator_ColumnVarNameInTable="columnDebugTime" msprop:Generator_ColumnPropNameInRow="DebugTime" msprop:Generator_ColumnPropNameInTable="DebugTimeColumn" msprop:Generator_UserColumnName="DebugTime" type="xs:string" minOccurs="0" />
+              <xs:element name="DebugPercent" msprop:Generator_ColumnVarNameInTable="columnDebugPercent" msprop:Generator_ColumnPropNameInRow="DebugPercent" msprop:Generator_ColumnPropNameInTable="DebugPercentColumn" msprop:Generator_UserColumnName="DebugPercent" type="xs:string" minOccurs="0" />
+              <xs:element name="OfflineTime" msprop:Generator_ColumnVarNameInTable="columnOfflineTime" msprop:Generator_ColumnPropNameInRow="OfflineTime" msprop:Generator_ColumnPropNameInTable="OfflineTimeColumn" msprop:Generator_UserColumnName="OfflineTime" type="xs:string" minOccurs="0" />
+              <xs:element name="OfflinePercent" msprop:Generator_ColumnVarNameInTable="columnOfflinePercent" msprop:Generator_ColumnPropNameInRow="OfflinePercent" msprop:Generator_ColumnPropNameInTable="OfflinePercentColumn" msprop:Generator_UserColumnName="OfflinePercent" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

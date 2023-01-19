@@ -1,0 +1,16 @@
+﻿@using Wimi.BtlCore.Web.Models.Common.Modals
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("AlarmDetails")))
+
+
+<div class="modal-body">
+    <div class="table-responsive">
+        <span class="pull-left"><b class="machineName text-primary"></b></span>
+        <br/>
+        <span class="pull-left"><b class="alarmMessage text-primary"></b></span>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table id="AlarmsTable" class="table table-hover table-bordered" style="width: 100%"></table>
+    </div>
+</div>
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithCancel.cshtml")

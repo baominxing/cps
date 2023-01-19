@@ -1,0 +1,101 @@
+﻿@using Wimi.BtlCore.Web.Startup
+@model Wimi.BtlCore.Web.Models.StatisticAnalysis.HistoryParameter.HistoryParametersViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.StatisticAnalysis_HistoryParameters;
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/StatisticAnalysis/HistoryParameters/Index.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+    <script src="~/Scripts/echarts.min.js" asp-append-version="true"></script>
+}
+
+<style>
+    th, td {
+        white-space: nowrap;
+    }
+
+    div.dataTables_wrapper {
+        width: 100%;
+    }
+
+    #detailTable th {
+        text-align: center;
+    }
+</style>
+
+
+<!-- #region Content Header (Page header) -->
+
+<section class="content-header">
+
+    <h1>
+
+        @L("HistoryParameters")<small>@L("DevicesMonitoring_Parameters")</small>
+
+    </h1>
+
+    <div class="header-tools">
+        <button type="button" id="btnExport" class="btn btn-primary btn-sm pull-right xs-mh-10"><i class="fa fa-file-excel-o"></i> @L("Export")</button>
+        <button type="button" id="btnContrast" class="btn btn-primary btn-sm pull-right"><i class="fa fa-area-chart"></i> 参数比对图</button>
+    </div>
+
+</section>
+
+<!-- #endregion -->
+
+
+<section class="content">
+
+    <div class="row">
+        <div class="col-md-3 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-search"></i> @L("SearchSetting")
+                    </h3>
+                </div>
+
+
+                <div class="box-body no-padding">
+                    <form class="form">
+                        <div class="input-group xs-pv-10 xs-ph-5 col-xs-12">
+                            <span class="input-group-addon no-border"><b class="text-primary">@L("DateRange")</b></span>
+                            <input type="text" class="form-control" id="daterange-btn" />
+                        </div>
+
+                        <div class="input-group xs-ph-5 col-xs-12">
+                            <span class="input-group-addon no-border" style="text-align: left"><b class="text-primary">@L("MachineList")</b></span>
+                        </div>
+                        <div class="input-group xs-mb-15 xs-ph-5 col-xs-12 xs-pv-5">
+
+                            @await Html.PartialAsync("~/Views/Common/_GrantedMachineTree.cshtml", Model)
+                        </div>
+
+                        <div class="box-footer col-md-12">
+                            <button type="button" id="btnQuery" class="btn btn-primary btn-sm btn-block">@L("Research")</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-9 col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-th"></i> @L("QueryResults")
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <div>
+                        <table id="HistoryParametersTable" class="table table-bordered table-hover" style="width: 100%"></table>
+                        <input type="hidden" id="lastobjectId" />
+                    </div>
+                    <div id="prompt">@L("ChooseMachineAndQuery")</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

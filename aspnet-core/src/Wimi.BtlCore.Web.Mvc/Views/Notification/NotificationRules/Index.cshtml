@@ -1,0 +1,119 @@
+﻿@using Wimi.BtlCore.Authorization
+@using Wimi.BtlCore.Web.Startup
+@{
+    ViewBag.CurrentPageName = PageNames.App.Page.Notification_Rules;
+}
+@section Styles
+{
+   <style src="~/view-resources/Views/Notification/NotificationRules/Index.css" asp-append-version="true"></style>
+}
+@section Scripts
+{
+    <script src="~/view-resources/Views/Notification/NotificationRules/Index.js" asp-append-version="true"></script>
+    <script src="~/view-resources/Views/Common/_MachinesTree.js" asp-append-version="true"></script>
+}
+
+<section class="content-header">
+
+    <h1>
+        @L("MessageNotificationMaintenance")
+    </h1>
+
+</section>
+
+
+<section class="content">
+
+    <div class="row">
+
+        <div class="col-lg-4">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-sitemap"></i> @L("MessageType")
+
+                    </h3>
+
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_Notification_Rules_Manage))
+                        {
+                            <a id="btnCreateNotificationRulesType" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("NewMessageType")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+                <div class="box-body">
+
+                    <div id="notificationRulesTree"></div>
+
+                    <div id="notificationRulesTreeEmptyInfo" class="text-muted">
+
+                        @L("UndefinedType")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-lg-8">
+
+            <div class="box box-solid">
+
+                <div class="box-header with-border">
+
+                    <h3 class="box-title">
+
+                        <i class="fa fa-object-group"></i> @L("MessageNotificationRules")
+
+                        <span id="SelectedNotificationRulesDetailRightTitle"></span>
+                    </h3>
+
+                    <div class="pull-right box-tools">
+
+                        @if (IsGranted(PermissionNames.Pages_Notification_Rules_Manage))
+                        {
+                            <a id="btnCreateNotificationRulesDetail" class="btn btn-circle btn-primary">
+
+                                <i class="fa fa-plus"></i> @L("NewMessageRules")
+
+                            </a>
+                        }
+                    </div>
+
+                </div>
+
+
+                <div class="box-body">
+
+                    <table id="table" class="table table-bordered table-striped table-hover"></table>
+
+                    <div id="notificationRulesDetailEmptyInfo" class="text-muted">
+
+                        @L("ViewTheRules")
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,72 @@
+﻿@using Abp.Application.Editions
+@using Wimi.BtlCore.Web.Models.Common.Modals
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("新增工序"))
+
+@*<style>
+        .dataTables_scrollHeadInner {
+    width: 100% !important;
+    }
+        .dataTables_scrollHeadInner > table {
+    width: 100% !important;
+    }
+    </style>*@
+
+
+<div class="modal-body">
+    <div class="tabbable-line">
+        <ul class="nav nav-tabs ">
+            <li class="active">
+                <a href="#SelectProcesseTab" data-toggle="tab" aria-expanded="true">
+                    从现有工序中选择
+                </a>
+            </li>
+            <li class="">
+                <a href="#CreateProcesseTab" data-toggle="tab" aria-expanded="false">
+                    创建工序
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="SelectProcesseTab">
+                <form ng-if="vm.options.showFilter" style="padding: 10px;">
+
+                    <div class="input-group margin-bottom-10">
+
+                        <input class="form-control lookup-filter-text" placeholder="@L("SearchWithThreeDot")" type="text">
+
+                        <span class="input-group-btn">
+                            <button class="btn default lookup-filter-button" type="submit"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+                <table class="table table-hover table-bordered" id="find-process-modal-table" style="width: 100% "></table>
+            </div>
+            <div class="tab-pane" id="CreateProcesseTab">
+                <form name="CreateProcesseForm" role="form" novalidate class="form-validation" style="padding: 10px;">
+                    <input type="hidden" name="Id" value="" />
+                    <div class="form-group form-md-line-input form-md-floating-label">
+                        <label>工序名称</label>
+                        <input class="form-control"
+                               type="text" name="Name" checkSpace="true"
+                               required
+                               maxlength="50">
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label">
+                        <label>顺序</label>
+                        <input class="form-control"
+                               type="number" name="Sequence" checkSpace="true"
+                               required>
+                    </div>
+                    <div class="form-group form-md-line-input form-md-floating-label">
+                        <label>夹具</label>
+                        <select class="form-control" id="TongSelect" name="TongSelect" required></select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("~/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")
